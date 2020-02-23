@@ -124,10 +124,18 @@ Z důvodu ochrany firemního tajemství mohou být preferovány služby Jira a K
 \subsection{Současný produkt}
 Jedním z mnoha produktů společnosti SEACOMP s.r.o. je systém SSB (SEACOMP SYSTEM BUILDER), určený pro snadnou tvorbu komplexních informačních systémů. Jedná se o počítačový program napsaný za použití technologie .NET.
 
-V loňském roce se v rámci své diplomové práce Bc. Adam Teršl věnoval implementaci webového klienta pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především systém Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Stolní verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z těchto modulů je právě nástroj KANBAN board pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce~\cite{bib:seacomp-portfolio}. 
+V loňském roce se v rámci své diplomové práce Bc. Adam Teršl věnoval implementaci webového klienta pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především systém Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Stolní verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z těchto modulů je právě nástroj \emph{KANBAN board} pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce~\cite{bib:seacomp-portfolio}. 
 
 \subsection{Požadavky na aplikaci}
-\blindtext[3]
+Původní nástroj \emph{KANBAN board} však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z tohoto důvodu se v rámci interního projektového řízení začal ve společnosti SeaComp používat nástroj Kanboard, který byl upraven a obohacen o některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k dispozici nástroj, který umožňuje pokročilejší práci s nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z tohoto důvodu bylo vypsané toto téma bakalářské práce.
+
+Z důvodu ochrany obchodního tajemství však není možné zveřejnit zdrojové kódy programu SSB. Pro řešení této bakalářské práce je tudíž nejprve nutné vytvořit zjednodušenou verzi toho systému. Ta nese označení SSBLite a dle požadavku zadavatele je psána v jazyce C\#, konkrétně za použití ASP.Net Core. Tato část slouží jako server a komunikuje s klienty skrze aplikační rozhraní REST.
+
+Podoba aplikačního rozhraní z důvodu budoucí integrace do systému SSB4Web musí odpovídat podobě používané právě v této zmíněné webové aplikaci. Samotná integrace však na přání společnosti není předmětem této práce, aplikaci je proto i přes budoucí integraci nutno vytvořit jako samostatnou webovou aplikaci obsahující například i autentizaci uživatelů a další komponenty.
+
+Dále je požadováno, aby webová aplikace používala stejné technologie jako původní SSB4Web, tedy systém Angular s knihovnou pro správu stavu NgRx. Výjimkou je v tomto případě knihovna použitá pro uživatelské rozhraní, kdy původní diplomová práce využívala knihovnu PrimeNG\footnote{PrimeNG: \url{https://primefaces.org/primeng/}}. Po dokončení této práce však bylo společností požadováno knihovnu nahradit za balík komponent DevExtreme. Tento balík je tedy při implementaci práce rovněž využít.
+
+Od samotné funkcionality aplikace je očekáváno \blindtext
 
 \section{Technologie}
 V této podkapitole jsou ve stručnosti přiblíženy technologie a techniky využité při tvorbě této práce. 
