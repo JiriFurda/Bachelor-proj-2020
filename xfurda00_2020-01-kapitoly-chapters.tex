@@ -64,7 +64,7 @@ Tak akorát na čas (anglicky \emph{Just-in-time}) je filozofie řízení výrob
 \blindtext[2] %todo Popsat princip (přesouvání apod), možná ukázka sticky note?
 
 \section{Aplikace s podobným zaměřením}
-Jelikož je metodika Kanban již několik několik desítek let stará, existuje v dnešní době celá řada programů a webových aplikací, které je možné pro aplikování této metodiky využít. V této podkapitole je několik takových aplikací lehce přiblíženo a jsou vyzdviženy některé jejich klíčové vlastnosti. Pro bližší představu o podobě těchto aplikací je každá z nich doprovázena snímkem obrazovky.
+Jelikož je metodika Kanban existuje již několik několik desítek let, lze v dnešní době nalézt celou řada programů a webových aplikací, které je možné pro aplikování této metodiky využít. V této podkapitole je několik takových aplikací stručně přiblíženo a jsou vyzdviženy některé jejich klíčové vlastnosti. Pro bližší představu o podobě těchto aplikací je každá z nich doprovázena snímkem obrazovky. Jedná se o dva populární zástupce z řad produktů společnosti Atlassian -- aplikace Trello a Jira. Třetí představenou aplikací je o něco méně známá aplikace Kanboard, která je však v současné době využívaná společností SeaComp.
 
 \subsection{Trello}
 Trello\footnote{Trello: \url{https://trello.com}} je především webová aplikace provozovaná v současné době společností Atlassian\footnote{Atlassian: \url{https://www.atlassian.com}}. Historie této aplikace sahá až do roku 2011, kdy byla veřejně spuštěna jako webová aplikace a také jako aplikace pro platformu iOS. K dnešnímu dni je aplikaci Trello možné navíc využít i na mobilní platformě Android nebo jako program pro operační systémy Microsoft Windows či macOS. 
@@ -82,19 +82,19 @@ Nástěnka je umístěna na vzdáleném úložišti a službu nelze provozovat n
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
-	\caption{Ukázka nástěnky ve webové aplikaci Trello.}
+	\includegraphics[width=\textwidth]{obrazky-figures/trello.png}
+	\caption{Vzorová Kanban nástěnka ve webové aplikaci Trello zaměřená na vývoj internetového obchodu.}
 \end{figure}
 
 \subsection{Jira}
-Jira\footnote{Jira: \url{https://www.atlassian.com/cs/software/jira}} řada produktů společnosti Atlassian, určená ke správě práce v nejrůznějších typech týmů. Nástěnka Kanban je součást například produktu Jira Software, který je určen pro vývojáře softwaru. 
+Jira\footnote{Jira: \url{https://www.atlassian.com/cs/software/jira}} je řada produktů společnosti Atlassian, určená ke správě práce v nejrůznějších typech týmů. Nástěnka Kanban je součást například produktu Jira Software, který je určen pro vývojáře softwaru. 
 % https://www.atlassian.com/software/jira/guides/getting-started/overview#jira-software-hosting-options
 
 % Co má navíc oproti Trellu, pluginy
 
 % @todo platformy
 
-Tato aplikace je využívána více něž 65 tisíci zákazníky po celém světě mezí které se řadí například internetovou aukční síň eBay\footnote{eBay: \url{https://www.ebayinc.com/company/}}, služba pro streamování hudby Spotify\footnote{Spotify: \url{https://newsroom.spotify.com/company-info/}}, společnost vyrabějící síťové prvky Cisco\footnote{Cisco\url{https://www.cisco.com/c/en_uk/index.html}} nebo aplikace pro pronájem ubytování Airbnb\footnote{Airbnb\url{https://news.airbnb.com/about-us/}}.
+Tato aplikace je využívána více něž 65 tisíci zákazníky po celém světě mezí které se řadí například internetovou aukční síň eBay\footnote{eBay: \url{https://www.ebayinc.com/company/}}, služba pro streamování hudby Spotify\footnote{Spotify: \url{https://newsroom.spotify.com/company-info/}}, společnost vyrabějící síťové prvky Cisco\footnote{Cisco: \url{https://www.cisco.com/c/en_uk/index.html}} nebo aplikace pro pronájem ubytování Airbnb\footnote{Airbnb: \url{https://news.airbnb.com/about-us/}}.
 % https://www.atlassian.com/software/jira
 
 Nástěnka může být na rozdíl od aplikace Trello umístěna jak na vzdáleném úložišti, tak na vlastním serveru.
@@ -102,19 +102,28 @@ Nástěnka může být na rozdíl od aplikace Trello umístěna jak na vzdálen�
 \blindtext
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\includegraphics[width=\textwidth]{obrazky-figures/jira.png}
+	\caption{Vzorová Kanban nástěnka ve webové aplikaci Jira Software zaměřená na vývoj internetového obchodu.}
 \end{figure}
 
 \subsection{Kanboard}
 \blindtext
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\includegraphics[width=\textwidth]{obrazky-figures/kanboard.png}
+	\caption{Vzorová Kanban nástěnka ve webové aplikaci Kanboard zaměřená na vývoj internetového obchodu.}
 \end{figure}
 
 \subsection{Souhrn rozdílů}
-Z důvodu ochrany firemního tajemství mohou být preferovány služby Jira a Kanboard, jelikož je možné je provozovat přímo na svém vlastním serveru.
+Z důvodu ochrany firemního tajemství mohou být preferovány služby Jira a Kanboard, jelikož je možné je provozovat přímo na svém vlastním serveru. Konkrétně u aplikace Kaboard může tato vlastnost však představovat pro řadu uživatelů nevýhodu. Aplikaci totiž není možné jednoduše provozovat na vzdáleném úložišti. Uživatel musí mít k dispozici server, kde bude aplikace provozována a to se může stát barierou pro méně pokročilé uživatele počítače.
+
+Kanboard však jako jediná z tří uvedených aplikací má otevřený zdrojový kód. Umožňuje tak větší úpravy aplikace než v případě dalších dvou, kde lze úpravy řešit pouze pomocí doplňků.
+
+
 \blindtext
+
+
+Slabší stránka aplikace Kanboard je na první pohled uživatelského rozhraní. Nejedná se však pouze o vzhled aplikace. Rozhraní obsahuje i mnoho prvků, které nejsou řešeny pomocí asynchronních požadavků, a to může být uživateli vnímáno jako nepohodlné či zastaralé.
 
 % @todo https://www.atlassian.com/customers nekam vecpat 83% of Fortune 500 companies use Atlassian products
 
