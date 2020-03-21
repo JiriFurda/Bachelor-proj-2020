@@ -13,26 +13,25 @@ V úvodu této kapitoly jsou stručně shrnuty populární metodiky řízení pr
 \section{Metodiky řízení projektů}
 Obecně lze metodiky používané pro řízení softwarových projektů rozdělit do dvou hlavních kategorií. Jedná se o tradiční metodiky a metodiky agilní.
 
-Jak název napovídá, tradiční metodiky mají delší historii. Lidstvo potřebovalo využívat řízení projektů již odpradávna, exemplárním příkladem jsou obrovské stavební projekty jako pyramidy v Gíze nebo Velká čínská zeď. Tyto projekty jistě vyžadovaly důkladné řízení jak pracovních sil, tak i přísunu materiálu. Výsledek musel bezpochyby také splňovat určité požadavky. Ohledně metodik takovýchto plánování ovšem neexistuje příliš mnoho dokumentace. K určité standardizaci řízení projektů totiž začalo docházet až v padesátých letech minulého století. Značný podíl zde má i Námořnictvo Spojených států amerických a to konkrétně Projekt Manhattan\footnote{Krycí název pro projekt vývoje atomové bomby během druhé světové války}~\cite{bib:project-managment-history}.
+Jak název napovídá, tradiční metodiky mají delší historii. Lidstvo potřebovalo využívat řízení projektů již odpradávna, exemplárním příkladem jsou obrovské stavební projekty jako pyramidy v Gíze nebo Velká čínská zeď. Tyto projekty jistě vyžadovaly důkladné řízení jak pracovních sil, tak i přísunu materiálu a dalších. Výsledek musel bezpochyby také splňovat určité požadavky. Ohledně metodik takovýchto plánování ovšem neexistuje příliš mnoho dokumentace. K určité standardizaci řízení projektů totiž začalo docházet až v padesátých letech minulého století. Značný podíl zde má i Námořnictvo Spojených států amerických a to konkrétně Projekt Manhattan\footnote{Krycí název pro projekt vývoje atomové bomby během druhé světové války}~\cite{bib:project-managment-history}.
 
 Rozdílem mezi dvěma zmíněnými kategoriemi řízení projektů je především strukturace procesů. U tradičních metod probíhají tyto procesy sekvenčně, tento přístup zpravidla vyžaduje důkladnější počáteční plánování a pozdější změny požadavků mnohdy představují náročný problém. Oproti tomu při použití agilních metod jsou jednotlivé procesy úzce spjaty a pracuje se v iteracích. Díky tomu je do vývoje více zapojen zákazník a takovýto projekt se snadněji vypořádá s případnými změnami požadavků~\cite{bib:agile-vs-traditional}. 
 
-Populárním zástupcem tradičních metodik je například vodopádový model (znázorněný diagramem~\ref{img:waterfall}), na kterém je na první pohled patrné dříve zmiňované sekvenční řazení jednotlivých procesů vývoje.
+Populárním zástupcem tradičních metodik je například vodopádový model (znázorněný diagramem~\ref{img:waterfall}), na kterém je na první pohled patrné právě sekvenční řazení jednotlivých procesů vývoje. Tento model se objevil koncem šedesátých let minulého století, kdy byly programovací jazyky neefektivní, procesory pomalé a paměť počítačů byla výrazně omezená~\cite{bib:agile-history}. 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{obrazky-figures/waterfall.pdf}
-	\caption{Grafické znázornění posloupnosti procesů tradiční metodiky řízení projektů označované jako vodopádový model.}
+	\caption{Grafické znázornění posloupnosti jednotlivých procesů tradiční metodiky řízení projektů označované jako vodopádový model.}
 	\label{img:waterfall}
 \end{figure}
 
-Existují případy, kdy není vhodné pro řízení projektů využít tradiční metody.
-\blindtext
-Při vývoji softwaru není výjimkou, že se požadavky na produkt během jeho tvorby mění. 
-% @todo negativa jako motivace a uvod pro agilni metody
+U tradičních metodik je předpokladem, že se k dokončeným fázím projektu již nebude nutné vracet. Takový předpoklad lze aplikovat na mnoho odvětví. Příkladem budiž stavba budovy, u které je nutné nejprve řádně celý projekt naplánovat a zdokumentovat. Jakmile samotná stavba započne, větší změny oproti původnímu projektu vznikají velmi zřídka. V oblasti informačních technologií, obzvláště při vývoji softwaru, však odchýlení od původního plánu nebývá žádnou výjimkou. Řízení projektů tohoto typu pomocí striktních tradičních metodik je tedy často obtížné a značně neefektivní~\cite{bib:agile-vs-traditional-what}.
 
-\subsection{Agilní řízení projektů}
-Agilní metodiky řízení projektů jsou \blindtext
+V dnešní době se stává častěji než tomu bylo v minulosti, že se softwarové projekty během vývoje mění, narůstají jejich požadavky, přibývají funkce a to vše i během jejich vývoje. Tento trend se týká především webových systémů. Jako reakce na tyto náhlé změny byly v devadesátých letech stvořeny právě agilní metodiky~\cite{bib:agile-history}. 
+
+\subsection{Agilní metodiky řízení projektů}
+Agilní metodiky jsou skupina metod řízení projektů určena především pro vývoj softwaru. 
 
 Veřejný zájem o tyto metodiky začal až v pozdních devadesátých letech~\cite{bib:agile-mobile}. V roce 2001 se v Utahu sešlo sedmnáct zastánců agilních metodik a sestavilo Manifest Agilního vývoje software, který vystihuje čtyři hlavní zásady těchto metod~\cite{bib:agile-manifest}.
 \begin{itemize}
@@ -42,11 +41,20 @@ Veřejný zájem o tyto metodiky začal až v pozdních devadesátých letech~\c
   \item Reagování na změny před dodržováním plánu
 \end{itemize}
 
+Tyto metodiky jsou více zaměřené na lidi a na jejich vzájemnou komunikaci. To je jedním z důvodů, proč jsou agilní metodiky vhodné především pro menší týmy. Díky absenci sekvenčního řazení procesů vývoje tyto metody také zvyšují efektivitu nepředvídatelných a stále se měnících projektů. Vypuštěním striktního plánování je také možné projekt dokončit rychleji než použitím tradičních metodik.
+
+Vývoj řízený agilními metodikami (znázorněný diagramem~\ref{img:agile}) probíhá iterativně a inkrementálně. Na začátku vývoje se určí základní požadavky a postupnými cykly se tyto požadavky zdokonalují. Jedna iterace takového vývoje trvá zpravidla jeden týden až měsíc. Během této iterace proběhne celý cyklus vývojových procesů (podobně jako u vodopádového modelu znázorněného diagramem~\ref{img:waterfall}). Dokončením iterace vzniká prototyp, který může být prezentován zákazníkovi. Díky tomu získává přesnější představu o podobě produktu a lze včas odhalit nedostatky požadavků, které dříve nebyly známy~\cite{bib:agile-impact}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{obrazky-figures/agile.pdf}
+	\caption{Grafické znázornění posloupnosti jednotlivých procesů agilních metodik řízení projektů.}
+	\label{img:agile}
+\end{figure}
+
 Mezi populární agilní metodiky patří například Scrum, Lean Developmet, Extrémní programování (angl. \emph{Extreme Programming} nebo také XP), Crystal, Vlastnostmi řízený vývoj (angl. \emph{Feature Driven Development} neboli FDD) a v neposlední řadě také Kanban.
 
 \blindtext % vyzaduje spolupraci
-
-\blindtext % is most suitable for projects which involve uncertainty and constant change
 
 Jedna ze studií na toto téma uvádí, že ze 1386 sledovaných projektů 65\% z nich využilo během vývoje agilní metody a 6\% projektů bylo dokončeno téměř pouze s použití agilních metod~\cite{bib:agile-work}. % @todo dopsat cisla uspechu
 
