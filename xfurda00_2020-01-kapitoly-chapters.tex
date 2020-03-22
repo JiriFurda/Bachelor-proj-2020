@@ -48,7 +48,7 @@ Vývoj řízený agilními metodikami (znázorněný diagramem~\ref{img:agile}) 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{obrazky-figures/agile.pdf}
-	\caption{Grafické znázornění posloupnosti jednotlivých procesů agilních metodik řízení projektů.}
+	\caption{Grafické znázornění posloupnosti jednotlivých procesů agilních metodik řízení projektů. Cyklus začíná procesem analýza a pokračuje až po proces zavádění, kdy je projekt buďto hotov a následuje jeho vydaní nebo proběhne další iterace a celý cyklus se znovu opakuje.}
 	\label{img:agile}
 \end{figure}
 
@@ -61,18 +61,45 @@ Jedna ze studií na toto téma uvádí, že ze 1386 sledovaných projektů 65\% 
 \subsection{Metodika Kanban}
 Kanban je slovo převzaté z japonského jazyka, kde znamená \uv{cedule}. Toto slovo je taktéž spjato s poslední výzvou k objednávce před uzavřením podniku (sundáním cedule). Takovou objednávku lze označit jako \uv{na poslední chvíli} nebo také jako objednávku \uv{tak akorát na čas}~\cite{bib:dict-kanban}. 
 
-Tak akorát na čas (anglicky \emph{Just-in-time}) je filozofie řízení výroby, vyvinuta v sedmdesátých létech japonskou automobilovou společností Toyota Motor Corporation\footnote{Toyota Motor Corporation: \url{https://global.toyota/en/}}. Hlavní myšlenkou toho přístupu je mít přesné množství materiálu, na správném místě a ve správný čas. Díky tomu dochází k redukci množství materiálu, který aktuálně není zpracováván a nemělo by docházet k jeho přebytečnému hromadění~\cite{bib:just-in-time}.
+Tak akorát na čas (anglicky \emph{Just-in-time}) je filozofie řízení výroby, vyvinuta v sedmdesátých létech japonskou automobilovou společností Toyota Motor Corporation\footnote{Toyota Motor Corporation: \url{https://global.toyota/en/}}. Hlavní myšlenkou toho přístupu je mít přesné množství materiálu, na správném místě a ve správný čas. Díky tomu dochází k redukci množství materiálu, který aktuálně není zpracováván a nemělo by docházet k jeho přebytečnému hromadění~\cite{bib:just-in-time}. Jedním z nástrojů této filozofie je právě metodika Kanban, její tehdejší provedení je možné vidět na fotografii~\ref{img:kanban-toyota}.
+
+% @todo klidne trochu vic historie a jak se to rozsirilo dnes
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{obrazky-figures/toyota-kanban.jpg}
 	\caption{Původní provedení kanbanu v továrně společnosti Toyota Motor Corporation \emph{Převzato z~\cite{bib:toyota-history}}.}
+	\label{img:kanban-toyota}
+\end{figure}
+
+Metodika Kanban je nástroj pro vizuální kontrolu práce a jejího toku jednotlivými fázemi procesu. Kanban může být realizován jak fyzicky (například tabule s nalepovacími papírky viz fotografie~\ref{img:kanban-whiteboard}), tak i digitálně (například pomocí aplikací uvedených v kapitole~\ref{sec:apps}). 
+
+Ať je nástěnka Kanban digitální či nikoliv, vždy se skládá ze stejných částí, jen v jiném provedení. Nejčastěji se lze setkat s provedením, kdy na se na horizontální ose nachází pojmenované sloupce představující jednotlivé fáze procesu. Do těchto sloupců jsou umístěny nejrůznější karty, reprezentující jednotlivé úkoly. Rozmístění karet mezi sloupci se odvíjí od aktuálního stavu úkolu.
+
+Nejjednodušší variantou takových sloupců může být například trojce sloupců nazvaných \uv{zásobník}, \uv{v procesu} a \uv{hotovo}. První ze sloupců nazvaný \uv{zásobník} je místo, kde se hromadí úkoly, na kterých se ještě nezačalo pracovat. Jakmile práce na daném úkolu započne, jeho karta je přesunuta do dalšího sloupce s označením \uv{v procesu}. Obdobně je tomu při dokončení úkolu, kdy je jeho karta opět přemístěna do jiného sloupce, tentokrát do sloupce \uv{hotovo}.
+
+V praxi je takřka nemožné setkat se s takto jednoduchým provedením. Proces výroby či vývoje je třeba rozdělit na jednotlivé části. Při vývoji softwaru bývají často využívány sloupce \uv{návrh}, \uv{vývoj}, \uv{testování} a další.  
+
+V dnešní době převažuje digitální provedení jelikož přináší větší přehlednost, jednoduší manipulaci a hlavně možnost připojovat k jednotlivým kartám podrobnější popis, komentáře, obrázky a další dokumenty. Nicméně fyzická varianta má výhodu v tom, že je stále na očích a nelze ji ignorovat. Může taktéž podněcovat k vetší komunikaci mezi týmy a to jsou důvody proč tuto variantu využívají například ve společnosti Optimizely\footnote{Optimizely: \url{https://www.optimizely.com/about/}}~\cite{kanboard-atlassian}.
+
+
+%todo transparetnost a další výhody https://www.planview.com/resources/articles/kanban-101/
+
+Díky přehlednému vyobrazení získávají jednotliví členové týmu lepší přehled o prací svých kolegů. Kanban svou podstatou dokáže poukázat na problematické procesy, které zpomalují celkový chod výroby či vývoje~\cite{bib:kanban-and-scrum}.
+
+% @todo popsat WIP limit
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\caption{Původní provedení kanbanu v továrně společnosti Toyota Motor Corporation \emph{Převzato z~\cite{bib:toyota-history}}.}
+	\label{img:kanban-whiteboard}
 \end{figure}
 
 \blindtext[2] %todo Popsat princip (přesouvání apod), možná ukázka sticky note?
 
-\section{Aplikace s podobným zaměřením}
-Jelikož je metodika Kanban existuje již několik několik desítek let, lze v dnešní době nalézt celou řada programů a webových aplikací, které je možné pro aplikování této metodiky využít. V této podkapitole je několik takových aplikací stručně přiblíženo a jsou vyzdviženy některé jejich klíčové vlastnosti. Pro bližší představu o podobě těchto aplikací je každá z nich doprovázena snímkem obrazovky. Jedná se o dva populární zástupce z řad produktů společnosti Atlassian -- aplikace Trello a Jira. Třetí představenou aplikací je o něco méně známá aplikace Kanboard, která je však v současné době využívaná společností SeaComp.
+\section{Aplikace s podobným zaměřením}\label{sec:apps}
+Jelikož je metodika Kanban existuje již několik několik desítek let, lze v dnešní době nalézt celou řada programů a webových aplikací, které je možné pro aplikování této metodiky využít. V této podkapitole je několik takových aplikací stručně přiblíženo a jsou vyzdviženy některé jejich klíčové vlastnosti. Pro bližší představu o podobě těchto aplikací je každá z nich doprovázena snímkem obrazovky. Jedná se o dva populární zástupce z řad produktů společnosti Atlassian -- aplikace Trello a Jira. Třetí představenou aplikací je o něco méně známá aplikace Kanboard, která je však v současné době využívaná společností SEACOMP s.r.o.
 
 \subsection{Trello}
 Trello\footnote{Trello: \url{https://trello.com}} je především webová aplikace provozovaná v současné době společností Atlassian\footnote{Atlassian: \url{https://www.atlassian.com}}. Historie této aplikace sahá až do roku 2011, kdy byla veřejně spuštěna jako webová aplikace a také jako aplikace pro platformu iOS. K dnešnímu dni je aplikaci Trello možné navíc využít i na mobilní platformě Android nebo jako program pro operační systémy Microsoft Windows či macOS. 
@@ -149,7 +176,7 @@ Jedním z mnoha produktů společnosti SEACOMP s.r.o. je systém SSB (SEACOMP SY
 V loňském roce se v rámci své diplomové práce Bc. Adam Teršl věnoval implementaci webového klienta pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především systém Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Stolní verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z těchto modulů je právě nástroj \emph{KANBAN board} pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce~\cite{bib:seacomp-portfolio}. 
 
 \subsection{Požadavky na aplikaci}
-Původní nástroj \emph{KANBAN board} však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z tohoto důvodu se v rámci interního projektového řízení začal ve společnosti SeaComp používat nástroj Kanboard, který byl upraven a obohacen o některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k dispozici nástroj, který umožňuje pokročilejší práci s nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z tohoto důvodu bylo vypsané toto téma bakalářské práce.
+Původní nástroj \emph{KANBAN board} však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z tohoto důvodu se v rámci interního projektového řízení začal ve společnosti SEACOMP s.r.o. používat nástroj Kanboard, který byl upraven a obohacen o některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k dispozici nástroj, který umožňuje pokročilejší práci s nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z tohoto důvodu bylo vypsané toto téma bakalářské práce.
 
 Z důvodu ochrany obchodního tajemství však není možné zveřejnit zdrojové kódy programu SSB. Pro řešení této bakalářské práce je tudíž nejprve nutné vytvořit zjednodušenou verzi toho systému. Ta nese označení SSBLite a dle požadavku zadavatele je psána v jazyce C\#, konkrétně za použití ASP.Net Core. Tato část slouží jako server a komunikuje s klienty skrze aplikační rozhraní REST.
 
