@@ -1,21 +1,21 @@
 \chapter{Úvod}
 \blindtext
 
-Cílem této bakalářské práce je vytvořit webovou aplikaci typu kanban určenou pro řízení projektů na základě požadavků společnosti SEACOMP s.r.o. Za tímto účelem je společností v současné době využíván nástroj třetí strany, který ovšem není plně přizpůsoben potřebám této společnosti, ku příkladu není integrován do dalších interních aplikací.
+Cílem této bakalářské práce je vytvořit webovou aplikaci typu Kanban určenou pro řízení projektů na základě požadavků společnosti SEACOMP s.r.o. Za tímto účelem je společností v současné době využíván nástroj třetí strany, který ovšem není plně přizpůsoben potřebám této společnosti, ku příkladu není integrován do dalších interních aplikací.
 
 Téma práce mne zaujalo zejména díky stále rostoucí popularitě interaktivních webových aplikací, motivující pro mne bylo mít možnost takovou aplikaci implementovat naprosto sám. Také mne lákala možnost firemního zadání bakalářské práce, díky kterému bude mít výsledná reálné využití a bude využívána v praxi. 
 
 \blindtext
 
 \chapter{Rozbor řešené problematiky}
-V úvodu této kapitoly jsou stručně shrnuty populární metodiky řízení projektů s větším zaměřením na metodiky agilní a to především na metodiku Kanban. V další části kapitoly je představeno několik již existujících aplikací umožňujících využívat právě tuto zmíněnou metodiku. Dále je text věnován zmapování infrastruktury zadavatele této práce a jeho požadavkům na výslednou aplikaci. Závěr kapitoly obsahuje popis technologií, které byly využity pro tvorbu této bakalářské práce.
+V úvodu této kapitoly jsou stručně shrnuty populární metodiky řízení projektů s větším zaměřením na metodiky agilní a to především na metodiku Kanban. V další části kapitoly je představeno několik již existujících aplikací umožňujících využívat právě tuto zmíněnou metodiku. Dále je text věnován zmapování infrastruktury zadavatele bakalářské práce a jeho požadavkům na výslednou aplikaci. Závěr kapitoly obsahuje popis technologií, které byly využity pro tvorbu požadované aplikace.
 
 \section{Metodiky řízení projektů}
 Obecně lze metodiky používané pro řízení softwarových projektů rozdělit do dvou hlavních kategorií. Jedná se o tradiční metodiky a metodiky agilní.
 
-Jak název napovídá, tradiční metodiky mají delší historii. Lidstvo potřebovalo využívat řízení projektů již odpradávna, exemplárním příkladem jsou obrovské stavební projekty jako pyramidy v Gíze nebo Velká čínská zeď. Tyto projekty jistě vyžadovaly důkladné řízení jak pracovních sil, tak i přísunu materiálu a dalších. Výsledek musel bezpochyby také splňovat určité požadavky. Ohledně metodik takovýchto plánování ovšem neexistuje příliš mnoho dokumentace. K určité standardizaci řízení projektů totiž začalo docházet až v padesátých letech minulého století. Značný podíl zde má i Námořnictvo Spojených států amerických a to konkrétně Projekt Manhattan\footnote{Krycí název pro projekt vývoje atomové bomby během druhé světové války}~\cite{bib:project-managment-history}.
+Jak název napovídá, tradiční metodiky mají delší historii. Lidstvo potřebovalo využívat řízení projektů již odpradávna, exemplárním příkladem jsou obrovské stavební projekty jako pyramidy v Gíze nebo Velká čínská zeď. Tyto projekty jistě vyžadovaly důkladné řízení jak pracovních sil, tak i přísunu materiálu a dalších zdrojů. Výsledek musel bezpochyby splňovat určité požadavky. Ohledně metodik takovýchto plánování ovšem neexistuje příliš mnoho dokumentace. K určité standardizaci řízení projektů totiž začalo docházet až v padesátých letech minulého století. Svou zásluhu zde má i Námořnictvo Spojených států amerických a to konkrétně Projekt Manhattan\footnote{Krycí název pro projekt vývoje atomové bomby během druhé světové války}~\cite{bib:project-managment-history}.
 
-Rozdílem mezi dvěma zmíněnými kategoriemi řízení projektů je především strukturace procesů. U tradičních metod probíhají tyto procesy sekvenčně, tento přístup zpravidla vyžaduje důkladnější počáteční plánování a pozdější změny požadavků mnohdy představují náročný problém. Oproti tomu při použití agilních metod jsou jednotlivé procesy úzce spjaty a pracuje se v iteracích. Díky tomu je do vývoje více zapojen zákazník a takovýto projekt se snadněji vypořádá s případnými změnami požadavků~\cite{bib:agile-vs-traditional}. 
+Rozdílem mezi dvěma zmíněnými kategoriemi řízení projektů je především strukturace procesů. U tradičních metod probíhají tyto procesy sekvenčně. Tento přístup zpravidla vyžaduje důkladnější počáteční plánování a pozdější změny požadavků mnohdy představují náročný problém. Oproti tomu při použití agilních metod jsou jednotlivé procesy úzce spjaty a pracuje se v iteracích. Díky tomu je do vývoje více zapojen zákazník a takovýto projekt se snadněji vypořádá s případnými změnami požadavků~\cite{bib:agile-vs-traditional}. 
 
 Populárním zástupcem tradičních metodik je například vodopádový model (znázorněný diagramem~\ref{img:waterfall}), na kterém je na první pohled patrné právě sekvenční řazení jednotlivých procesů vývoje. Tento model se objevil koncem šedesátých let minulého století, kdy byly programovací jazyky neefektivní, procesory pomalé a paměť počítačů byla výrazně omezená~\cite{bib:agile-history}. 
 
@@ -31,9 +31,9 @@ U tradičních metodik je předpokladem, že se k dokončeným fázím projektu 
 V dnešní době se stává častěji než tomu bylo v minulosti, že se softwarové projekty během vývoje mění, narůstají jejich požadavky, přibývají funkce a to vše i během jejich vývoje. Tento trend se týká především webových systémů. Jako reakce na tyto náhlé změny byly v devadesátých letech stvořeny právě agilní metodiky~\cite{bib:agile-history}. 
 
 \subsection{Agilní metodiky řízení projektů}
-Agilní metodiky jsou skupina metod řízení projektů určena především pro vývoj softwaru. 
+Agilní metodiky jsou skupina metod řízení projektů určena především pro vývoj softwaru. Jak název napovídá, jedná se o metodiky, které se vyznačují dynamičností a flexibilitou.
 
-Veřejný zájem o tyto metodiky začal až v pozdních devadesátých letech~\cite{bib:agile-mobile}. V roce 2001 se v Utahu sešlo sedmnáct zastánců agilních metodik a sestavilo Manifest Agilního vývoje software, který vystihuje čtyři hlavní zásady těchto metod~\cite{bib:agile-manifest}.
+Veřejný zájem o tyto metodiky začal až v pozdních devadesátých letech~\cite{bib:agile-mobile}. V roce 2001 se v Utahu sešlo sedmnáct zastánců agilních metodik a sestavilo Manifest Agilního vývoje software\footnote{ Manifest Agilního vývoje: \url{https://agilemanifesto.org/iso/cs/manifesto.html}}, který vystihuje čtyři hlavní zásady těchto metod~\cite{bib:agile-manifest}.
 \begin{itemize}
   \item Jednotlivci a interakce před procesy a nástroji
   \item Fungující software před vyčerpávající dokumentací
@@ -41,9 +41,10 @@ Veřejný zájem o tyto metodiky začal až v pozdních devadesátých letech~\c
   \item Reagování na změny před dodržováním plánu
 \end{itemize}
 
-Tyto metodiky jsou více zaměřené na lidi a na jejich vzájemnou komunikaci. To je jedním z důvodů, proč jsou agilní metodiky vhodné především pro menší týmy. Díky absenci sekvenčního řazení procesů vývoje tyto metody také zvyšují efektivitu nepředvídatelných a stále se měnících projektů. Vypuštěním striktního plánování je také možné projekt dokončit rychleji než použitím tradičních metodik.
+Tyto metodiky jsou více zaměřené na lidi a na jejich vzájemnou komunikaci. To je jedním z důvodů, proč jsou agilní metodiky vhodné především pro menší týmy. Díky absenci sekvenčního řazení procesů vývoje tyto metody také zvyšují efektivitu nepředvídatelných a stále se měnících projektů. Vypuštěním striktního plánování je také možné projekt mnohdy dokončit rychleji než použitím tradičních metodik.
 
-Vývoj řízený agilními metodikami (znázorněný diagramem~\ref{img:agile}) probíhá iterativně a inkrementálně. Na začátku vývoje se určí základní požadavky a postupnými cykly se tyto požadavky zdokonalují. Jedna iterace takového vývoje trvá zpravidla jeden týden až měsíc. Během této iterace proběhne celý cyklus vývojových procesů (podobně jako u vodopádového modelu znázorněného diagramem~\ref{img:waterfall}). Dokončením iterace vzniká prototyp, který může být prezentován zákazníkovi. Díky tomu získává přesnější představu o podobě produktu a lze včas odhalit nedostatky požadavků, které dříve nebyly známy~\cite{bib:agile-impact}.
+Vývoj řízený agilními metodikami probíhá iterativně a inkrementálně. Na začátku vývoje se určí základní požadavky a postupnými cykly se tyto požadavky zdokonalují. Jedna iterace takového vývoje trvá zpravidla jeden týden až měsíc. Během této iterace proběhne celý cyklus vývojových procesů (podobný vodopádovému modelu znázorněného diagramem~\ref{img:waterfall}). Dokončením iterace vzniká prototyp, který může být prezentován zákazníkovi. Díky tomu zákazník získává přesnější představu o podobě produktu a lze včas odhalit nedostatky požadavků, které dříve nebyly známy~\cite{bib:agile-impact}. 
+Průběh tohoto iterativního vývoje je znázorněný diagramem~\ref{img:agile}.
 
 \begin{figure}[H]
 	\centering
@@ -54,9 +55,7 @@ Vývoj řízený agilními metodikami (znázorněný diagramem~\ref{img:agile}) 
 
 Mezi populární agilní metodiky patří například Scrum, Lean Developmet, Extrémní programování (angl. \emph{Extreme Programming} nebo také XP), Crystal, Vlastnostmi řízený vývoj (angl. \emph{Feature Driven Development} neboli FDD) a v neposlední řadě také Kanban.
 
-\blindtext % vyzaduje spolupraci
-
-Jedna ze studií na toto téma uvádí, že ze 1386 sledovaných projektů 65\% z nich využilo během vývoje agilní metody a 6\% projektů bylo dokončeno téměř pouze s použití agilních metod~\cite{bib:agile-work}. % @todo dopsat cisla uspechu
+Jedna ze studií na toto téma vydána roku 2015 uvádí, že ze 1386 sledovaných projektů 65\% z nich využilo během vývoje agilní metody a 6\% projektů bylo dokončeno téměř pouze s použití agilních metod. Závěrem této studie je také pozorování poukazující na fakt, že čím větší poměr agilních metodik byl při vývoji použit, tím úspěšnější dané projekty byly~\cite{bib:agile-work}.
 
 \subsection{Metodika Kanban}
 Kanban je slovo převzaté z japonského jazyka, kde znamená \uv{cedule}. Toto slovo je taktéž spjato s poslední výzvou k objednávce před uzavřením podniku (sundáním cedule). Takovou objednávku lze označit jako \uv{na poslední chvíli} nebo také jako objednávku \uv{tak akorát na čas}~\cite{bib:dict-kanban}. 
@@ -74,29 +73,25 @@ Tak akorát na čas (anglicky \emph{Just-in-time}) je filozofie řízení výrob
 
 Metodika Kanban je nástroj pro vizuální kontrolu práce a jejího toku jednotlivými fázemi procesu. Kanban může být realizován jak fyzicky (například tabule s nalepovacími papírky viz fotografie~\ref{img:kanban-whiteboard}), tak i digitálně (například pomocí aplikací uvedených v kapitole~\ref{sec:apps}). 
 
-Ať je nástěnka Kanban digitální či nikoliv, vždy se skládá ze stejných částí, jen v jiném provedení. Nejčastěji se lze setkat s provedením, kdy na se na horizontální ose nachází pojmenované sloupce představující jednotlivé fáze procesu. Do těchto sloupců jsou umístěny nejrůznější karty, reprezentující jednotlivé úkoly. Rozmístění karet mezi sloupci se odvíjí od aktuálního stavu úkolu.
+Ať je nástěnka Kanban digitální či nikoliv, ve většina případů se skládá ze stejných částí, jen v jiném provedení. Nejčastěji se lze setkat s typem, kdy na se na horizontální ose nachází pojmenované sloupce představující jednotlivé fáze procesu. Do těchto sloupců jsou umístěny nejrůznější karty, reprezentující jednotlivé úkoly. Rozmístění karet mezi sloupci se odvíjí od aktuálního stavu úkolu.
 
-Nejjednodušší variantou takových sloupců může být například trojce sloupců nazvaných \uv{zásobník}, \uv{v procesu} a \uv{hotovo}. První ze sloupců nazvaný \uv{zásobník} je místo, kde se hromadí úkoly, na kterých se ještě nezačalo pracovat. Jakmile práce na daném úkolu započne, jeho karta je přesunuta do dalšího sloupce s označením \uv{v procesu}. Obdobně je tomu při dokončení úkolu, kdy je jeho karta opět přemístěna do jiného sloupce, tentokrát do sloupce \uv{hotovo}.
-
-V praxi je takřka nemožné setkat se s takto jednoduchým provedením. Proces výroby či vývoje je třeba rozdělit na jednotlivé části. Při vývoji softwaru bývají často využívány sloupce \uv{návrh}, \uv{vývoj}, \uv{testování} a další.  
-
-V dnešní době převažuje digitální provedení jelikož přináší větší přehlednost, jednoduší manipulaci a hlavně možnost připojovat k jednotlivým kartám podrobnější popis, komentáře, obrázky a další dokumenty. Nicméně fyzická varianta má výhodu v tom, že je stále na očích a nelze ji ignorovat. Může taktéž podněcovat k vetší komunikaci mezi týmy a to jsou důvody proč tuto variantu využívají například ve společnosti Optimizely\footnote{Optimizely: \url{https://www.optimizely.com/about/}}~\cite{kanboard-atlassian}.
-
-
-%todo transparetnost a další výhody https://www.planview.com/resources/articles/kanban-101/
-
-Díky přehlednému vyobrazení získávají jednotliví členové týmu lepší přehled o prací svých kolegů. Kanban svou podstatou dokáže poukázat na problematické procesy, které zpomalují celkový chod výroby či vývoje~\cite{bib:kanban-and-scrum}.
-
-% @todo popsat WIP limit
+Nejjednodušší variantou takových sloupců může být například trojce sloupců nazvaných \uv{zásobník}, \uv{v procesu} a \uv{hotovo}. První ze sloupců nazvaný \uv{zásobník} je místo, kde se hromadí úkoly, na kterých se ještě nezačalo pracovat. Jakmile práce na daném úkolu započne, jeho karta je přesunuta do dalšího sloupce s označením \uv{v procesu}. Obdobně je tomu při dokončení úkolu, kdy je jeho karta opět přemístěna do jiného sloupce, tentokrát do sloupce \uv{hotovo}. Názorná ukázka této nástěnky je vidět na fotografii~\ref{img:kanban-whiteboard}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
-	\caption{Původní provedení kanbanu v továrně společnosti Toyota Motor Corporation \emph{Převzato z~\cite{bib:toyota-history}}.}
+	\caption{Nástěnka typu Kanban realizována pomocí nalepovacích papírků na magnetické tabuli.}
 	\label{img:kanban-whiteboard}
 \end{figure}
 
-\blindtext[2] %todo Popsat princip (přesouvání apod), možná ukázka sticky note?
+V praxi je takřka nemožné setkat se s takto jednoduchým provedením. Proces výroby či vývoje je třeba rozdělit na jednotlivé části. Při vývoji softwaru bývají často využívány sloupce \uv{návrh}, \uv{vývoj}, \uv{testování} a další.  
+
+V dnešní době, jak u mnoha věcí, převažuje digitální varianta. Její výhodou je především větší přehlednost, vzdálená přístupnost, jednoduší manipulace a hlavně možnost připojovat k jednotlivým kartám podrobnější popis, komentáře, obrázky a další dokumenty. Nicméně i fyzická varianta má své výhody. Jedna z nich je fakt, že je stále na očích a nelze ji skrýt jako například záložku v prohlížeči. Toto provedení může taktéž podněcovat k vetší komunikaci mezi týmy a to jsou důvody proč tuto variantu využívají například ve společnosti Optimizely\footnote{Optimizely: \url{https://www.optimizely.com/about/}}~\cite{bib:kanban-atlassian}.
+
+Díky využití metodiky Kanban a jejího přehlednému vyobrazení úkolů získávají jednotliví členové týmu lepší přehled o prací svých kolegů. Tento fakt může také vést k lepší prioritizaci úkolů a především odpadá čas ztracený komunikací v momentě kdy nastane změna úkolu čí jeho priority~\cite{bib:kanban-101}.
+Kanban svou podstatou také dokáže poukázat na problematické procesy, které zpomalují celkový chod výroby či vývoje~\cite{bib:kanban-and-scrum}.
+
+Často se u metodiky Kanban lze potkat s limitováním probíhající práce (anglicky \emph{Work in Progress]} či zkráceně WIP). Jedná se o omezení, kdy dán maximální počet úkolů pro určitou fázi procesu (sloupec nástěnky). Například lze stanovit limit souběžného pracování maximálně na třech grafických návrzích. Toto omezení má pozitivní dopad především na snížení nutnosti věnovat se více projektům naráz, díky čemuž se lze na jednotlivé úkoly lépe soustředit a tím může být docíleno rychlejšího a kvalitnějšího výsledku~\cite{bib:kanban-101}.
 
 \section{Aplikace s podobným zaměřením}\label{sec:apps}
 Jelikož je metodika Kanban existuje již několik několik desítek let, lze v dnešní době nalézt celou řada programů a webových aplikací, které je možné pro aplikování této metodiky využít. V této podkapitole je několik takových aplikací stručně přiblíženo a jsou vyzdviženy některé jejich klíčové vlastnosti. Pro bližší představu o podobě těchto aplikací je každá z nich doprovázena snímkem obrazovky. Jedná se o dva populární zástupce z řad produktů společnosti Atlassian -- aplikace Trello a Jira. Třetí představenou aplikací je o něco méně známá aplikace Kanboard, která je však v současné době využívaná společností SEACOMP s.r.o.
