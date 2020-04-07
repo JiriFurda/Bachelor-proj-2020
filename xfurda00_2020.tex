@@ -1,19 +1,21 @@
 %==============================================================================
 % tento soubor pouzijte jako zaklad
 % this file should be used as a base for the thesis
-% Autoři / Authors: 2008 Michal Bidlo, 2018 Jaroslav Dytrych
-% Kontakt pro dotazy a připomínky: dytrych@fit.vutbr.cz
-% Contact for questions and comments: dytrych@fit.vutbr.cz
+% Autoři / Authors: 2008 Michal Bidlo, 2019 Jaroslav Dytrych
+% Kontakt pro dotazy a připomínky: sablona@fit.vutbr.cz
+% Contact for questions and comments: sablona@fit.vutbr.cz
 %==============================================================================
 % kodovani: UTF-8 (zmena prikazem iconv, recode nebo cstocs)
 % encoding: UTF-8 (you can change it by command iconv, recode or cstocs)
 %------------------------------------------------------------------------------
 % zpracování / processing: make, make pdf, make clean
 %==============================================================================
-% Soubory, které je nutné upravit: / Files which have to be edited:
-%   projekt-20-literatura-bibliography.bib - literatura / bibliography
-%   projekt-01-kapitoly-chapters.tex - obsah práce / the thesis content
-%   projekt-30-prilohy-appendices.tex - přílohy / appendices
+% Soubory, které je nutné upravit nebo smazat: / Files which have to be edited or deleted:
+%   xfurda00_2020-20-literatura-bibliography.bib - literatura / bibliography
+%   xfurda00_2020-01-kapitoly-chapters.tex - obsah práce / the thesis content
+%   xfurda00_2020-01-kapitoly-chapters-en.tex - obsah práce v angličtině / the thesis content in English
+%   xfurda00_2020-30-prilohy-appendices.tex - přílohy / appendices
+%   xfurda00_2020-30-prilohy-appendices-en.tex - přílohy v angličtině / appendices in English
 %==============================================================================
 %\documentclass[]{fitthesis} % bez zadání - pro začátek práce, aby nebyl problém s překladem
 %\documentclass[english]{fitthesis} % without assignment - for the work start to avoid compilation problem
@@ -25,7 +27,7 @@
 %\documentclass[english,zadani,cprint]{fitthesis} % for the print - links are black, logo is color
 % * Je-li práce psaná v anglickém jazyce, je zapotřebí u třídy použít 
 %   parametr english následovně:
-%   If thesis is written in english, it is necessary to use 
+%   If thesis is written in English, it is necessary to use 
 %   parameter english as follows:
 %      \documentclass[english]{fitthesis}
 % * Je-li práce psaná ve slovenském jazyce, je zapotřebí u třídy použít 
@@ -64,6 +66,11 @@
 % disables function of the template which replaces quotation marks
 % to avoid unnecessary replacements in the API descriptions etc.
 \csdoublequotesoff
+
+
+
+\usepackage{url}
+
 
 % =======================================================================
 % balíček "hyperref" vytváří klikací odkazy v pdf, pokud tedy použijeme pdflatex
@@ -117,6 +124,7 @@
   title.cs={Webový kanban},  % název práce v češtině či slovenštině (dle zadání) / thesis title in czech language (according to assignment)
   title.en={Web Kanban}, % název práce v angličtině / thesis title in english
   %title.length={14.5cm}, % nastavení délky bloku s titulkem pro úpravu zalomení řádku (lze definovat zde nebo níže) / setting the length of a block with a thesis title for adjusting a line break (can be defined here or below)
+  %sectitle.length={14.5cm}, % nastavení délky bloku s druhým titulkem pro úpravu zalomení řádku (lze definovat zde nebo níže) / setting the length of a block with a second thesis title for adjusting a line break (can be defined here or below)
   %Autor / Author
   author.name={Jiří},   % jméno autora / author name
   author.surname={Furda},   % příjmení autora / author surname 
@@ -141,12 +149,12 @@
   declaration={Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana Ing. Radka Burgeta Ph.D.
 Další informace mi poskytl Ing. Pavel Vyskočil.
 Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
-  %declaration={Hereby I declare that this bachelor's thesis was prepared as an original author’s work under the supervision of Mr. X
+  %declaration={I hereby declare that this Bachelor's thesis was prepared as an original work by the author under the supervision of Mr. X
 % The supplementary information was provided by Mr. Y
-% All the relevant information sources, which were used during preparation of this thesis, are properly cited and included in the list of references.},
+% I have listed all the literary sources, publications and other sources, which were used during the preparation of this thesis.},
   % Poděkování (nepovinné, nejlépe v jazyce práce) / Acknowledgement (optional, ideally in the language of the thesis)
   acknowledgment={V této sekci je možno uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc
-(externí zadavatel, konzultant, apod.).},
+(externí zadavatel, konzultant apod.).},
   %acknowledgment={Here it is possible to express thanks to the supervisor and to the people which provided professional help
 %(external submitter, consultant, etc.).},
   % Rozšířený abstrakt (cca 3 normostrany) - lze definovat zde nebo níže / Extended abstract (approximately 3 standard pages) - can be defined here or below
@@ -163,7 +171,8 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
 
 % nastavení délky bloku s titulkem pro úpravu zalomení řádku - lze definovat zde nebo výše / setting the length of a block with a thesis title for adjusting a line break - can be defined here or above
 %\titlelength{14.5cm}
-
+% nastavení délky bloku s druhým titulkem pro úpravu zalomení řádku - lze definovat zde nebo výše / setting the length of a block with a second thesis title for adjusting a line break - can be defined here or above
+%\sectitlelength{14.5cm}
 
 % řeší první/poslední řádek odstavce na předchozí/následující stránce
 % solves first/last row of the paragraph on the previous/next page
@@ -173,18 +182,6 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
 % checklist
 \newlist{checklist}{itemize}{1}
 \setlist[checklist]{label=$\square$}
-
-% gray blindtext (source: https://tex.stackexchange.com/questions/299954/styling-blindtext-and-blindtext-aka-renewcommand-with-optional-arguments)
-\usepackage{blindtext,letltxmacro,xcolor,xparse}
-\usepackage{lipsum}% for simulating real text
-\LetLtxMacro{\blindtextblindtext}{\blindtext}
-\LetLtxMacro{\blindtextBlindtext}{\Blindtext}
-\RenewDocumentCommand{\blindtext}{O{\value{blindtext}}}{%
-  \begingroup\color{gray}\blindtextblindtext[#1]\endgroup
-}
-\RenewDocumentCommand{\Blindtext}{O{\value{blindtext}}O{\value{Blindtext}}}{%
-  \begingroup\color{gray}\blindtextBlindtext[#1][#2]\endgroup
-}
 
 \begin{document}
   % Vysazeni titulnich stran / Typesetting of the title pages
@@ -204,7 +201,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   \ifslovak
     \renewcommand\listfigurename{Zoznam obrázkov}
   \fi
-  % \listoffigures
+  % {\hypersetup{hidelinks}\listoffigures}
   
   \ifczech
     \renewcommand\listtablename{Seznam tabulek}
@@ -212,7 +209,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   \ifslovak
     \renewcommand\listtablename{Zoznam tabuliek}
   \fi
-  % \listoftables 
+  % {\hypersetup{hidelinks}\listoftables}
 
   \ifODSAZ
     \setlength{\parskip}{0.5\bigskipamount}
@@ -228,13 +225,17 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
 
   % Text prace / Thesis text
   % ----------------------------------------------
-  \input{xfurda00_2020-01-kapitoly-chapters}
+  \ifenglish
+    \input{xfurda00_2020-01-kapitoly-chapters-en}
+  \else
+    \input{xfurda00_2020-01-kapitoly-chapters}
+  \fi
   
   % Kompilace po částech (viz výše, nutno odkomentovat)
   % Compilation piecewise (see above, it is necessary to uncomment it)
-  %\subfile{projekt-01-uvod-introduction}
+  %\subfile{xfurda00_2020-01-uvod-introduction}
   % ...
-  %\subfile{chapters/projekt-05-conclusion}
+  %\subfile{chapters/xfurda00_2020-05-conclusion}
 
 
   % Pouzita literatura / Bibliography
@@ -243,18 +244,18 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   \makeatletter
   \def\@openbib@code{\addcontentsline{toc}{chapter}{Literatúra}}
   \makeatother
-  \bibliographystyle{bib-styles/slovakiso}
+  \bibliographystyle{bib-styles/Pysny/skplain}
 \else
   \ifczech
     \makeatletter
     \def\@openbib@code{\addcontentsline{toc}{chapter}{Literatura}}
     \makeatother
-    \bibliographystyle{bib-styles/czechiso}
+    \bibliographystyle{bib-styles/Pysny/czplain}
   \else 
     \makeatletter
     \def\@openbib@code{\addcontentsline{toc}{chapter}{Bibliography}}
     \makeatother
-    \bibliographystyle{bib-styles/englishiso}
+    \bibliographystyle{bib-styles/Pysny/enplain}
   %  \bibliographystyle{alpha}
   \fi
 \fi
@@ -302,7 +303,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   \fi
 \fi
   \startcontents[chapters]
-  \setlength{\parskip}{0pt}
+  \setlength{\parskip}{0pt} 
   % seznam příloh / list of appendices
   % \printcontents[chapters]{l}{0}{\setcounter{tocdepth}{2}}
   
@@ -318,10 +319,14 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   \fi
   
   % Přílohy / Appendices
-  % \input{projekt-30-prilohy-appendices}
+  \ifenglish
+    \input{xfurda00_2020-30-prilohy-appendices-en}
+  \else
+    \input{xfurda00_2020-30-prilohy-appendices}
+  \fi
   
   % Kompilace po částech (viz výše, nutno odkomentovat)
   % Compilation piecewise (see above, it is necessary to uncomment it)
-  %\subfile{projekt-30-prilohy-appendices}
+  %\subfile{xfurda00_2020-30-prilohy-appendices}
   
 \end{document}
