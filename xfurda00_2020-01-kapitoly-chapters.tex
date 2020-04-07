@@ -251,7 +251,7 @@ NgRx je knihovna pro správu stavu určená pro platformu Angular. Tato knihovna
 Tato knihovna však pro tvorbu aplikací pomocí platformy Angular není nutně potřeba a v některých případech může vývoj i přitížit. I přes veškeré výhody, které využití tohoto systému přináší, je třeba počítat i s negativními následky. Systém má poměrně strmou učební křivku a je třeba znát princip Redux a umět používat knihovnu RxJS~\cite{bib:ngrx-docs}.
 Dalším úskalím je velké množství nutného dodatečného kódu. Přidání zdánlivě jednoduché funkce může trvat delší dobu, protože sebou nese nutnost přidat spoustu kódu napříč různými soubory. Proto je dobré nejprve důkladně zvážit, zda je vhodné pro daný projekt knihovnu NgRx využít. Vývojáři knihvony NgRx proto na jedné z konferencí\footnote {ng-conf 2018 - Reducing the Boilerplate with NgRx: \url{https://www.youtube.com/watch?v=t3jx0EC-Y3c}} přišli se zásadou SHARI, které toto rozhodnutí usnadní. 
 
-Zásada SHARI:
+Zásada SHARI~\cite{biib:ng-conf}:
 \begin{itemize}
   \item Sdílení (angl. shared) - Ke stavu přistupuje více komponent a služeb
   \item (angl. hydrated) - Stav přetrvává a je obnovován z externího zdroje
@@ -322,7 +322,35 @@ Přestože tato společnost stojí za dnes nejpopulárnějším operačním syst
 
 
 \section{Aplikační rozhraní}
-\blindtext[2]
+Komunikace mezi klientskou částí aplikace a tou serverovou probíhá za pomoci aplikačního rozhraní REST. Zprávy tohoto rozhraní využívají formát JSON a mají přesně definovaný obsah.
+Vzhledem k budoucí integraci mnou tvořené aplikace do již existující aplikace SSB4Web bylo nutné zachovat v obou těchto aplikacích jednotnou podobu rozhraní.
+
+Vzhledem k zaměření mé aplikace nebylo třeba využít všechny možnosti existujícího rozhraní. Při práci byly z původního rozhraní použity pouze dva koncové body a to \texttt{SSBQuery/GetData}, umožňující dotazovat se na data uložena v databázi, a \sloppy\texttt{SSBMethod/ExecuteMethod}, spouštějící uložené procedury či příkazy. Toto rozhraní však bylo nutné rozšířit o možnost autentizace uživatele. Pro tento účel slouží nově přidaný koncový bod \sloppy\texttt{SSBAuthentication/VerifyCredentials}.
+
+Obě části aplikace -- jak Kanban, tak SSBLite -- využívají stejné datové objekty, díky tomu je možné mezi těmito dvěma částmi jednoduše přenášet data. Obsahem požadavku pro získání dat je například objekt \texttt{SSBQueryRequestDTO}, ten s sebou nese jednak název konkrétního před-připraveného dotazu pod klíčem \texttt{queryName} a dále pod klíčem \texttt{filters} může obsahovat i další objekt typu \texttt{SSBFilterDTO}. Ten se zase skládá z objektu \texttt{ssbIFilterOperator}, skrytým pod stejnojmenným klíčem, a dále z pole objektů \texttt{SSBFilterTermDTO} označeným klíčem \texttt{filterItems}. Objekty v tomto poli obsahují tři hodnoty. Pod klíčem \texttt{m\_filterOperator} lze opět pozorovat objekt \texttt{ssbIFilterOperator}. Ve skutečnosti se jedná pouze o výčet logických operátorů, které jsou později použity pro bezpečné sestavení dotazu na databázi. Další dvě hodnoty nesou název sloupce v databázi a pole hodnot použitých v dotazu.
+
+Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může vypadat následovně:
+
+{
+  "queryName": "getCards",
+  "limit": 0,
+  "onlyVisibleColumns": true,
+  "offset": 0,
+  "filter":
+    {
+      "ssbIFilterOperator": 0,
+      "filterItems":
+        [
+          {
+            "m_filterOperator": 0,
+            "m_column": "col.board_id",
+            "m_values": [1] ¨
+          }
+        ]
+    }
+}
+
+%
 
 \chapter{Implementace aplikace}
 Předmětem této kapitoly\blindtext
