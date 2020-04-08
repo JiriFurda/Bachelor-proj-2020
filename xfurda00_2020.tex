@@ -183,6 +183,18 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
 \newlist{checklist}{itemize}{1}
 \setlist[checklist]{label=$\square$}
 
+% grey blindtext (source: https://tex.stackexchange.com/questions/299954/styling-blindtext-and-blindtext-aka-renewcommand-with-optional-arguments)
+\usepackage{blindtext,letltxmacro,xcolor,xparse}
+\usepackage{lipsum}% for simulating real text
+\LetLtxMacro{\blindtextblindtext}{\blindtext}
+\LetLtxMacro{\blindtextBlindtext}{\Blindtext}
+\RenewDocumentCommand{\blindtext}{O{\value{blindtext}}}{%
+  \begingroup\color{gray}\blindtextblindtext[#1]\endgroup
+}
+\RenewDocumentCommand{\Blindtext}{O{\value{blindtext}}O{\value{Blindtext}}}{%
+  \begingroup\color{gray}\blindtextBlindtext[#1][#2]\endgroup
+}
+
 \begin{document}
   % Vysazeni titulnich stran / Typesetting of the title pages
   % ----------------------------------------------

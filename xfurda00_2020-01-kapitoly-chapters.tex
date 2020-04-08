@@ -107,7 +107,7 @@ Svou velkou popularitu si aplikace zasloužila především přívětivým uživ
 
 Trello nabízí řadu vylepšení, díky kterým je možné nástěnku rozšířit o funkce z aplikací třetích stran. 
 % https://help.trello.com/article/1094-what-are-power-ups
-V bezplatné verzi lze však využít pouze jedno takové vylepšení.
+V bezplatné verzi lze však využít pouze jedno takové vylepšení~\cite{bib:trello-pricing}.
 % https://trello.com/cs/pricing
 Nástěnka je umístěna na vzdáleném úložišti a službu nelze provozovat na svém vlastním serveru. Nicméně mobilní aplikace umožňují pracovat s nástěnkami i bez přístupu k internetu.
 % https://blog.trello.com/trello-common-questions
@@ -182,7 +182,7 @@ Kanboard však jako jediná z tří uvedených aplikací disponuje otevřeným z
 
 Co se ceny týče, všechny aplikace lze provozovat v jistém měřítku zdarma. Trello v bezplatné verzi omezuje počet týmových nástěnek a Jira zase využívá limit uživatelů. Oproti tomu Kanboard, je zcela zdarma. Jediné reálné náklady tedy může představovat provoz serveru. Při provozování aplikace Jira tímto způsobem je třeba uhradit jednorázový poplatek, jehož cena se odvíjí od počtu uživatelů. Použití aplikace Kanboard se tedy může jevit jako nejlepší volba, každopádně v tomto případě je ztracena dostupnost technické podpory. V korporačním prostředí to může být důležitý požadavek, protože výpadek klíčového nástroje pro řízení projektů představuje obrovské riziko pro bezproblémový chod společnosti.
 
-Slabší stránka aplikace Kanboard je na první pohled uživatelského rozhraní. Nejedná se však pouze o vzhled aplikace. Rozhraní obsahuje i mnoho prvků, které nejsou řešeny pomocí asynchronních požadavků, a to může být uživateli vnímáno jako nepohodlné či zastaralé.
+Slabší stránkou aplikace Kanboard je na první pohled uživatelské rozhraní. Nejedná se však pouze o vzhled aplikace. Rozhraní obsahuje i mnoho prvků, které nejsou řešeny pomocí asynchronních požadavků, a to může být uživateli vnímáno jako nepohodlné či zastaralé.
 
 Každá z uvedených aplikací tedy obsahuje řadu výhod i nevýhod, nelze tedy jednoznačně určit tu nejlepší. Výběr závisí na konkrétních požadavcích společnosti či týmu, který ji bude využívat. Nicméně za zmínku stojí fakt, že 83\% společností ze žebříčku Fortune 500\footnote{Fortune 500: \url{https://fortune.com/fortune500/}}, který sdružuje 500 společností ze Spojených států Amerických s nejvyšším hrubým obratem, využívá produkty právě společnosti Atlassian~\cite{bib:atlassian-customers}.
 
@@ -216,7 +216,7 @@ Dále jsou zmíněny technologie zajišťující propojení klientské části a
 V poslední části podkapitoly je zase popsána serverová část. Ta se skládá z technologie ASP.NET, která zpracovává požadavky zaslané z klientské části aplikace a překládá je na dotazy databáze, která využívá technologii PostgreSQL.
 
 
-\section{Jednostránkové aplikace}
+\section{Jednostránkové aplikace}\label{sec:spa}
 
 \emph{Tato kapitola čerpá z~\cite{bib:spa}}.
 
@@ -276,8 +276,24 @@ DevExtreme je balík komponent určený pro tvorbu responzivních webových apli
 \blindtext[2]
 
 \section{JSON Web Token}
-JSON Web Token (zkráceně JWT) je standard\footnote{RFC 7519: \url{https://tools.ietf.org/html/rfc7519}} zajišťující zabezpečenou výměnu informací mezi dvěma stranami. 
-\blindtext
+\emph{Tato podkapitola vychází z~\cite{bib:jwt}}
+
+JSON Web Token (zkráceně JWT) je otevřený standard\footnote{RFC 7519: \url{https://tools.ietf.org/html/rfc7519}} zajišťující zabezpečenou výměnu informací mezi dvěma stranami. Jedná se o objekt typu JSON, který se skládá ze tří částí oddělených tečkou. Jedná se o hlavičku, náklad a podpis.
+
+Hlavička je objekt typu JSON, zakódovaný pomocí Base64Url\footnote{Kódování reprezentující binární data pomocí tisknutelných znaků~\cite{bib:base64}} který nese informaci o typu žetonu a použitém algoritmu digitálního podpisu. 
+
+Náklad je stejně jako hlavička objekt typu JSON zakódovaný pomocí Base64Url. Tentokrát jsou však jeho obsahem tvrzení (angl. claim). Ty nesou přenášené informace, které je třeba předávat zabezpečené. Nejčastěji se jedná o informace o uživateli.
+
+Podpis zaručuje, že zpráva nebyla pozměněna. Může být také využit pro ověření identity odesílajícího. Podpis je vytvořen spojením řetězců dvou předchozích částí, mezi které je vložena tečka. Na konec toho řetězce je dále připojen tajný řetězec. Výsledný řetězec je poté zašifrován algoritmem uvedeným v hlavičce. 
+
+V praxi se lze s touto metodou autentizace setkat například na stránkách, které umožňuji přihlásit se pomocí účtu u společnosti Google~\cite{bib:google-jwt}. V takovém případě se jedná o výměnu informací mezi třemi stranami. Posloupnost akcí pro získání žetonu v této situaci a jeho následné použití lze vidět na obrázku~\ref{img:jwt}.
+
+\begin{figure}[H]
+    \label{img:jwt}
+	\centering
+	\includegraphics[width=0.9\textwidth]{obrazky-figures/jwt.pdf}
+	\caption{Diagram znázorňující případ užití standardu JWT.}
+\end{figure}
 
 \section{ASP.NET Core}
 ASP.NET Core je platforma společnosti Microsoft určena pro tvorbu webových aplikací. Jedná se o rozšíření populární platformy .NET určené především pro programovací jazyk C\#, taktéž vyvinutým společností Microsoft.
@@ -307,14 +323,19 @@ Přestože tato společnost stojí za dnes nejpopulárnějším operačním syst
 \end{figure}
 
 \section{Entitně-vztahový diagram}
-\blindtext
+Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah N ku N. Ty lze poznat podle číslovky \texttt{2} v názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\label{img:erd}
+	\includegraphics[width=\textwidth]{obrazky-figures/erd.pdf}
+	% @todo Konverze z svg do pdf to nejak rozbila
+	\caption{Entitně vztahový diagram reprezentující relační databázi aplikace.}
 \end{figure}
 
 \section{Grafický návrh}
-\blindtext
+Prvotní verze aplikace, která vznikla řešením této bakalářské práce bude využita pouze pro interní účely společnosti. Z tohoto důvodu nebyl při zadání práce kladen příliš velký důraz na estetickou stránku aplikace. Jedním z požadavků však bylo, aby aplikace co nejvíce využívala grafický styl knihovny DevExtreme. Další požadavek zněl, aby byly v aplikaci použity barvy loga společnosti SEACOMP s.r.o.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
@@ -331,6 +352,7 @@ Obě části aplikace -- jak Kanban, tak SSBLite -- využívají stejné datové
 
 Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může vypadat následovně:
 
+\begin{verbatim}
 {
   "queryName": "getCards",
   "limit": 0,
@@ -349,17 +371,28 @@ Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může 
         ]
     }
 }
-
-%
+\end{verbatim}
 
 \chapter{Implementace aplikace}
 Předmětem této kapitoly\blindtext
 
 \section{Klientská část}
 
+Klientskou částí aplikace je jednostránková webová aplikace vytvořená za pomocí rámce Angular.
+\blindtext
+
+\subsection{Asynchronní požadavky}
+Jak již bylo zmíněno v kapitole~\ref{sec:spa}, jednostránkové aplikace fungují hlavně díky asynchronním požadavkům. Ty jsou tedy samozřejmě nedílnou součástí i této aplikace.
+
+Po přihlášení uživatele každý jeho asynchronní požadavek v hlavičce protokolu HTTP obsahuje žeton standardu JWT. O tuto funkci se stará třída \texttt{JwtInterceptor}, umístěná ve složce \texttt{helpers}. Třída naslouchá všem odesílaným požadavkům protokolu HTTP a v případě, že je žeton již dostupný, je před samotným odesláním požadavku nejprve rozšířena jeho hlavička. Do pole \texttt{Authorization} je vloženo slovo \texttt{Bearer} a za mezerou následuje znění žetonu.
+
+Ve stejné složce lze také nalézt další třídu \texttt{ErrorInterceptor}, která obstarává oznámení uživateli v případě negativní odpovědi na odeslaný požadavek. Tato třída byla užitečná obzvláště během vývoje, jelikož chyby jazyka JavaScript se zobrazují v konzoli internetového prohlížeče, tudíž nejsou na první pohled zřetelné. Nicméně tato třída přináší užitek i pro koncové uživatele ve výsledné verzi aplikace.
+
+\subsection{Nástěnka}
+
 \section{Serverová část}
 
-Z důvodu zachování firemního tajemství klientská část mé práce nekomunikuje přímo se systémem SSB, ale pouze se zjednodušenou verzí zvanou SSBLite, kterou jsem vytvořil v rámci řešení této bakalářské práce. Jedná se o webový server vytvořený s použitím systému ASP.Net. Server zpracovává požadavky aplikačního rozhraní REST na základě kterých sestrojuje a odesílá požadavky na databázi. Výsledky těchto požadavků jsou poté odeslány zpět klientovi ke zpracování a zobrazení uživateli.
+Z důvodu zachování firemního tajemství klientská část mé práce nekomunikuje přímo se systémem SSB, ale pouze se zjednodušenou verzí zvanou SSBLite, kterou jsem vytvořil v rámci řešení této bakalářské práce. Jedná se o webový server vytvořený s použitím systému ASP.NET. Server zpracovává požadavky aplikačního rozhraní REST na základě kterých sestrojuje a odesílá požadavky na databázi. Výsledky těchto požadavků jsou poté odeslány zpět klientovi ke zpracování a zobrazení uživateli.
 
 Samotný webový server neobsahuje aplikační logiku, slouží pouze jako zprostředkovatel přístupu k databázi, ke které klient z důvodu bezpečnosti nesmí mít přímý přístup. Možné požadavky na databázi jsou předem určeny a uloženy v konfiguračních souborech. Díky tomu je možné v budoucnu upravit chování aplikace bez nutnosti přímého zásahu do zdrojového kódu serverové části aplikace. 
 
