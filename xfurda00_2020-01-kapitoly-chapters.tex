@@ -3,9 +3,19 @@
 
 Cílem této bakalářské práce je vytvořit webovou aplikaci typu Kanban určenou pro řízení projektů na základě požadavků společnosti SEACOMP s.r.o. Za tímto účelem je společností v současné době využíván nástroj třetí strany, který ovšem není plně přizpůsoben potřebám této společnosti, ku příkladu není integrován do dalších interních aplikací.
 
-Téma práce mne zaujalo zejména díky stále rostoucí popularitě interaktivních webových aplikací, motivující pro mne bylo mít možnost takovou aplikaci implementovat naprosto sám. Také mne lákala možnost firemního zadání bakalářské práce, díky kterému bude mít výsledná reálné využití a bude využívána v praxi. 
+Téma práce mne zaujalo zejména díky stále rostoucí popularitě interaktivních webových aplikací, motivující pro mne bylo mít možnost takovou aplikaci implementovat naprosto sám. Také mne lákala možnost firemního zadání bakalářské práce, díky kterému bude mít výsledná aplikace reálné využití a bude využívána v praxi. 
 
 \blindtext
+
+Druhá kapitola práce, zvaná \uv{Rozbor řešené problematiky}, pojednává o historii a současných trendech projektového řízení, zejména pak o metodice Kanban. Poté následuje přehled několika nástrojů určených pro aplikaci této metodiky a jejich srovnání.
+Dále je pár slov věnováno zadavateli této diplomové práce -- společnosti SEACOMP s.r.o., infrastruktuře této společnosti a požadavkům na výslednou aplikaci.
+Další kapitola, označená \uv{Technologie}, obsahuje stručný přehled technologií a principů využitých při implementaci této aplikace.
+Následující kapitola s názvem \uv{Návrh aplikace} % @todo
+Pátá kapitola jménem \uv{Implementace aplikace}, se pak věnuje zajímavým částem řešení této bakalářské práce. 
+Kapitola \uv{Testování a vyhodnocení} % @todo
+Na závěr je poté shrnuto % @todo
+
+
 
 \chapter{Rozbor řešené problematiky}
 V úvodu této kapitoly jsou stručně shrnuty populární metodiky řízení projektů s větším zaměřením na metodiky agilní a to především na metodiku Kanban. V další části kapitoly je představeno několik již existujících aplikací umožňujících využívat právě tuto zmíněnou metodiku. Dále je text věnován zmapování infrastruktury zadavatele bakalářské práce a jeho požadavkům na výslednou aplikaci. Závěr kapitoly obsahuje popis technologií, které byly využity pro tvorbu požadované aplikace.
@@ -342,7 +352,7 @@ Prvotní verze aplikace, která vznikla řešením této bakalářské práce bu
 \end{figure}
 
 
-\section{Aplikační rozhraní}
+\section{Aplikační rozhraní}\label{sec:api}
 Komunikace mezi klientskou částí aplikace a tou serverovou probíhá za pomoci aplikačního rozhraní REST. Zprávy tohoto rozhraní využívají formát JSON a mají přesně definovaný obsah.
 Vzhledem k budoucí integraci mnou tvořené aplikace do již existující aplikace SSB4Web bylo nutné zachovat v obou těchto aplikacích jednotnou podobu rozhraní.
 
@@ -374,12 +384,30 @@ Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může 
 \end{verbatim}
 
 \chapter{Implementace aplikace}
-Předmětem této kapitoly\blindtext
+Předmětem této kapitoly je popis vlastní implementace webové aplikace typu Kanban, která byla cílem zadání této bakalářské práce. V úvodu je popsaná klientská část aplikace, ke které uživatel přistupuje pomocí internetového prohlížeče. Další část kapitoly je věnována implementaci serverové části aplikace, s kterou uživatel přichází do styku pouze pomocí aplikačního rozhraní přiblíženého v kapitole~\ref{sec:api}. Závěr kapitoly je pak zaměřen na databázovou vrstvu aplikace, kde jsou uchovávány uživatelská a jiná data.
 
 \section{Klientská část}
 
-Klientskou částí aplikace je jednostránková webová aplikace vytvořená za pomocí rámce Angular.
-\blindtext
+Klientskou částí aplikace je jednostránková webová aplikace vytvořená za pomocí rámce Angular. Základním stavebním kamenem toho rámce jsou bez pochyby komponenty. Právě ty jsou hlavním tématem této podkapitoly. Dále jsou zde zmíněny i jiné zajímavé části implementace klientské části. Obsah jednotlivých stránek je sestaven kombinací vlastních komponent, které jsou podrobněji popsané v této kapitole, a také před-připravených komponent knihovny DevExtreme.
+
+\subsection{Základní struktura stránky}
+Ať už se uživatel aktuálně nachází na libovolné části aplikace, základní struktura právě zobrazené stránky se bude tvořit ze stejných prvků. Základ celé komponenty je element \texttt{<app-root>}. Tento prvek je také kromě referencí na soubory obsahující zdrojové kódy jazyka JavaScript to jediné, co se v obsahu stránky zobrazí v případě, že internetový prohlížeč jazyk JavaScript nepodporuje či dokonce blokuje. 
+
+V případě, že je interpret jazyka JavaScript dostupný, vzniknou uvnitř tohoto elementu další elementy. Vždy je přítomna komponenta \texttt{<app-header>} a \texttt{<router-outlet>}. První z komponent obsahuje hlavičku s logem společnosti SEACOMP s.r.o., která je vždy vidět ve vrchní části aplikace. Součástí hlavičky je také možnost odhlášení uživatele, za předpokladu že je právě přihlášen.
+Druhá z komponent ve skutečnosti nemá žádný reálný obsah. Představuje však nedílnou součást aplikace, jelikož se stará právě o chování aplikace jako jednostránkové. Na základě aktuální cesty obměňuje komponentu, která v hierarchii uzlů HTML představuje dalšího sourozence. Z počátku se tak lze na tomto místě potkat s komponentou \texttt{<app-login>}, následně \texttt{<app-dashboard>} a poté \texttt{<app-board>}. Současně s obměnou těchto komponent je také změněna adresa aktuální stránky v adresním řádku internetového prohlížeče. Navenek se tedy může zdát, že uživatel skutečně přechází z jedné stránky na druhou. Ve skutečnosti se však nachází stále na stejné stránce, pouze je překreslována část jejího obsahu.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+\end{figure}
+
+
+\subsection{Nástěnka}
+Stránka s nástěnkou je bezesporu nejkomplexnější částí aplikace.
+
+\subsection{Detail karty}
+
+\subsection{Nastavení}
 
 \subsection{Asynchronní požadavky}
 Jak již bylo zmíněno v kapitole~\ref{sec:spa}, jednostránkové aplikace fungují hlavně díky asynchronním požadavkům. Ty jsou tedy samozřejmě nedílnou součástí i této aplikace.
@@ -388,7 +416,27 @@ Po přihlášení uživatele každý jeho asynchronní požadavek v hlavičce pr
 
 Ve stejné složce lze také nalézt další třídu \texttt{ErrorInterceptor}, která obstarává oznámení uživateli v případě negativní odpovědi na odeslaný požadavek. Tato třída byla užitečná obzvláště během vývoje, jelikož chyby jazyka JavaScript se zobrazují v konzoli internetového prohlížeče, tudíž nejsou na první pohled zřetelné. Nicméně tato třída přináší užitek i pro koncové uživatele ve výsledné verzi aplikace.
 
-\subsection{Nástěnka}
+V případě úspěšné odpovědi na asynchronní požadavek jsou data obsažená v této zprávě uložena do skladu dat. Tento proces je podrobněji vysvětlen v následující kapitole.
+
+\subsection{Centrální datový sklad}
+Data sdílena mezi více komponentami jsou uložena v centrálním skladu, který je realizován pomocí knihovny NgRx. Při implementaci byl kladen důraz na co nejmenší zanořování dat, která jsou v tomto skladu přítomna. Každá sdílené entitě (např. nástěnkám, uživatelům, štítkům) tedy odpovídá právě jeden objekt v první úrovni zanoření.
+
+Každý z těchto objektů je pak tvořen dalšími třemi hodnotami. Klíč \texttt{loading} obsahuje logickou hodnotu, která indikuje, zda se data právě načítají. Tato hodnota je kladná v období mezi odesláním asynchronního požadavku a přijmutím odpovědi od serveru. Uživateli tak může být dočasně skryt obsah části stránky, který čeká právě na onu odpověď. V případě kladné odpovědi jsou přijatá data převedena do vhodného tvaru a poté uložena jako pole či objekt do hodnoty označené klíčem \texttt{data}. V případě neúspěchu dotazu je pak chyba uložena do hodnoty pod klíčem \texttt{error}.
+
+O zmíněné převedení formátu se stará třída \texttt{SSBQueryDataResultParser}. Ta převádí nevhodný tvar dat přenášených pomocí aplikačního rozhraní, kde je informace o sloupcích a datech rozdělena do dvou polí. Metoda této třídy z těchto dvou polí vytvoří jedno pole obsahující objekty, ve kterých jsou již názvy sloupců a jejich hodnoty v podobě jaká je u objektů typu JSON obvyklá.
+
+Samotné ukládání přijatých dat a změnu obsahu skladu se zase starají reducery, které využívají zmíněnou třídu pro převod dat. 
+
+Okamžitá vizuální odezva je však pro uživatele velmi důležitá. V některých případech je tak tedy nutné data ve skladu změnit dříve, než je přijata odpověď od serveru. Je tomu tak například u přesunu karty. Jistě by bylo pro uživatele velice nepříjemné, kdyby přesunul kartu na nové místo a ta se vzápětí ihned vrátila na svou původní pozici a až po nějaké době by akci server potvrdil a karta by se přesunula na místo, kam uživatel původně zamýšlel. Proto je v takových případech předpokládán úspěch akce a data jsou ihned změněna. I tuto práci obstarává redurer.
+
+Pro lepší ilustraci je níže uveden snímek~\ref{img:ngrx-devtools}, který ilustruje část dat aplikace uložených právě v popisovaném centrálním skladu.
+
+\begin{figure}[H]
+	\centering
+	\label{img:ngrx-devtools}
+	\includegraphics[width=\textwidth]{obrazky-figures/ngrx-chart.png}
+	\caption{Vizualizace dat obsažených v centrálním datovém skladu. Snímek je pořízen z nástroje Redux DevTools\footnote{Redux DevTools: \url{https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd}}}
+\end{figure}
 
 \section{Serverová část}
 
@@ -407,7 +455,7 @@ Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivýc
 
 \subsection{Databázová vrstva}
 
-\chapter{Vyhodnocení}
+\chapter{Testování a vyhodnocení}
 
 
 \chapter{Závěr}
