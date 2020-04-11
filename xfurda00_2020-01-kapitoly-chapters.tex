@@ -319,24 +319,21 @@ Přestože tato společnost stojí za dnes nejpopulárnějším operačním syst
 
 % ======================================================================
 \chapter{Návrh aplikace}
+Před samotnou implementací aplikace bylo nejprve nutné promyslet návrh aplikace. 
 \blindtext
 
 
 \section{Schéma systému}
-\blindtext
+Schéma aplikace je vidět na snímku~\ref{img:scheme}. Jsou zde znázorněny tři její hlavní části -- databáze, serverová část neboli SSBLite a v neposlední řadě webový klient Kanban. U každé z těchto částí je na snímku uvedena také její nejpodstatnější technologie. Dále zde lze pozorovat vzájemné interakce těchto části. Na pravé straně obrázku lze vidět dvě role uživatelů a také jejich interakci s aplikací.
+
 \begin{figure}[H]
+    \label{img:scheme}
 	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\includegraphics[width=0.8\textwidth]{obrazky-figures/app-scheme.pdf}
+	\caption{Schéma vzájemných interakcí jednotlivých částí aplikace, jejich technologií a možnostech různých rolí uživatelů.}
 \end{figure}
 
-
-\section{Diagram případů užití}
-\blindtext
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
-\end{figure}
-
+V tomto schématu se může zdát podivuhodná konfigurace uživatelé správcem přímo v databázi. V reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v aplikaci SSB pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality nebyla efektivní.
 
 \section{Entitně-vztahový diagram}
 Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah N ku N. Ty lze poznat podle číslovky \texttt{2} v názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
@@ -557,4 +554,11 @@ Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivýc
 
 % ======================================================================
 \chapter{Závěr}
+Cílem této aplikace bylo vytvořit webovou aplikaci typu Kanban dle požadavků společnosti SEACOMP s.r.o. Tato aplikace byla úspěšně vytvořena a lze ji plnohodnotně použít pro řízení projektů, stejně tak jako po menších úpravách integrovat do stávající aplikace SSB4Web.
+
 \blindtext
+
+Práce pro mne měla osobní přínos především novou zkušeností s tvorbou jednostránkových aplikací, osvojením si nových rámců pro vývoj webových stránek a realizací řešení se striktními omezeními způsobu implementace.
+
+Výsledná aplikace bude sloužit společnosti SEACOMP s.r.o. pro interní řízení vývoje softwarových produktů 
+
