@@ -202,11 +202,11 @@ SEACOMP s.r.o. je česká společnost věnující se již více než dvacet let 
 \subsection{Současný produkt}
 Jedním z mnoha produktů společnosti SEACOMP s.r.o. je systém SSB (SEACOMP SYSTEM BUILDER), určený pro snadnou tvorbu komplexních informačních systémů. Jedná se o počítačový program napsaný za použití technologie .NET.
 
-V loňském roce se v rámci své diplomové práce Bc. Adam Teršl věnoval implementaci webového klienta pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především rámec Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Desktopová verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z těchto modulů je právě nástroj \emph{KANBAN board} pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce. 
+V loňském roce se v rámci své diplomové práce Bc. Adam Teršl věnoval implementaci webového klienta pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především rámec Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Desktopová verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z těchto modulů je právě nástroj KANBAN board pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce. 
+
+Původní nástroj však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z tohoto důvodu se v rámci interního projektového řízení začal ve společnosti SEACOMP s.r.o. používat nástroj Kanboard, který byl upraven a obohacen o některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k dispozici nástroj, který umožňuje pokročilejší práci s nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z tohoto důvodu bylo vypsané toto téma bakalářské práce.
 
 \subsection{Požadavky na aplikaci}
-Původní nástroj \emph{KANBAN board} však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z tohoto důvodu se v rámci interního projektového řízení začal ve společnosti SEACOMP s.r.o. používat nástroj Kanboard, který byl upraven a obohacen o některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k dispozici nástroj, který umožňuje pokročilejší práci s nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z tohoto důvodu bylo vypsané toto téma bakalářské práce.
-
 Z důvodu ochrany obchodního tajemství však není možné zveřejnit zdrojové kódy programu SSB. Pro řešení této bakalářské práce je tudíž nejprve nutné vytvořit zjednodušenou verzi toho systému. Ta nese označení SSBLite a dle požadavku zadavatele je psána v jazyce C\#, konkrétně za použití ASP.Net Core. Tato část slouží jako server a komunikuje s klienty skrze aplikační rozhraní REST.
 
 Podoba aplikačního rozhraní z důvodu budoucí integrace do systému SSB4Web musí odpovídat podobě používané právě v této zmíněné webové aplikaci. Samotná integrace však na přání společnosti není předmětem této práce, aplikaci je proto i přes budoucí integraci nutno vytvořit jako samostatnou webovou aplikaci obsahující například i autentizaci uživatelů a další komponenty.
@@ -214,6 +214,9 @@ Podoba aplikačního rozhraní z důvodu budoucí integrace do systému SSB4Web 
 Dále je požadováno, aby webová aplikace používala stejné technologie jako původní SSB4Web, tedy rámec Angular s knihovnou pro správu stavu NgRx. Výjimkou je v tomto případě knihovna použitá pro uživatelské rozhraní, kdy původní diplomová práce využívala knihovnu PrimeNG\footnote{PrimeNG: \url{https://primefaces.org/primeng/}}. Po dokončení této práce však bylo společností požadováno knihovnu nahradit za balík komponent DevExtreme. Tento balík je tedy při implementaci práce rovněž využít.
 
 Od samotné funkcionality aplikace je očekáváno \blindtext
+
+
+
 
 \chapter{Technologie}
 V této kapitole jsou ve stručnosti přiblíženy technologie a techniky využité při tvorbě této práce. 
@@ -238,7 +241,7 @@ Toho lze docílit například díky technologii AJAX (Asynchronous JavaScript an
 \section{JavaScript}
 \blindtext
 
-\subsubsection{TypeScript}
+\subsection{TypeScript}
 Samotný jazyk JavaScript však pro vývojáře může představovat překážku při implementaci rozsáhlých aplikací. %todo Proč
 Řešením tohoto problému je například nástavba TypeScript, která tento jazyk obohacuje o prvky běžně používané v jiných programovacích jazycích. Jedná se ku příkladu o moduly, třídy, rozhraní a statické typování~\cite{bib:typescript}.
  
@@ -335,7 +338,7 @@ Schéma aplikace je vidět na snímku~\ref{img:scheme}. Jsou zde znázorněny t�
 
 V tomto schématu se může zdát podivuhodná konfigurace uživatelé správcem přímo v databázi. V reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v aplikaci SSB pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality nebyla efektivní.
 
-\section{Entitně-vztahový diagram}
+\section{Entitně-vztahový diagram}\label{sec:erd}
 Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah N ku N. Ty lze poznat podle číslovky \texttt{2} v názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
 
 \begin{figure}[H]
@@ -478,7 +481,7 @@ To je důvodem proč je využita funkce \texttt{plainToClass} knihovny \texttt{c
 
 Samotné ukládání přijatých dat a změnu obsahu skladu se zase starají reducery, které využívají zmíněnou třídu pro převod dat. 
 
-Okamžitá vizuální odezva je však pro uživatele velmi důležitá. V některých případech je tak tedy nutné data ve skladu změnit dříve, než je přijata odpověď od serveru. Je tomu tak například u přesunu karty. Jistě by bylo pro uživatele velice nepříjemné, kdyby přesunul kartu na nové místo a ta se vzápětí ihned vrátila na svou původní pozici a až po nějaké době by akci server potvrdil a karta by se přesunula na místo, kam uživatel původně zamýšlel. Proto je v takových případech předpokládán úspěch akce a data jsou ihned změněna. I tuto práci obstarává redurer.
+Okamžitá vizuální odezva je však pro uživatele velmi důležitá. V některých případech je tak tedy nutné data ve skladu změnit dříve, než je přijata odpověď od serveru. Je tomu tak například u přesunu karty. Jistě by bylo pro uživatele velice nepříjemné, kdyby přesunul kartu na nové místo a ta se vzápětí ihned vrátila na svou původní pozici a až po nějaké době by akci server potvrdil a karta by se přesunula na místo, kam uživatel původně zamýšlel. Proto je v takových případech předpokládán úspěch akce a data jsou ihned změněna. I tuto práci obstarává reducer.
 
 Pro lepší ilustraci je níže uveden snímek~\ref{img:ngrx-devtools}, který ilustruje část dat aplikace uložených právě v popisovaném centrálním skladu.
 
@@ -543,7 +546,14 @@ Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivýc
 
 
 \subsection{Databázová vrstva}
-\blindtext
+Jak již bylo zmíněno, databáze využívá systém PostgreSQL. Ve většině podobných aplikací databáze slouží pouze pro úschovu dat. Nicméně kvůli univerzálnosti systému SSB je nutné v databázi uchovávat i aplikační logika. Toho je docíleno pomocí uložených procedur. Koncepce uložení dat v databázi byla zmíněna již v podkapitole~\ref{sec:erd}.
+
+Jednodušší procedury jsou psány přímo v jazyce SQL a jedná se tak především o sekvenci vícero klasických příkazů, které lze spustit pomocí jednoho příkazu (spuštění uložené procedury). Tento přístup je využit například při vytvoření nového štítku, kdy je část dat uložena v tabulce \texttt{cards} a část v tabulce \texttt{card\_details}.
+% @todo Overit jestli jsem to uz nezmenil
+
+Pro komplexnější akce bylo však nutné využít jazyk PL/pgSQL\footnote{PL/pgSQL: \url{https://www.postgresql.org/docs/9.6/plpgsql.html}}. Ten umožňuje používat například funkce nebo podmínky.
+
+Dle požadavku zadavatele práce názvy uložených procedur dodržují konvenci, kdy v první částí názvu je uvedena entita, které se daná operace týká a v druhé části je název akce. Lze se tedy setkat s názvy jako je \texttt{tags_sync}, která synchronizuje štítky přiřazené dané kartě. 
 
 
 
