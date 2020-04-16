@@ -72,8 +72,6 @@ Kanban je slovo převzaté z japonského jazyka, kde znamená \uv{cedule}. Toto 
 
 Tak akorát na čas (anglicky \emph{Just-in-time}) je filozofie řízení výroby, vyvinuta v sedmdesátých létech japonskou automobilovou společností Toyota Motor Corporation\footnote{Toyota Motor Corporation: \url{https://global.toyota/en/}}. Hlavní myšlenkou toho přístupu je mít přesné množství materiálu, na správném místě a ve správný čas. Díky tomu dochází k redukci množství materiálu, který aktuálně není zpracováván a nemělo by docházet k jeho přebytečnému hromadění~\cite{bib:just-in-time}. Jedním z nástrojů této filozofie je právě metodika Kanban, její tehdejší provedení je možné vidět na fotografii~\ref{img:kanban-toyota}.
 
-% @todo klidne trochu vic historie a jak se to rozsirilo dnes
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{obrazky-figures/toyota-kanban.jpg}
@@ -116,11 +114,8 @@ Během několika let své existence se aplikace stala velice populární a použ
 Svou velkou popularitu si aplikace zasloužila především přívětivým uživatelským rozhraním a jednoduchostí použití. Od první návštěvy stránky k práci na své první Kanban nástěnce uživatele dělí doslova minuty. Pro základní použití navíc bez problému vystačí bezplatná verze aplikace. Díky těmto faktům aplikace není využívána pouze softwarovými společnostmi, ale lze ji použít například i jako osobní seznam úkolů~\cite{bib:jira-vs-trello}.
 
 Trello nabízí řadu vylepšení, díky kterým je možné nástěnku rozšířit o funkce z aplikací třetích stran. 
-% https://help.trello.com/article/1094-what-are-power-ups
 V bezplatné verzi lze však využít pouze jedno takové vylepšení~\cite{bib:trello-pricing}.
-% https://trello.com/cs/pricing
-Nástěnka je umístěna na vzdáleném úložišti a službu nelze provozovat na svém vlastním serveru. Nicméně mobilní aplikace umožňují pracovat s nástěnkami i bez přístupu k internetu.
-% https://blog.trello.com/trello-common-questions
+Nástěnka je umístěna na vzdáleném úložišti a službu nelze provozovat na svém vlastním serveru. Nicméně mobilní aplikace umožňují pracovat s nástěnkami i bez přístupu k internetu~\cite{bib:trello-common}.
 
 \begin{figure}[H]
 	\centering
@@ -185,7 +180,6 @@ Kanboard & Zdarma & Ne & Ano & Ano \\
 \end{table}
 \footnotetext{Cena na uživatele za měsíc}
 
-
 Z důvodu ochrany firemního tajemství mohou být preferovány služby Jira a Kanboard, jelikož je možné je provozovat přímo na svém vlastním serveru. Konkrétně u aplikace Kaboard může tato vlastnost však představovat pro řadu uživatelů nevýhodu. Aplikaci totiž není možné jednoduše provozovat na vzdáleném úložišti. Uživatel musí mít k dispozici server, kde bude aplikace provozována a to se může stát bariérou pro méně pokročilé uživatele počítače.
 
 Kanboard však jako jediná z tří uvedených aplikací disponuje otevřeným zdrojovým kódem. Umožňuje tak větší zásahy do aplikace než je tomu v případě dalších dvou aplikací, kde lze úpravy řešit pouze pomocí doplňků.
@@ -196,8 +190,11 @@ Slabší stránkou aplikace Kanboard je na první pohled uživatelské rozhraní
 
 Každá z uvedených aplikací tedy obsahuje řadu výhod i nevýhod, nelze tedy jednoznačně určit tu nejlepší. Výběr závisí na konkrétních požadavcích společnosti či týmu, který ji bude využívat. Nicméně za zmínku stojí fakt, že 83\% společností ze žebříčku Fortune 500\footnote{Fortune 500: \url{https://fortune.com/fortune500/}}, který sdružuje 500 společností ze Spojených států Amerických s nejvyšším hrubým obratem, využívá produkty právě společnosti Atlassian~\cite{bib:atlassian-customers}.
 
+
+
 \section{Společnost SEACOMP s.r.o.}
 SEACOMP s.r.o. je česká společnost věnující se již více než dvacet let tvorbou softwarových produktů. Společnost se zabývá především informačními systémy v oblasti logistiky, zdravotnictví, správy budov a řízení projektů~\cite{bib:seacomp-portfolio}.
+
 
 \subsection{Současný produkt}
 Jedním z mnoha produktů společnosti SEACOMP s.r.o. je systém SSB (SEACOMP SYSTEM BUILDER), určený pro snadnou tvorbu komplexních informačních systémů. Jedná se o počítačový program napsaný za použití technologie .NET.
@@ -205,6 +202,7 @@ Jedním z mnoha produktů společnosti SEACOMP s.r.o. je systém SSB (SEACOMP SY
 V loňském roce se v rámci své diplomové práce Bc. Adam Teršl věnoval implementaci webového klienta pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především rámec Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Desktopová verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z těchto modulů je právě nástroj KANBAN board pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce. 
 
 Původní nástroj však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z tohoto důvodu se v rámci interního projektového řízení začal ve společnosti SEACOMP s.r.o. používat nástroj Kanboard, který byl upraven a obohacen o některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k dispozici nástroj, který umožňuje pokročilejší práci s nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z tohoto důvodu bylo vypsané toto téma bakalářské práce.
+
 
 \subsection{Požadavky na aplikaci}
 Z důvodu ochrany obchodního tajemství však není možné zveřejnit zdrojové kódy programu SSB. Pro řešení této bakalářské práce je tudíž nejprve nutné vytvořit zjednodušenou verzi toho systému. Ta nese označení SSBLite a dle požadavku zadavatele je psána v jazyce C\#, konkrétně za použití ASP.Net Core. Tato část slouží jako server a komunikuje s klienty skrze aplikační rozhraní REST.
@@ -248,6 +246,19 @@ Samotný jazyk JavaScript však pro vývojáře může představovat překážku
 Jelikož internetové prohlížeče jazyk TypeScript neznají, je využíván překladač, který kód překládá do jazyka JavaScript.
 
 \blindtext
+
+\subsection{Rámce jazyka JavaScript}
+S použitím čistého jazyka JavaScript bez použití knihoven či rámců se dnes setkáváme zřídka. Zejména u větších projektů je psaní kódu v čistém jazyce JavaScript ve srovnáním s použítí knihoven a rámců velmi časově náročné~\cite{bib:vanilla-js}.
+
+Nejslavnějším rozšířením toho jazyka je bezesporu knihovna jQuery\footnote{jQuery: https://jquery.com}. Ta usnadňuje zejména průchod a manipulaci objektového modulu dokumentu (angl. Document Object Model neboli DOM), zpracování událostí, animace a práci s asynchronními požadavky~\cite{bib:jquery}.
+
+Knihovna jQuery však není určená pro tvorbu stále populárnějších jednostránkových aplikaci. Na ty se zaměřují zcela jiné rámce, kterých se v poslední době objevuje stále více.
+
+V současné době se mezi tři nejpoužívanější rámce řadí Angular, React a Vue.js~\cite{bib:js-framework}. Za dvěma prvními těmito rámci stojí velké společnosti. Rámec Angular je dílem společnosti Google a rámec React zase společnosti Facebook. Autorem rámce Vue.js je však Evan You a komunita vývojářů po celém světě.
+
+Nejmladším z těchto rámců je Vue.js i přes to se však těší větší oblibě než nejstarší uvedený rámec Angular. Angular jako jediný z uvedených rámců využívá nástavbu TypeScript. V ostatním rámcích ji sice také lze využít, není to však vyžadováno. Architektura všech tří rámců si je principem velmi podobná. Liší se opět pouze rámec Angular, který komponenty umožňuje rozdělit do jednotlivých modulů. Co se týče obtížností těchto rámců pro programátora, jedná se vždy o subjektivní názor. Nicméně jako nejtěžší z uvedených rámců se obecně považuje Angular a nejlépe je v této kategorii hodnocen rámec Vue.js~\cite{bib:angular-vs-react-vs-vue}.
+
+
 
 \subsection{Angular}
 Angular je webová platforma umožňující tvorbu jednostránkových aplikací s využitím jazyků TypeScript a HTML. Tato platforma si velmi zakládá na modularizaci kódu.
@@ -390,8 +401,11 @@ Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může 
 }
 \end{verbatim}
 
+Nevýhoda této podoby aplikačního rozhraní je však v nemožnosti provést více dotazů na databázi pomocí jednoho asynchronního volání. Například při prvotním načtení nástěnky je tak nutné odeslat vícero asynchronních požadavků najednou.
 
+Tento nedostatek je způsoben tím, že je původní návrh rozhraní je zaměřen hlavně na zobrazení tabulek ve vztahu hlavní--podrobné (angl. master--detail), kde k těmto situacím dochází minimálně. Zadavateli tématu diplomové práce bylo představeno několik alternativních řešení, nicméně bylo rozhodnuto pro zachování původního návrhu a setrvání v odesílání několika požadavků současně. 
 
+https://www.overleaf.com/project/5d9f7ad34e15d80001c95e73
 % ======================================================================
 \chapter{Implementace aplikace}
 Předmětem této kapitoly je popis vlastní implementace webové aplikace typu Kanban, která byla cílem zadání této bakalářské práce. V úvodu je popsaná klientská část aplikace, ke které uživatel přistupuje pomocí internetového prohlížeče. Další část kapitoly je věnována implementaci serverové části aplikace, s kterou uživatel přichází do styku pouze pomocí aplikačního rozhraní přiblíženého v kapitole~\ref{sec:api}. Závěr kapitoly je pak zaměřen na databázovou vrstvu aplikace, kde jsou uchovávány uživatelská a jiná data.
@@ -545,7 +559,8 @@ Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivýc
 \blindtext
 
 
-\subsection{Databázová vrstva}
+
+\section{Databázová vrstva}
 Jak již bylo zmíněno, databáze využívá systém PostgreSQL. Ve většině podobných aplikací databáze slouží pouze pro úschovu dat. Nicméně kvůli univerzálnosti systému SSB je nutné v databázi uchovávat i aplikační logika. Toho je docíleno pomocí uložených procedur. Koncepce uložení dat v databázi byla zmíněna již v podkapitole~\ref{sec:erd}.
 
 Jednodušší procedury jsou psány přímo v jazyce SQL a jedná se tak především o sekvenci vícero klasických příkazů, které lze spustit pomocí jednoho příkazu (spuštění uložené procedury). Tento přístup je využit například při vytvoření nového štítku, kdy je část dat uložena v tabulce \texttt{cards} a část v tabulce \texttt{card\_details}.
@@ -553,13 +568,28 @@ Jednodušší procedury jsou psány přímo v jazyce SQL a jedná se tak předev
 
 Pro komplexnější akce bylo však nutné využít jazyk PL/pgSQL\footnote{PL/pgSQL: \url{https://www.postgresql.org/docs/9.6/plpgsql.html}}. Ten umožňuje používat například funkce nebo podmínky.
 
-Dle požadavku zadavatele práce názvy uložených procedur dodržují konvenci, kdy v první částí názvu je uvedena entita, které se daná operace týká a v druhé části je název akce. Lze se tedy setkat s názvy jako je \texttt{tags_sync}, která synchronizuje štítky přiřazené dané kartě. 
+Dle požadavku zadavatele práce názvy uložených procedur dodržují konvenci, kdy v první částí názvu je uvedena entita, které se daná operace týká a v druhé části je název akce. Lze se tedy setkat s názvy jako je \texttt{tags\_sync}, která synchronizuje štítky přiřazené dané kartě. 
+
+
+\subsection{Synchronizace záznamů}
+V aplikaci je několik situací kdy je třeba synchronizovat záznamy. Jedná se o tři akce s daty -- úprava a odstranění existujících záznamů a vytvoření nových. Tato situace nastává zejména při nastavování nástěnky. Konkrétně při nastavení sloupců, plaveckých drah, štítků a podobně. Tyto akce jsou provedeny pomoci uložených procedur \texttt{column\_sync}, \texttt{swimlane\_sync}, \texttt{tag\_sync}.
+
+Uvnitř této procedury se však nachází pouze volání další uložené procedury a to jedné a té stejné pro všechny zmíněné procedury. Jedná se o proceduru \texttt{sync\_handler}, která umožňuje dynamicky provádět právě synchronizaci dat. Jejími parametry jsou jednak vstupní data původních procedur (identifikátor nástěnky a data k synchronizaci) a dále také specifikace nástěnky, kde jsou data uložena a sloupce, kterých se synchronizace týká.
+
+Díky tomu je značně zredukována redundance kódu a v kombinaci s generickým komponentami klientské aplikace lze celý systém jednoduše rozšířit o nastavení dalších prvků.
+
+
 
 
 
 % ======================================================================
 \chapter{Testování a vyhodnocení}
+\blindtext
+
+Automatizované testování nebylo při práci využito. Bylo tak rozhodnuto po konzultaci jak s vedoucím tak i se zadavatelem práce. Pro ověření funkčnosti, bezpečnosti a dalších aspektů aplikačního rozhraní bylo využito manuální testování pomocí nástroje Postman\footnote{Postman: \url{https://www.postman.com}}, který slouží jako klient pro odesílání požadavků aplikačního rozhraní REST a zobrazení odpovědí na tyto požadavky.
+
 \blindtext[3]
+
 
 
 % ======================================================================
