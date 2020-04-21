@@ -469,6 +469,45 @@ Na nejvyšší úrovni této stránky se nachází několik komponent knihovny D
 \blindtext
 
 
+\subsubsection{Sdílené komponenty}
+Některá nastavení jsou si vzájemně velice podobná. Z toho důvodu bylo nastavení rozděleno do několika menších komponent a několik z nich tak lze použít například jak v nastavení sloupců, tak i v nastavení plaveckých drah.
+
+Hierarchie těchto komponent je vyobrazena na snímku~\ref{img:settings-dia}. Detailní popis jednotlivých komponent a jejich funkcí je popsán dále v této kapitole.
+
+\begin{figure}[H]
+	\centering
+	\label{img:settings-dia}
+	\includegraphics[width=\textwidth]{obrazky-figures/settings-diagram.pdf}
+	\caption{Diagram znázorňující hierarchii jednotlivých komponent a tříd využitým pro realizování modálních oken pro nastavení nástěnky. Vlastní části řešení jsou označeny modrou barvou a komponenty knihovny DevExtreme jsou označeny oranžově. Komponenty jsou znázorněny plným ohraničením a abstraktní třída čárkovaným.}
+\end{figure}
+
+
+\subsubsection*{Třída SettingsBase}
+Jedná se o abstraktní třídu, z které dědí konkrétní komponenty pro jednotlivá nastavení jako například \texttt{app-columns-settings} pro nastavení sloupců nebo  \texttt{app-swimlanes-settings} pro nastavení řádků.
+
+
+\subsubsection*{Komponenta app-settings-popup}
+Veškerá nastavení nástěnky probíhají za pomoci modálních oken. Samotné grafické zobrazení oken je realizováno pomocí komponenty knihovny DevExtreme a to konkrétně \texttt{dx-popup}. Tato komponenta je však rozšířena o varování při pokusu o zavření okna s neuloženými daty. Toto chování je implementováno v komponentě \texttt{app-settings-popup}.
+
+
+\subsubsection*{Komponenta app-settings-item-list}
+Další opakovaně vyskytující částí nastavení je datová mřížka (angl. data grid). Tato mřížka by se dala označit jako rozšířená tabulka s akcemi umožňující manipulaci a editaci dat. Stejně jako u předchozí komponenty je pro grafické zobrazení této mřížky využita knihovna DevExtreme její komponenta \texttt{dx-data-grid}. Komponenta mimo pouhé zobrazení umožňuje i samotnou manipulaci s daty, nicméně během implementace byl zjištěn nedostatek při současném využití řazení dle sloupce a možnosti měnit pořadí řádku.
+
+Při úpravě hodnot se mění pouze lokální kopie dat, kterou si komponenta uchovává. Tyto hodnoty se v původním zdroji dat projeví až po uložení. Nicméně řazení probíhá podle zdrojových dat a ne podle dat lokálních.
+
+Především kvůli vlastní implementaci změny pořadí byla vytvořena komponenta \texttt{app-settings-item-list}. Mimo jiné slouží pro unifikaci nastavení samotné datové mřížky, které je realizování pomocí vnořených elementů uvnitř komponenty \texttt{dx-data-grid}. Dále však obsahuje řadu metod, které téměř kompletně mění standardní chování komponenty mřížky. Realizuje zejména změnu pořadí řádků a vlastní chování tlačítek pro přidání a mazání řádků, obnovení změn a ukládání.
+
+Změna pořadí dat mění hodnoty jak v lokální kopii dat uvnitř komponenty \texttt{dx-data-grid}, tak i v jejím datovém zdroji. Jelikož je nutné neuložené změny projevovat i v datovém zdroji, tak existuje i třetí kopie dat, kterou si uchovává komponenta \texttt{app-settings-item-list} pro případnou obnovu dat při zahození změn.
+
+Tlačítko pro smazání záznamu celý řádek odstraní z mřížky. Původní chování byla pouze změna barvy. Tlačítko pro přidání nového záznamu bylo pozměněno opět z důvodu zachování možnosti změny pořadí řádků. Tlačítko uložení pak bylo nutné rozšířit z důvodu absence události uložení dat v komponentě \texttt{dx-data-grid}. Pro případ použití v této aplikaci nestačí změnit hodnoty v datovém zdroji, ale je nutné změny projevit i v databázi na serveru a právě tento požadavek je nyní odeslán pomocí tlačítka uložení. 
+
+
+
+
+
+
+
+
 \subsubsection{Nastavení štítků}
 Modální okno s nastavením štítků cíleně porušuje jeden z pravidel principu Flux. Uchovává totiž lokální kopii sdílených dat uložených ve skladu. Tento přístup jsem zvolil z jednoho prostého důvodu a to aby se v případě zahození změn nemusel stav štítků napříč celou aplikací změnit. Místo toho jsem se přiklonil k opačnému řešení. Při úpravě štítků uživatel pracuje pouze s kopií sdílených dat. Jeho změny se tak neprojevují v jiných komponentách. V případě zahození změn při zavření dialogu tudíž není nutné provést vůbec žádnou akci. 
 
@@ -588,9 +627,24 @@ Díky tomu je značně zredukována redundance kódu a v kombinaci s generickým
 
 Automatizované testování nebylo při práci využito. Bylo tak rozhodnuto po konzultaci jak s vedoucím tak i se zadavatelem práce. Pro ověření funkčnosti, bezpečnosti a dalších aspektů aplikačního rozhraní bylo využito manuální testování pomocí nástroje Postman\footnote{Postman: \url{https://www.postman.com}}, který slouží jako klient pro odesílání požadavků aplikačního rozhraní REST a zobrazení odpovědí na tyto požadavky.
 
-\blindtext[3]
+\subsection{Uživatelské testování}
+Testování na uživatelích probíhalo na @todo zaměstnancích společnosti SEACOMP s.r.o. Jednalo se jak o zástupce z řad vedoucích týmů, kteří v rámci své pozice pracují s nástěnkou kanban dennodenně a mají na starost i její konfiguraci, tak i o řadové programátory, kteří tento nástroj využívají zřídka a čistě jen z uživatelského pohledu.
 
+Vzhledem k současné pandemii koronaviru bylo nutné využít pouze prostředky pro vzdálenou komunikaci. Testování tak bylo rozděleno do dvou částí. První část obnášela samotné vyzkoušení aplikace uživatelem. Druhá část byla realizována pomocí dotazníku.
 
+\subsubsection{Sledování chování uživatelů}
+Uživatel nebyl dopředu s aplikací nijak seznámen, protože vzhledem k zaměření jeho povolání byl předpoklad, že se s podobným nástrojem v minulosti již setkal. 
+
+Během používání aplikace byl zaznamenávám pohyb myši a průchod aplikací.  
+\blindtext
+
+\subsubsection{Dotazník}
+Po vyzkoušení aplikace každý z testovacích uživatelů obdržel odkaz na elektronický dotazník realizovaný pomocí online nástroje Formuláře Google\footnote{Formuláře Google: \url{https://www.google.com/intl/cs/forms/about/}}. Otázky dotazníku byly rozděleny do dvou skupin a jejich znění je uvedeno v příloze~\ref{sec:questionarre}.
+
+První skupina obsahovala deset výroků na téma použitelnosti aplikace a respondent byl požádán o vybrání hodnoty na škále od jedné do pěti, zda s daným výrokem souhlasí či nesouhlasí. Znění těchto výroků vychází z překladu standardizovaného dotazníku zvaného Měřítko použitelnosti systému\footnote{Měřítko použitelnosti systém: \url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html}} (angl. System Usability Scale neboli SUS).
+
+Druhá skupina obsahovala pět 
+\blindtext
 
 % ======================================================================
 \chapter{Závěr}
