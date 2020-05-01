@@ -333,8 +333,12 @@ Přestože tato společnost stojí za dnes nejpopulárnějším operačním syst
 
 % ======================================================================
 \chapter{Návrh aplikace}
-Před samotnou implementací aplikace bylo nejprve nutné promyslet návrh aplikace. 
-\blindtext
+Před samotnou implementací aplikace bylo nejprve nutné promyslet návrh tvořené aplikace. Zejména pak rozdělení aplikace do jednotlivých částí, určit jejich role v celkovém fungování systému a zmapovat interakci mezi těmito částmi. Některá rozhodnutí ohledně směru vývoje byly provedeny mnou samotným, některá ve spolupráci s konzultantem této bakalářské práce a jiná byla nařízena přímo vedením společnosti SEACOMP s.r.o.
+
+Dále bylo třeba vytvořit návrh databáze, kde budou uložena data a také připravit grafický návrh. Mimo jiné bylo třeba zanalyzovat existující aplikační rozhraní a připravit jeho rozšíření. 
+Právě těmto zmíněným oblastem se věnuje tato kapitola.
+
+
 
 
 \section{Schéma systému}
@@ -347,7 +351,7 @@ Schéma aplikace je vidět na snímku~\ref{img:scheme}. Jsou zde znázorněny t�
 	\caption{Schéma vzájemných interakcí jednotlivých částí aplikace, jejich technologií a možnostech různých rolí uživatelů.}
 \end{figure}
 
-V tomto schématu se může zdát podivuhodná konfigurace uživatelé správcem přímo v databázi. V reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v aplikaci SSB pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality nebyla efektivní.
+V tomto schématu se může zdát podivuhodná konfigurace uživatelů správcem přímo v databázi. V reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v aplikaci SSB za pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality byla bezpředmětná.
 
 \section{Entitně-vztahový diagram}\label{sec:erd}
 Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah N ku N. Ty lze poznat podle číslovky \texttt{2} v názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
@@ -362,19 +366,33 @@ Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite 
 
 
 \section{Grafický návrh}
-Prvotní verze aplikace, která vznikla řešením této bakalářské práce bude využita pouze pro interní účely společnosti. Z tohoto důvodu nebyl při zadání práce kladen příliš velký důraz na estetickou stránku aplikace. Jedním z požadavků však bylo, aby aplikace co nejvíce využívala grafický styl knihovny DevExtreme. Další požadavek zněl, aby byly v aplikaci použity barvy loga společnosti SEACOMP s.r.o.
+Prvotní verze aplikace, která vznikla řešením této bakalářské práce bude využita pouze pro interní účely společnosti. Z tohoto důvodu nebyl při zadání práce kladen příliš velký důraz na estetickou stránku aplikace. Jedním z požadavků v tomto směru však bylo, aby aplikace co nejvíce využívala grafický styl knihovny DevExtreme. Další požadavek zněl, aby byly v aplikaci použity barvy loga společnosti SEACOMP s.r.o.
+
+Ve všech částech aplikace je přítomna hlavička. Na levé straně je vždy obsaženo logo společnosti a na pravé straně se nachází informace o přihlášeném uživateli a akce jako jeho odhlášení. Po vzoru oficiální webové stránky společnosti\footnote{Webové stránky společnosti SEACOMP s.r.o.: \url{https://seacomp.cz}} hlavičku a obsah stránky dělí horizontální linka oranžové barvy, která je použita v samotném logu společnosti.
+
+Co se grafického návrhu týče, nejrozsáhlejší část aplikace je jistě samotná nástěnka. Původní návrh je vyobrazen na snímku~\ref{img:design-kanban}. Z důvodu co největší maximalizace počtu zobrazených karet se nástěnka rozpíná po celé šířce i výšce stránky s výjimkou hlavičky a nástrojové lišty.
+
+Ze stejného důvodu je menu ve výchozím stavu skryto a lze ho otevřít pomocí tlačítka na levé straně nástrojové lišty. Lišta dále obsahuje název právě otevřené nástěnky a po pravé straně pak vyhledávací pole.
+
+Položky v menu i samotný detail karet se zobrazuje v modálním okně. Uživatel se tak například i při zobrazení detailu karty stále nachází na nástěnce a může se vrátit na její přehled téměř zcela bez prodlení na rozdíl od stávající aplikace využívané ve společnosti zadavatele, kde je pro zobrazení všech detailů nutné přejít na novou stránku a následný návrat na přehled je vzhledem k počtu zobrazených úkolu velmi pomalý.
+
+Některé akce jako například odstranění karty lze provést podobně jako v desktopových aplikací pomocí kliknutí pravým tlačítkem myší na danou entitu. V případě dotykových obrazovek je kliknutí pravého tlačítka substituováno dlouhým stiskem. 
 
 \begin{figure}[H]
 	\centering
+	\label{img:design-kanban}
 	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\caption{Grafický návrh části aplikace, kde je zobrazena nástěnka kanban, vytvořený pomocí nástroje MockFlow\footnote{MockFlow: \url{https://mockflow.com}}.}
 \end{figure}
+
+Další části aplikace jsou z pohledu uživatelského rozhraní velmi triviální, a proto pro jejich tvorbu návrh nebyl nevytvořen.
 
 
 \section{Aplikační rozhraní}\label{sec:api}
-Komunikace mezi klientskou částí aplikace a tou serverovou probíhá za pomoci aplikačního rozhraní REST. Zprávy tohoto rozhraní využívají formát JSON a mají přesně definovaný obsah.
+Komunikace mezi klientskou částí aplikace a částí serverovou probíhá za pomoci aplikačního rozhraní REST. Zprávy tohoto rozhraní využívají formát JSON a mají přesně definovaný obsah.
 Vzhledem k budoucí integraci mnou tvořené aplikace do již existující aplikace SSB4Web bylo nutné zachovat v obou těchto aplikacích jednotnou podobu rozhraní.
 
-Vzhledem k zaměření mé aplikace nebylo třeba využít všechny možnosti existujícího rozhraní. Při práci byly z původního rozhraní použity pouze dva koncové body a to \texttt{SSBQuery/GetData}, umožňující dotazovat se na data uložena v databázi, a \sloppy\texttt{SSBMethod/ExecuteMethod}, spouštějící uložené procedury či příkazy. Toto rozhraní však bylo nutné rozšířit o možnost autentizace uživatele. Pro tento účel slouží nově přidaný koncový bod \sloppy\texttt{SSBAuthentication/VerifyCredentials}.
+Vzhledem k zaměření mé aplikace nebylo třeba využít všechny možnosti existujícího rozhraní. Při práci byly z původního rozhraní použity pouze dva koncové body a to \texttt{SSBQuery/GetData}, umožňující dotazovat se na data uložena v databázi, a \sloppy\texttt{SSBMethod/ExecuteMethod}, spouštějící uložené procedury či příkazy. Toto rozhraní však bylo nutné rozšířit o možnost autentizace uživatele. Původní koncové body v tomto případě nebylo možné využít, protože pouze propagují dotazy databázi, kdežto pro autentizaci je třeba požadavek zpracovat přímo v aplikaci SSBLite. Z tohoto důvodu byl přidán nový koncový bod \sloppy\texttt{SSBAuthentication/VerifyCredentials}.
 
 Obě části aplikace -- jak Kanban, tak SSBLite -- využívají stejné datové objekty, díky tomu je možné mezi těmito dvěma částmi jednoduše přenášet data. Obsahem požadavku pro získání dat je například objekt \texttt{SSBQueryRequestDTO}, ten s sebou nese jednak název konkrétního před-připraveného dotazu pod klíčem \texttt{queryName} a dále pod klíčem \texttt{filters} může obsahovat i další objekt typu \texttt{SSBFilterDTO}. Ten se zase skládá z objektu \texttt{ssbIFilterOperator}, skrytým pod stejnojmenným klíčem, a dále z pole objektů \texttt{SSBFilterTermDTO} označeným klíčem \texttt{filterItems}. Objekty v tomto poli obsahují tři hodnoty. Pod klíčem \texttt{m\_filterOperator} lze opět pozorovat objekt \texttt{ssbIFilterOperator}. Ve skutečnosti se jedná pouze o výčet logických operátorů, které jsou později použity pro bezpečné sestavení dotazu na databázi. Další dvě hodnoty nesou název sloupce v databázi a pole hodnot použitých v dotazu.
 
@@ -405,10 +423,9 @@ Nevýhoda této podoby aplikačního rozhraní je však v nemožnosti provést v
 
 Tento nedostatek je způsoben tím, že je původní návrh rozhraní je zaměřen hlavně na zobrazení tabulek ve vztahu hlavní--podrobné (angl. master--detail), kde k těmto situacím dochází minimálně. Zadavateli tématu diplomové práce bylo představeno několik alternativních řešení, nicméně bylo rozhodnuto pro zachování původního návrhu a setrvání v odesílání několika požadavků současně. 
 
-https://www.overleaf.com/project/5d9f7ad34e15d80001c95e73
 % ======================================================================
 \chapter{Implementace aplikace}
-Předmětem této kapitoly je popis vlastní implementace webové aplikace typu Kanban, která byla cílem zadání této bakalářské práce. V úvodu je popsaná klientská část aplikace, ke které uživatel přistupuje pomocí internetového prohlížeče. Další část kapitoly je věnována implementaci serverové části aplikace, s kterou uživatel přichází do styku pouze pomocí aplikačního rozhraní přiblíženého v kapitole~\ref{sec:api}. Závěr kapitoly je pak zaměřen na databázovou vrstvu aplikace, kde jsou uchovávány uživatelská a jiná data.
+Předmětem této kapitoly je popis vlastní implementace webové aplikace typu Kanban, jejíž vytvoření bylo cílem této bakalářské práce. V úvodu je popsaná klientská část aplikace, ke které uživatel přistupuje pomocí internetového prohlížeče. Další část kapitoly je věnována implementaci serverové části aplikace, s kterou uživatel přichází do styku pouze skrze aplikační rozhraní, které již bylo přiblíženo v kapitole~\ref{sec:api}. Závěr kapitoly je pak zaměřen na databázovou vrstvu aplikace, kde jsou uchovávány uživatelská a jiná data.
 
 
 
@@ -442,16 +459,19 @@ Nejdůležitějším z výše uvedených adresářů je jednoznačně adresář 
 \subsection{Základní struktura stránky}
 Ať už se uživatel aktuálně nachází na libovolné části aplikace, základní struktura právě zobrazené stránky se bude tvořit ze stejných prvků. Základ celé komponenty je element \texttt{<app-root>}. Tento prvek je také kromě referencí na soubory obsahující zdrojové kódy jazyka JavaScript to jediné, co se v obsahu stránky zobrazí v případě, že internetový prohlížeč jazyk JavaScript nepodporuje či dokonce blokuje. 
 
-V případě, že je interpret jazyka JavaScript dostupný, vzniknou uvnitř tohoto elementu další elementy. Vždy je přítomna komponenta \texttt{<app-header>} a \texttt{<router-outlet>}. První z komponent obsahuje hlavičku s logem společnosti SEACOMP s.r.o., která je vždy vidět ve vrchní části aplikace. Součástí hlavičky je také možnost odhlášení uživatele, za předpokladu že je právě přihlášen.
+V případě, že je interpret jazyka JavaScript dostupný, vzniknou uvnitř tohoto elementu další elementy. Vždy je přítomna komponenta \texttt{<app-header>} a \texttt{<router-outlet>}. První z komponent obsahuje hlavičku s logem společnosti SEACOMP s.r.o., která je vždy vidět ve vrchní části aplikace. Součástí hlavičky je také možnost odhlášení uživatele, za předpokladu že je právě přihlášen. Tato komponenta je vyfocena na snímku~\ref{img:comp-header}.
+
+
+\begin{figure}[H]
+	\centering
+	\label{img:comp-header}
+	\includegraphics[width=\textwidth]{obrazky-figures/comp-header.png}
+	\caption{Ukázka komponenty hlavičky neboli \texttt{<app-header>} s právě přihlášeným uživatelem.}
+\end{figure}
 
 Druhá z komponent ve skutečnosti nemá žádný reálný obsah. Představuje však nedílnou součást aplikace, jelikož se stará právě o chování aplikace jako jednostránkové. Na základě aktuální cesty obměňuje komponentu, která v hierarchii uzlů HTML představuje dalšího sourozence. Z počátku se tak lze na tomto místě potkat s komponentou \texttt{<app-login>}, následně \texttt{<app-dashboard>} a poté \texttt{<app-board>}. Současně s obměnou těchto komponent je také změněna adresa aktuální stránky v adresním řádku internetového prohlížeče. Navenek se tedy může zdát, že uživatel skutečně přechází z jedné stránky na druhou. Ve skutečnosti se však nachází stále na stejné stránce, pouze je překreslována část jejího obsahu.
 
 Cesty a jim odpovídající komponenty jsou definované v souboru \texttt{app-routing.module.ts}. U každé cesty je také možno nastavit ochranné služby. Jedná se o třídy implementující rozhraní \texttt{CanActivate}, které ve stejnojmenné metodě vrací logickou hodnotu. Pokud jedna z těchto služeb vrátí hodnotu nepravdy, je přístup uživatel k této cestě zamítnut. Tuto funkcionalitu v aplikaci využívám na ověření, zda je uživatel přihlášen. Výjimku tvoří pouze stránka s přihlášením, ke které lze přistoupit v přesné opačné situaci a to když uživatel zatím není přihlášen. Jedná se o třídy \texttt{AuthenticationGuardService} a \texttt{GuestGuardService}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
-\end{figure}
 
 
 \subsection{Nástěnka}
