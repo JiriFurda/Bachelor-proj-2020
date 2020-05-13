@@ -1,19 +1,19 @@
 \chapter{Úvod}
-\blindtext
+V každé výrobě je přirozeně snaha o co největší efektivitu. Konkrétně v oblasti informačních technologií je pro tento účel velice rozšířené použití agilních metodik řízení projektů. Jedním z nástrojů těchto metodik je metodika Kanban.
 
 Cílem této bakalářské práce je vytvořit webovou aplikaci typu Kanban určenou pro řízení projektů na základě požadavků společnosti SEACOMP s.r.o. Za tímto účelem je společností v současné době využíván nástroj třetí strany, který ovšem není plně přizpůsoben potřebám této společnosti, ku příkladu není integrován do dalších interních aplikací.
 
-Téma práce mne zaujalo zejména díky stále rostoucí popularitě interaktivních webových aplikací, motivující pro mne bylo mít možnost takovou aplikaci implementovat naprosto sám. Také mne lákala možnost firemního zadání bakalářské práce, díky kterému bude mít výsledná aplikace reálné využití a bude využívána v praxi. 
+Téma práce mne zaujalo zejména díky stále rostoucí popularitě interaktivních webových aplikací. Motivující pro mne bylo mít možnost takovou aplikaci implementovat naprosto sám. Také mne lákala možnost firemního zadání bakalářské práce, díky kterému bude mít výsledná aplikace reálné využití v praxi a její existence neskončí dnem odevzdání. 
 
-\blindtext
+Tato práce částečně navazuje na diplomovou práci mého bývalého kolegy Bc.~Adama Teršla, jež nesla název \emph{Webový klient pro nemocniční systém}~\cite{bib:tersl}. Výsledkem této práce je aplikace SSB4Web, do které bude výsledná aplikace mé bakalářské práce v budoucnu integrována.
 
 Druhá kapitola práce, zvaná \uv{Rozbor řešené problematiky}, pojednává o historii a současných trendech projektového řízení, zejména pak o metodice Kanban. Poté následuje přehled několika nástrojů určených pro aplikaci této metodiky a jejich srovnání.
 Dále je pár slov věnováno zadavateli této diplomové práce -- společnosti SEACOMP s.r.o., infrastruktuře této společnosti a požadavkům na výslednou aplikaci.
 Další kapitola, označená \uv{Technologie}, obsahuje stručný přehled technologií a principů využitých při implementaci této aplikace.
-Následující kapitola s názvem \uv{Návrh aplikace} % @todo
+Následující kapitola s názvem \uv{Návrh aplikace} se zaměřuje jak na grafický, tak i technický návrh aplikace. Popisuje rozvržení databáze, provázanost částí systému a podobu aplikačního rozhraní.
 Pátá kapitola jménem \uv{Implementace aplikace}, se pak věnuje zajímavým částem řešení této bakalářské práce. 
-Kapitola \uv{Testování a vyhodnocení} % @todo
-Na závěr je poté shrnuto % @todo
+Kapitola \uv{Testování a vyhodnocení} popisuje formu testování výsledné aplikace a její výsledky.
+Na závěr je poté shrnuto dosažení výsledků této bakalářské práce.
 
 
 
@@ -87,14 +87,14 @@ Nejjednodušší variantou takových sloupců může být například trojce slo
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\includegraphics[width=\textwidth]{obrazky-figures/kanban-sticky-note}
 	\caption{Nástěnka typu Kanban realizována pomocí nalepovacích papírků na magnetické tabuli.}
 	\label{img:kanban-whiteboard}
 \end{figure}
 
 V praxi je takřka nemožné setkat se s takto jednoduchým provedením. Proces výroby či vývoje je třeba rozdělit na jednotlivé části. Při vývoji softwaru bývají často využívány sloupce \uv{návrh}, \uv{vývoj}, \uv{testování} a další.  
 
-Pokud jednu nástěnku využívá více oddělení společnosti, lze se mnohdy setkat i s dalším rozlišením úkolů. Jedná se o takzvané plavecké dráhy (angl. swimlanes). Úkoly jsou pak rozděleny nejen do sloupců (značících procesy), ale i do vodorovných řádků, které nejčastěji představují jednotlivá oddělení společnosti či týmy. 
+Pokud jednu nástěnku využívá více oddělení společnosti, lze se mnohdy setkat i s dalším rozlišením úkolů. Jedná se o takzvané plavecké dráhy (angl. \emph{swimlanes}). Úkoly jsou pak rozděleny nejen do sloupců (značících procesy), ale i do vodorovných řádků, které nejčastěji představují jednotlivá oddělení společnosti či týmy. 
 
 V dnešní době, jak u mnoha věcí, převažuje digitální provedení Kanban nástěnek. Její výhodou je především větší přehlednost, vzdálená přístupnost, jednoduší manipulace a hlavně možnost připojovat k jednotlivým kartám podrobnější popis, komentáře, obrázky a další dokumenty. Nicméně i fyzická varianta má své výhody. Jedna z nich je fakt, že je stále na očích a nelze ji skrýt jako například záložku v prohlížeči. Toto provedení může taktéž podněcovat k vetší komunikaci mezi týmy a to jsou důvody proč tuto variantu využívají například ve společnosti Optimizely\footnote{Optimizely: \url{https://www.optimizely.com/about/}}~\cite{bib:kanban-atlassian}.
 
@@ -115,7 +115,7 @@ Svou velkou popularitu si aplikace zasloužila především přívětivým uživ
 
 Trello nabízí řadu vylepšení, díky kterým je možné nástěnku rozšířit o funkce z aplikací třetích stran. 
 V bezplatné verzi lze však využít pouze jedno takové vylepšení~\cite{bib:trello-pricing}.
-Nástěnka je umístěna na vzdáleném úložišti a službu nelze provozovat na svém vlastním serveru. Nicméně mobilní aplikace umožňují pracovat s nástěnkami i bez přístupu k internetu~\cite{bib:trello-common}.
+Nástěnka je umístěna na serverech poskytovatele a službu nelze provozovat na svém vlastním serveru. Nicméně mobilní aplikace umožňují pracovat s nástěnkami i bez přístupu k internetu~\cite{bib:trello-common}.
 
 \begin{figure}[H]
 	\centering
@@ -133,7 +133,7 @@ Jednou z funkcí, kterou Jira disponuje, je možnost vygenerování řady grafů
 
 Díky tomu, že je aplikace určená pro softwarové vývojáře je v této aplikaci mimo klasické nástěnky možné také přepnout režim zobrazení na variantu určenou pro agilní metodiku zvanou Scrum, která cílí na dokončení úkolů v rámci iterace cyklu vývoje~\cite{bib:trello-vs-jira-2020}.
 
-Nástěnka může být na rozdíl od aplikace Trello umístěna jak na vzdáleném úložišti, tak na vlastním serveru.
+Nástěnka může být na rozdíl od aplikace Trello umístěna jak na serverech poskytovatele, tak i na vlastním serveru.
 
 Tato aplikace je využívána více něž 65 tisíci zákazníky po celém světě mezi které se řadí například internetovou aukční síň eBay\footnote{eBay: \url{https://www.ebayinc.com/company/}}, služba pro streamování hudby Spotify\footnote{Spotify: \url{https://newsroom.spotify.com/company-info/}}, společnost vyrabějící síťové prvky Cisco\footnote{Cisco: \url{https://www.cisco.com/c/en_uk/index.html}} nebo aplikace pro pronájem ubytování Airbnb\footnote{Airbnb: \url{https://news.airbnb.com/about-us/}}~\cite{bib:jira-homepage}.
 
@@ -180,7 +180,7 @@ Kanboard & Zdarma & Ne & Ano & Ano \\
 \end{table}
 \footnotetext{Cena na uživatele za měsíc}
 
-Z důvodu ochrany firemního tajemství mohou být preferovány služby Jira a Kanboard, jelikož je možné je provozovat přímo na svém vlastním serveru. Konkrétně u aplikace Kaboard může tato vlastnost však představovat pro řadu uživatelů nevýhodu. Aplikaci totiž není možné jednoduše provozovat na vzdáleném úložišti. Uživatel musí mít k dispozici server, kde bude aplikace provozována a to se může stát bariérou pro méně pokročilé uživatele počítače.
+Z důvodu ochrany firemního tajemství mohou být preferovány služby Jira a Kanboard, jelikož je možné je provozovat přímo na svém vlastním serveru. Konkrétně u aplikace Kaboard může tato vlastnost však představovat pro řadu uživatelů nevýhodu. Aplikaci totiž není možné jednoduše provozovat na serverech poskytovatele. Uživatel musí mít k dispozici server, kde bude aplikace provozována a to se může stát bariérou pro méně pokročilé uživatele počítače.
 
 Kanboard však jako jediná z tří uvedených aplikací disponuje otevřeným zdrojovým kódem. Umožňuje tak větší zásahy do aplikace než je tomu v případě dalších dvou aplikací, kde lze úpravy řešit pouze pomocí doplňků.
 
@@ -211,7 +211,8 @@ Podoba aplikačního rozhraní z důvodu budoucí integrace do systému SSB4Web 
 
 Dále je požadováno, aby webová aplikace používala stejné technologie jako původní SSB4Web, tedy rámec Angular s knihovnou pro správu stavu NgRx. Výjimkou je v tomto případě knihovna použitá pro uživatelské rozhraní, kdy původní diplomová práce využívala knihovnu PrimeNG\footnote{PrimeNG: \url{https://primefaces.org/primeng/}}. Po dokončení této práce však bylo společností požadováno knihovnu nahradit za balík komponent DevExtreme. Tento balík je tedy při implementaci práce rovněž využít.
 
-Od samotné funkcionality aplikace je očekáváno \blindtext
+Od samotné funkcionality aplikace je přirozeně očekáváno standardní chování aplikací toho typu jako je vytváření, mazání, editace a přesuny karet. Nástěnka kromě sloupců musí umět pracovat také s plaveckými drahami a obě tyto struktury musí být v aplikaci konfigurovatelné. Ke kartám je nutné mít možnost přiřadit štítky, které taktéž musejí být konfigurovatelné. Veškeré akce týkající se karet musí byt zapisovaný a je třeba umožnit zobrazení historie jednotlivých karet.
+Serverová část aplikace musí načítat konfiguraci vydefinovanou mimo zdrojový kód aplikace. Pro autentizaci uživatele je požadováno využívat standard JWT.
 
 
 
@@ -232,25 +233,29 @@ V poslední části podkapitoly je zase popsána serverová část. Ta se sklád
 \emph{Tato kapitola čerpá z~\cite{bib:spa}}.
 
 V raných dobách internetu se webové stránky skládaly ze statického obsahu. S popularizací elektronického obchodování se však objevila potřeba na stránkách zobrazovat i obsah dynamický. 
-Toho lze docílit například díky technologii AJAX (Asynchronous JavaScript and XML). Jednostránkové aplikace se zpravidla skládají z komponent, které lze nezávisle nahradit nebo aktualizovat. Díky tomu není nutné při každé akci znovu načíst celou stránku, čímž je značně zredukován objem přenášených dat. Ve srovnání s vícestránkovými aplikacemi tak tento přístup umožňuje rychleji reagovat na požadavky uživatele.
 
-\blindtext %todo vic se rozepsat
+Této funkcionality lze docílit například díky technologii AJAX (Asynchronous JavaScript and XML). Technologie AJAX umožňuje komunikovat se serverem i po načtení stránky a tato komunikace probíhá na pozadí. Díky tomu není nutné při každé akci znovu načíst celou stránku, čímž je značně zredukován objem přenášených dat.
+
+Při navštívení jednostránkové webové aplikace je ze serveru nejprve načtena počáteční zmenšená část stránky. Další obsah je vyžádán a načten zpravidla až na základě uživatelské interakce. Ve srovnání s vícestránkovými aplikacemi tak tento přístup umožňuje rychleji reagovat na požadavky uživatele.
+
+Často se lze také setkat se změnou adresní řádky prohlížeče při pomyslném přechodu na jinou podstránku. Ve skutečnosti se však uživatel stále nachází na jedné stránce, jen byl její obsah aktualizován. Právě proto se zmíněný princip webových aplikací označuje jako jednostránkový.
+
+Takovéto aplikace se zpravidla skládají z komponent. Pro tvorbu těchto aplikací se využívá jazyk JavaScript, nicméně vzhledem k jejich komplexnosti se v drtivé většině pro implementaci používá některých z rámců tohoto jazyka.
 
 \section{JavaScript}
 \blindtext
 
 \subsection{TypeScript}
-Samotný jazyk JavaScript však pro vývojáře může představovat překážku při implementaci rozsáhlých aplikací. %todo Proč
-Řešením tohoto problému je například nástavba TypeScript, která tento jazyk obohacuje o prvky běžně používané v jiných programovacích jazycích. Jedná se ku příkladu o moduly, třídy, rozhraní a statické typování~\cite{bib:typescript}.
+Samotný jazyk JavaScript však pro vývojáře může představovat překážku při implementaci rozsáhlých aplikací. Jedním z hlavních problémů je nepřehlednost kódu s dynamickým typováním proměnných.
+
+Řešením tohoto problému je například nástavba TypeScript\footnote{TypeScript: \url{https://www.typescriptlang.org}}, která tento jazyk obohacuje o prvky běžně používané v jiných programovacích jazycích. Jedná se ku příkladu o moduly, třídy, rozhraní a v neposlední řadě statické typování. Díky tomu je možné vyvíjet robustnější aplikace~\cite{bib:typescript}.
  
 Jelikož internetové prohlížeče jazyk TypeScript neznají, je využíván překladač, který kód překládá do jazyka JavaScript.
-
-\blindtext
 
 \subsection{Rámce jazyka JavaScript}
 S použitím čistého jazyka JavaScript bez použití knihoven či rámců se dnes setkáváme zřídka. Zejména u větších projektů je psaní kódu v čistém jazyce JavaScript ve srovnáním s použítí knihoven a rámců velmi časově náročné~\cite{bib:vanilla-js}.
 
-Nejslavnějším rozšířením toho jazyka je bezesporu knihovna jQuery\footnote{jQuery: https://jquery.com}. Ta usnadňuje zejména průchod a manipulaci objektového modulu dokumentu (angl. Document Object Model neboli DOM), zpracování událostí, animace a práci s asynchronními požadavky~\cite{bib:jquery}.
+Nejslavnějším rozšířením toho jazyka je bezesporu knihovna jQuery\footnote{jQuery: https://jquery.com}. Ta usnadňuje zejména průchod a manipulaci objektového modulu dokumentu (angl. \emph{Document Object Model} neboli \emph{DOM}), zpracování událostí, animace a práci s asynchronními požadavky~\cite{bib:jquery}.
 
 Knihovna jQuery však není určená pro tvorbu stále populárnějších jednostránkových aplikaci. Na ty se zaměřují zcela jiné rámce, kterých se v poslední době objevuje stále více.
 
@@ -267,7 +272,7 @@ Angular je webová platforma umožňující tvorbu jednostránkových aplikací 
 % @todo https://www.angularjswiki.com/angular/history-of-angularjs/
 Autorem platformy Angular je Miško Hevery, zaměstnanec společnosti Google. Platformu původně psal pro usnadnění vývoje několika interních projektů. V roce 2010 však byla platforma i její zdrojový kód otevřena široké veřejnosti. V následujících letech se oblast vývoje webových aplikací změnila a Angular již nedokázal držet krok. Platforma se stala velmi populární, s čímž původní návrh nepočítal. Bylo tedy nutné platformu Angular kompletně přepsat. Na podzim roku 2016 byla vydána nová verze této platformy s označením Angular 2. K dnešnímu dni se nové verze dostaly až k označení pod číslem 9, nicméně se stále jedna o rozšíření původního jádra verze 2. Na vývoji se stále podílí jak společnost Google, tak i komunita. Pro odlišení původní verze od nových přepsaných verzí se ta původní označuje jako AngularJS~\cite{bib:angular-history}.
 
-\subsubsection{NgRx}
+\subsubsection{NgRx}\label{sec:ngrx}
 NgRx je knihovna pro správu stavu určená pro platformu Angular. Tato knihovna je založena na principu Redux.
 \blindtext % @todo popsat o co jde 
 % https://books.google.cz/books?hl=cs&lr=&id=OLZTDwAAQBAJ&oi=fnd&pg=PP1&dq=ngrx&ots=HoiBNWn4zq&sig=zrkpeOuKBmhqnd1ojsGeasbym7g&redir_esc=y#v=onepage&q=boiler&f=false
@@ -277,11 +282,11 @@ Dalším úskalím je velké množství nutného dodatečného kódu. Přidání
 
 Zásada SHARI~\cite{biib:ng-conf}:
 \begin{itemize}
-  \item Sdílení (angl. shared) - Ke stavu přistupuje více komponent a služeb
-  \item (angl. hydrated) - Stav přetrvává a je obnovován z externího zdroje
-  \item (angl. available) - 
-  \item (angl. retrieved) - 
-  \item (angl. impacted) - 
+  \item Sdílení (angl. \emph{shared}) - Ke stavu přistupuje více komponent a služeb
+  \item (angl. \emph{hydrated}) - Stav přetrvává a je obnovován z externího zdroje
+  \item (angl. \emph{available}) - 
+  \item (angl. \emph{retrieved}) - 
+  \item (angl. \emph{impacted}) - 
 \end{itemize}
 
 \blindtext
@@ -302,15 +307,15 @@ DevExtreme je balík komponent určený pro tvorbu responzivních webových apli
 \section{JSON Web Token}
 \emph{Tato podkapitola vychází z~\cite{bib:jwt}}
 
-JSON Web Token (zkráceně JWT) je otevřený standard\footnote{RFC 7519: \url{https://tools.ietf.org/html/rfc7519}} zajišťující zabezpečenou výměnu informací mezi dvěma stranami. Jedná se o objekt typu JSON, který se skládá ze tří částí oddělených tečkou. Jedná se o hlavičku, náklad a podpis.
+JSON Web Token (zkráceně JWT) je otevřený standard\footnote{RFC 7519: \url{https://tools.ietf.org/html/rfc7519}} zajišťující zabezpečenou výměnu informací mezi dvěma stranami. Jedná se o objekt typu JSON (JavaScript Object Notation), který se skládá ze tří částí oddělených tečkou. Jedná se o hlavičku, náklad a podpis.
 
-Hlavička je objekt typu JSON, zakódovaný pomocí Base64Url\footnote{Kódování reprezentující binární data pomocí tisknutelných znaků~\cite{bib:base64}} který nese informaci o typu žetonu a použitém algoritmu digitálního podpisu. 
+Hlavička je objekt typu JSON, zakódovaný pomocí kódovaní Base64Url\footnote{Kódování reprezentující binární data pomocí tisknutelných znaků~\cite{bib:base64}}, který nese informaci o typu žetonu a použitém algoritmu digitálního podpisu. 
 
-Náklad je stejně jako hlavička objekt typu JSON zakódovaný pomocí Base64Url. Tentokrát jsou však jeho obsahem tvrzení (angl. claim). Ty nesou přenášené informace, které je třeba předávat zabezpečené. Nejčastěji se jedná o informace o uživateli.
+Náklad je stejně jako hlavička objekt typu JSON zakódovaný pomocí Base64Url. Tentokrát jsou však jeho obsahem tvrzení (angl. \emph{claim}). Ty nesou přenášené informace, které je třeba předávat zabezpečené. Nejčastěji se jedná o informace o uživateli.
 
-Podpis zaručuje, že zpráva nebyla pozměněna. Může být také využit pro ověření identity odesílajícího. Podpis je vytvořen spojením řetězců dvou předchozích částí, mezi které je vložena tečka. Na konec toho řetězce je dále připojen tajný řetězec. Výsledný řetězec je poté zašifrován algoritmem uvedeným v hlavičce. 
+Podpis zaručuje, že zpráva při přenosu nebyla pozměněna. Podpis může být také využit pro ověření identity odesílatele. Podpis je vytvořen spojením řetězců dvou předchozích částí, mezi které je vložena tečka. Na konec toho řetězce je dále připojen tajný řetězec. Výsledný řetězec je poté zašifrován algoritmem uvedeným v hlavičce. 
 
-V praxi se lze s touto metodou autentizace setkat například na stránkách, které umožňuji přihlásit se pomocí účtu u společnosti Google~\cite{bib:google-jwt}. V takovém případě se jedná o výměnu informací mezi třemi stranami. Posloupnost akcí pro získání žetonu v této situaci a jeho následné použití lze vidět na obrázku~\ref{img:jwt}.
+V praxi se lze s touto metodou autentizace setkat například na stránkách, které umožňují přihlásit se pomocí účtu u společnosti Google~\cite{bib:google-jwt}. V takovém případě se jedná o výměnu informací mezi třemi stranami. Posloupnost akcí pro získání žetonu v této situaci a jeho následné použití lze vidět na obrázku~\ref{img:jwt}.
 
 \begin{figure}[H]
     \label{img:jwt}
@@ -327,6 +332,7 @@ Přestože tato společnost stojí za dnes nejpopulárnějším operačním syst
 \blindtext
 
 \section{PostgreSQL}
+PostgreSQL\footnote{PostgreSQL: \url{https://www.postgresql.org}} je objektově-relační databázový systém s historií do roku 1986. Jedná se o vysoce přizpůsobitelné rozšíření jazyka SQL~\cite{bib:postgre}.
 \blindtext
 
 
@@ -351,10 +357,12 @@ Schéma aplikace je vidět na snímku~\ref{img:scheme}. Jsou zde znázorněny t�
 	\caption{Schéma vzájemných interakcí jednotlivých částí aplikace, jejich technologií a možnostech různých rolí uživatelů.}
 \end{figure}
 
-V tomto schématu se může zdát podivuhodná konfigurace uživatelů správcem přímo v databázi. V reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v aplikaci SSB za pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality byla bezpředmětná.
+V tomto schématu se může jevit podivuhodná konfigurace uživatelů správcem přímo v databázi. V reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v aplikaci SSB za pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality byla bezpředmětná.
+
+V práci taktéž není zakomponovaná správa samotných nástěnek. V současné aplikaci SSB totiž nástěnka odpovídá právě jednomu týmu uživatelů. Pro vytvoření nové nástěnky je tudíž nutné vytvořit celý nový tým. Z důvodů zachování tohoto chování a předcházení zbytečné dvojí implementace je pro vytvoření nebo odstranění nástěnky či přiřazení přístupu uživatelům k nástěnce nutné upravit data přímo v databázi. Tato funkcionalita bude taktéž vyřešena integrací do stávající aplikace.
 
 \section{Entitně-vztahový diagram}\label{sec:erd}
-Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah N ku N. Ty lze poznat podle číslovky \texttt{2} v názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
+Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah M:N. Ty lze poznat podle číslovky 2 v názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
 
 \begin{figure}[H]
 	\centering
@@ -421,7 +429,7 @@ Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může 
 
 Nevýhoda této podoby aplikačního rozhraní je však v nemožnosti provést více dotazů na databázi pomocí jednoho asynchronního volání. Například při prvotním načtení nástěnky je tak nutné odeslat vícero asynchronních požadavků najednou.
 
-Tento nedostatek je způsoben tím, že je původní návrh rozhraní je zaměřen hlavně na zobrazení tabulek ve vztahu hlavní--podrobné (angl. master--detail), kde k těmto situacím dochází minimálně. Zadavateli tématu diplomové práce bylo představeno několik alternativních řešení, nicméně bylo rozhodnuto pro zachování původního návrhu a setrvání v odesílání několika požadavků současně. 
+Tento nedostatek je způsoben tím, že je původní návrh rozhraní je zaměřen hlavně na zobrazení tabulek ve vztahu hlavní--podrobné (angl. \emph{master--detail}), kde k těmto situacím dochází minimálně. Zadavateli tématu diplomové práce bylo představeno několik alternativních řešení, nicméně bylo rozhodnuto pro zachování původního návrhu a setrvání v odesílání několika požadavků současně. 
 
 % ======================================================================
 \chapter{Implementace aplikace}
@@ -430,7 +438,7 @@ Předmětem této kapitoly je popis vlastní implementace webové aplikace typu 
 
 
 \section{Klientská část}
-Klientskou částí aplikace je jednostránková webová aplikace vytvořená za pomocí rámce Angular. Základním stavebním kamenem toho rámce jsou bez pochyby komponenty. Právě ty jsou hlavním tématem této podkapitoly. Dále jsou zde zmíněny i jiné zajímavé části implementace klientské části. Obsah jednotlivých stránek je sestaven kombinací vlastních komponent, které jsou podrobněji popsané v této kapitole, a také před-připravených komponent knihovny DevExtreme.
+Klientskou částí aplikace je jednostránková webová aplikace vytvořená za pomocí rámce Angular. Základním stavebním kamenem toho rámce jsou bez pochyby komponenty. Právě ty jsou hlavním tématem této podkapitoly. Dále jsou zde zmíněny i jiné zajímavé části implementace klientské části. Obsah jednotlivých stránek je sestaven kombinací vlastních komponent, které jsou podrobněji popsané v této kapitole, a také před-připravených komponent knihovny DevExtreme. Rozeznat jejich původ lze pomocí předpony \texttt{app-} v případě vlastních komponent a pomocí předpony \texttt{dx-} v případě komponent z knihovny DevExtreme.
 
 
 \subsection{Struktura adresáře}
@@ -475,24 +483,47 @@ Cesty a jim odpovídající komponenty jsou definované v souboru \texttt{app-ro
 
 
 \subsection{Nástěnka}
-Stránka s nástěnkou je bezesporu nejkomplexnější částí aplikace. Její základní komponentou je <app-board>, jejím úkolem je mimo jiné také prvotní načtení všech % @todo
+Stránka s nástěnkou je bezesporu nejkomplexnější částí aplikace. Základní komponentou je v tomto případě \texttt{<app-board>}, jejím úkolem je mimo jiné také prvotní načtení všech dat z databáze, které se dané nástěnky týkají. Jedná se například o sloupce, plavecké dráhy, karty, štítky a další entity. Celkový přehled důležitých komponent této stránky je uveden na snímku~\ref{img:comp-board-scheme}.
 
-Na nejvyšší úrovni této stránky se nachází několik komponent knihovny DevExtreme. Jedná se o <dx-toolbar>, % @todo
+Na nejvyšší úrovni této stránky se nachází několik komponent knihovny DevExtreme. Nejvýše položená komponenta je \texttt{<dx-toolbar>}, která obsahuje tlačítko pro zobrazení či skrytí menu, název nástěnky a vyhledávací pole. Hned pod ní se nachází komponenta \texttt{<dx-drawer>}, ta slouží k zobrazení nabídky menu. Jistou zvláštností je, že celá zbylá část stránky se nachází uvnitř této komponenty, nicméně použitá knihovna vyžaduje takovýto přístup.
 
+Obsahem zmíněné komponenty je další komponenta knihovny DevExtreme a to \texttt{<dx-scroll-view>}. V tomto případě nahrazuje nativní posuvné lišty internetového prohlížeče a to jak vertikální, tak i horizontální. Tím je zajištěno jednotné chování i vzhled těchto lišt napříč různými prohlížeči.
 
+\begin{figure}[H]
+	\centering
+	\label{img:comp-board-scheme}
+	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
+	\caption{Ukázka stránky s nástěnkou se zvýrazněním jednotlivých komponent.}
+\end{figure}
 
-\subsection{Detail karty}
+\subsubsection*{Plavecké dráhy}
+
+Uvnitř této komponenty se již nacházejí vlastní komponenty specifické pro nástěnku Kanban. V hiearchii se nejvýše nachází komponenty \texttt{<app-board-swimlane>}, kde jedna vždy odpovídá jedné plavecké dráze. Plavecké dráhy se skládají ze samotného záhlaví dráhy a dále z obsahu. Ten lze pomocí kliknutí na záhlaví zobrazit či skrýt, což je užitečná funkcionalita v případě, že je těchto drah využito mnoho. 
+
+\subsubsection*{Sloupce}
+
+Uvnitř každé plavecké dráhy se pak pro každý sloupec nástěnky nachází právě jedna komponenta typu \texttt{<app-board-column>}. Ta sdružuje karty, naležící danému sloupic a plavecké dráze. Sloupec opět využívá komponentu \texttt{<dx-scroll-view}, která s kombinací s fixní výškou sloupce zajišťuje, že nadměrné hromadění karet v jednom sloupci neovlivňuje okolní sloupce, jako tomu je v současnosti u původní aplikace.
+
+Obsahem sloupců je také komponenta \texttt{<dx-sortable>}, která umožňuje přesun karet mezi jednotlivými sloupci a plaveckými drahami. Jedna z metod této komponenty však byla přepsány. Jedná se o metodu, který je spuštěna po přesunu karty. Ta kromě provedení samotné změny pozice také o této změně informuje serverovou část aplikace. 
+
+\subsection{Karta}
+
+\blindtext
+
+\subsubsection*{Detail karty}
 \blindtext
 
 
 \subsection{Nastavení}
-\blindtext
+Ačkoliv některá nastavení se v současné aplikaci provádí editací dat v databázi, existuje i několik případů, kdy se nastavení nachází přímo v aplikaci a je realizováno pomocí uživatelského rozhraní. Implementace takových nastavení je popsána v této podkapitole.
 
+\subsubsection*{Nastavení štítků}
+Modální okno s nastavením štítků cíleně porušuje jeden z pravidel principu Flux. Uchovává totiž lokální kopii sdílených dat uložených ve skladu. Tento přístup jsem zvolil z jednoho prostého důvodu a to aby se v případě zahození změn nemusel stav štítků napříč celou aplikací změnit. Místo toho jsem se přiklonil k opačnému řešení. Při úpravě štítků uživatel pracuje pouze s kopií sdílených dat. Jeho změny se tak neprojevují v jiných komponentách. V případě zahození změn při zavření dialogu tudíž není nutné provést vůbec žádnou akci. 
 
-\subsubsection{Sdílené komponenty}
+\subsubsection*{Sdílené komponenty}
 Některá nastavení jsou si vzájemně velice podobná. Z toho důvodu bylo nastavení rozděleno do několika menších komponent a několik z nich tak lze použít například jak v nastavení sloupců, tak i v nastavení plaveckých drah.
 
-Hierarchie těchto komponent je vyobrazena na snímku~\ref{img:settings-dia}. Detailní popis jednotlivých komponent a jejich funkcí je popsán dále v této kapitole.
+Hierarchie těchto komponent je vyobrazena na snímku~\ref{img:settings-dia}. Detailní popis jednotlivých komponent a jejich funkcí je popsán dále v této podkapitole.
 
 \begin{figure}[H]
 	\centering
@@ -503,58 +534,50 @@ Hierarchie těchto komponent je vyobrazena na snímku~\ref{img:settings-dia}. De
 
 
 \subsubsection*{Třída SettingsBase}
-Jedná se o abstraktní třídu, z které dědí konkrétní komponenty pro jednotlivá nastavení jako například \texttt{app-columns-settings} pro nastavení sloupců nebo  \texttt{app-swimlanes-settings} pro nastavení řádků.
+Jedná se o abstraktní třídu, z které dědí konkrétní komponenty pro jednotlivá nastavení jako například \texttt{<app-columns-settings>} pro nastavení sloupců nebo  \texttt{<app-swimlanes-settings>} pro nastavení řádků. Hlavním účelem této abstraktní třídy je sjednotit způsob propagace otevření modálního okna.
 
 
 \subsubsection*{Komponenta app-settings-popup}
-Veškerá nastavení nástěnky probíhají za pomoci modálních oken. Samotné grafické zobrazení oken je realizováno pomocí komponenty knihovny DevExtreme a to konkrétně \texttt{dx-popup}. Tato komponenta je však rozšířena o varování při pokusu o zavření okna s neuloženými daty. Toto chování je implementováno v komponentě \texttt{app-settings-popup}.
+Veškerá nastavení nástěnky probíhají za pomoci modálních oken. Samotné grafické zobrazení oken je realizováno pomocí komponenty knihovny DevExtreme a to konkrétně \texttt{<dx-popup>}. Tato komponenta je však rozšířena o varování při pokusu o zavření okna s neuloženými daty. Zmíněné chování je součástí implementace komponenty \texttt{<app-settings-popup>}.
 
 
 \subsubsection*{Komponenta app-settings-item-list}
-Další opakovaně vyskytující částí nastavení je datová mřížka (angl. data grid). Tato mřížka by se dala označit jako rozšířená tabulka s akcemi umožňující manipulaci a editaci dat. Stejně jako u předchozí komponenty je pro grafické zobrazení této mřížky využita knihovna DevExtreme její komponenta \texttt{dx-data-grid}. Komponenta mimo pouhé zobrazení umožňuje i samotnou manipulaci s daty, nicméně během implementace byl zjištěn nedostatek při současném využití řazení dle sloupce a možnosti měnit pořadí řádku.
+Další opakovaně vyskytující částí nastavení je datová mřížka (angl. \emph{data grid}). Tato mřížka by se dala označit jako rozšířená tabulka s akcemi umožňující manipulaci a editaci dat. Stejně jako u předchozí komponenty je pro grafické zobrazení této mřížky využita knihovna DevExtreme a její komponenta \texttt{<dx-data-grid>}. Komponenta mimo pouhé zobrazení umožňuje i samotnou práci s daty, nicméně během implementace byl zjištěn nedostatek při současném využití řazení dle sloupce a možnosti měnit pořadí řádků.
 
 Při úpravě hodnot se mění pouze lokální kopie dat, kterou si komponenta uchovává. Tyto hodnoty se v původním zdroji dat projeví až po uložení. Nicméně řazení probíhá podle zdrojových dat a ne podle dat lokálních.
 
-Především kvůli vlastní implementaci změny pořadí byla vytvořena komponenta \texttt{app-settings-item-list}. Mimo jiné slouží pro unifikaci nastavení samotné datové mřížky, které je realizování pomocí vnořených elementů uvnitř komponenty \texttt{dx-data-grid}. Dále však obsahuje řadu metod, které téměř kompletně mění standardní chování komponenty mřížky. Realizuje zejména změnu pořadí řádků a vlastní chování tlačítek pro přidání a mazání řádků, obnovení změn a ukládání.
+Především kvůli vlastní implementaci změny pořadí byla vytvořena komponenta \texttt{<app-settings-item-list>}. Mimo jiné slouží pro unifikaci nastavení samotné datové mřížky, které je realizováno pomocí vnořených elementů uvnitř komponenty \texttt{<dx-data-grid>}. Dále však obsahuje celou řadu metod, které téměř kompletně mění standardní chování komponenty mřížky. Realizuje zejména změnu pořadí řádků a vlastní chování tlačítek pro přidání a mazání řádků, obnovení změn a jejich ukládání.
 
-Změna pořadí dat mění hodnoty jak v lokální kopii dat uvnitř komponenty \texttt{dx-data-grid}, tak i v jejím datovém zdroji. Jelikož je nutné neuložené změny projevovat i v datovém zdroji, tak existuje i třetí kopie dat, kterou si uchovává komponenta \texttt{app-settings-item-list} pro případnou obnovu dat při zahození změn.
+Změna pořadí dat tedy v mé implementaci mění hodnoty jak v lokální kopii dat uvnitř komponenty \texttt{<dx-data-grid>}, tak i v jejím datovém zdroji. Jelikož je nutné neuložené změny projevovat i v datovém zdroji, tak existuje i třetí kopie dat, kterou si uchovává komponenta \texttt{<app-settings-item-list>} pro případnou obnovu dat při zahození změn.
 
-Tlačítko pro smazání záznamu celý řádek odstraní z mřížky. Původní chování byla pouze změna barvy. Tlačítko pro přidání nového záznamu bylo pozměněno opět z důvodu zachování možnosti změny pořadí řádků. Tlačítko uložení pak bylo nutné rozšířit z důvodu absence události uložení dat v komponentě \texttt{dx-data-grid}. Pro případ použití v této aplikaci nestačí změnit hodnoty v datovém zdroji, ale je nutné změny projevit i v databázi na serveru a právě tento požadavek je nyní odeslán pomocí tlačítka uložení. 
-
-
-
-
-
-
-
-
-\subsubsection{Nastavení štítků}
-Modální okno s nastavením štítků cíleně porušuje jeden z pravidel principu Flux. Uchovává totiž lokální kopii sdílených dat uložených ve skladu. Tento přístup jsem zvolil z jednoho prostého důvodu a to aby se v případě zahození změn nemusel stav štítků napříč celou aplikací změnit. Místo toho jsem se přiklonil k opačnému řešení. Při úpravě štítků uživatel pracuje pouze s kopií sdílených dat. Jeho změny se tak neprojevují v jiných komponentách. V případě zahození změn při zavření dialogu tudíž není nutné provést vůbec žádnou akci. 
+Tlačítko pro smazání záznamu celý řádek odstraní z mřížky. Původní chování byla pouze změna barvy. Tlačítko pro přidání nového záznamu bylo pozměněno opět z důvodu zachování možnosti změny pořadí řádků. Tlačítko uložení pak bylo nutné rozšířit z důvodu absence události uložení dat v komponentě \texttt{<dx-data-grid>}. Pro případ použití v této aplikaci nestačí změnit hodnoty v datovém zdroji, ale je nutné změny projevit i v databázi na serveru a právě tento požadavek je nyní odeslán pomocí tlačítka uložení. 
 
 
 \subsection{Asynchronní požadavky}
 Jak již bylo zmíněno v kapitole~\ref{sec:spa}, jednostránkové aplikace fungují hlavně díky asynchronním požadavkům. Ty jsou tedy samozřejmě nedílnou součástí i této aplikace.
 
-Po přihlášení uživatele každý jeho asynchronní požadavek v hlavičce protokolu HTTP obsahuje žeton standardu JWT. O tuto funkci se stará třída \texttt{JwtInterceptor}, umístěná ve složce \texttt{interceptors}. Třída naslouchá všem odesílaným požadavkům protokolu HTTP a v případě, že je žeton již dostupný, je před samotným odesláním požadavku nejprve rozšířena jeho hlavička. Do pole \texttt{Authorization} je vloženo slovo \texttt{Bearer} a za mezerou následuje znění žetonu.
+Po přihlášení uživatele každý jeho asynchronní požadavek v hlavičce protokolu HTTP obsahuje žeton standardu JWT. O tuto funkci se stará třída \texttt{JwtInterceptor}, umístěná ve složce \texttt{interceptors}. Třída naslouchá všem odesílaným požadavkům protokolu HTTP a v případě, že je žeton již dostupný, je před samotným odesláním požadavku nejprve rozšířena hlavička tohoto požadavku. Do pole \texttt{Authorization} je vloženo slovo \texttt{Bearer} a za mezerou následuje samotný žeton.
 
 Ve stejné složce lze také nalézt další třídu \texttt{ErrorInterceptor}, která obstarává oznámení uživateli v případě negativní odpovědi na odeslaný požadavek. Tato třída byla užitečná obzvláště během vývoje, jelikož chyby jazyka JavaScript se zobrazují v konzoli internetového prohlížeče, tudíž nejsou na první pohled zřetelné. Nicméně tato třída přináší užitek i pro koncové uživatele ve výsledné verzi aplikace.
 
 V případě úspěšné odpovědi na asynchronní požadavek jsou data obsažená v této zprávě uložena do skladu dat. Tento proces je podrobněji vysvětlen v následující kapitole.
 
+O samotné vytvoření zmíněných požadavků se starají služby \texttt{AuthenticationService}, \texttt{SSBMethodService} a \texttt{SSBQueryService}. Jejich chování lze částečně konfigurovat v souborech s prostředím umístěných ve složce \texttt{environments}.
+
 
 \subsection{Centrální datový sklad}
-Data sdílena mezi více komponentami jsou uložena v centrálním skladu, který je realizován pomocí knihovny NgRx. Při implementaci byl kladen důraz na co nejmenší zanořování dat, která jsou v tomto skladu přítomna. Každá sdílené entitě (např. nástěnkám, uživatelům, štítkům) tedy odpovídá právě jeden objekt v první úrovni zanoření.
+Data sdílena mezi více komponentami jsou uložena v centrálním skladu, který je realizován pomocí knihovny NgRx. Při implementaci byl kladen důraz na co nejmenší zanořování dat, která jsou v tomto skladu přítomna. Každé sdílené entitě (např. nástěnkám, uživatelům, štítkům) tedy odpovídá právě jeden objekt v první úrovni zanoření.
 
-Každý z těchto objektů je pak tvořen dalšími třemi hodnotami. Klíč \texttt{loading} obsahuje logickou hodnotu, která indikuje, zda se data právě načítají. Tato hodnota je kladná v období mezi odesláním asynchronního požadavku a přijmutím odpovědi od serveru. Uživateli tak může být dočasně skryt obsah části stránky, který čeká právě na onu odpověď. V případě kladné odpovědi jsou přijatá data převedena do vhodného tvaru a poté uložena jako pole či objekt do hodnoty označené klíčem \texttt{data}. V případě neúspěchu dotazu je pak chyba uložena do hodnoty pod klíčem \texttt{error}.
+Každý z těchto objektů je pak tvořen dalšími třemi hodnotami. Klíč \texttt{loading} obsahuje logickou hodnotu, která indikuje, zda se data právě načítají. Tato hodnota je kladná v období mezi odesláním asynchronního požadavku a přijmutím odpovědi od serveru. Uživateli tak může být dočasně skryt obsah části stránky, který je závislý na stále ještě nedostupných datech. V případě kladné odpovědi jsou přijatá data převedena do vhodného tvaru a poté uložena jako pole či objekt do hodnoty označené klíčem \texttt{data}. V případě neúspěchu dotazu je pak chyba uložena do hodnoty pod klíčem \texttt{error}.
 
 O zmíněné převedení formátu se stará třída \texttt{SSBQueryDataResultParser}. Ta převádí nevhodný tvar dat přenášených pomocí aplikačního rozhraní, kde je informace o sloupcích a datech rozdělena do dvou polí. Metoda této třídy z těchto dvou polí vytvoří jedno pole obsahující objekty, ve kterých jsou již názvy sloupců a jejich hodnoty v podobě jaká je u objektů typu JSON obvyklá.
 
-Ani tato podoba dat však není finální. Výstupem zmíněné metody jsou totiž generické objekty. Pro veškeré přenášené entity však v aplikaci existuje odpovídající třída ve složce \texttt{models}. Generické objekty sice v aplikaci ve většině případů fungují, ale chybí jím specifické metody. V případě modelu uživatele lze například využít virtuální atribut \texttt{fullName}, který je ve skutečnosti pouze složenina dvou jiným atributů. Tento atribut by tedy v případě generického objektu dostupný nebyl. 
-To je důvodem proč je využita funkce \texttt{plainToClass} knihovny \texttt{class-transformer}\footnote{Repozitář knihovny class-transformer: \url{https://github.com/typestack/class-transformer}}, která data dále převede do finální podobny.
+Ani tato podoba dat však není finální. Výstupem zmíněné metody jsou totiž generické objekty. Pro veškeré přenášené entity však v aplikaci existuje odpovídající třída ve složce \texttt{models}. Generické objekty sice v aplikaci ve většině případů fungují, ale chybí jím specifické metody. V případě modelu uživatele lze například využít virtuální atribut \texttt{fullName}, který je ve skutečnosti pouze složenina dvou jiných atributů. Tento atribut by tedy v případě generického objektu dostupný nebyl. 
+To je důvodem proč je využita funkce \texttt{plainToClass} knihovny \texttt{class-transformer}\footnote{Repozitář knihovny class-transformer: \url{https://github.com/typestack/class-transformer}}, která data dále převede do finální podoby.
 
-Samotné ukládání přijatých dat a změnu obsahu skladu se zase starají reducery, které využívají zmíněnou třídu pro převod dat. 
+Samotné ukládání přijatých dat a změnu obsahu skladu se zase starají reduktory (angl. \emph{reducers}), které využívají zmíněnou třídu pro převod dat. 
 
-Okamžitá vizuální odezva je však pro uživatele velmi důležitá. V některých případech je tak tedy nutné data ve skladu změnit dříve, než je přijata odpověď od serveru. Je tomu tak například u přesunu karty. Jistě by bylo pro uživatele velice nepříjemné, kdyby přesunul kartu na nové místo a ta se vzápětí ihned vrátila na svou původní pozici a až po nějaké době by akci server potvrdil a karta by se přesunula na místo, kam uživatel původně zamýšlel. Proto je v takových případech předpokládán úspěch akce a data jsou ihned změněna. I tuto práci obstarává reducer.
+Okamžitá vizuální odezva je však pro uživatele velmi důležitá. V některých případech je tak tedy nutné data ve skladu změnit dříve, než je přijata odpověď od serveru. Je tomu tak například u přesunu karty. Jistě by bylo pro uživatele velice nepříjemné, kdyby přesunul kartu na nové místo a ta se vzápětí ihned vrátila na svou původní pozici a až po nějaké době by akci potvrdil server a karta by se přesunula na místo, kam uživatel původně zamýšlel. Proto je v takových případech předpokládán úspěch akce a data ve skladu jsou ihned změněna. I tuto práci obstarává reduktor.
 
 Pro lepší ilustraci je níže uveden snímek~\ref{img:ngrx-devtools}, který ilustruje část dat aplikace uložených právě v popisovaném centrálním skladu.
 
@@ -565,35 +588,49 @@ Pro lepší ilustraci je níže uveden snímek~\ref{img:ngrx-devtools}, který i
 	\caption{Vizualizace dat obsažených v centrálním datovém skladu. Snímek je pořízen z nástroje Redux DevTools\footnote{Redux DevTools: \url{https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd}}}
 \end{figure}
 
+Další dvě nedílné součásti knihovny NgRx jsou efekty a akce. Jejich účel byl již popsán v kapitole~\ref{sec:ngrx}. Každé ze sdílených entit naleží vlastní trojce těchto součástí knihovny. Obsah asynchronních požadavků je sestaven přímo v souboru s efekty, odkud jsou následně volány služby, které mají na starost tyto požadavky odeslat aplikaci SSBLite.
+
 
 
 % ======================================================================
 \section{Serverová část}
 Z důvodu zachování firemního tajemství klientská část mé práce nekomunikuje přímo se systémem SSB, ale pouze se zjednodušenou verzí zvanou SSBLite, kterou jsem vytvořil v rámci řešení této bakalářské práce. Jedná se o webový server vytvořený s použitím systému ASP.NET. Server zpracovává požadavky aplikačního rozhraní REST na základě kterých sestrojuje a odesílá požadavky na databázi. Výsledky těchto požadavků jsou poté odeslány zpět klientovi ke zpracování a zobrazení uživateli.
 
-Samotný webový server neobsahuje aplikační logiku, slouží pouze jako zprostředkovatel přístupu k databázi, ke které klient z důvodu bezpečnosti nesmí mít přímý přístup. Možné požadavky na databázi jsou předem definovány a uloženy v konfiguračních souborech. Díky tomu je možné v budoucnu upravit chování aplikace bez nutnosti přímého zásahu do zdrojového kódu serverové části aplikace. 
+Samotný webový server kromě autentizace uživatele neobsahuje žádnou aplikační logiku. Slouží pouze jako zprostředkovatel přístupu k databázi, ke které klient z důvodu bezpečnosti nesmí mít přímý přístup. Možné požadavky na databázi jsou předem definovány a uloženy v konfiguračních souborech. Díky tomu je možné v budoucnu upravit chování aplikace bez nutnosti přímého zásahu do zdrojového kódu serverové části aplikace. 
 
 
 \subsection{Struktura adresáře}
-\blindtext
+V této podkapitole je popsán adesář obsahující zdrojové aplikace SSBLite. Některé nepodstatné soubory a adresáře nejsou v seznamu uvedeny. Jedná se o podobu adresáře bez vygenerovaných souborů, tak jako na přiloženém médiu. Po úspěšném překladu se vytvoří nové soubory uvnitř adresáře \texttt{bin}.
 
 \begin{itemize}
   \item \texttt{Configurations/} -- Adresář obsahující konfigurační soubory metod a dotazů na databázi
-  \item \texttt{Controllers/} -- 
+  \item \texttt{Controllers/} -- Adresář obsahující řídící třídy
   \item \texttt{Enums/} -- Adresář obsahující objekty výčtů, používaných aplikačním rozhraním
   \item \texttt{Helpers/} -- Adresář obsahující třídu, která umožňuje přístup k tajnému klíči aplikačního rozhraní
-  \item \texttt{Interfaces/} -- % @todo
+  \item \texttt{Interfaces/} -- Adrsář s rozhraními
   \item \texttt{Models/} -- Adresář s třídami objektů modelů
   \begin{itemize}
-    \item \texttt{Authentication/} -- 
-    \item \texttt{Method/} -- 
-    \item \texttt{Query/} -- 
+    \item \texttt{Authentication/} -- Modely týkající se autentizace uživatele
+    \item \texttt{Method/} -- Modely týkající se metod a příkazů databázi
+    \item \texttt{Query/} -- Modely týkající se dotazů na databázi 
   \end{itemize}
-  \item \texttt{Services/} -- 
-  \item \texttt{appsettings.json} -- 
-  \item \texttt{Startup.cs} -- 
+  \item \texttt{Services/} -- Adresář se službami získávající data z databáze
+  \item \texttt{appsettings.json} -- Soubor s konfigurací aplikace
+  \item \texttt{Startup.cs} -- Soubor se spouštěcí třídou s další konfigurací
 \end{itemize}
 
+
+\subsection{Rozhraní Swagger}
+V raných etapách vývoje, kdy ještě nebyla klientská a serverová část aplikace vzájemně propojena, byl pro testování vývoje používán rámec Swagger\footnote{Swagger: \url{https://swagger.io}}. Díky jeho využití byly možnosti a podoba aplikačního rozhraní přehledně uvedena na jednom místě, odkud bylo také možné jednitlivé požadavky odesílat.
+
+Tento nástroj je ve výsledné aplikaci stále dostupný při překladu aplikace pro vývojové prostředí. Vzhledem k absenci jeho použití v pozdějších fázích vývoje však neobsahuje nejaktuálnější změny v aplikaci, i tak jej však lze využít zejména pro orientaci v aplikačním rozhraní. Ukázka části tohoto rozhraní je vidět na snímku~\ref{img:swagger}.
+
+\begin{figure}[H]
+	\centering
+	\label{img:swagger}
+	\includegraphics[width=\textwidth]{obrazky-figures/swagger.png}
+	\caption{Popis části aplikačního rozhraní umožňující dotazovat se na data uložená v aplikaci znázorněný v uživatelském rozhraní rámce Swagger.}
+\end{figure}
 
 \subsection{Konfigurační soubory}
 Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivých požadavků a jejich znění. To však v mnoha případech přímo neobsahuje platný dotaz na databázi, ale obsažený dotaz je obohacen o klíčová slova, která umožňují přizpůsobení jeho znění pro aktuální potřebu klienta. Před samotným odesláním dotazu do databáze je nutné tyto klíčová slova zpracovat. Příkladem, využívajícím klíčové slovo \texttt{\{WHERE\}}, je následující dotaz:
@@ -638,7 +675,12 @@ Uvnitř této procedury se však nachází pouze volání další uložené proc
 Díky tomu je značně zredukována redundance kódu a v kombinaci s generickým komponentami klientské aplikace lze celý systém jednoduše rozšířit o nastavení dalších prvků.
 
 
+\subsection{Autentizace požadavků}
+\blindtext
 
+
+\subsection{Ukládání historie}
+\blindtext
 
 
 % ======================================================================
@@ -652,6 +694,9 @@ Testování na uživatelích probíhalo na @todo zaměstnancích společnosti SE
 
 Vzhledem k současné pandemii koronaviru bylo nutné využít pouze prostředky pro vzdálenou komunikaci. Testování tak bylo rozděleno do dvou částí. První část obnášela samotné vyzkoušení aplikace uživatelem. Druhá část byla realizována pomocí dotazníku.
 
+\subsubsection{Testovací data}
+Pro každého účastníka uživatelského testování byl vytvořen vlastní účet a k němu také separátní nástěnka se základními sloupci a plaveckými drahami. K nástěnce bylo přiřazeno dalších deset uživatelů. Obsahem nástěnky však byla pouze jediná karta. Uživatelé tak tedy začali téměř s netknutou nástěnkou. Tyto testovací data byla vytvořena pomocí databázové funkce \texttt{test\_table\_create}.
+
 \subsubsection{Sledování chování uživatelů}
 Uživatel nebyl dopředu s aplikací nijak seznámen, protože vzhledem k zaměření jeho povolání byl předpoklad, že se s podobným nástrojem v minulosti již setkal. 
 
@@ -661,7 +706,7 @@ Během používání aplikace byl zaznamenávám pohyb myši a průchod aplikac�
 \subsubsection{Dotazník}
 Po vyzkoušení aplikace každý z testovacích uživatelů obdržel odkaz na elektronický dotazník realizovaný pomocí online nástroje Formuláře Google\footnote{Formuláře Google: \url{https://www.google.com/intl/cs/forms/about/}}. Otázky dotazníku byly rozděleny do dvou skupin a jejich znění je uvedeno v příloze~\ref{sec:questionarre}.
 
-První skupina obsahovala deset výroků na téma použitelnosti aplikace a respondent byl požádán o vybrání hodnoty na škále od jedné do pěti, zda s daným výrokem souhlasí či nesouhlasí. Znění těchto výroků vychází z překladu standardizovaného dotazníku zvaného Měřítko použitelnosti systému\footnote{Měřítko použitelnosti systém: \url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html}} (angl. System Usability Scale neboli SUS).
+První skupina obsahovala deset výroků na téma použitelnosti aplikace a respondent byl požádán o vybrání hodnoty na škále od jedné do pěti, zda s daným výrokem souhlasí či nesouhlasí. Znění těchto výroků vychází z překladu standardizovaného dotazníku zvaného Měřítko použitelnosti systému\footnote{Měřítko použitelnosti systém: \url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html}} (angl. \emph{System Usability Scale} neboli \emph{SUS}).
 
 Druhá skupina obsahovala pět 
 \blindtext
@@ -672,7 +717,7 @@ Cílem této aplikace bylo vytvořit webovou aplikaci typu Kanban dle požadavk�
 
 \blindtext
 
-Práce pro mne měla osobní přínos především novou zkušeností s tvorbou jednostránkových aplikací, osvojením si nových rámců pro vývoj webových stránek a realizací řešení se striktními omezeními způsobu implementace.
+Práce pro mne měla osobní přínos především novou zkušeností s tvorbou jednostránkových aplikací, osvojením si nových rámců pro vývoj webových stránek a realizací řešení se striktními omezeními způsobu implementace ze strany zadavatele.
 
-Výsledná aplikace bude sloužit společnosti SEACOMP s.r.o. pro interní řízení vývoje softwarových produktů 
+Výsledná aplikace bude sloužit společnosti SEACOMP s.r.o. pro interní řízení vývoje softwarových produktů.
 
