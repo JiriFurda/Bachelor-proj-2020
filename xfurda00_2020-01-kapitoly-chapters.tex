@@ -164,7 +164,7 @@ Základní principy nástěnky Kanban jsou součástí všech tří uvedených a
 
 Představené aplikace se mezi sebou liší například cenou, možnostmi provozování, dostupností zdrojového kódu, existencí mobilní aplikace, dostupností technickou podporou či přívětivostí uživatelského prostředí. Srovnání několik těchto vlastností je přehledně uvedeno v tabulce~\ref{tab:kanban-sum}. 
 
-\begin{table}[hbt]
+\begin{table}[H]
 \centering
 \caption{Srovnání rozdílů mezi několika aplikacemi typu Kanban}
 \label{tab:kanban-sum}
@@ -710,12 +710,18 @@ První skupina obsahovala deset výroků na téma použitelnosti aplikace a resp
 Druhá skupina obsahovala pět otevřených otázek zaměřených na silné a slabé stránky aplikace a její srovnání s původní aplikací, která se ve společnosti SEACOMP s.r.o. právě využívá.
 
 
-\subsection{Vyhodnocení}
 
-% @todo Table that shows the Sauro-Lewis curved grading scale for the SUS (Sauro & Lewis, 2016, p. 204; based on the means from 241 industrial usability studies, both tests and surveys).
-\begin{table}[hbt]
+\subsection{Vyhodnocení}
+Vyhodnocení bylo rozděleno do tří částí. První se věnuje čistě jen samotnému dotazníku Měřítka použitelnosti systému. Další část se zabývá poznatky zjištěnými druhou částí dotazníku a sledováním uživatelů a případně i jejich nápravou. Část třetí pak obsahuje návrhy dalších možných vylepšení do budoucna. 
+
+
+\subsubsection{Měřítko použitelnosti systému}
+Jednotlivé výsledky dotazníku Měřítka použitelnosti systému lze pomocí vzorce převést na hodnotu v intervalu 0 až 100, která se označuje jako skóre. Následně je nutné zprůměrovat všechna vypočítaná skóre, čímž je získáno celkové skóre aplikace. Aby tuto hodnotu bylo možné vhodně interpretovat jako výsledek testování, je možné testovanému produktu přidělit známku na základě percentilu výsledku dalších 241 obdobných studií~\cite{bib:sus-statistics}. Zmíněné známky jsou uvedeny v tabulce~\ref{tab:sus}.
+
+\begin{table}[H]
 \centering
-\caption{@todo. Přeloženo z~\cite{bib:sus-statistics}}
+\label{tab:sus}
+\caption{Známkovací stupnice určená pro vyhodnocení výsledku dotazníku Měřítka použitelnosti systému. Přeloženo z~\cite{bib:sus-statistics}}
 \begin{tabular}{|l|c|c|}
 \hline
 Známka & Skóre SUS  & Rozpětí percentilu  \\
@@ -734,6 +740,25 @@ F     & 0 – 51.6    & 0 – 14            \\
 \hline
 \end{tabular}
 \end{table}
+
+Z ?? výsledků bylo vypočítáno průměrné skóre ??, což dle uvedené stupnice odpovídá známce ??.
+
+\blindtext
+
+
+\subsubsection{Sledování uživatelů a otevřené otázky}
+Uživatelské testování vedlo k objevení jak několika technických chyb, které byly po sléze opraveny, tak i k objevení několika menších nedostatků návrhu aplikace. Část těchto poznatků byla získána sledováním chování uživatelů při používání aplikace a část je založena na odpovědích na otevřené otázky dotazníku. 
+
+\blindtext
+
+Z testování také vyplynulo, že ačkoliv se s metodikou Kanban všichni účastníci do jisté míry již dříve setkali, část z nich neznala koncept plaveckých drah. Proto byla na některá místa v aplikaci týkajících se právě těchto drah přidána informační ikona se stručným popisem jejich principu.
+
+Dále se ukázalo, že uživatelé ve webových aplikacích nejsou zvyklí na využití pravého tlačítka myši jako kontextového menu. Pro akce z toho menu tedy byla přidána i klasická tlačítka. 
+
+
+\subsection{Možnost úprav}
+Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze aplikaci samotnou rozšířit například o \blindtext
+
 
 % ======================================================================
 \chapter{Závěr}
