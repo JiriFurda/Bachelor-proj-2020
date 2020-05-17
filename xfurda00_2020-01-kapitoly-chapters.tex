@@ -242,8 +242,13 @@ Při navštívení jednostránkové webové aplikace je ze serveru nejprve načt
 
 Takovéto aplikace se zpravidla skládají z komponent. Pro tvorbu těchto aplikací se využívá jazyk JavaScript, nicméně vzhledem k jejich komplexnosti se v drtivé většině pro implementaci používá některých z rámců tohoto jazyka.
 
+
+
 \section{JavaScript}
-\blindtext
+JavaScript je interpretovaný programovací jazyk s dynamickým typováním, nejčastěji používaný ve webových prohlížečích. Jeho hlavním účelem je umožnit webovým stránkám interagovat s uživatelem a upravovat obsah právě zobrazené stránky~\cite{bib:js-definitive}.
+
+Nejčastěji je kód napsaný v tomto jazyce spuštěn až v internetovém prohlížeči koncového uživatele na rozdíl od jazyků jako například PHP\footnote{PHP: \url{https://www.php.net}}, kde je kód zpracován na straně serveru. Nicméně existuje i platforma postavená na tomto jazyce zvaná Node.js\footnote{Node.js: \url{https://nodejs.org/en/}}, která se obdobně jako jazyk PHP zpracovává již na serveru.
+
 
 \subsection{TypeScript}
 Samotný jazyk JavaScript však pro vývojáře může představovat překážku při implementaci rozsáhlých aplikací. Jedním z hlavních problémů je nepřehlednost kódu s dynamickým typováním proměnných.
@@ -252,10 +257,11 @@ Samotný jazyk JavaScript však pro vývojáře může představovat překážku
  
 Jelikož internetové prohlížeče jazyk TypeScript neznají, je využíván překladač, který kód překládá do jazyka JavaScript.
 
+
 \subsection{Rámce jazyka JavaScript}
 S použitím čistého jazyka JavaScript bez použití knihoven či rámců se dnes setkáváme zřídka. Zejména u větších projektů je psaní kódu v čistém jazyce JavaScript ve srovnáním s použítí knihoven a rámců velmi časově náročné~\cite{bib:vanilla-js}.
 
-Nejslavnějším rozšířením toho jazyka je bezesporu knihovna jQuery\footnote{jQuery: https://jquery.com}. Ta usnadňuje zejména průchod a manipulaci objektového modulu dokumentu (angl. \emph{Document Object Model} neboli \emph{DOM}), zpracování událostí, animace a práci s asynchronními požadavky~\cite{bib:jquery}.
+Nejslavnějším rozšířením toho jazyka je bezesporu knihovna jQuery\footnote{jQuery: \url{https://jquery.com}}. Ta usnadňuje zejména průchod a manipulaci objektového modulu dokumentu (angl. \emph{Document Object Model} neboli \emph{DOM}), zpracování událostí, animace a práci s asynchronními požadavky~\cite{bib:jquery}.
 
 Knihovna jQuery však není určená pro tvorbu stále populárnějších jednostránkových aplikaci. Na ty se zaměřují zcela jiné rámce, kterých se v poslední době objevuje stále více.
 
@@ -266,10 +272,18 @@ Nejmladším z těchto rámců je Vue.js i přes to se však těší větší ob
 
 
 \subsection{Angular}
-Angular je webová platforma umožňující tvorbu jednostránkových aplikací s využitím jazyků TypeScript a HTML. Tato platforma si velmi zakládá na modularizaci kódu.
-\blindtext[2] % https://angular.io/guide/architecture
+\emph{Tato kapitola čerpá z~\cite{bib:ng-arch}}.
 
-% @todo https://www.angularjswiki.com/angular/history-of-angularjs/
+Angular je webová platforma umožňující tvorbu jednostránkových aplikací s využitím jazyků TypeScript a HTML. Tato platforma si velmi zakládá na modularizaci kódu. Logické celky aplikace jsou proto často rozdělovaný do jednotlivých modulů, pro které lze využít metodu líného načítání (angl. lazy loading). Obsahem těchto modulů jsou pak jednotlivé komponenty. 
+
+Komponenty tvoří pohledy (angl. views), které jsou zobrazeny jako elementy ve webové aplikaci. Tyto komponenty využívají služby (angl. services), které zajišťují funckcionalitu která není přímo vázaná na pohledy. Služby je tak tedy možné znovu použít na více místech v aplikaci.
+
+Komponenty mají v aplikaci hiearchistickou strukturu. Každá aplikace obsahuje alespoň jednu komponentu, která se označuje jako kořenová. Každá z těchto komponent je reprezentována třídou, která nese veškerou její logiku, šablonou, která určuje její strukturu co by entity jazyka HTML a dále kaskádovými styly, které ovlivňují jejich estetickou podobu.
+
+Většina prvků tohoto rámce jsou ve skutečnosti pouhé třídy jazyka JavaScript, jejich konkrétní typ tak bývá označován pomocí dekorátorů.
+
+Tento rámec poskytuje celou řadu užitečných funkcí jako například oboustrannou datovou vazbu, která umožňuje synchronizaci dat mezi šablonou a samotnou komponentou.
+
 Autorem platformy Angular je Miško Hevery, zaměstnanec společnosti Google. Platformu původně psal pro usnadnění vývoje několika interních projektů. V roce 2010 však byla platforma i její zdrojový kód otevřena široké veřejnosti. V následujících letech se oblast vývoje webových aplikací změnila a Angular již nedokázal držet krok. Platforma se stala velmi populární, s čímž původní návrh nepočítal. Bylo tedy nutné platformu Angular kompletně přepsat. Na podzim roku 2016 byla vydána nová verze této platformy s označením Angular 2. K dnešnímu dni se nové verze dostaly až k označení pod číslem 9, nicméně se stále jedna o rozšíření původního jádra verze 2. Na vývoji se stále podílí jak společnost Google, tak i komunita. Pro odlišení původní verze od nových přepsaných verzí se ta původní označuje jako AngularJS~\cite{bib:angular-history}.
 
 \subsubsection{NgRx}\label{sec:ngrx}
@@ -298,11 +312,7 @@ Zásada SHARI~\cite{biib:ng-conf}:
 \blindtext
 
 \subsubsection{DevExtreme}
-DevExtreme je balík komponent určený pro tvorbu responzivních webových aplikací. Je k dispozici pro knihovny jQuery, Konockout, AngularJS, Angular, Vue, React, ASP.NET MVC 5 a ASP.NET Core.  
-\blindtext
-
-\section{REST}
-\blindtext[2]
+DevExtreme\footnote{DevExtreme: \url{https://js.devexpress.com}} je balík komponent určený pro tvorbu responzivních webových aplikací. Balík je zaměřen primárně na platformu Angular, nicméně více něž 65 komponent je dostupných také pro platformy jQuery, Vue, React, ASP.NET MVC 5, ASP.NET Core a další~\cite{bib:devextreme}. Balík obsahuje mnoho prvků uživatelského rozhraní které jsou určeny jak pro tradiční webové stránky tak i moderní mobilní aplikace. Všechny prvky jsou samozřejmě responzivní. Nabídka prvků tohoto balíku je velmi rozmanitá a řadí se mezi ně například datová mřížka, grafy, mapy a editory. Tento balík však lze bezplatně využít jen pro nekomerční využití.
 
 \section{JSON Web Token}
 \emph{Tato podkapitola vychází z~\cite{bib:jwt}}
@@ -757,7 +767,17 @@ Dále se ukázalo, že uživatelé ve webových aplikacích nejsou zvyklí na vy
 
 
 \subsection{Možnost úprav}
-Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze aplikaci samotnou rozšířit například o \blindtext
+Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze vzhledem k rozsáhlé povaze aplikace lze vymyslet celou řadu jednoduchých i komplexních rozšíření aplikace.
+
+Při větším množství úkolů přítomných na jedné nástěnce může docházet k částečné nepřehlednosti informací. Zcela jistě by tedy bylo užitečné přidat možnost filtrovat zobrazené úkoly. Pro sestavení takového filtru by bylo možné využít například komponentu \texttt{<dx-filter-builder>} knihovny DevExtreme, případně je možnost implementovat přímo vlastní dotazovací jazyk.
+
+Další možností rozšíření by mohla být možnost částečné automatizace nástěnky, například automatické archivování hotových úkolů. Díky této funkci by správci nástěnek nebyli nuceni provádět tolik rutinních úkonů. 
+
+Jelikož v budoucnu může být nástroj využíván v nejrůznějších odvětvích průmyslu, nabízí se umožnit uživatelům plně si přizpůsobit obsah úkolů pomocí konfigurovatelných polí jako je tomu například v nástroji Jira. Tím by bylo docíleno jednoduše upravit nástěnku pro potřeby různorodých zákazníků.
+
+Konkurence v oboru těchto aplikací je veliká. Pro případnou migraci z nebo do jiného nástroje s podobných zaměřením by bylo také mohlo být užitečné umožnit importovat či exportovat úkoly a nastavení nástěnky.
+
+
 
 
 % ======================================================================
