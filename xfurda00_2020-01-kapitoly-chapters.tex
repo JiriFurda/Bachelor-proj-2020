@@ -70,7 +70,7 @@ Jedna ze studií na toto téma vydána roku 2015 uvádí, že ze 1386 sledovaný
 \subsection{Metodika Kanban}
 Kanban je slovo převzaté z japonského jazyka, kde znamená \uv{cedule}. Toto slovo je taktéž spjato s poslední výzvou k objednávce před uzavřením podniku (sundáním cedule). Takovou objednávku lze označit jako \uv{na poslední chvíli} nebo také jako objednávku \uv{tak akorát na čas}~\cite{bib:dict-kanban}. 
 
-Tak akorát na čas (anglicky \emph{Just-in-time}) je filozofie řízení výroby, vyvinuta v sedmdesátých létech japonskou automobilovou společností Toyota Motor Corporation\footnote{Toyota Motor Corporation: \url{https://global.toyota/en/}}. Hlavní myšlenkou toho přístupu je mít přesné množství materiálu, na správném místě a ve správný čas. Díky tomu dochází k redukci množství materiálu, který aktuálně není zpracováván a nemělo by docházet k jeho přebytečnému hromadění~\cite{bib:just-in-time}. Jedním z nástrojů této filozofie je právě metodika Kanban, její tehdejší provedení je možné vidět na fotografii~\ref{img:kanban-toyota}.
+Tak akorát na čas (angl. \emph{Just-in-time}) je filozofie řízení výroby, vyvinuta v sedmdesátých létech japonskou automobilovou společností Toyota Motor Corporation\footnote{Toyota Motor Corporation: \url{https://global.toyota/en/}}. Hlavní myšlenkou toho přístupu je mít přesné množství materiálu, na správném místě a ve správný čas. Díky tomu dochází k redukci množství materiálu, který aktuálně není zpracováván a nemělo by docházet k jeho přebytečnému hromadění~\cite{bib:just-in-time}. Jedním z nástrojů této filozofie je právě metodika Kanban, její tehdejší provedení je možné vidět na fotografii~\ref{img:kanban-toyota}.
 
 \begin{figure}[H]
 	\centering
@@ -274,42 +274,40 @@ Nejmladším z těchto rámců je Vue.js i přes to se však těší větší ob
 \subsection{Angular}
 \emph{Tato kapitola čerpá z~\cite{bib:ng-arch}}.
 
-Angular je webová platforma umožňující tvorbu jednostránkových aplikací s využitím jazyků TypeScript a HTML. Tato platforma si velmi zakládá na modularizaci kódu. Logické celky aplikace jsou proto často rozdělovaný do jednotlivých modulů, pro které lze využít metodu líného načítání (angl. lazy loading). Obsahem těchto modulů jsou pak jednotlivé komponenty. 
+Angular je webová platforma umožňující tvorbu jednostránkových aplikací s využitím jazyků TypeScript a HTML. Tato platforma si velmi zakládá na modularizaci kódu. Logické celky aplikace jsou proto často rozdělovaný do jednotlivých modulů, pro které lze využít metodu líného načítání (angl. \emph{lazy loading}). Obsahem těchto modulů jsou pak jednotlivé komponenty. 
 
-Komponenty tvoří pohledy (angl. views), které jsou zobrazeny jako elementy ve webové aplikaci. Tyto komponenty využívají služby (angl. services), které zajišťují funckcionalitu která není přímo vázaná na pohledy. Služby je tak tedy možné znovu použít na více místech v aplikaci.
+Komponenty tvoří pohledy (angl. \emph{views}), které jsou zobrazeny jako elementy ve webové aplikaci. Tyto komponenty využívají služby (angl. \emph{services}), které zajišťují funckcionalitu která není přímo vázaná na pohledy. Služby je tak tedy možné znovu použít na více místech v aplikaci.
 
 Komponenty mají v aplikaci hiearchistickou strukturu. Každá aplikace obsahuje alespoň jednu komponentu, která se označuje jako kořenová. Každá z těchto komponent je reprezentována třídou, která nese veškerou její logiku, šablonou, která určuje její strukturu co by entity jazyka HTML a dále kaskádovými styly, které ovlivňují jejich estetickou podobu.
 
 Většina prvků tohoto rámce jsou ve skutečnosti pouhé třídy jazyka JavaScript, jejich konkrétní typ tak bývá označován pomocí dekorátorů.
-
 Tento rámec poskytuje celou řadu užitečných funkcí jako například oboustrannou datovou vazbu, která umožňuje synchronizaci dat mezi šablonou a samotnou komponentou.
 
 Autorem platformy Angular je Miško Hevery, zaměstnanec společnosti Google. Platformu původně psal pro usnadnění vývoje několika interních projektů. V roce 2010 však byla platforma i její zdrojový kód otevřena široké veřejnosti. V následujících letech se oblast vývoje webových aplikací změnila a Angular již nedokázal držet krok. Platforma se stala velmi populární, s čímž původní návrh nepočítal. Bylo tedy nutné platformu Angular kompletně přepsat. Na podzim roku 2016 byla vydána nová verze této platformy s označením Angular 2. K dnešnímu dni se nové verze dostaly až k označení pod číslem 9, nicméně se stále jedna o rozšíření původního jádra verze 2. Na vývoji se stále podílí jak společnost Google, tak i komunita. Pro odlišení původní verze od nových přepsaných verzí se ta původní označuje jako AngularJS~\cite{bib:angular-history}.
 
 \subsubsection{NgRx}\label{sec:ngrx}
-NgRx je knihovna pro správu stavu určená pro platformu Angular. Tato knihovna je založena na principu Redux.
-\blindtext % @todo popsat o co jde 
-% https://books.google.cz/books?hl=cs&lr=&id=OLZTDwAAQBAJ&oi=fnd&pg=PP1&dq=ngrx&ots=HoiBNWn4zq&sig=zrkpeOuKBmhqnd1ojsGeasbym7g&redir_esc=y#v=onepage&q=boiler&f=false
+NgRx\footnote{NgRx: \url{https://ngrx.io}} je knihovna pro správu stavu určená pro platformu Angular. Tato knihovna je založena na principu Redux. Ten cílí na zvýšení předvídatelnosti stavu aplikace. Hlavní myšlenkou tohoto principu je koncept jediného zdroje pravdy. Data, sdílená napříč různými komponentami jsou umístěny na jednom místě, který se označuje jako sklad (angl. \emph{store}). Díky tomu je kdykoliv možné zjistit, v jakém stavu se aplikace zrovna nachází. Mimo to tento princip také zvyšuje přehlednost, který kód ovlivňuje které části aplikace. S růstem komplexnosti aplikací často v tomto směru dochází k velké nepřehlednosti. Další výhodou je také dodržování pořadí při paralelně vykonávaných akcí~\cite{bib:ngrx-arch}.
 
 Tato knihovna však pro tvorbu aplikací pomocí platformy Angular není nutně potřeba a v některých případech může vývoj i přitížit. I přes veškeré výhody, které využití tohoto systému přináší, je třeba počítat i s negativními následky. Systém má poměrně strmou učební křivku a je třeba znát princip Redux a umět používat knihovnu RxJS~\cite{bib:ngrx-docs}.
-Dalším úskalím je velké množství nutného dodatečného kódu. Přidání zdánlivě jednoduché funkce může trvat delší dobu, protože sebou nese nutnost přidat spoustu kódu napříč různými soubory. Proto je dobré nejprve důkladně zvážit, zda je vhodné pro daný projekt knihovnu NgRx využít. Vývojáři knihvony NgRx proto na jedné z konferencí\footnote {ng-conf 2018 - Reducing the Boilerplate with NgRx: \url{https://www.youtube.com/watch?v=t3jx0EC-Y3c}} přišli se zásadou SHARI, které toto rozhodnutí usnadní. 
+Dalším úskalím je velké množství nutného dodatečného kódu. Přidání zdánlivě jednoduché funkce může trvat delší dobu, protože sebou nese nutnost přidat spoustu kódu napříč různými soubory. Proto je dobré nejprve důkladně zvážit, zda je vhodné pro daný projekt knihovnu NgRx využít. Vývojáři knihovny NgRx proto na jedné z konferencí\footnote {ng-conf 2018 - Reducing the Boilerplate with NgRx: \url{https://www.youtube.com/watch?v=t3jx0EC-Y3c}} přišli se zásadou SHARI, které toto rozhodnutí usnadní. 
 
-Zásada SHARI~\cite{biib:ng-conf}:
+Zásada SHARI~\cite{bib:ng-conf}:
 \begin{itemize}
-  \item Sdílení (angl. \emph{shared}) - Ke stavu přistupuje více komponent a služeb
-  \item (angl. \emph{hydrated}) - Stav přetrvává a je obnovován z externího zdroje
-  \item (angl. \emph{available}) - 
-  \item (angl. \emph{retrieved}) - 
-  \item (angl. \emph{impacted}) - 
+  \item Sdílení (angl. \emph{shared}) - Stav, ke kterému přistupuje více komponent a služeb
+  \item Hydratování (angl. \emph{hydrated}) - Stav, který přetrvává a je obnovován z externího zdroje
+  \item Dostupnost (angl. \emph{available}) - Stav, který musí být dostupný při opětovném přístupu na danou podstránku
+  \item Načtení (angl. \emph{retrieved}) - Stav, který musí být načten s vedlejšími účinky
+  \item Ovlivnění (angl. \emph{impacted}) - Stav, který je ovlivněn akcemi jiných zdrojů 
 \end{itemize}
 
-\blindtext
+Jednotlivé součásti knihovny NgRx, jejich provázanost a tím i celý životní cyklus stavu aplikace v této knihovně je znázorněn na grafu~\ref{img:ngrx-graph}, kde je také popsán význam jednotlivých součástí.
+
 \begin{figure}[H]
 	\centering
+	\label{img:ngrx-graph}
 	\includegraphics[width=\textwidth]{obrazky-figures/ngrx-lifecycle.png}
-	\caption{Životní cyklus správy stavu s využitím knihovny NgRx. @todo popsat uzly \emph{Převzato z~\cite{bib:ngrx-lifecycle}}.}
+	\caption{Graf znázorňující životní cyklus správy stavu s využitím knihovny NgRx. Stav aplikace je uložen ve skladu (uzel \emph{node}), data jsou z něj získáváná pomocí selektorů (uzel \emph{selector}) a jsou použita v komponentách (uzel \emph{component}). Interakce s komponentou vyvolává akci (uzel \emph{action}), která může mít za následek vedlejší efekty (uzel \emph{effects}), což představuje získání dat z databáze za pomocí služeb (uzel \emph{service}). Akce dále vyvolá funkci reduktoru (uzel \emph{reducer}), který vytvoří nový stav dat a opět jej vloží do skladu (uzel \emph{store}).  \emph{Převzato z~\cite{bib:ngrx-lifecycle}}.}
 \end{figure}
-\blindtext
 
 \subsubsection{DevExtreme}
 DevExtreme\footnote{DevExtreme: \url{https://js.devexpress.com}} je balík komponent určený pro tvorbu responzivních webových aplikací. Balík je zaměřen primárně na platformu Angular, nicméně více něž 65 komponent je dostupných také pro platformy jQuery, Vue, React, ASP.NET MVC 5, ASP.NET Core a další~\cite{bib:devextreme}. Balík obsahuje mnoho prvků uživatelského rozhraní které jsou určeny jak pro tradiční webové stránky tak i moderní mobilní aplikace. Všechny prvky jsou samozřejmě responzivní. Nabídka prvků tohoto balíku je velmi rozmanitá a řadí se mezi ně například datová mřížka, grafy, mapy a editory. Tento balík však lze bezplatně využít jen pro nekomerční využití.
@@ -395,16 +393,18 @@ Ze stejného důvodu je menu ve výchozím stavu skryto a lze ho otevřít pomoc
 
 Položky v menu i samotný detail karet se zobrazuje v modálním okně. Uživatel se tak například i při zobrazení detailu karty stále nachází na nástěnce a může se vrátit na její přehled téměř zcela bez prodlení na rozdíl od stávající aplikace využívané ve společnosti zadavatele, kde je pro zobrazení všech detailů nutné přejít na novou stránku a následný návrat na přehled je vzhledem k počtu zobrazených úkolu velmi pomalý.
 
+Rozložení a vizuální podoba detailu karty je inspirována nástrojem Microsoft Team Foundation Server\footnote{Dnešní verze nástroje se již označuje jako Azure DevOps Server}, který se ve společnosti SEACOMP s.r.o. v současnosti také využívá.
+
 Některé akce jako například odstranění karty lze provést podobně jako v desktopových aplikací pomocí kliknutí pravým tlačítkem myší na danou entitu. V případě dotykových obrazovek je kliknutí pravého tlačítka substituováno dlouhým stiskem. 
 
 \begin{figure}[H]
 	\centering
 	\label{img:design-kanban}
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
-	\caption{Grafický návrh části aplikace, kde je zobrazena nástěnka kanban, vytvořený pomocí nástroje MockFlow\footnote{MockFlow: \url{https://mockflow.com}}.}
+	\includegraphics[width=\textwidth]{obrazky-figures/ui-design.pdf}
+	\caption{Grafický návrh části aplikace, kde je zobrazena nástěnka kanban.}
 \end{figure}
 
-Další části aplikace jsou z pohledu uživatelského rozhraní velmi triviální, a proto pro jejich tvorbu návrh nebyl nevytvořen.
+Další části aplikace jsou z pohledu uživatelského rozhraní triviální, a proto pro jejich tvorbu návrh nebyl vytvořen.
 
 
 \section{Aplikační rozhraní}\label{sec:api}
@@ -644,23 +644,44 @@ Tento nástroj je ve výsledné aplikaci stále dostupný při překladu aplikac
 \end{figure}
 
 \subsection{Konfigurační soubory}
-Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivých požadavků a jejich znění. To však v mnoha případech přímo neobsahuje platný dotaz na databázi, ale obsažený dotaz je obohacen o klíčová slova, která umožňují přizpůsobení jeho znění pro aktuální potřebu klienta. Před samotným odesláním dotazu do databáze je nutné tyto klíčová slova zpracovat. Příkladem, využívajícím klíčové slovo \texttt{\{WHERE\}}, je následující dotaz:
+Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivých požadavků a jejich znění. To však v mnoha případech přímo neobsahuje platný dotaz na databázi, ale obsažený dotaz je obohacen o klíčová slova, která umožňují přizpůsobení jeho znění pro aktuální potřebu klienta. Před samotným odesláním dotazu do databáze je nutné tyto klíčová slova zpracovat.
+
+
+\subsection{Zpracování požadavku GetData}
+Požadavek \texttt{GetData} je určen pro dotazování se nad daty uloženými v databázi. Požadavky tohoto typu jsou zpracovány pomocí třídy \texttt{SSBQueryController}, která na základě názvu obsaženého v těle požadavku dohledá v konfiguračních souborech příslušný dotaz. V dalším kroku jsou pak nahrazena klíčová slova ve znění dotazu a to konkrétně \texttt{\{WHERE\}} a \texttt{\{AND\}}, místo kterých se dotaz rozšíří o další podmínky na základě příslušného obsahu požadavku \texttt{GetData}. Příkladem, využívajícím klíčové slovo \texttt{\{WHERE\}}, je následující dotaz:
+
 \begin{verbatim}
 {
     "name": "getCards",
     "content": "SELECT car.* FROM cards car JOIN columns col ON col.id = 
         car.column_id JOIN boards boa ON boa.id = col.board_id {WHERE}"
-},
+}
 \end{verbatim}
 
+Ten má za následek získání informací o existujících kartách. Klíčové slovo v tomto případě bývá nahrazeno specifikací, o kterou nástěnku má klient zájem. Z pravidla se jedna o tu právě zobrazenou v jeho prohlížeči. Klíčové slovo \texttt{\{AND\}} se využívá v případě, že dotaz již nějaké podmínky obsahuje a ty požadované klientem jsou zřetězeny za již existující.
 
-\subsection{Zpracování požadavku GetData}
-\blindtext
+Dalším klíčovým slovem s kterým se lze setkat je \texttt{\{USERID\}}, které je nahrazeno identifikačním číslem klienta, který se na data dotazuje. V tomto případě klient již nemá možnost ovlivnit, jakou hodnotou bude klíčové slovo nahrazeno, a proto je vhodné tento prvek využít například pro zamezení přístupu k datům, které uživateli nenáleží.
+Nahrazení klíčových slov obstarává metoda \texttt{ReplaceKeywords}, jenž je součástí třídy \texttt{SSBQuery}.
 
+Dalším krokem je pak samotné provedení dotazu a transformace získaných dat do formátu, jež odpovídá specifikaci aplikačního rozhraní. Tyto data jsou pak navráceny klientovi.
+
+V aplikacích využívajících platformu ASP.NET bývá zvykem pro sestavení dotazů použít technologii LINQ, v této aplikaci však použita není. Místo ní je využívána knihovna Npgsql a dotazy jsou sestrojovány přímo v cílovem jazyce PostgreSQL. Tento přístup bylo nutné aplikovat z důvodu zachování integrity se systémem SSB.
 
 \subsection{Zpracování požadavku ExecuteMethod}
-\blindtext
+Funkcí požadavku \texttt{ExecuteMethod} je spuštění příkazu databáze. Může se jednat přímo o příkaz například \texttt{INSERT} či \texttt{UPDATE}, nicméně jeho nejčastější využití je spuštění uložené procedury pomocí příkazu \texttt{CALL}.
 
+Samotné zpracování je téměř totožné jako u požadavku \texttt{GetData}. V tomto případě se však využívají třídy \texttt{SSBMethodController} a \texttt{SSBMethod}. V konfiguračních souborech příkazů se však vyskytuje z dříve uvedených klíčových slov pouze \texttt{\{USERID\}}. Jsou zde však přítomny i zástupné symboly s poznávacím znamením dvojtečky jako prvního znaku. Ihned za ní pak následuje název parametru. V konfiguračních souborech tak lze nalézt například následující záznam:
+
+\begin{verbatim}
+{
+    "name": "createCard",
+    "content": "CALL create_card(:columnId, :swimlaneId, :title, :description, :assignedUserId, :tagIds)"
+}
+\end{verbatim}
+
+Tyto zástupné symboly jsou nahrazeny hodnotami, které jsou obsaženy v požadavku zaslaným klientem. O tuto práci se stará metoda \texttt{FillParameters}, která nejprve zaslaná data převede do odpovídajícího typu a následně je za pomocí funkce knihovny Npgsql vloží do příkazu místo zástupných symbolů. Tato knihovna mimo jiné zabraňuje případným pokusům o napadení databáze za pomocí metody SQL injekce. 
+
+Po provedení příslušné akce je klientovi oznámeno zda jeho požadavek proběhl úspěšně či nikoliv.
 
 \subsection{Autentizace uživatele}
 \blindtext
