@@ -522,7 +522,18 @@ Obsahem sloupců je také komponenta \texttt{<dx-sortable>}, která umožňuje p
 \blindtext
 
 \subsubsection*{Detail karty}
-\blindtext
+Detail karty úkolu je realizován pomocí modálního okna. V aplikaci existují dva typy tohoto okna. Jeden z nich je použit pro vytváření nové karty a druhý zase při zobrazení již existující karty. Pro každý tento typ existuje vlastní komponenta, jedná se o \texttt{<app-board-card-edit-popup>} a \texttt{<app-board-card-create-popup>}.
+
+Obě z těchto komponent však využívají znovupoužitelnou komponentu \texttt{<app-board-card-popup>}. Ta zajišťuje především integritu obou typů modálních oken detailu.
+
+V případě zobrazení již existující karty je obsah okna rozdělen do dvou záložek. První obsahuje informace o úkolu a druhá zase obsahuje historii akcí, prováděných s touto kartou. Při vytváření nové karty je použita jen první z těchto záložek. Názorná ukázka zmiňovaného okna je prezentována snímkem~\ref{img:card-detail}.
+
+\begin{figure}[H]
+	\centering
+	\label{img:card-detail}
+	\includegraphics[width=\textwidth]{obrazky-figures/card-detail.png}
+	\caption{Ukázka části aplikace s otevřeným detailem karty úkolu.}
+\end{figure}
 
 
 \subsection{Nastavení}
@@ -684,7 +695,7 @@ Tyto zástupné symboly jsou nahrazeny hodnotami, které jsou obsaženy v požad
 Po provedení příslušné akce je klientovi oznámeno zda jeho požadavek proběhl úspěšně či nikoliv.
 
 \subsection{Autentizace uživatele}
-\blindtext
+Pro ověření přístupových údajů uživatele slouží požadavek \texttt{VerifyCredentials}. Ten je zpracován třídou SSBAuthenticationController, ale samotná autentizace probíhá až ve třídě UserService. Tato třída obstarává jak ověření zaslaných údajů s těmi v databázi, tak i vytvoření žetonu standardu JWT. Pro přístup k databázi je v tomto případě již využita technologie LINQ a samotný dotaz není načten z konfiguračních souborů. Vygenerovaný žeton je poté odeslán zpět k uživateli.
 
 
 
@@ -717,7 +728,7 @@ Díky tomu je značně zredukována redundance kódu a v kombinaci s generickým
 
 % ======================================================================
 \chapter{Testování a vyhodnocení}
-\blindtext
+Tato kapitola popisuje provedené způsoby testování výsledné aplikace se zaměřením na uživatelské testování, které bylo prováděno ve spolupráci s několika zaměstnanci společnosti SEACOMP s.r.o. Následně je popsán výsledek testování a akce, které byly na základě zpětné vazby respondentů učiněny. V závěru kapitoly jsou uvedeny možné další rozšíření aplikace.
 
 Automatizované testování nebylo při práci využito. Bylo tak rozhodnuto po konzultaci jak s vedoucím tak i se zadavatelem práce. Pro ověření funkčnosti, bezpečnosti a dalších aspektů aplikačního rozhraní bylo využito manuální testování pomocí nástroje Postman\footnote{Postman: \url{https://www.postman.com}}, který slouží jako klient pro odesílání požadavků aplikačního rozhraní REST a zobrazení odpovědí na tyto požadavky.
 
@@ -727,7 +738,7 @@ Testování na uživatelích probíhalo na @todo zaměstnancích společnosti SE
 Vzhledem k současné pandemii koronaviru bylo nutné využít pouze prostředky pro vzdálenou komunikaci. Testování tak bylo rozděleno do dvou částí. První část obnášela samotné vyzkoušení aplikace uživatelem. Druhá část byla realizována pomocí dotazníku.
 
 \subsubsection{Testovací data}
-Pro každého účastníka uživatelského testování byl vytvořen vlastní účet a k němu také separátní nástěnka se základními sloupci a plaveckými drahami. K nástěnce bylo přiřazeno dalších deset uživatelů. Obsahem nástěnky však byla pouze jediná karta. Uživatelé tak tedy začali téměř s netknutou nástěnkou. Tyto testovací data byla vytvořena pomocí databázové funkce \texttt{test\_table\_create}.
+Pro každého účastníka uživatelského testování byl vytvořen vlastní účet a k němu také separátní nástěnka se základními sloupci a plaveckými drahami. K nástěnce bylo přiřazeno dalších deset uživatelů. Obsahem nástěnky však byla pouze jediná karta. Uživatelé tak tedy začali téměř s netknutou nástěnkou. Tyto testovací data byla vytvořena pomocí databázové procedury \texttt{test\_table\_create}.
 
 \subsubsection{Sledování chování uživatelů}
 Uživatel nebyl dopředu s aplikací nijak seznámen, protože vzhledem k zaměření jeho povolání byl předpoklad, že se s podobným nástrojem v minulosti již setkal. 
@@ -781,12 +792,13 @@ Z ?? výsledků bylo vypočítáno průměrné skóre ??, což dle uvedené stup
 \subsubsection{Sledování uživatelů a otevřené otázky}
 Uživatelské testování vedlo k objevení jak několika technických chyb, které byly po sléze opraveny, tak i k objevení několika menších nedostatků návrhu aplikace. Část těchto poznatků byla získána sledováním chování uživatelů při používání aplikace a část je založena na odpovědích na otevřené otázky dotazníku. 
 
-\blindtext
+Většina připomínek se týkala drobných nedostatků jako je třeba nemožnost odeslat přihlašovací údaje stisknutím tlačítka Enter nebo @todo
 
 Z testování také vyplynulo, že ačkoliv se s metodikou Kanban všichni účastníci do jisté míry již dříve setkali, část z nich neznala koncept plaveckých drah. Proto byla na některá místa v aplikaci týkajících se právě těchto drah přidána informační ikona se stručným popisem jejich principu.
 
 Dále se ukázalo, že uživatelé ve webových aplikacích nejsou zvyklí na využití pravého tlačítka myši jako kontextového menu. Pro akce z toho menu tedy byla přidána i klasická tlačítka. 
 
+Pro vyhodnocení úspěchu aplikace je stěžejní srovnání s aktuálně používanou aplikaci ve společnosti. Obecně byla aplikace vytvořena v rámci této bakalářské práce vnímána jako mnohem přehlednější a vyzdvižena byla také rychlost její odezvy. Často zmiňovanou připomínkou však byla absence některých funkcí současné aplikace Kanboard.
 
 \subsection{Možnost úprav}
 Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze vzhledem k rozsáhlé povaze aplikace lze vymyslet celou řadu jednoduchých i komplexních rozšíření aplikace.
@@ -804,11 +816,10 @@ Konkurence v oboru těchto aplikací je veliká. Pro případnou migraci z nebo 
 
 % ======================================================================
 \chapter{Závěr}
-Cílem této aplikace bylo vytvořit webovou aplikaci typu Kanban dle požadavků společnosti SEACOMP s.r.o. Tato aplikace byla úspěšně vytvořena a lze ji plnohodnotně použít pro řízení projektů, stejně tak jako po menších úpravách integrovat do stávající aplikace SSB4Web.
+Cílem této bakalářské práce bylo vytvořit webovou aplikaci typu Kanban dle požadavků společnosti SEACOMP s.r.o., která v budoucnu nahradí v současnosti využívaný nástroj třetí strany. Základní verze této aplikace byla úspěšně vytvořena a v nynější podobě ji lze použít pro řízení projektů. Před jejím reálným nasazením ve společnosti je však nutné nejprve ji zaintegrovat do aplikace SSB4Web a rozšířit o několik pokročilých funkcí.
 
-\blindtext
+Výsledná aplikace obsahuje klíčové funkce pro správu nástěnky a v ní obsažených úkolů. Během vývoje byly dodrženy všechna omezení určené zadavatelem práce jako jsou architektura a technologie aplikace.
 
-Práce pro mne měla osobní přínos především novou zkušeností s tvorbou jednostránkových aplikací, osvojením si nových rámců pro vývoj webových stránek a realizací řešení se striktními omezeními způsobu implementace ze strany zadavatele.
+Práce pro mne měla osobní přínos především novou zkušeností s tvorbou jednostránkových aplikací, osvojením si nových rámců pro vývoj webových aplikací a realizací řešení se striktními omezeními způsobu implementace.
 
-Výsledná aplikace bude sloužit společnosti SEACOMP s.r.o. pro interní řízení vývoje softwarových produktů.
-
+Výsledná aplikace bude v budoucnu sloužit společnosti SEACOMP s.r.o. pro interní řízení vývoje softwarových produktů.
