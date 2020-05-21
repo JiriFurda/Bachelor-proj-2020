@@ -513,13 +513,21 @@ Uvnitř této komponenty se již nacházejí vlastní komponenty specifické pro
 
 \subsubsection*{Sloupce}
 
-Uvnitř každé plavecké dráhy se pak pro každý sloupec nástěnky nachází právě jedna komponenta typu \texttt{<app-board-column>}. Ta sdružuje karty, naležící danému sloupic a plavecké dráze. Sloupec opět využívá komponentu \texttt{<dx-scroll-view}, která s kombinací s fixní výškou sloupce zajišťuje, že nadměrné hromadění karet v jednom sloupci neovlivňuje okolní sloupce, jako tomu je v současnosti u původní aplikace.
+Uvnitř každé plavecké dráhy se pak pro každý sloupec nástěnky nachází právě jedna komponenta typu \texttt{<app-board-column>}. Ta sdružuje karty, náležící danému sloupci a plavecké dráze. Sloupec opět využívá komponentu \texttt{<dx-scroll-view}, která s kombinací s fixní výškou sloupce zajišťuje, že nadměrné hromadění karet v jednom sloupci neovlivňuje okolní sloupce, jako tomu je v současnosti u původní aplikace.
 
 Obsahem sloupců je také komponenta \texttt{<dx-sortable>}, která umožňuje přesun karet mezi jednotlivými sloupci a plaveckými drahami. Jedna z metod této komponenty však byla přepsány. Jedná se o metodu, který je spuštěna po přesunu karty. Ta kromě provedení samotné změny pozice také o této změně informuje serverovou část aplikace. 
 
 \subsection{Karta}
+Přímo v nástěnce jsou úkoly reprezentovány jednotlivými kartami. Ty však zobrazují pouze klíčové údaje úkolu. Podrobnější informace jsou zobrazeny až po kliknutí na příslušnou kartu. Samotné karty se v aplikaci vyskytují jako komponenty \texttt{<app-board-card>}. Ty obstarávájí jak samotné zobrazení karty, tak obsahují i další komponenty. Mezi ty patří seznam štítků náležící dané kartě aneb komponenta \texttt{<app-board-tags-list>} nebo kontextové menu, které se zobrazí po kliknutí na kartu pravým tlačítkem. Toto menu je realizováno s využitím knihovny DevExtreme za použití komponenty \texttt{<dx-context-menu>}. Součástí karty je i komponenta obsahující detail karty, která je blíže popsána v další podkapitole.
 
-\blindtext
+Karta je vizualizována jako obdélník obsahující název úkolu, informaci o přiřazeném uživateli a případně i přiřazenými štítky. Na levé straně karty se nachází pruh, jehož barva reprezentuje prioritu úkolu. Na základě priority jsou štítky taktéž sestupně seřazeny v rámci daného sloupce. Kartu lze libovolně přesouvat napříč sloupci a plaveckými drahami. Reálný příklad štítku je možné vidět na snímku~\ref{img:card}.
+
+\begin{figure}[H]
+	\centering
+	\label{img:card}
+	\includegraphics[width=0.4\textwidth]{obrazky-figures/card.png}
+	\caption{Ukázka části aplikace obsahující kartu úkolu.}
+\end{figure}
 
 \subsubsection*{Detail karty}
 Detail karty úkolu je realizován pomocí modálního okna. V aplikaci existují dva typy tohoto okna. Jeden z nich je použit pro vytváření nové karty a druhý zase při zobrazení již existující karty. Pro každý tento typ existuje vlastní komponenta, jedná se o \texttt{<app-board-card-edit-popup>} a \texttt{<app-board-card-create-popup>}.
@@ -686,7 +694,8 @@ Samotné zpracování je téměř totožné jako u požadavku \texttt{GetData}. 
 \begin{verbatim}
 {
     "name": "createCard",
-    "content": "CALL create_card(:columnId, :swimlaneId, :title, :description, :assignedUserId, :tagIds)"
+    "content": "CALL create_card(:columnId, :swimlaneId, :title,
+                :description, :assignedUserId, :tagIds)"
 }
 \end{verbatim}
 
@@ -784,39 +793,39 @@ F     & 0 – 51.6    & 0 – 14            \\
 \end{tabular}
 \end{table}
 
-Z ?? výsledků bylo vypočítáno průměrné skóre ??, což dle uvedené stupnice odpovídá známce ??.
+Z ?? výsledků dotazníku bylo vypočítáno průměrné skóre ??, což dle uvedené stupnice odpovídá známce ??.
 
-\blindtext
+Z odpovědí dále vyplynulo, že se jedná o jednoduchou, konzistentní a snadno použivatelnou aplikaci, s kterou se uživatel naučí rychle pracovat. Převážně pozitivně bylo také vnímáno začlenění jednotlivých funkcí. Takřka nerozhodný výsledek se objevil u pocitu jistoty při práci s aplikací, stále však mírně převažovaly pozitivní výsledky. Podobně se respondenti vyjádřili i u otázky, zda by aplikaci rádi používali opakovaně. Tento výsledek je zapříčiněn tím, že většina respondentů při náplni své práce nástěnku Kanban téměř či vůbec nepožívají. Vedoucí týmů, čili klíčoví respondenti, tvořili ve vzorku respondentů pouze menšinu.
 
 
 \subsubsection{Sledování uživatelů a otevřené otázky}
 Uživatelské testování vedlo k objevení jak několika technických chyb, které byly po sléze opraveny, tak i k objevení několika menších nedostatků návrhu aplikace. Část těchto poznatků byla získána sledováním chování uživatelů při používání aplikace a část je založena na odpovědích na otevřené otázky dotazníku. 
 
-Většina připomínek se týkala drobných nedostatků jako je třeba nemožnost odeslat přihlašovací údaje stisknutím tlačítka Enter nebo @todo
+Většina připomínek se týkala drobných nedostatků jako je třeba nemožnost odeslat přihlašovací údaje stisknutím tlačítka Enter nebo problémy s kaskádovými styly, které byly po dokončení testování opraveny.
 
 Z testování také vyplynulo, že ačkoliv se s metodikou Kanban všichni účastníci do jisté míry již dříve setkali, část z nich neznala koncept plaveckých drah. Proto byla na některá místa v aplikaci týkajících se právě těchto drah přidána informační ikona se stručným popisem jejich principu.
 
-Dále se ukázalo, že uživatelé ve webových aplikacích nejsou zvyklí na využití pravého tlačítka myši jako kontextového menu. Pro akce z toho menu tedy byla přidána i klasická tlačítka. 
+Dále se ukázalo, že uživatelé ve webových aplikacích nejsou zvyklí na využití pravého tlačítka myši jako kontextového menu. Pro akce z toho menu tedy byla přidána i klasická tlačítka v detailu karty. 
 
-Pro vyhodnocení úspěchu aplikace je stěžejní srovnání s aktuálně používanou aplikaci ve společnosti. Obecně byla aplikace vytvořena v rámci této bakalářské práce vnímána jako mnohem přehlednější a vyzdvižena byla také rychlost její odezvy. Často zmiňovanou připomínkou však byla absence některých funkcí současné aplikace Kanboard.
+Pro vyhodnocení úspěchu aplikace je stěžejní srovnání s aktuálně používanou aplikaci ve společnosti. Obecně byla aplikace vytvořena v rámci této bakalářské práce vnímána jako mnohem přehlednější a vyzdvižena byla také rychlost její odezvy. Často zmiňovaným nedostatkem však byla absence některých funkcí současné aplikace Kanboard.
 
 \subsection{Možnost úprav}
-Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze vzhledem k rozsáhlé povaze aplikace lze vymyslet celou řadu jednoduchých i komplexních rozšíření aplikace.
+Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze vzhledem k rozsáhlé povaze aplikace ji lze rozšířit o celou řadu jednoduchých i komplexních funkcí.
 
 Při větším množství úkolů přítomných na jedné nástěnce může docházet k částečné nepřehlednosti informací. Zcela jistě by tedy bylo užitečné přidat možnost filtrovat zobrazené úkoly. Pro sestavení takového filtru by bylo možné využít například komponentu \texttt{<dx-filter-builder>} knihovny DevExtreme, případně je možnost implementovat přímo vlastní dotazovací jazyk.
 
 Další možností rozšíření by mohla být možnost částečné automatizace nástěnky, například automatické archivování hotových úkolů. Díky této funkci by správci nástěnek nebyli nuceni provádět tolik rutinních úkonů. 
 
-Jelikož v budoucnu může být nástroj využíván v nejrůznějších odvětvích průmyslu, nabízí se umožnit uživatelům plně si přizpůsobit obsah úkolů pomocí konfigurovatelných polí jako je tomu například v nástroji Jira. Tím by bylo docíleno jednoduše upravit nástěnku pro potřeby různorodých zákazníků.
+Jelikož v budoucnu může být nástroj využíván v nejrůznějších odvětvích průmyslu, nabízí se umožnit uživatelům plně si přizpůsobit obsah úkolů pomocí konfigurovatelných polí jako je tomu například v nástroji Jira. Tím by bylo docíleno možnosti jednoduše upravit nástěnku pro potřeby různorodých zákazníků.
 
-Konkurence v oboru těchto aplikací je veliká. Pro případnou migraci z nebo do jiného nástroje s podobných zaměřením by bylo také mohlo být užitečné umožnit importovat či exportovat úkoly a nastavení nástěnky.
+Konkurence v oboru těchto aplikací je veliká. Pro případnou migraci z nebo do jiného nástroje s podobných zaměřením by bylo také mohlo být užitečné umožnit importovat či exportovat úkoly a případně i nastavení nástěnky.
 
 
 
 
 % ======================================================================
 \chapter{Závěr}
-Cílem této bakalářské práce bylo vytvořit webovou aplikaci typu Kanban dle požadavků společnosti SEACOMP s.r.o., která v budoucnu nahradí v současnosti využívaný nástroj třetí strany. Základní verze této aplikace byla úspěšně vytvořena a v nynější podobě ji lze použít pro řízení projektů. Před jejím reálným nasazením ve společnosti je však nutné nejprve ji zaintegrovat do aplikace SSB4Web a rozšířit o několik pokročilých funkcí.
+Cílem této bakalářské práce bylo vytvořit webovou aplikaci typu Kanban dle požadavků společnosti SEACOMP s.r.o., která v budoucnu nahradí v současnosti využívaný nástroj třetí strany. Základní verze této aplikace byla úspěšně vytvořena a v nynější podobě ji lze použít pro řízení projektů. Toto tvrzení bylo ověřeno uživatelským testováním. Před jejím reálným nasazením ve společnosti je však nutné nejprve ji zaintegrovat do aplikace SSB4Web a rozšířit o několik pokročilých funkcí.
 
 Výsledná aplikace obsahuje klíčové funkce pro správu nástěnky a v ní obsažených úkolů. Během vývoje byly dodrženy všechna omezení určené zadavatelem práce jako jsou architektura a technologie aplikace.
 
