@@ -1,31 +1,31 @@
 \chapter{Úvod}
-V každé výrobě je přirozeně snaha o co největší efektivitu. Konkrétně v oblasti informačních technologií je pro tento účel velice rozšířené použití agilních metodik řízení projektů. Jedním z nástrojů těchto metodik je metodika Kanban.
+V~každé výrobě je přirozeně snaha o~co největší efektivitu. Konkrétně v~oblasti informačních technologií je pro tento účel velice rozšířené použití agilních metodik řízení projektů. Jedním z~nástrojů těchto metodik je metodika Kanban.
 
-Cílem této bakalářské práce je vytvořit webovou aplikaci typu Kanban určenou pro řízení projektů na základě požadavků společnosti SEACOMP s.r.o. Za tímto účelem je společností v současné době využíván nástroj třetí strany, který ovšem není plně přizpůsoben potřebám této společnosti, ku příkladu není integrován do dalších interních aplikací.
+Cílem této bakalářské práce je vytvořit webovou aplikaci typu Kanban určenou pro řízení projektů na základě požadavků společnosti SEACOMP s.r.o. Za tímto účelem je společností v~současné době využíván nástroj třetí strany, který ovšem není plně přizpůsoben potřebám této společnosti, ku příkladu není integrován do dalších interních aplikací.
 
-Téma práce mne zaujalo zejména díky stále rostoucí popularitě interaktivních webových aplikací. Motivující pro mne bylo mít možnost takovou aplikaci implementovat naprosto sám. Také mne lákala možnost firemního zadání bakalářské práce, díky kterému bude mít výsledná aplikace reálné využití v praxi a její existence neskončí dnem odevzdání. 
+Téma práce mne zaujalo zejména díky stále rostoucí popularitě interaktivních webových aplikací. Motivující pro mne bylo mít možnost takovou aplikaci implementovat naprosto sám. Také mne lákala možnost firemního zadání bakalářské práce, díky kterému bude mít výsledná aplikace reálné využití v~praxi a její existence neskončí dnem odevzdání. 
 
-Tato práce částečně navazuje na diplomovou práci mého bývalého kolegy Bc.~Adama Teršla, jež nesla název \emph{Webový klient pro nemocniční systém}~\cite{bib:tersl}. Výsledkem této práce je aplikace SSB4Web, do které bude výsledná aplikace mé bakalářské práce v budoucnu integrována.
+Tato práce částečně navazuje na diplomovou práci mého bývalého kolegy Bc.~Adama Teršla, jež nesla název \emph{Webový klient pro nemocniční systém}~\cite{bib:tersl}. Výsledkem této práce je aplikace SSB4Web, do které bude výsledek mé bakalářské práce v~budoucnu integrován.
 
-Druhá kapitola práce, zvaná \uv{Rozbor řešené problematiky}, pojednává o historii a současných trendech projektového řízení, zejména pak o metodice Kanban. Poté následuje přehled několika nástrojů určených pro aplikaci této metodiky a jejich srovnání.
+Druhá kapitola práce, zvaná \uv{Rozbor řešené problematiky}, pojednává o~historii a současných trendech projektového řízení, zejména pak o~metodice Kanban. Poté následuje přehled několika nástrojů určených pro aplikaci této metodiky a jejich srovnání.
 Dále je pár slov věnováno zadavateli této diplomové práce -- společnosti SEACOMP s.r.o., infrastruktuře této společnosti a požadavkům na výslednou aplikaci.
 Další kapitola, označená \uv{Technologie}, obsahuje stručný přehled technologií a principů využitých při implementaci této aplikace.
-Následující kapitola s názvem \uv{Návrh aplikace} se zaměřuje jak na grafický, tak i technický návrh aplikace. Popisuje rozvržení databáze, provázanost částí systému a podobu aplikačního rozhraní.
+Následující kapitola s~názvem \uv{Návrh aplikace} se zaměřuje jak na grafický, tak i technický návrh aplikace. Popisuje rozvržení databáze, provázanost částí systému a podobu aplikačního rozhraní.
 Pátá kapitola jménem \uv{Implementace aplikace}, se pak věnuje zajímavým částem řešení této bakalářské práce. 
-Kapitola \uv{Testování a vyhodnocení} popisuje formu testování výsledné aplikace a její výsledky.
+Kapitola \uv{Testování a vyhodnocení} popisuje formu testování výsledné aplikace a jeho výsledky.
 Na závěr je poté shrnuto dosažení výsledků této bakalářské práce.
 
 
 
 \chapter{Rozbor řešené problematiky}
-V úvodu této kapitoly jsou stručně shrnuty populární metodiky řízení projektů s větším zaměřením na metodiky agilní a to především na metodiku Kanban. V další části kapitoly je představeno několik již existujících aplikací umožňujících využívat právě tuto zmíněnou metodiku. Dále je text věnován zmapování infrastruktury zadavatele bakalářské práce a jeho požadavkům na výslednou aplikaci. Závěr kapitoly obsahuje popis technologií, které byly využity pro tvorbu požadované aplikace.
+V~úvodu této kapitoly jsou stručně shrnuty populární metodiky řízení projektů s~větším zaměřením na metodiky agilní a to především na metodiku Kanban. V~další části kapitoly je představeno několik již existujících aplikací umožňujících využívat právě tuto zmíněnou metodiku. Dále je text věnován zmapování infrastruktury zadavatele bakalářské práce a jeho požadavkům na výslednou aplikaci. Závěr kapitoly obsahuje popis technologií, které byly využity pro tvorbu požadované aplikace.
 
 \section{Metodiky řízení projektů}
-Obecně lze metodiky používané pro řízení softwarových projektů rozdělit do dvou hlavních kategorií. Jedná se o tradiční metodiky a metodiky agilní.
+Obecně lze metodiky používané pro řízení softwarových projektů rozdělit do dvou hlavních kategorií. Jedná se o~tradiční metodiky a metodiky agilní.
 
-Jak název napovídá, tradiční metodiky mají delší historii. Lidstvo potřebovalo využívat řízení projektů již odpradávna, exemplárním příkladem jsou obrovské stavební projekty jako pyramidy v Gíze nebo Velká čínská zeď. Tyto projekty jistě vyžadovaly důkladné řízení jak pracovních sil, tak i přísunu materiálu a dalších zdrojů. Výsledek musel bezpochyby splňovat určité požadavky. Ohledně metodik takovýchto plánování ovšem neexistuje příliš mnoho dokumentace. K určité standardizaci řízení projektů totiž začalo docházet až v padesátých letech minulého století. Svou zásluhu zde má i Námořnictvo Spojených států amerických a to konkrétně Projekt Manhattan\footnote{Krycí název pro projekt vývoje atomové bomby během druhé světové války}~\cite{bib:project-managment-history}.
+Jak název napovídá, tradiční metodiky mají delší historii. Lidstvo potřebovalo využívat řízení projektů již odpradávna, exemplárním příkladem jsou obrovské stavební projekty jako pyramidy v~Gíze nebo Velká čínská zeď. Tyto projekty jistě vyžadovaly důkladné řízení jak pracovních sil, tak i přísunu materiálu a dalších zdrojů. Výsledek musel bezpochyby splňovat určité požadavky. Ohledně metodik takovýchto plánování ovšem neexistuje příliš mnoho dokumentace. K~určité standardizaci řízení projektů totiž začalo docházet až v~padesátých letech minulého století. Svou zásluhu zde má i Námořnictvo Spojených států amerických a to konkrétně Projekt Manhattan\footnote{Krycí název pro projekt vývoje atomové bomby během druhé světové války}~\cite{bib:project-managment-history}.
 
-Rozdílem mezi dvěma zmíněnými kategoriemi řízení projektů je především strukturace procesů. U tradičních metod probíhají tyto procesy sekvenčně. Tento přístup zpravidla vyžaduje důkladnější počáteční plánování a pozdější změny požadavků mnohdy představují náročný problém. Oproti tomu při použití agilních metod jsou jednotlivé procesy úzce spjaty a pracuje se v iteracích. Díky tomu je do vývoje více zapojen zákazník a takovýto projekt se snadněji vypořádá s případnými změnami požadavků~\cite{bib:agile-vs-traditional}. 
+Rozdílem mezi dvěma zmíněnými kategoriemi řízení projektů je především strukturace procesů. U~tradičních metod probíhají tyto procesy sekvenčně. Tento přístup zpravidla vyžaduje důkladnější počáteční plánování a pozdější změny požadavků mnohdy představují náročný problém. Oproti tomu při použití agilních metod jsou jednotlivé procesy úzce spjaty a pracuje se v~iteracích. Díky tomu je do vývoje více zapojen zákazník a takovýto projekt se snadněji vypořádá s~případnými změnami požadavků~\cite{bib:agile-vs-traditional}. 
 
 Populárním zástupcem tradičních metodik je například vodopádový model (znázorněný diagramem~\ref{img:waterfall}), na kterém je na první pohled patrné právě sekvenční řazení jednotlivých procesů vývoje. Tento model se objevil koncem šedesátých let minulého století, kdy byly programovací jazyky neefektivní, procesory pomalé a paměť počítačů byla výrazně omezená~\cite{bib:agile-history}. 
 
@@ -36,24 +36,24 @@ Populárním zástupcem tradičních metodik je například vodopádový model (
 	\label{img:waterfall}
 \end{figure}
 
-U tradičních metodik je předpokladem, že se k dokončeným fázím projektu již nebude nutné vracet. Takový předpoklad lze aplikovat na mnoho odvětví. Příkladem budiž stavba budovy, u které je nutné nejprve řádně celý projekt naplánovat a zdokumentovat. Jakmile samotná stavba započne, větší změny oproti původnímu projektu vznikají velmi zřídka. V oblasti informačních technologií, obzvláště při vývoji softwaru, však odchýlení od původního plánu nebývá žádnou výjimkou. Řízení projektů tohoto typu pomocí striktních tradičních metodik je tedy často obtížné a značně neefektivní~\cite{bib:agile-vs-traditional-what}.
+U~tradičních metodik je předpokladem, že se k~dokončeným fázím projektu již nebude nutné vracet. Takový předpoklad lze aplikovat na mnoho odvětví. Příkladem budiž stavba budovy, u~které je nutné nejprve řádně celý projekt naplánovat a zdokumentovat. Jakmile samotná stavba započne, větší změny oproti původnímu projektu vznikají velmi zřídka. V~oblasti informačních technologií, obzvláště při vývoji softwaru, však odchýlení od původního plánu nebývá žádnou výjimkou. Řízení projektů tohoto typu pomocí striktních tradičních metodik je tedy často obtížné a značně neefektivní~\cite{bib:agile-vs-traditional-what}.
 
-V dnešní době se stává častěji než tomu bylo v minulosti, že se softwarové projekty během vývoje mění, narůstají jejich požadavky, přibývají funkce a to vše i během jejich vývoje. Tento trend se týká především webových systémů. Jako reakce na tyto náhlé změny byly v devadesátých letech stvořeny právě agilní metodiky~\cite{bib:agile-history}. 
+V~dnešní době se stává častěji než tomu bylo v~minulosti, že se softwarové projekty během vývoje mění, narůstají jejich požadavky, přibývají funkce a to vše i během jejich vývoje. Tento trend se týká především webových systémů. Jako reakce na tyto náhlé změny byly v~devadesátých letech stvořeny právě agilní metodiky~\cite{bib:agile-history}. 
 
 \subsection{Agilní metodiky řízení projektů}
-Agilní metodiky jsou skupina metod řízení projektů určena především pro vývoj softwaru. Jak název napovídá, jedná se o metodiky, které se vyznačují dynamičností a flexibilitou.
+Agilní metodiky jsou skupina metod řízení projektů určených především pro vývoj softwaru. Jak název napovídá, jedná se o~metodiky, které se vyznačují dynamičností a flexibilitou.
 
-Veřejný zájem o tyto metodiky začal až v pozdních devadesátých letech~\cite{bib:agile-mobile}. V roce 2001 se v Utahu sešlo sedmnáct zastánců agilních metodik a sestavilo Manifest agilního vývoje software\footnote{ Manifest agilního vývoje: \url{https://agilemanifesto.org/iso/cs/manifesto.html}}, který vystihuje čtyři hlavní zásady těchto metod~\cite{bib:agile-manifest}.
+Veřejný zájem o~tyto metodiky začal až v~pozdních devadesátých letech~\cite{bib:agile-mobile}. V~roce 2001 se v~Utahu sešlo sedmnáct zastánců agilních metodik a sestavilo Manifest agilního vývoje software\footnote{ Manifest agilního vývoje: \url{https://agilemanifesto.org/iso/cs/manifesto.html}}, který vystihuje čtyři hlavní zásady těchto metod~\cite{bib:agile-manifest}.
 \begin{itemize}
   \item Jednotlivci a interakce před procesy a nástroji
   \item Fungující software před vyčerpávající dokumentací
-  \item Spolupráce se zákazníkem před vyjednáváním o smlouvě
+  \item Spolupráce se zákazníkem před vyjednáváním o~smlouvě
   \item Reagování na změny před dodržováním plánu
 \end{itemize}
 
-Tyto metodiky jsou více zaměřené na lidi a na jejich vzájemnou komunikaci. To je jedním z důvodů, proč jsou agilní metodiky vhodné především pro menší týmy. Díky absenci sekvenčního řazení procesů vývoje tyto metody také zvyšují efektivitu nepředvídatelných a stále se měnících projektů. Vypuštěním striktního plánování je také možné projekt mnohdy dokončit rychleji než použitím tradičních metodik.
+Tyto metodiky jsou více zaměřené na lidi a na jejich vzájemnou komunikaci. To je jedním z~důvodů, proč jsou agilní metodiky vhodné především pro menší týmy. Díky absenci sekvenčního řazení procesů vývoje tyto metody také zvyšují efektivitu nepředvídatelných a stále se měnících projektů. Vypuštěním striktního plánování je také možné projekt mnohdy dokončit rychleji než použitím tradičních metodik.
 
-Vývoj řízený agilními metodikami probíhá iterativně a inkrementálně. Na začátku vývoje se určí základní požadavky a postupnými cykly se tyto požadavky zdokonalují. Jedna iterace takového vývoje trvá zpravidla jeden týden až měsíc. Během této iterace proběhne celý cyklus vývojových procesů (podobný vodopádovému modelu znázorněného diagramem~\ref{img:waterfall}). Dokončením iterace vzniká prototyp, který může být prezentován zákazníkovi. Díky tomu zákazník získává přesnější představu o podobě produktu a lze včas odhalit nedostatky požadavků, které dříve nebyly známy~\cite{bib:agile-impact}. 
+Vývoj řízený agilními metodikami probíhá iterativně a inkrementálně. Na začátku vývoje se určí základní požadavky a postupnými cykly se tyto požadavky zdokonalují. Jedna iterace takového vývoje trvá zpravidla jeden týden až měsíc. Během této iterace proběhne celý cyklus vývojových procesů (podobný vodopádovému modelu znázorněného diagramem~\ref{img:waterfall}). Dokončením iterace vzniká prototyp, který může být prezentován zákazníkovi. Díky tomu zákazník získává přesnější představu o~podobě produktu a lze včas odhalit nedostatky požadavků, které dříve nebyly známy~\cite{bib:agile-impact}. 
 Průběh tohoto iterativního vývoje je znázorněný diagramem~\ref{img:agile}.
 
 \begin{figure}[H]
@@ -63,27 +63,27 @@ Průběh tohoto iterativního vývoje je znázorněný diagramem~\ref{img:agile}
 	\label{img:agile}
 \end{figure}
 
-Mezi populární agilní metodiky patří například Scrum, Lean Developmet, Extrémní programování (angl. \emph{Extreme Programming} nebo také XP), Crystal, Vlastnostmi řízený vývoj (angl. \emph{Feature Driven Development} neboli FDD) a v neposlední řadě také Kanban.
+Mezi populární agilní metodiky patří například Scrum, Lean Developmet, Extrémní programování (angl. \emph{Extreme Programming} nebo také XP), Crystal, Vlastnostmi řízený vývoj (angl. \emph{Feature Driven Development} neboli FDD) a v~neposlední řadě také Kanban.
 
-Jedna ze studií na toto téma vydána roku 2015 uvádí, že ze 1386 sledovaných projektů 65\% z nich využilo během vývoje agilní metody a 6\% projektů bylo dokončeno téměř pouze s použití agilních metod. Závěrem této studie je také pozorování poukazující na fakt, že čím větší poměr agilních metodik byl při vývoji použit, tím úspěšnější dané projekty byly~\cite{bib:agile-work}.
+Jedna ze studií na toto téma vydána roku 2015 uvádí, že ze 1386 sledovaných projektů 65\% z~nich využilo během vývoje agilní metody a 6\% projektů bylo dokončeno téměř pouze s~použití agilních metod. Závěrem této studie je také pozorování poukazující na fakt, že čím větší poměr agilních metodik byl při vývoji použit, tím úspěšnější dané projekty byly~\cite{bib:agile-work}.
 
 \subsection{Metodika Kanban}
-Kanban je slovo převzaté z japonského jazyka, kde znamená \uv{cedule}. Toto slovo je taktéž spjato s poslední výzvou k objednávce před uzavřením podniku (sundáním cedule). Takovou objednávku lze označit jako \uv{na poslední chvíli} nebo také jako objednávku \uv{tak akorát na čas}~\cite{bib:dict-kanban}. 
+Kanban je slovo převzaté z~japonského jazyka, kde znamená \uv{cedule}. Toto slovo je taktéž spjato s~poslední výzvou k~objednávce před uzavřením podniku (sundáním cedule). Takovou objednávku lze označit jako \uv{na poslední chvíli} nebo také jako objednávku \uv{tak akorát na čas}~\cite{bib:dict-kanban}. 
 
-Tak akorát na čas (angl. \emph{Just-in-time}) je filozofie řízení výroby, vyvinuta v sedmdesátých létech japonskou automobilovou společností Toyota Motor Corporation\footnote{Toyota Motor Corporation: \url{https://global.toyota/en/}}. Hlavní myšlenkou toho přístupu je mít přesné množství materiálu, na správném místě a ve správný čas. Díky tomu dochází k redukci množství materiálu, který aktuálně není zpracováván a nemělo by docházet k jeho přebytečnému hromadění~\cite{bib:just-in-time}. Jedním z nástrojů této filozofie je právě metodika Kanban, její tehdejší provedení je možné vidět na fotografii~\ref{img:kanban-toyota}.
+Tak akorát na čas (angl. \emph{Just-in-time}) je filozofie řízení výroby, vyvinuta v~sedmdesátých létech japonskou automobilovou společností Toyota Motor Corporation\footnote{Toyota Motor Corporation: \url{https://global.toyota/en/}}. Hlavní myšlenkou toho přístupu je mít přesné množství materiálu, na správném místě a ve správný čas. Díky tomu dochází k~redukci množství materiálu, který aktuálně není zpracováván a nemělo by docházet k~jeho přebytečnému hromadění~\cite{bib:just-in-time}. Jedním z~nástrojů této filozofie je právě metodika Kanban, její tehdejší provedení je možné vidět na fotografii~\ref{img:kanban-toyota}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{obrazky-figures/toyota-kanban.jpg}
-	\caption{Původní provedení kanbanu v továrně společnosti Toyota Motor Corporation \emph{Převzato z~\cite{bib:toyota-history}}.}
+	\caption{Původní provedení kanbanu v~továrně společnosti Toyota Motor Corporation. \emph{Převzato z~\cite{bib:toyota-history}}.}
 	\label{img:kanban-toyota}
 \end{figure}
 
-Metodika Kanban je nástroj pro vizuální kontrolu práce a jejího toku jednotlivými fázemi procesu. Kanban může být realizován jak fyzicky (například tabule s nalepovacími papírky viz fotografie~\ref{img:kanban-whiteboard}), tak i digitálně (například pomocí aplikací uvedených v kapitole~\ref{sec:apps}). 
+Metodika Kanban je nástroj pro vizuální kontrolu práce a jejího toku jednotlivými fázemi procesu. Kanban může být realizován jak fyzicky (například tabule s~nalepovacími papírky viz fotografie~\ref{img:kanban-whiteboard}), tak i digitálně (například pomocí aplikací uvedených v~kapitole~\ref{sec:apps}). 
 
-Ať je nástěnka Kanban digitální či nikoliv, ve většina případů se skládá ze stejných částí, jen v jiném provedení. Nejčastěji se lze setkat s typem, kdy na se na horizontální ose nachází pojmenované sloupce představující jednotlivé fáze procesu. Do těchto sloupců jsou umístěny nejrůznější karty, reprezentující jednotlivé úkoly. Rozmístění karet mezi sloupci se odvíjí od aktuálního stavu úkolu.
+Ať je nástěnka Kanban digitální či nikoliv, ve většina případů se skládá ze stejných částí, jen v~jiném provedení. Nejčastěji se lze setkat s~typem, kdy na se na horizontální ose nachází pojmenované sloupce představující jednotlivé fáze procesu. Do těchto sloupců jsou umístěny nejrůznější karty, reprezentující jednotlivé úkoly. Rozmístění karet mezi sloupci se odvíjí od aktuálního stavu úkolu.
 
-Nejjednodušší variantou takových sloupců může být například trojce sloupců nazvaných \uv{zásobník}, \uv{v procesu} a \uv{hotovo}. První ze sloupců nazvaný \uv{zásobník} je místo, kde se hromadí úkoly, na kterých se ještě nezačalo pracovat. Jakmile práce na daném úkolu započne, jeho karta je přesunuta do dalšího sloupce s označením \uv{v procesu}. Obdobně je tomu při dokončení úkolu, kdy je jeho karta opět přemístěna do jiného sloupce, tentokrát do sloupce \uv{hotovo}. Názorná ukázka této nástěnky je vidět na fotografii~\ref{img:kanban-whiteboard}.
+Nejjednodušší variantou takových sloupců může být například trojce sloupců nazvaných \uv{zásobník}, \uv{v~procesu} a \uv{hotovo}. První ze sloupců nazvaný \uv{zásobník} je místo, kde se hromadí úkoly, na kterých se ještě nezačalo pracovat. Jakmile práce na daném úkolu započne, jeho karta je přesunuta do dalšího sloupce s~označením \uv{v~procesu}. Obdobně je tomu při dokončení úkolu, kdy je jeho karta opět přemístěna do jiného sloupce, tentokrát do sloupce \uv{hotovo}. Názorná ukázka této nástěnky je vidět na fotografii~\ref{img:kanban-whiteboard}.
 
 \begin{figure}[H]
 	\centering
@@ -92,30 +92,30 @@ Nejjednodušší variantou takových sloupců může být například trojce slo
 	\label{img:kanban-whiteboard}
 \end{figure}
 
-V praxi je takřka nemožné setkat se s takto jednoduchým provedením. Proces výroby či vývoje je třeba rozdělit na jednotlivé části. Při vývoji softwaru bývají často využívány sloupce \uv{návrh}, \uv{vývoj}, \uv{testování} a další.  
+V~praxi je takřka nemožné setkat se s~takto jednoduchým provedením. Proces výroby či vývoje je třeba rozdělit na jednotlivé části. Při vývoji softwaru bývají často využívány sloupce \uv{návrh}, \uv{vývoj}, \uv{testování} a další.  
 
-Pokud jednu nástěnku využívá více oddělení společnosti, lze se mnohdy setkat i s dalším rozlišením úkolů. Jedná se o takzvané plavecké dráhy (angl. \emph{swimlanes}). Úkoly jsou pak rozděleny nejen do sloupců (značících procesy), ale i do vodorovných řádků, které nejčastěji představují jednotlivá oddělení společnosti či týmy. 
+Pokud jednu nástěnku využívá více oddělení společnosti, lze se mnohdy setkat i s~dalším rozlišením úkolů. Jedná se o~takzvané plavecké dráhy (angl. \emph{swimlanes}). Úkoly jsou pak rozděleny nejen do sloupců značících procesy, ale i do vodorovných řádků, které nejčastěji představují jednotlivá oddělení společnosti či týmy. 
 
-V dnešní době, jak u mnoha věcí, převažuje digitální provedení Kanban nástěnek. Její výhodou je především větší přehlednost, vzdálená přístupnost, jednoduší manipulace a hlavně možnost připojovat k jednotlivým kartám podrobnější popis, komentáře, obrázky a další dokumenty. Nicméně i fyzická varianta má své výhody. Jedna z nich je fakt, že je stále na očích a nelze ji skrýt jako například záložku v prohlížeči. Toto provedení může taktéž podněcovat k vetší komunikaci mezi týmy a to jsou důvody proč tuto variantu využívají například ve společnosti Optimizely\footnote{Optimizely: \url{https://www.optimizely.com/about/}}~\cite{bib:kanban-atlassian}.
+V~dnešní době, jak i u~mnoha jiných věcí, převažuje digitální provedení Kanban nástěnek. Její výhodou je především větší přehlednost, vzdálená přístupnost, jednoduší manipulace a hlavně možnost připojovat k~jednotlivým kartám podrobnější popis, komentáře, obrázky a další dokumenty. Nicméně i fyzická varianta má své výhody. Jedna z~nich je fakt, že je stále na očích a nelze ji skrýt jako například záložku v~prohlížeči. Toto provedení může taktéž podněcovat k~vetší komunikaci mezi týmy a to jsou důvody proč tuto variantu využívají například ve společnosti Optimizely\footnote{Optimizely: \url{https://www.optimizely.com/about/}}~\cite{bib:kanban-atlassian}.
 
-Díky využití metodiky Kanban a jejího přehlednému vyobrazení úkolů získávají jednotliví členové týmu lepší přehled o prací svých kolegů. Tento fakt může také vést k lepší prioritizaci úkolů a především odpadá čas ztracený komunikací v momentě kdy nastane změna úkolu čí jeho priority~\cite{bib:kanban-101}.
+Díky využití metodiky Kanban a jejího přehlednému vyobrazení úkolů získávají jednotliví členové týmu lepší přehled o~prací svých kolegů. Tento fakt může také vést k~lepšímu určení priority úkolů a především odpadá čas ztracený komunikací v~momentě, kdy nastane změna úkolu či jeho priority~\cite{bib:kanban-101}.
 Kanban svou podstatou také dokáže poukázat na problematické procesy, které zpomalují celkový chod výroby či vývoje~\cite{bib:kanban-and-scrum}.
 
-Často se u metodiky Kanban lze potkat s limitováním probíhající práce (anglicky \emph{Work in Progress]} či zkráceně WIP). Jedná se o omezení, kdy dán maximální počet úkolů pro určitou fázi procesu (sloupec nástěnky). Například lze stanovit limit souběžného pracování maximálně na třech grafických návrzích. Toto omezení má pozitivní dopad především na snížení nutnosti věnovat se více projektům naráz, díky čemuž se lze na jednotlivé úkoly lépe soustředit a tím může být docíleno rychlejšího a kvalitnějšího výsledku~\cite{bib:kanban-101}.
+Často se u~metodiky Kanban lze potkat s~limitováním probíhající práce (anglicky \emph{Work in Progress} či zkráceně WIP). Jedná se o~omezení, kdy je dán maximální počet úkolů pro určitou fázi procesu (sloupce nástěnky). Například lze stanovit limit souběžného pracování maximálně na třech grafických návrzích. Toto omezení má pozitivní dopad především na snížení nutnosti věnovat se více úkolům naráz, díky čemuž se lze na jednotlivé úkoly lépe soustředit a tím může být docíleno rychlejšího a kvalitnějšího výsledku~\cite{bib:kanban-101}.
 
-\section{Aplikace s podobným zaměřením}\label{sec:apps}
-Jelikož metodika Kanban existuje již několik několik desítek let, lze v dnešní době nalézt celou řadu programů a webových aplikací, které je možné pro aplikování této metodiky využít. V této podkapitole je několik takových aplikací stručně přiblíženo a jsou vyzdviženy některé jejich klíčové vlastnosti. Pro bližší představu o podobě těchto aplikací je každá doprovázena jejím snímkem. Mezi uvedenými aplikacemi lze nalézt dva populární zástupce z řad produktů společnosti Atlassian -- aplikace Trello a Jira. Třetí představenou aplikací je o něco méně známá aplikace Kanboard, která je však v současné době využívaná společností SEACOMP s.r.o. V závěru kapitoly je obsaženo stručné shrnutí rozdílů těchto tří aplikací a možné důvody vedoucí ke zvolení právě jedné z uvedených aplikací.
+\section{Aplikace s~podobným zaměřením}\label{sec:apps}
+Jelikož metodika Kanban existuje již několik desítek let, lze v~dnešní době nalézt celou řadu programů a webových aplikací, které je možné pro aplikování této metodiky využít. V~této podkapitole je několik takových aplikací stručně přiblíženo a jsou vyzdviženy některé jejich klíčové vlastnosti. Pro bližší představu o~podobě těchto aplikací je každá doprovázena jejím snímkem. Mezi uvedenými aplikacemi lze nalézt dva populární zástupce z~řad produktů společnosti Atlassian -- aplikace Trello a Jira. Třetí představenou aplikací je o~něco méně známá aplikace Kanboard, která je však v~současné době využívaná společností SEACOMP s.r.o. V~závěru kapitoly je obsaženo stručné shrnutí rozdílů těchto tří aplikací a možné důvody vedoucí ke zvolení právě jedné z~uvedených aplikací.
 
 \subsection{Trello}
-Trello\footnote{Trello: \url{https://trello.com}} je především webová aplikace provozovaná v současné době společností Atlassian\footnote{Atlassian: \url{https://www.atlassian.com}}. Historie této aplikace sahá až do roku 2011, kdy byla veřejně spuštěna jako webová aplikace a také jako aplikace pro platformu iOS. K dnešnímu dni je aplikaci Trello možné navíc využít i na mobilní platformě Android nebo jako desktopová aplikace pro operační systémy Microsoft Windows či macOS. 
+Trello\footnote{Trello: \url{https://trello.com}} je především webová aplikace provozovaná v~současné době společností Atlassian\footnote{Atlassian: \url{https://www.atlassian.com}}. Historie této aplikace sahá až do roku 2011, kdy byla veřejně spuštěna jako webová aplikace a také jako aplikace pro platformu iOS. K~dnešnímu dni je aplikaci Trello možné navíc využít i na mobilní platformě Android nebo jako desktopovou aplikaci pro operační systémy Microsoft Windows či macOS. 
 
-Během několika let své existence se aplikace stala velice populární a použilo ji několik milionů uživatelů. K věhlasným společnostem, které tuto aplikaci využívají patří například technologický gigant Google\footnote{Google: \url{https://about.google/}}, softwarová společnost Red Hat\footnote{RedHat: \url{https://www.redhat.com/en/about/company}} nebo platforma pro skupinové financování Kickstarter\footnote{Atlassian: \url{https://www.kickstarter.com/about}}~\cite{bib:trello-about}. 
+Během několika let své existence se aplikace stala velice populární a použilo ji několik milionů uživatelů. K~věhlasným společnostem, které tuto aplikaci využívají patří například technologický gigant Google\footnote{Google: \url{https://about.google/}}, softwarová společnost Red Hat\footnote{RedHat: \url{https://www.redhat.com/en/about/company}} nebo platforma pro skupinové financování Kickstarter\footnote{Atlassian: \url{https://www.kickstarter.com/about}}~\cite{bib:trello-about}. 
 
-Svou velkou popularitu si aplikace zasloužila především přívětivým uživatelským rozhraním a jednoduchostí použití. Od první návštěvy stránky k práci na své první Kanban nástěnce uživatele dělí doslova minuty. Pro základní použití navíc bez problému vystačí bezplatná verze aplikace. Díky těmto faktům aplikace není využívána pouze softwarovými společnostmi, ale lze ji použít například i jako osobní seznam úkolů~\cite{bib:jira-vs-trello}.
+Svou velkou popularitu si aplikace zasloužila především přívětivým uživatelským rozhraním a jednoduchostí použití. Od první návštěvy stránky k~práci na své první Kanban nástěnce uživatele dělí doslova minuty. Pro základní použití navíc bez problému vystačí bezplatná verze aplikace. Díky těmto faktům aplikace není využívána pouze softwarovými společnostmi, ale lze ji použít například i jako osobní seznam úkolů~\cite{bib:jira-vs-trello}.
 
-Trello nabízí řadu vylepšení, díky kterým je možné nástěnku rozšířit o funkce z aplikací třetích stran. 
-V bezplatné verzi lze však využít pouze jedno takové vylepšení~\cite{bib:trello-pricing}.
-Nástěnka je umístěna na serverech poskytovatele a službu nelze provozovat na svém vlastním serveru. Nicméně mobilní aplikace umožňují pracovat s nástěnkami i bez přístupu k internetu~\cite{bib:trello-common}.
+Trello nabízí řadu vylepšení, díky kterým je možné nástěnku rozšířit o~funkce aplikací třetích stran. 
+V~bezplatné verzi lze však využít pouze jedno takové vylepšení~\cite{bib:trello-pricing}.
+Nástěnka je umístěna na serverech poskytovatele a službu nelze provozovat na svém vlastním serveru. Nicméně mobilní aplikace umožňují pracovat s~nástěnkami i bez přístupu k~internetu~\cite{bib:trello-common}.
 
 \begin{figure}[H]
 	\centering
@@ -124,14 +124,13 @@ Nástěnka je umístěna na serverech poskytovatele a službu nelze provozovat n
 \end{figure}
 
 \subsection{Jira}
-Jira\footnote{Jira: \url{https://www.atlassian.com/cs/software/jira}} je řada produktů společnosti Atlassian, určená ke správě práce v nejrůznějších typech týmů. Nástěnka Kanban je součást například produktu Jira Software, který je, jak název vypovídá, zaměřen především na vývojáře softwaru. 
-% https://www.atlassian.com/software/jira/guides/getting-started/overview#jira-software-hosting-options
+Jira\footnote{Jira: \url{https://www.atlassian.com/cs/software/jira}} je řada produktů společnosti Atlassian, určená ke správě práce v~nejrůznějších typech týmů. Nástěnka Kanban je součást například produktu Jira Software, který je, jak název vypovídá, zaměřen především na vývojáře softwaru. 
 
-S nástěnkou lze pracovat jak v prohlížeči, tak i pomocí vlastního programu, který je k dispozici pro operační systémy Microsoft Windows, Linux i macOS. K dispozici jsou také mobilní aplikace pro operační systém iOS i Android. 
+S~nástěnkou lze pracovat jak v~prohlížeči, tak i pomocí vlastního programu, který je k~dispozici pro operační systémy Microsoft Windows, Linux i macOS. K~dispozici jsou také mobilní aplikace pro operační systémy iOS i Android. 
 
-Jednou z funkcí, kterou Jira disponuje, je možnost vygenerování řady grafů a přehledů. V základní verzi bez přídavných modulů lze také tvořit dílčí úkoly a vzájemné závislosti jednotlivých úkolů. Základní funkcionalitu aplikace lze rozšířit využitím placených i bezplatných doplňku, které jsou k dispozici na oficiálním tržišti.
+Jednou z~funkcí, kterou Jira disponuje, je možnost vygenerování řady grafů a přehledů. V~základní verzi bez přídavných modulů lze také tvořit dílčí úkoly a vzájemné závislosti jednotlivých úkolů. Základní funkcionalitu aplikace lze rozšířit využitím placených i bezplatných doplňků, které jsou k~dispozici na oficiálním tržišti.
 
-Díky tomu, že je aplikace určená pro softwarové vývojáře je v této aplikaci mimo klasické nástěnky možné také přepnout režim zobrazení na variantu určenou pro agilní metodiku zvanou Scrum, která cílí na dokončení úkolů v rámci iterace cyklu vývoje~\cite{bib:trello-vs-jira-2020}.
+Díky tomu, že je aplikace určená pro softwarové vývojáře je v~této aplikaci mimo klasické nástěnky možné také přepnout režim zobrazení na variantu určenou pro agilní metodiku zvanou Scrum, která cílí na dokončení úkolů v~rámci iterace cyklu vývoje~\cite{bib:trello-vs-jira-2020}.
 
 Nástěnka může být na rozdíl od aplikace Trello umístěna jak na serverech poskytovatele, tak i na vlastním serveru.
 
@@ -144,13 +143,13 @@ Tato aplikace je využívána více něž 65 tisíci zákazníky po celém svět
 \end{figure}
 
 \subsection{Kanboard}
-Kanboard\footnote{Kanboard: \url{https://kanboard.org}} je bezplatná webová aplikace s otevřeným zdrojovým kódem. Jejím tvůrcem je Frédéric Guillot, nicméně zdrojové kódy jsou volně k dispozici na portálu GitHub\footnote{Repozitář Kanboard na platformě GitHub: \url{https://github.com/kanboard/kanboard}}, kde se k vývoji připojilo dalších 270 lidí~\cite{bib:kanboard-github}. Aplikace je napsaná především v jazyce PHP a JavaScript. K provozování této aplikace je nutné použít vlastní webový server. Kanboard uživatelům nenabízí žádné přepychové uživatelské rozhraní, ale naopak se zaměřuje na jednoduchost a minimalismus~\cite{bib:kanboard}.
+Kanboard\footnote{Kanboard: \url{https://kanboard.org}} je bezplatná webová aplikace s~otevřeným zdrojovým kódem. Jejím tvůrcem je Frédéric Guillot, nicméně zdrojové kódy jsou volně k~dispozici na portálu GitHub\footnote{Repozitář Kanboard na platformě GitHub: \url{https://github.com/kanboard/kanboard}}, kde se k~vývoji připojilo dalších 270 lidí~\cite{bib:kanboard-github}. Aplikace je napsaná především v~jazyce PHP a JavaScript. K~provozování této aplikace je nutné použít vlastní webový server. Kanboard uživatelům nenabízí žádné přepychové uživatelské rozhraní, ale naopak se zaměřuje na jednoduchost a minimalismus~\cite{bib:kanboard}.
 
-Mimo základní funkce metodiky Kanban tato aplikace umožňuje také vyhledávat úkoly za pomocí vlastního dotazovacího jazyka. Částečně také umožňuje práci s nástěnkou automatizovat pomocí konfigurovatelných akcí.
+Mimo základní funkce metodiky Kanban tato aplikace umožňuje také vyhledávat úkoly za pomocí vlastního dotazovacího jazyka. Částečně také umožňuje práci s~nástěnkou automatizovat pomocí konfigurovatelných akcí.
 
-Vzhledem k otevřenému zdrojovému kódu lze aplikaci v případě potřeby upravit na míru vlastním potřebám. Součástí aplikace je však i rozhraní pro zásuvné moduly. Několik takových modulů lze nalézt i přímo na oficiální stránce\footnote{Zásuvné moduly pro Kanboard: \url{https://kanboard.org/plugins.html}}, avšak nepodléhají žádnému schvalovacímu procesu a není zaručena jejich kompatibilita.
+Vzhledem k~otevřenému zdrojovému kódu lze aplikaci v~případě potřeby upravit na míru vlastním potřebám. Součástí aplikace je však i rozhraní pro zásuvné moduly. Několik takových modulů lze nalézt i přímo na oficiální stránce\footnote{Zásuvné moduly pro Kanboard: \url{https://kanboard.org/plugins.html}}, avšak nepodléhají žádnému schvalovacímu procesu a není zaručena jejich kompatibilita.
 
-Aplikace však nenabízí žádný program či mobilní aplikaci. Jediný přístup k nástěnce je tedy pomocí internetového prohlížeče.
+Aplikace však nenabízí žádný program či mobilní aplikaci. Jediný přístup k~nástěnce je tedy pomocí internetového prohlížeče.
 
 \begin{figure}[H]
 	\centering
@@ -162,7 +161,7 @@ Aplikace však nenabízí žádný program či mobilní aplikaci. Jediný přís
 
 Základní principy nástěnky Kanban jsou součástí všech tří uvedených aplikací. Malou odchylkou je aplikace Trello, která neumožňuje úkoly rozřadit do plaveckých drah. Této funkcionality lze docílit pouze instalací zásuvného modulu do prohlížeče, což zcela jistě není nejvhodnější řešení.
 
-Představené aplikace se mezi sebou liší například cenou, možnostmi provozování, dostupností zdrojového kódu, existencí mobilní aplikace, dostupností technickou podporou či přívětivostí uživatelského prostředí. Srovnání několik těchto vlastností je přehledně uvedeno v tabulce~\ref{tab:kanban-sum}. 
+Představené aplikace se mezi sebou liší například cenou, možnostmi provozování, dostupností zdrojového kódu, existencí mobilní aplikace, dostupností technické podpory či přívětivostí uživatelského prostředí. Srovnání několik těchto vlastností je přehledně uvedeno v~tabulce~\ref{tab:kanban-sum}. 
 
 \begin{table}[H]
 \centering
@@ -180,167 +179,169 @@ Kanboard & Zdarma & Ne & Ano & Ano \\
 \end{table}
 \footnotetext{Cena na uživatele za měsíc}
 
-Z důvodu ochrany firemního tajemství mohou být preferovány služby Jira a Kanboard, jelikož je možné je provozovat přímo na svém vlastním serveru. Konkrétně u aplikace Kaboard může tato vlastnost však představovat pro řadu uživatelů nevýhodu. Aplikaci totiž není možné jednoduše provozovat na serverech poskytovatele. Uživatel musí mít k dispozici server, kde bude aplikace provozována a to se může stát bariérou pro méně pokročilé uživatele počítače.
+Z~důvodu ochrany firemního tajemství mohou být preferovány služby Jira a Kanboard, díky možnosti provozovat je přímo na svém vlastním serveru. Konkrétně u~aplikace Kaboard může tato vlastnost však představovat pro řadu uživatelů nevýhodu. Aplikaci totiž není možné jednoduše provozovat na serverech poskytovatele. Uživatel musí mít k~dispozici server, kde bude aplikace provozována a to se může stát bariérou pro méně pokročilé uživatele počítače.
 
-Kanboard však jako jediná z tří uvedených aplikací disponuje otevřeným zdrojovým kódem. Umožňuje tak větší zásahy do aplikace než je tomu v případě dalších dvou aplikací, kde lze úpravy řešit pouze pomocí doplňků.
+Kanboard však jako jediná z~tří uvedených aplikací disponuje otevřeným zdrojovým kódem. Umožňuje tak větší zásahy do aplikace než je tomu v~případě dalších dvou aplikací, kde lze úpravy řešit pouze pomocí doplňků.
 
-Co se ceny týče, všechny aplikace lze provozovat v jistém měřítku zdarma. Trello v bezplatné verzi omezuje počet týmových nástěnek a Jira zase využívá limit uživatelů. Oproti tomu Kanboard, je zcela zdarma. Jediné reálné náklady tedy může představovat provoz serveru. Při provozování aplikace Jira tímto způsobem je třeba uhradit jednorázový poplatek, jehož cena se odvíjí od počtu uživatelů. Použití aplikace Kanboard se tedy může jevit jako nejlepší volba, každopádně v tomto případě je ztracena dostupnost technické podpory. V korporačním prostředí to může být důležitý požadavek, protože výpadek klíčového nástroje pro řízení projektů představuje obrovské riziko pro bezproblémový chod společnosti.
+Co se ceny týče, všechny aplikace lze provozovat v~jistém měřítku zdarma. Trello v~bezplatné verzi omezuje počet týmových nástěnek a Jira zase využívá limit uživatelů. Oproti tomu Kanboard, je zcela zdarma. Jediné reálné náklady tedy může představovat provoz serveru. Při provozování aplikace Jira tímto způsobem je třeba uhradit jednorázový poplatek, jehož cena se odvíjí od počtu uživatelů. Použití aplikace Kanboard se tedy může jevit jako nejlepší volba, každopádně v~tomto případě je ztracena dostupnost technické podpory. V~korporačním prostředí to může být důležitý požadavek, protože výpadek klíčového nástroje pro řízení projektů představuje obrovské riziko pro bezproblémový chod společnosti.
 
-Slabší stránkou aplikace Kanboard je na první pohled uživatelské rozhraní. Nejedná se však pouze o vzhled aplikace. Rozhraní obsahuje i mnoho prvků, které nejsou řešeny pomocí asynchronních požadavků, a to může být uživateli vnímáno jako nepohodlné či zastaralé.
+Slabší stránkou aplikace Kanboard je na první pohled uživatelské rozhraní. Nejedná se však pouze o~vzhled aplikace. Rozhraní obsahuje i mnoho prvků, které nejsou řešeny pomocí asynchronních požadavků a to může být uživateli vnímáno jako nepohodlné či zastaralé.
 
-Každá z uvedených aplikací tedy obsahuje řadu výhod i nevýhod, nelze tedy jednoznačně určit tu nejlepší. Výběr závisí na konkrétních požadavcích společnosti či týmu, který ji bude využívat. Nicméně za zmínku stojí fakt, že 83\% společností ze žebříčku Fortune 500\footnote{Fortune 500: \url{https://fortune.com/fortune500/}}, který sdružuje 500 společností ze Spojených států Amerických s nejvyšším hrubým obratem, využívá produkty právě společnosti Atlassian~\cite{bib:atlassian-customers}.
+Každá z~uvedených aplikací tedy obsahuje řadu výhod i nevýhod, nelze tedy jednoznačně určit tu nejlepší. Výběr závisí na konkrétních požadavcích společnosti či týmu, který ji bude využívat. Nicméně za zmínku stojí fakt, že 83\% společností ze žebříčku Fortune 500\footnote{Fortune 500: \url{https://fortune.com/fortune500/}}, který sdružuje 500 společností ze Spojených států Amerických s~nejvyšším hrubým ročním obratem, využívá produkty právě společnosti Atlassian~\cite{bib:atlassian-customers}.
 
 
 
 \section{Společnost SEACOMP s.r.o.}
-SEACOMP s.r.o. je česká společnost věnující se již více než dvacet let tvorbou softwarových produktů. Společnost se zabývá především informačními systémy v oblasti logistiky, zdravotnictví, správy budov a řízení projektů~\cite{bib:seacomp-portfolio}.
+SEACOMP s.r.o. je česká společnost věnující se již více než dvacet let tvorbou softwarových produktů. Společnost se zabývá především informačními systémy v~oblasti logistiky, zdravotnictví, správy budov a řízení projektů~\cite{bib:seacomp-portfolio}.
 
 
 \subsection{Současný produkt}
-Jedním z mnoha produktů společnosti SEACOMP s.r.o. je systém SSB (SEACOMP SYSTEM BUILDER), určený pro snadnou tvorbu komplexních informačních systémů. Jedná se o počítačový program napsaný za použití technologie .NET.
+Jedním z~mnoha produktů společnosti SEACOMP s.r.o. je systém SSB\footnote{SEACOMP SYSTEM BUILDER}, určený pro snadnou tvorbu komplexních informačních systémů. Jedná se o~počítačový program napsaný za použití technologie .NET.
 
-V loňském roce se v rámci své diplomové práce Bc. Adam Teršl věnoval implementaci webového klienta pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především rámec Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Desktopová verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z těchto modulů je právě nástroj KANBAN board pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce. 
+V~loňském roce se v~rámci své diplomové práce Bc.~Adam Teršl věnoval implementaci webového klienta právě pro tento systém. Výsledkem jeho snažení byla webová aplikace SSB4Web využívající především rámec Angular. Aplikace je schopna komunikovat se serverem systému SSB a díky zásuvným modulů umožňuje prezentaci základních typů dat, které tvoří základ tohoto systému~\cite{bib:tersl}. Desktopová verze klienta však obsahuje celou řadu dalších specializovaných zásuvných modulů, které pro webovou verzi klienta dosud nebyly implementovány. Jedním z~těchto modulů je právě nástroj KANBAN board pro optimalizaci spolupráce týmů, jehož implementace je cílem mé práce. 
 
-Původní nástroj však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z tohoto důvodu se v rámci interního projektového řízení začal ve společnosti SEACOMP s.r.o. používat nástroj Kanboard, který byl upraven a obohacen o některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k dispozici nástroj, který umožňuje pokročilejší práci s nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z tohoto důvodu bylo vypsané toto téma bakalářské práce.
+Původní nástroj však svou funkcionalitou pro pokročilejší řízení projektů již nestačí. Z~tohoto důvodu se v~rámci interního projektového řízení začal ve společnosti SEACOMP s.r.o. používat nástroj Kanboard, který byl upraven a obohacen o~některé specializované funkce. Tento nástroj však pracuje mimo ekosystém SSB. Přáním společnosti je mít k~dispozici nástroj, který umožňuje pokročilejší práci s~nástěnkou typu Kanban a tento nástroj mít plně integrován do produktu SSB4Web. Z~tohoto důvodu bylo vypsané toto téma bakalářské práce.
 
 
 \subsection{Požadavky na aplikaci}
-Z důvodu ochrany obchodního tajemství však není možné zveřejnit zdrojové kódy programu SSB. Pro řešení této bakalářské práce je tudíž nejprve nutné vytvořit zjednodušenou verzi toho systému. Ta nese označení SSBLite a dle požadavku zadavatele je psána v jazyce C\#, konkrétně za použití ASP.Net Core. Tato část slouží jako server a komunikuje s klienty skrze aplikační rozhraní REST.
+Z~důvodu ochrany obchodního tajemství však není možné zveřejnit zdrojové kódy programu SSB. Pro řešení této bakalářské práce je tudíž nejprve nutné vytvořit zjednodušenou verzi toho systému. Ta nese označení SSBLite a dle požadavku zadavatele je psána v~jazyce C\#, konkrétně za použití ASP.NET Core. Tato část slouží jako server a komunikuje s~klienty skrze aplikační rozhraní REST.
 
-Podoba aplikačního rozhraní z důvodu budoucí integrace do systému SSB4Web musí odpovídat podobě používané právě v této zmíněné webové aplikaci. Samotná integrace však na přání společnosti není předmětem této práce, aplikaci je proto i přes budoucí integraci nutno vytvořit jako samostatnou webovou aplikaci obsahující například i autentizaci uživatelů a další komponenty.
+Podoba aplikačního rozhraní z~důvodu budoucí integrace do systému SSB4Web musí odpovídat podobě používané právě v~této zmíněné webové aplikaci. Samotná integrace však na přání společnosti není předmětem této práce. Aplikaci je proto i přes budoucí integraci nutno vytvořit jako samostatnou webovou aplikaci obsahující například i autentizaci uživatelů a další komponenty.
 
-Dále je požadováno, aby webová aplikace používala stejné technologie jako původní SSB4Web, tedy rámec Angular s knihovnou pro správu stavu NgRx. Výjimkou je v tomto případě knihovna použitá pro uživatelské rozhraní, kdy původní diplomová práce využívala knihovnu PrimeNG\footnote{PrimeNG: \url{https://primefaces.org/primeng/}}. Po dokončení této práce však bylo společností požadováno knihovnu nahradit za balík komponent DevExtreme. Tento balík je tedy při implementaci práce rovněž využít.
+Dále je požadováno, aby webová aplikace používala stejné technologie jako původní SSB4Web, tedy rámec Angular s~knihovnou pro správu stavu NgRx. Výjimkou je v~tomto případě knihovna použitá pro uživatelské rozhraní, kdy původní diplomová práce využívala knihovnu PrimeNG\footnote{PrimeNG: \url{https://primefaces.org/primeng/}}. Po dokončení této práce však bylo společností požadováno knihovnu nahradit za balík komponent DevExtreme. Tento balík je tedy při implementaci práce rovněž využit.
 
-Od samotné funkcionality aplikace je přirozeně očekáváno standardní chování aplikací toho typu jako je vytváření, mazání, editace a přesuny karet. Nástěnka kromě sloupců musí umět pracovat také s plaveckými drahami a obě tyto struktury musí být v aplikaci konfigurovatelné. Ke kartám je nutné mít možnost přiřadit štítky, které taktéž musejí být konfigurovatelné. Veškeré akce týkající se karet musí byt zapisovaný a je třeba umožnit zobrazení historie jednotlivých karet.
+Od samotné funkcionality aplikace je přirozeně očekáváno standardní chování aplikací toho typu jako je vytváření, mazání, editace a přesuny karet. Nástěnka kromě sloupců musí umět pracovat také s~plaveckými drahami a obě tyto struktury musí být v~aplikaci konfigurovatelné. Ke kartám je nutné mít možnost přiřadit štítky, které taktéž musejí být přizpůsobitelné. Veškeré akce týkající se karet musí byt zaznamenávány a je třeba umožnit zobrazení historie jednotlivých karet.
 Serverová část aplikace musí načítat konfiguraci vydefinovanou mimo zdrojový kód aplikace. Pro autentizaci uživatele je požadováno využívat standard JWT.
 
 
 
 
 \chapter{Technologie}
-V této kapitole jsou ve stručnosti přiblíženy technologie a techniky využité při tvorbě této práce. 
-V dnešní době popularita webových aplikací stále roste a to na úkor klasických desktopových aplikací~\cite{bib:web-apps-popular}. Tohoto trendu si je vědoma i společnost SEACOMP s.r.o., a proto je jejím záměrem vytvořit webovou aplikaci typu Kanban. Všechny použité technologie jsou tedy právě webového charakteru.
+V~této kapitole jsou ve stručnosti přiblíženy technologie a techniky využité při tvorbě této práce. 
+V~dnešní době popularita webových aplikací stále roste a to na úkor klasických desktopových aplikací~\cite{bib:web-apps-popular}. Tohoto trendu si je vědoma i společnost SEACOMP s.r.o., a proto je jejím záměrem vytvořit webovou aplikaci typu Kanban. Všechny použité technologie jsou tedy právě webového charakteru.
 
 Úvod podkapitoly je věnován klientské části aplikace. Je zde popsán princip jednostránkových aplikací, programovací jazyk JavaScript, jeho typová nástavba TypeScript, rámec Angular a jeho knihovny NgRx a DevExtreme.
 
-Dále jsou zmíněny technologie zajišťující propojení klientské části aplikace s části serverovou. Toho je docíleno díky aplikačnímu rozhraní REST a standardu JWT, která zajišťuje autentizaci uživatelů a autorizaci jejich požadavků.
+Dále jsou zmíněny technologie zajišťující propojení klientské části aplikace s~části serverovou. Toho je docíleno díky aplikačnímu rozhraní REST a standardu JWT, který zajišťuje autentizaci uživatelů a autorizaci jejich požadavků.
 
-V poslední části podkapitoly je zase popsána serverová část. Ta se skládá z technologie ASP.NET, která zpracovává požadavky zaslané z klientské části aplikace a překládá je na dotazy databáze, která využívá technologii PostgreSQL.
+V~poslední části podkapitoly je zase popsána serverová část. Ta se skládá z~technologie ASP.NET, která zpracovává požadavky zaslané z~klientské části aplikace a překládá je na dotazy databáze, která využívá technologii PostgreSQL.
 
 
 \section{Jednostránkové aplikace}\label{sec:spa}
 
 \emph{Tato kapitola čerpá z~\cite{bib:spa}}.
 
-V raných dobách internetu se webové stránky skládaly ze statického obsahu. S popularizací elektronického obchodování se však objevila potřeba na stránkách zobrazovat i obsah dynamický. 
+V~raných dobách internetu se webové stránky skládaly pouze ze statického obsahu. S~popularizací elektronického obchodování se však objevila potřeba na stránkách zobrazovat i obsah dynamický. 
 
-Této funkcionality lze docílit například díky technologii AJAX (Asynchronous JavaScript and XML). Technologie AJAX umožňuje komunikovat se serverem i po načtení stránky a tato komunikace probíhá na pozadí. Díky tomu není nutné při každé akci znovu načíst celou stránku, čímž je značně zredukován objem přenášených dat.
+Této funkcionality lze docílit například díky technologii AJAX\footnote{Asynchronous JavaScript and XML}. Technologie AJAX umožňuje komunikovat se serverem i po načtení stránky a tato komunikace probíhá na pozadí. Díky tomu není nutné při každé akci znovu načíst celou stránku, čímž je značně zredukován objem přenášených dat.
 
-Při navštívení jednostránkové webové aplikace je ze serveru nejprve načtena počáteční zmenšená část stránky. Další obsah je vyžádán a načten zpravidla až na základě uživatelské interakce. Ve srovnání s vícestránkovými aplikacemi tak tento přístup umožňuje rychleji reagovat na požadavky uživatele.
+Při navštívení jednostránkové webové aplikace je ze serveru nejprve načtena počáteční zmenšená část stránky. Další obsah je vyžádán a načten zpravidla až na základě uživatelské interakce. Ve srovnání s~vícestránkovými aplikacemi tak tento přístup umožňuje rychleji reagovat na požadavky uživatele.
 
 Často se lze také setkat se změnou adresní řádky prohlížeče při pomyslném přechodu na jinou podstránku. Ve skutečnosti se však uživatel stále nachází na jedné stránce, jen byl její obsah aktualizován. Právě proto se zmíněný princip webových aplikací označuje jako jednostránkový.
 
-Takovéto aplikace se zpravidla skládají z komponent. Pro tvorbu těchto aplikací se využívá jazyk JavaScript, nicméně vzhledem k jejich komplexnosti se v drtivé většině pro implementaci používá některých z rámců tohoto jazyka.
+Takovéto aplikace se zpravidla skládají z~komponent. Pro tvorbu těchto aplikací se využívá jazyk JavaScript, nicméně vzhledem k~jejich komplexnosti se v~drtivé většině pro implementaci používá některých z~rámců tohoto jazyka.
 
 
 
 \section{JavaScript}
-JavaScript je interpretovaný programovací jazyk s dynamickým typováním, nejčastěji používaný ve webových prohlížečích. Jeho hlavním účelem je umožnit webovým stránkám interagovat s uživatelem a upravovat obsah právě zobrazené stránky~\cite{bib:js-definitive}.
+JavaScript je interpretovaný programovací jazyk s~dynamickým typováním, nejčastěji používaný ve webových prohlížečích. Jeho hlavním účelem je umožnit webovým stránkám interagovat s~uživatelem a upravovat obsah právě zobrazené stránky~\cite{bib:js-definitive}.
 
-Nejčastěji je kód napsaný v tomto jazyce spuštěn až v internetovém prohlížeči koncového uživatele na rozdíl od jazyků jako například PHP\footnote{PHP: \url{https://www.php.net}}, kde je kód zpracován na straně serveru. Nicméně existuje i platforma postavená na tomto jazyce zvaná Node.js\footnote{Node.js: \url{https://nodejs.org/en/}}, která se obdobně jako jazyk PHP zpracovává již na serveru.
+Nejčastěji je kód napsaný v~tomto jazyce spuštěn až v~internetovém prohlížeči koncového uživatele na rozdíl od jazyků jako například PHP\footnote{PHP: \url{https://www.php.net}}, kde je kód zpracován na straně serveru. Nicméně existuje i platforma postavená na tomto jazyce zvaná Node.js\footnote{Node.js: \url{https://nodejs.org/en/}}, která se obdobně jako jazyk PHP zpracovává již na serveru.
 
 
 \subsection{TypeScript}
-Samotný jazyk JavaScript však pro vývojáře může představovat překážku při implementaci rozsáhlých aplikací. Jedním z hlavních problémů je nepřehlednost kódu s dynamickým typováním proměnných.
+Samotný jazyk JavaScript však pro vývojáře může představovat překážku při implementaci rozsáhlých aplikací. Jedním z~hlavních problémů je nepřehlednost kódu s~dynamickým typováním proměnných.
 
-Řešením tohoto problému je například nástavba TypeScript\footnote{TypeScript: \url{https://www.typescriptlang.org}}, která tento jazyk obohacuje o prvky běžně používané v jiných programovacích jazycích. Jedná se ku příkladu o moduly, třídy, rozhraní a v neposlední řadě statické typování. Díky tomu je možné vyvíjet robustnější aplikace~\cite{bib:typescript}.
+Řešením tohoto problému je například nástavba TypeScript\footnote{TypeScript: \url{https://www.typescriptlang.org}}, která tento jazyk obohacuje o~prvky běžně používané v~jiných programovacích jazycích. Jedná se ku příkladu o~moduly, třídy, rozhraní a v~neposlední řadě statické typování. Díky tomu je možné jednodušeji vyvíjet robustnější aplikace~\cite{bib:typescript}.
  
 Jelikož internetové prohlížeče jazyk TypeScript neznají, je využíván překladač, který kód překládá do jazyka JavaScript.
 
 
 \subsection{Rámce jazyka JavaScript}
-S použitím čistého jazyka JavaScript bez použití knihoven či rámců se dnes setkáváme zřídka. Zejména u větších projektů je psaní kódu v čistém jazyce JavaScript ve srovnáním s použítí knihoven a rámců velmi časově náročné~\cite{bib:vanilla-js}.
+S~použitím čistého jazyka JavaScript bez použití knihoven či rámců se dnes setkáváme zřídka. Zejména u~větších projektů je psaní kódu v~čistém jazyce JavaScript ve srovnáním s~použítí knihoven a rámců velmi časově náročné~\cite{bib:vanilla-js}.
 
-Nejslavnějším rozšířením toho jazyka je bezesporu knihovna jQuery\footnote{jQuery: \url{https://jquery.com}}. Ta usnadňuje zejména průchod a manipulaci objektového modulu dokumentu (angl. \emph{Document Object Model} neboli \emph{DOM}), zpracování událostí, animace a práci s asynchronními požadavky~\cite{bib:jquery}.
+Nejslavnějším rozšířením toho jazyka je bezesporu knihovna jQuery\footnote{jQuery: \url{https://jquery.com}}. Ta usnadňuje zejména průchod a manipulaci objektového modulu dokumentu (angl. \emph{Document Object Model} neboli DOM), zpracování událostí, animace a práci s~asynchronními požadavky~\cite{bib:jquery}.
 
-Knihovna jQuery však není určená pro tvorbu stále populárnějších jednostránkových aplikaci. Na ty se zaměřují zcela jiné rámce, kterých se v poslední době objevuje stále více.
+Knihovna jQuery však není určená pro tvorbu stále populárnějších jednostránkových aplikaci. Na ty se zaměřují zcela jiné rámce, kterých se v~poslední době objevuje stále více.
 
-V současné době se mezi tři nejpoužívanější rámce řadí Angular, React a Vue.js~\cite{bib:js-framework}. Za dvěma prvními těmito rámci stojí velké společnosti. Rámec Angular je dílem společnosti Google a rámec React zase společnosti Facebook. Autorem rámce Vue.js je však Evan You a komunita vývojářů po celém světě.
+V~současné době se mezi tři nejpoužívanější rámce řadí Angular, React a Vue.js~\cite{bib:js-framework}. Za dvěma prvními zmíněnými rámci stojí velké společnosti. Rámec Angular je dílem společnosti Google a rámec React zase společnosti Facebook. Autorem rámce Vue.js je však Evan You a komunita vývojářů po celém světě.
 
-Nejmladším z těchto rámců je Vue.js i přes to se však těší větší oblibě než nejstarší uvedený rámec Angular. Angular jako jediný z uvedených rámců využívá nástavbu TypeScript. V ostatním rámcích ji sice také lze využít, není to však vyžadováno. Architektura všech tří rámců si je principem velmi podobná. Liší se opět pouze rámec Angular, který komponenty umožňuje rozdělit do jednotlivých modulů. Co se týče obtížností těchto rámců pro programátora, jedná se vždy o subjektivní názor. Nicméně jako nejtěžší z uvedených rámců se obecně považuje Angular a nejlépe je v této kategorii hodnocen rámec Vue.js~\cite{bib:angular-vs-react-vs-vue}.
+Nejmladším z~těchto rámců je právě Vue.js. I přes to se však těší větší oblibě než nejstarší uvedený rámec Angular. Angular jako jediný z~uvedených rámců využívá nástavbu TypeScript. V~ostatních rámcích ji sice také lze využít, není to však vyžadováno. Architektura všech tří rámců si je principem velmi podobná. Liší se opět pouze rámec Angular, který komponenty umožňuje rozdělit do jednotlivých modulů. Co se týče obtížností těchto rámců pro programátora, jedná se vždy o~subjektivní názor. Nicméně jako nejtěžší z~uvedených rámců se obecně považuje Angular a nejlépe je v~této kategorii hodnocen rámec Vue.js~\cite{bib:angular-vs-react-vs-vue}.
 
 
 
 \subsection{Angular}
 \emph{Tato kapitola čerpá z~\cite{bib:ng-arch}}.
 
-Angular je webová platforma umožňující tvorbu jednostránkových aplikací s využitím jazyků TypeScript a HTML. Tato platforma si velmi zakládá na modularizaci kódu. Logické celky aplikace jsou proto často rozdělovaný do jednotlivých modulů, pro které lze využít metodu líného načítání (angl. \emph{lazy loading}). Obsahem těchto modulů jsou pak jednotlivé komponenty. 
+Angular je webová platforma umožňující tvorbu jednostránkových aplikací s~využitím jazyků TypeScript a HTML. Tato platforma si velmi zakládá na modularizaci kódu. Logické celky aplikace jsou proto často rozdělovány do jednotlivých modulů, pro které lze využít metodu líného načítání (angl. \emph{lazy loading}). Obsahem těchto modulů jsou pak jednotlivé komponenty. 
 
-Komponenty tvoří pohledy (angl. \emph{views}), které jsou zobrazeny jako elementy ve webové aplikaci. Tyto komponenty využívají služby (angl. \emph{services}), které zajišťují funckcionalitu která není přímo vázaná na pohledy. Služby je tak tedy možné znovu použít na více místech v aplikaci.
+Komponenty tvoří pohledy (angl. \emph{views}), které jsou zobrazeny jako elementy ve webové aplikaci. Tyto komponenty využívají služby (angl. \emph{services}), které zajišťují funckcionalitu která není přímo vázaná na pohledy. Služby je tak tedy možné znovu použít na více místech v~aplikaci.
 
-Komponenty mají v aplikaci hiearchistickou strukturu. Každá aplikace obsahuje alespoň jednu komponentu, která se označuje jako kořenová. Každá z těchto komponent je reprezentována třídou, která nese veškerou její logiku, šablonou, která určuje její strukturu co by entity jazyka HTML a dále kaskádovými styly, které ovlivňují jejich estetickou podobu.
+Komponenty mají v~aplikaci hiearchistickou strukturu. Každá aplikace obsahuje alespoň jednu komponentu, která se označuje jako kořenová. Každá z~těchto komponent je reprezentována třemi částmi -- třídou, která nese veškerou její logiku, šablonou, která určuje její strukturu co by entity jazyka HTML a dále kaskádovými styly, které ovlivňují její vizuální podobu.
 
 Většina prvků tohoto rámce jsou ve skutečnosti pouhé třídy jazyka JavaScript, jejich konkrétní typ tak bývá označován pomocí dekorátorů.
 Tento rámec poskytuje celou řadu užitečných funkcí jako například oboustrannou datovou vazbu, která umožňuje synchronizaci dat mezi šablonou a samotnou komponentou.
 
-Autorem platformy Angular je Miško Hevery, zaměstnanec společnosti Google. Platformu původně psal pro usnadnění vývoje několika interních projektů. V roce 2010 však byla platforma i její zdrojový kód otevřena široké veřejnosti. V následujících letech se oblast vývoje webových aplikací změnila a Angular již nedokázal držet krok. Platforma se stala velmi populární, s čímž původní návrh nepočítal. Bylo tedy nutné platformu Angular kompletně přepsat. Na podzim roku 2016 byla vydána nová verze této platformy s označením Angular 2. K dnešnímu dni se nové verze dostaly až k označení pod číslem 9, nicméně se stále jedna o rozšíření původního jádra verze 2. Na vývoji se stále podílí jak společnost Google, tak i komunita. Pro odlišení původní verze od nových přepsaných verzí se ta původní označuje jako AngularJS~\cite{bib:angular-history}.
+Autorem platformy Angular je Miško Hevery, zaměstnanec společnosti Google. Platformu původně psal pro usnadnění vývoje několika interních projektů. V~roce 2010 však byla platforma i její zdrojový kód otevřena široké veřejnosti. V~následujících letech se oblast vývoje webových aplikací rapidně změnila a platforma Angular již nedokázala držet krok. Dále se také stala velmi populární, s~čímž původní návrh nepočítal. Bylo tedy nutné platformu kompletně přepsat.
+
+Na podzim roku 2016 byla vydána nová verze této platformy s~označením Angular 2. K~dnešnímu dni se nové verze dostaly až k~označení pod číslem 9, nicméně se stále jedná o~rozšíření původního jádra verze 2. Na vývoji se stále podílí jak společnost Google, tak i komunita. Pro odlišení původní verze od nových přepsaných verzí se ta původní dnes označuje jako AngularJS~\cite{bib:angular-history}.
 
 \subsubsection{NgRx}\label{sec:ngrx}
-NgRx\footnote{NgRx: \url{https://ngrx.io}} je knihovna pro správu stavu určená pro platformu Angular. Tato knihovna je založena na principu Redux. Ten cílí na zvýšení předvídatelnosti stavu aplikace. Hlavní myšlenkou tohoto principu je koncept jediného zdroje pravdy. Data, sdílená napříč různými komponentami jsou umístěny na jednom místě, který se označuje jako sklad (angl. \emph{store}). Díky tomu je kdykoliv možné zjistit, v jakém stavu se aplikace zrovna nachází. Mimo to tento princip také zvyšuje přehlednost, který kód ovlivňuje které části aplikace. S růstem komplexnosti aplikací často v tomto směru dochází k velké nepřehlednosti. Další výhodou je také dodržování pořadí při paralelně vykonávaných akcí~\cite{bib:ngrx-arch}.
+NgRx\footnote{NgRx: \url{https://ngrx.io}} je knihovna pro správu stavu určená pro platformu Angular. Tato knihovna je založena na principu Redux. Ten cílí na zvýšení předvídatelnosti stavu aplikace. Hlavní myšlenkou tohoto principu je koncept jediného zdroje pravdy. Data, sdílená napříč různými komponentami, jsou umístěna na jednom místě, které se označuje jako sklad (angl. \emph{store}). Díky tomu je kdykoliv možné zjistit, v~jakém stavu se aplikace zrovna nachází. Mimo to tento princip také zvyšuje přehlednost, který kód ovlivňuje které části aplikace. S~narůstající komplexností aplikací dochází v~tomto směru často k~velké nepřehlednosti. Další výhodou je také dodržování určitého pořadí akcí při jejich paralelním vykonávání~\cite{bib:ngrx-arch}.
 
-Tato knihovna však pro tvorbu aplikací pomocí platformy Angular není nutně potřeba a v některých případech může vývoj i přitížit. I přes veškeré výhody, které využití tohoto systému přináší, je třeba počítat i s negativními následky. Systém má poměrně strmou učební křivku a je třeba znát princip Redux a umět používat knihovnu RxJS~\cite{bib:ngrx-docs}.
-Dalším úskalím je velké množství nutného dodatečného kódu. Přidání zdánlivě jednoduché funkce může trvat delší dobu, protože sebou nese nutnost přidat spoustu kódu napříč různými soubory. Proto je dobré nejprve důkladně zvážit, zda je vhodné pro daný projekt knihovnu NgRx využít. Vývojáři knihovny NgRx proto na jedné z konferencí\footnote {ng-conf 2018 - Reducing the Boilerplate with NgRx: \url{https://www.youtube.com/watch?v=t3jx0EC-Y3c}} přišli se zásadou SHARI, které toto rozhodnutí usnadní. 
+Tato knihovna však pro tvorbu aplikací pomocí platformy Angular není nutně potřeba a v~některých případech může vývoji i přitížit. I~přes veškeré výhody, které využití tohoto systému přináší, je třeba počítat i s~negativními následky. Systém má poměrně strmou učební křivku a je třeba znát princip Redux a umět používat knihovnu RxJS~\cite{bib:ngrx-docs}.
+Dalším úskalím je velké množství nutného dodatečného kódu. Přidání zdánlivě jednoduché funkce může trvat delší dobu, protože sebou nese nutnost přidat spoustu kódu napříč různými částmi aplikace. Proto je dobré nejprve důkladně zvážit, zda je vhodné pro daný projekt knihovnu NgRx využít. Vývojáři knihovny proto na jedné z~konferencí\footnote {ng-conf 2018 - Reducing the Boilerplate with NgRx: \url{https://www.youtube.com/watch?v=t3jx0EC-Y3c}} přišli se zásadou SHARI, které toto rozhodnutí usnadní. 
 
 Zásada SHARI~\cite{bib:ng-conf}:
 \begin{itemize}
   \item Sdílení (angl. \emph{shared}) - Stav, ke kterému přistupuje více komponent a služeb
-  \item Hydratování (angl. \emph{hydrated}) - Stav, který přetrvává a je obnovován z externího zdroje
+  \item Hydratování (angl. \emph{hydrated}) - Stav, který přetrvává a je obnovován z~externího zdroje
   \item Dostupnost (angl. \emph{available}) - Stav, který musí být dostupný při opětovném přístupu na danou podstránku
-  \item Načtení (angl. \emph{retrieved}) - Stav, který musí být načten s vedlejšími účinky
+  \item Načtení (angl. \emph{retrieved}) - Stav, který musí být načten s~vedlejšími účinky
   \item Ovlivnění (angl. \emph{impacted}) - Stav, který je ovlivněn akcemi jiných zdrojů 
 \end{itemize}
 
-Jednotlivé součásti knihovny NgRx, jejich provázanost a tím i celý životní cyklus stavu aplikace v této knihovně je znázorněn na grafu~\ref{img:ngrx-graph}, kde je také popsán význam jednotlivých součástí.
+Jednotlivé součásti knihovny NgRx, jejich provázanost a tím i celý životní cyklus stavu aplikace v~této knihovně je znázorněn na grafu~\ref{img:ngrx-graph}, kde je také popsán význam jednotlivých součástí.
 
 \begin{figure}[H]
 	\centering
 	\label{img:ngrx-graph}
-	\includegraphics[width=\textwidth]{obrazky-figures/ngrx-lifecycle.png}
-	\caption{Graf znázorňující životní cyklus správy stavu s využitím knihovny NgRx. Stav aplikace je uložen ve skladu (uzel \emph{node}), data jsou z něj získáváná pomocí selektorů (uzel \emph{selector}) a jsou použita v komponentách (uzel \emph{component}). Interakce s komponentou vyvolává akci (uzel \emph{action}), která může mít za následek vedlejší efekty (uzel \emph{effects}), což představuje získání dat z databáze za pomocí služeb (uzel \emph{service}). Akce dále vyvolá funkci reduktoru (uzel \emph{reducer}), který vytvoří nový stav dat a opět jej vloží do skladu (uzel \emph{store}).  \emph{Převzato z~\cite{bib:ngrx-lifecycle}}.}
+	\includegraphics[width=0.9\textwidth]{obrazky-figures/ngrx-lifecycle.png}
+	\caption{Graf znázorňující životní cyklus správy stavu s~využitím knihovny NgRx. Stav aplikace je uložen ve skladu (uzel \emph{store}), data jsou z~něj získáváná pomocí selektorů (uzel \emph{selector}) a jsou použita v~komponentách (uzel \emph{component}). Interakce s~komponentou vyvolává akci (uzel \emph{action}), která může mít za následek vedlejší efekty (uzel \emph{effects}), což představuje získání dat z~databáze za pomocí služeb (uzel \emph{service}). Akce dále vyvolá funkci reduktoru (uzel \emph{reducer}), který vytvoří nový stav dat a opět jej vloží do skladu (uzel \emph{store}).  \emph{Převzato z~\cite{bib:ngrx-lifecycle}}.}
 \end{figure}
 
 \subsubsection{DevExtreme}
-DevExtreme\footnote{DevExtreme: \url{https://js.devexpress.com}} je balík komponent určený pro tvorbu responzivních webových aplikací. Balík je zaměřen primárně na platformu Angular, nicméně více něž 65 komponent je dostupných také pro platformy jQuery, Vue, React, ASP.NET MVC 5, ASP.NET Core a další~\cite{bib:devextreme}. Balík obsahuje mnoho prvků uživatelského rozhraní které jsou určeny jak pro tradiční webové stránky tak i moderní mobilní aplikace. Všechny prvky jsou samozřejmě responzivní. Nabídka prvků tohoto balíku je velmi rozmanitá a řadí se mezi ně například datová mřížka, grafy, mapy a editory. Tento balík však lze bezplatně využít jen pro nekomerční využití.
+DevExtreme\footnote{DevExtreme: \url{https://js.devexpress.com}} je balík komponent určený pro tvorbu responzivních webových aplikací. Balík je zaměřen primárně na platformu Angular, nicméně více něž 65 komponent je dostupných také pro platformy jQuery, Vue, React, ASP.NET MVC 5, ASP.NET Core a další~\cite{bib:devextreme}. Balík obsahuje mnoho prvků uživatelského rozhraní, které jsou určeny jak pro tradiční webové stránky, tak i moderní mobilní aplikace. Všechny prvky jsou samozřejmě responzivní. Nabídka prvků tohoto balíku je velmi rozmanitá a řadí se mezi ně například datová mřížka, grafy, mapy a editory. Tento balík však lze bezplatně využít jen pro nekomerční využití.
 
 \section{JSON Web Token}
-\emph{Tato podkapitola vychází z~\cite{bib:jwt}}
+\emph{Tato podkapitola vychází z~\cite{bib:jwt}}.
 
-JSON Web Token (zkráceně JWT) je otevřený standard\footnote{RFC 7519: \url{https://tools.ietf.org/html/rfc7519}} zajišťující zabezpečenou výměnu informací mezi dvěma stranami. Jedná se o objekt typu JSON (JavaScript Object Notation), který se skládá ze tří částí oddělených tečkou. Jedná se o hlavičku, náklad a podpis.
+JSON Web Token (zkráceně JWT) je otevřený standard\footnote{RFC 7519: \url{https://tools.ietf.org/html/rfc7519}} zajišťující zabezpečenou výměnu informací mezi dvěma stranami. Jedná se o~objekt typu JSON\footnote{JavaScript Object Notation}, který se skládá ze tří částí oddělených tečkou. Jedná se o~hlavičku, obsah a podpis.
 
-Hlavička je objekt typu JSON, zakódovaný pomocí kódovaní Base64Url\footnote{Kódování reprezentující binární data pomocí tisknutelných znaků~\cite{bib:base64}}, který nese informaci o typu žetonu a použitém algoritmu digitálního podpisu. 
+Hlavička je objekt typu JSON, zakódovaný pomocí kódovaní Base64Url\footnote{Kódování reprezentující binární data pomocí tisknutelných znaků~\cite{bib:base64}}, který nese informaci o~typu žetonu a použitém algoritmu digitálního podpisu. 
 
-Náklad je stejně jako hlavička objekt typu JSON zakódovaný pomocí Base64Url. Tentokrát jsou však jeho obsahem tvrzení (angl. \emph{claim}). Ty nesou přenášené informace, které je třeba předávat zabezpečené. Nejčastěji se jedná o informace o uživateli.
+Obsah je stejně jako hlavička objekt typu JSON zakódovaný pomocí Base64Url. Tentokrát jsou však jeho obsahem tvrzení (angl. \emph{claim}). Ty nesou přenášené informace, které je třeba předávat zabezpečené. Nejčastěji se jedná o~informace o~uživateli.
 
-Podpis zaručuje, že zpráva při přenosu nebyla pozměněna. Podpis může být také využit pro ověření identity odesílatele. Podpis je vytvořen spojením řetězců dvou předchozích částí, mezi které je vložena tečka. Na konec toho řetězce je dále připojen tajný řetězec. Výsledný řetězec je poté zašifrován algoritmem uvedeným v hlavičce. 
+Podpis zaručuje, že zpráva při přenosu nebyla pozměněna. Může být také využit pro ověření identity odesílatele. Podpis je vytvořen spojením řetězců dvou předchozích částí, mezi které je vložena tečka. Na konec toho řetězce je dále připojen tajný řetězec. Výsledný řetězec je poté zašifrován algoritmem uvedeným v~hlavičce. 
 
-V praxi se lze s touto metodou autentizace setkat například na stránkách, které umožňují přihlásit se pomocí účtu u společnosti Google~\cite{bib:google-jwt}. V takovém případě se jedná o výměnu informací mezi třemi stranami. Posloupnost akcí pro získání žetonu v této situaci a jeho následné použití lze vidět na obrázku~\ref{img:jwt}.
+V~praxi se lze s~touto metodou autentizace setkat například na stránkách, které umožňují přihlásit se pomocí účtu u~společnosti Google~\cite{bib:google-jwt}. V~takovém případě se jedná o~výměnu informací mezi třemi stranami. Posloupnost akcí pro získání žetonu v~této situaci a jeho následné použití lze vidět na obrázku~\ref{img:jwt}.
 
 \begin{figure}[H]
     \label{img:jwt}
 	\centering
 	\includegraphics[width=0.9\textwidth]{obrazky-figures/jwt.pdf}
-	\caption{Diagram znázorňující případ užití standardu JWT.}
+	\caption{Diagram znázorňující případ užití standardu JWT. \emph{Přeloženo z~\cite{bib:jwt-steps}.}}
 \end{figure}
 
 \section{ASP.NET Core}
-ASP.NET Core je platforma společnosti Microsoft s otevřeným zdrojovým kódem určena pro tvorbu webových aplikací. Jedná se o rozšíření populární platformy .NET určené především pro programovací jazyk C\#, taktéž vyvinutým společností Microsoft.
+ASP.NET Core\footnote{ASP.NET Core: \url{https://dotnet.microsoft.com/learn/aspnet/what-is-aspnet}} je platforma společnosti Microsoft s~otevřeným zdrojovým kódem určena pro tvorbu webových aplikací. Jedná se o~rozšíření populární platformy .NET určené především pro programovací jazyk C\#, taktéž vyvinutým společností Microsoft.
 
-Přestože tato společnost stojí za dnes nejpopulárnějším operačním systémem Windows, je platformu ASP.NET Core možné provozovat i na jiných operačních systémech. Vydání první verze této platformy proběhlo v roce 2016~\cite{bib:asp-release}, dříve bylo možné platformu využít pouze na operačním systému Windows, tyto dřívější verze nesly název pouze ASP.NET bez označení Core~\cite{bib:asp-what-is}.
+Přestože tato společnost stojí za dnes nejpopulárnějším operačním systémem Windows, je platformu ASP.NET Core možné provozovat i na jiných operačních systémech. Vydání první verze této platformy proběhlo v~roce 2016~\cite{bib:asp-release}. Tehdy však bylo možné platformu využít pouze na operačním systému Windows a tyto dřívější verze nesly název pouze ASP.NET bez označení Core~\cite{bib:asp-what-is}.
 
-Mimo funkcionalitu již obsaženou v platformě .NET přínáší paltforma ASP.NET Core například základní rámec pro zpracování webových požadavků, šablonový systém pro tvorbu dynamických stránek zvaný Razor, celou řadu užitečných knihoven a pokročilý autentizační systém. Platforma také nabízí před-připravenou šablonu pro vytvoření webu využívající architekturu MVC\footnote{Architektura model-view-controller neboli model-pohled-kontroler}. Platformu lze využít jak pro vývoj plnohodnotné webové aplikace či stránky, tak i pro vývoj služby zpracovávající požadavky aplikačního rozhraní REST\footnote{Representational State Transfer neboli Reprezentativní převod stavu}~\cite{bib:asp-learn}.
+Mimo funkcionalitu již obsaženou v~platformě .NET přínáší paltforma ASP.NET Core například základní rámec pro zpracování webových požadavků, šablonový systém pro tvorbu dynamických stránek zvaný Razor, celou řadu užitečných knihoven a pokročilý autentizační systém. Platforma také nabízí před-připravenou šablonu pro vytvoření webu využívající architekturu MVC\footnote{Architektura model-view-controller neboli model-pohled-kontroler}. Platformu lze využít jak pro vývoj plnohodnotné webové aplikace či stránky, tak i pro vývoj služby zpracovávající požadavky aplikačního rozhraní REST\footnote{Representational State Transfer neboli Reprezentativní převod stavu}~\cite{bib:asp-learn}.
 
 \section{PostgreSQL}
-PostgreSQL\footnote{PostgreSQL: \url{https://www.postgresql.org}} je objektově-relační databázový systém s historií do roku 1986. Jedná se o vysoce přizpůsobitelné rozšíření jazyka SQL s otevřeným zdrojovým kódem~\cite{bib:postgre}. Tento systém obsahuje všechny běžné vlastnosti které jsou u podobných systémem zvykem, jmenovitě například transakce, pohledy, referenční integritu cizích klíčů nebo uzamykání~\cite{bib:postgre-begin}. Jednou z předností tohoto systému jsou rozmanitá možnost volby jazyku pro implementaci procedur. Oficiální distribuce obsahuje programovací jazyky PL/psQL, PL/Tcl, PL/Perl a PL/Python. Lze však využít i obdoby dalších jazyků jako jsou Java, PHP nebo Unix shell~\cite{bib:postgre-lang}. 
+PostgreSQL\footnote{PostgreSQL: \url{https://www.postgresql.org}} je objektově-relační databázový systém s~historií do roku 1986. Jedná se o~vysoce přizpůsobitelné rozšíření jazyka SQL s~otevřeným zdrojovým kódem~\cite{bib:postgre}. Tento systém obsahuje všechny běžné vlastnosti, které jsou u~podobných systémem zvykem. Jmenovitě například transakce, pohledy, referenční integritu cizích klíčů nebo uzamykání~\cite{bib:postgre-begin}. Jednou z~předností tohoto systému je rozmanitá možnost volby jazyku pro implementaci procedur. Oficiální distribuce obsahuje programovací jazyky PL/pgSQL, PL/Tcl, PL/Perl a PL/Python. Lze však využít i obdoby dalších jazyků jako jsou Java, PHP nebo Unix shell~\cite{bib:postgre-lang}. 
 
 
 
@@ -348,16 +349,16 @@ PostgreSQL\footnote{PostgreSQL: \url{https://www.postgresql.org}} je objektově-
 
 % ======================================================================
 \chapter{Návrh aplikace}
-Před samotnou implementací aplikace bylo nejprve nutné promyslet návrh tvořené aplikace. Zejména pak rozdělení aplikace do jednotlivých částí, určit jejich role v celkovém fungování systému a zmapovat interakci mezi těmito částmi. Některá rozhodnutí ohledně směru vývoje byly provedeny mnou samotným, některá ve spolupráci s konzultantem této bakalářské práce a jiná byla nařízena přímo vedením společnosti SEACOMP s.r.o.
+Před samotnou implementací aplikace bylo nejprve nutné promyslet návrh tvořené aplikace. Zejména pak rozdělení aplikace do jednotlivých částí, určit jejich role v~celkovém fungování systému a zmapovat interakci mezi těmito částmi. Některá rozhodnutí ohledně směru vývoje byly provedeny mnou samotným, některá ve spolupráci s~konzultantem této bakalářské práce a jiná byla nařízena přímo vedením společnosti SEACOMP s.r.o.
 
-Dále bylo třeba vytvořit návrh databáze, kde budou uložena data a také připravit grafický návrh. Mimo jiné bylo třeba zanalyzovat existující aplikační rozhraní a připravit jeho rozšíření. 
+Dále bylo třeba vytvořit návrh databáze, kde budou uložena data a také připravit grafický návrh aplikace. Mimo jiné bylo třeba zanalyzovat existující aplikační rozhraní a připravit jeho rozšíření. 
 Právě těmto zmíněným oblastem se věnuje tato kapitola.
 
 
 
 
 \section{Schéma systému}
-Schéma aplikace je vidět na snímku~\ref{img:scheme}. Jsou zde znázorněny tři její hlavní části -- databáze, serverová část neboli SSBLite a v neposlední řadě webový klient Kanban. U každé z těchto částí je na snímku uvedena také její nejpodstatnější technologie. Dále zde lze pozorovat vzájemné interakce těchto části. Na pravé straně obrázku lze vidět dvě role uživatelů a také jejich interakci s aplikací.
+Schéma systému je vidět na snímku~\ref{img:scheme}. Jsou zde znázorněny tři její hlavní části -- databáze, serverová část neboli SSBLite a v~neposlední řadě webový klient Kanban. U~každé z~těchto částí je na snímku uvedena také její nejpodstatnější technologie. Dále zde lze pozorovat vzájemné interakce těchto části. Na pravé straně obrázku lze vidět dvě role uživatelů a také jejich interakci s~aplikací.
 
 \begin{figure}[H]
     \label{img:scheme}
@@ -366,36 +367,35 @@ Schéma aplikace je vidět na snímku~\ref{img:scheme}. Jsou zde znázorněny t�
 	\caption{Schéma vzájemných interakcí jednotlivých částí aplikace, jejich technologií a možnostech různých rolí uživatelů.}
 \end{figure}
 
-V tomto schématu se může jevit podivuhodná konfigurace uživatelů správcem přímo v databázi. V reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v aplikaci SSB za pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality byla bezpředmětná.
+V~tomto schématu se může jevit podivuhodná konfigurace uživatelů správcem přímo v~databázi. V~reálném prostředí, kde bude aplikace SSBLite nahrazena plnohodnotnou aplikací SSB, bude konfigurace probíhat již přímo v~aplikaci SSB za pomocí uživatelského rozhraní. Nicméně pro účely této bakalářské práce postačí konfigurace tímto náhradním způsobem. Vzhledem k~pozdějšímu nahrazení aplikace SSBLite by implementace této funkcionality byla bezpředmětná.
 
-V práci taktéž není zakomponovaná správa samotných nástěnek. V současné aplikaci SSB totiž nástěnka odpovídá právě jednomu týmu uživatelů. Pro vytvoření nové nástěnky je tudíž nutné vytvořit celý nový tým. Z důvodů zachování tohoto chování a předcházení zbytečné dvojí implementace je pro vytvoření nebo odstranění nástěnky či přiřazení přístupu uživatelům k nástěnce nutné upravit data přímo v databázi. Tato funkcionalita bude taktéž vyřešena integrací do stávající aplikace.
+V~práci taktéž není zakomponovaná správa samotných nástěnek. V~současné aplikaci SSB totiž nástěnka odpovídá právě jednomu týmu uživatelů. Pro vytvoření nové nástěnky je tudíž nutné vytvořit celý nový tým. Z~důvodů zachování tohoto chování a předcházení zbytečné dvojí implementace je pro vytvoření nebo odstranění nástěnky či přiřazení přístupu uživatelům k~nástěnce nutné upravit data přímo v~databázi. Tato funkcionalita bude taktéž vyřešena pozdější integrací do stávající aplikace SSB4Web.
 
 \section{Entitně-vztahový diagram}\label{sec:erd}
-Data aplikace jsou uložena v relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah M:N. Ty lze poznat podle číslovky 2 v názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
+Data aplikace jsou uložena v~relační databázi. Systém SSB a tedy i SSBLite využívají databázový systém PostgreSQL. Data jsou uložena v~jednotlivých tabulkách, které lze reprezentovat entitně-vztahovým diagramem znázorněným na obrázku~\ref{img:erd}. Názvy tabulek i sloupců jsou dle konvence společnosti v~anglickém jazyce. Tabulky ve většině případu reprezentující entity (například nástěnky, karty nebo štítky), výjimku tvoří pouze propojovací tabulky, které reprezentují vztah M:N. Ty lze poznat podle číslovky 2 v~názvu tabulky. Před a za touto číslovkou se pak nachází názvy entit, které ve vztahu figurují.
 
 \begin{figure}[H]
 	\centering
 	\label{img:erd}
-	\includegraphics[width=\textwidth]{obrazky-figures/erd.pdf}
-	% @todo Konverze z svg do pdf to nejak rozbila
-	\caption{Entitně vztahový diagram reprezentující relační databázi aplikace.}
+	\includegraphics[width=\textwidth]{obrazky-figures/erd.png}
+	\caption{Entitně-vztahový diagram reprezentující relační databázi aplikace.}
 \end{figure}
 
 
 \section{Grafický návrh}
-Prvotní verze aplikace, která vznikla řešením této bakalářské práce bude využita pouze pro interní účely společnosti. Z tohoto důvodu nebyl při zadání práce kladen příliš velký důraz na estetickou stránku aplikace. Jedním z požadavků v tomto směru však bylo, aby aplikace co nejvíce využívala grafický styl knihovny DevExtreme. Další požadavek zněl, aby byly v aplikaci použity barvy loga společnosti SEACOMP s.r.o.
+Prvotní verze aplikace, která vznikla řešením této bakalářské práce bude využita pouze pro interní účely společnosti. Z~tohoto důvodu nebyl při zadání práce kladen příliš velký důraz na estetickou stránku aplikace. Jedním z~požadavků v~tomto směru však bylo, aby aplikace co nejvíce využívala grafický styl knihovny DevExtreme. Další požadavek zněl, aby byly v~aplikaci použity barvy loga společnosti SEACOMP s.r.o.
 
-Ve všech částech aplikace je přítomna hlavička. Na levé straně je vždy obsaženo logo společnosti a na pravé straně se nachází informace o přihlášeném uživateli a akce jako jeho odhlášení. Po vzoru oficiální webové stránky společnosti\footnote{Webové stránky společnosti SEACOMP s.r.o.: \url{https://seacomp.cz}} hlavičku a obsah stránky dělí horizontální linka oranžové barvy, která je použita v samotném logu společnosti.
+Ve všech částech aplikace je přítomna hlavička. Na levé straně je vždy obsaženo logo společnosti a na pravé straně se nachází informace o~přihlášeném uživateli a akce jako jeho odhlášení. Po vzoru oficiální webové stránky společnosti\footnote{Webové stránky společnosti SEACOMP s.r.o.: \url{https://seacomp.cz}} hlavičku a obsah stránky dělí horizontální linka oranžové barvy, která je použita v~samotném logu společnosti.
 
-Co se grafického návrhu týče, nejrozsáhlejší část aplikace je jistě samotná nástěnka. Původní návrh je vyobrazen na snímku~\ref{img:design-kanban}. Z důvodu co největší maximalizace počtu zobrazených karet se nástěnka rozpíná po celé šířce i výšce stránky s výjimkou hlavičky a nástrojové lišty.
+Co se grafického návrhu týče, nejrozsáhlejší část aplikace je jistě samotná nástěnka. Původní návrh je vyobrazen na snímku~\ref{img:design-kanban}. Z~důvodu co největší maximalizace počtu zobrazených karet se nástěnka rozpíná po celé šířce i výšce stránky s~výjimkou hlavičky a nástrojové lišty.
 
 Ze stejného důvodu je menu ve výchozím stavu skryto a lze ho otevřít pomocí tlačítka na levé straně nástrojové lišty. Lišta dále obsahuje název právě otevřené nástěnky a po pravé straně pak vyhledávací pole.
 
-Položky v menu i samotný detail karet se zobrazuje v modálním okně. Uživatel se tak například i při zobrazení detailu karty stále nachází na nástěnce a může se vrátit na její přehled téměř zcela bez prodlení na rozdíl od stávající aplikace využívané ve společnosti zadavatele, kde je pro zobrazení všech detailů nutné přejít na novou stránku a následný návrat na přehled je vzhledem k počtu zobrazených úkolu velmi pomalý.
+Položky v~menu i samotný detail karet se zobrazuje v~modálním okně. Uživatel se tak například i při zobrazení detailu karty stále nachází na nástěnce a může se vrátit na její přehled téměř zcela bez prodlení na rozdíl od stávající aplikace využívané ve společnosti zadavatele, kde je pro zobrazení všech detailů nutné přejít na novou stránku a následný návrat na přehled je vzhledem k~počtu zobrazených úkolu velmi pomalý.
 
-Rozložení a vizuální podoba detailu karty je inspirována nástrojem Microsoft Team Foundation Server\footnote{Dnešní verze nástroje se již označuje jako Azure DevOps Server}, který se ve společnosti SEACOMP s.r.o. v současnosti také využívá.
+Rozložení a vizuální podoba detailu karty je inspirována nástrojem Microsoft Team Foundation Server\footnote{Dnešní verze nástroje se již označuje jako Azure DevOps Server}, který se ve společnosti SEACOMP s.r.o. v~současnosti rovněž využívá.
 
-Některé akce jako například odstranění karty lze provést podobně jako v desktopových aplikací pomocí kliknutí pravým tlačítkem myší na danou entitu. V případě dotykových obrazovek je kliknutí pravého tlačítka substituováno dlouhým stiskem. 
+Některé akce jako například odstranění karty lze provést podobně jako v~desktopových aplikací pomocí kliknutí pravým tlačítkem myší na danou entitu. V~případě dotykových obrazovek je kliknutí pravého tlačítka substituováno dlouhým stiskem. 
 
 \begin{figure}[H]
 	\centering
@@ -404,18 +404,18 @@ Některé akce jako například odstranění karty lze provést podobně jako v 
 	\caption{Grafický návrh části aplikace, kde je zobrazena nástěnka kanban.}
 \end{figure}
 
-Další části aplikace jsou z pohledu uživatelského rozhraní triviální, a proto pro jejich tvorbu návrh nebyl vytvořen.
+Další části aplikace jsou z~pohledu uživatelského rozhraní triviální, a proto pro jejich tvorbu návrh nebyl vytvořen.
 
 
 \section{Aplikační rozhraní}\label{sec:api}
 Komunikace mezi klientskou částí aplikace a částí serverovou probíhá za pomoci aplikačního rozhraní REST. Zprávy tohoto rozhraní využívají formát JSON a mají přesně definovaný obsah.
-Vzhledem k budoucí integraci mnou tvořené aplikace do již existující aplikace SSB4Web bylo nutné zachovat v obou těchto aplikacích jednotnou podobu rozhraní.
+Vzhledem k~budoucí integraci mnou tvořené aplikace do již existující aplikace SSB4Web bylo nutné zachovat v~obou těchto aplikacích jednotnou podobu rozhraní.
 
-Vzhledem k zaměření mé aplikace nebylo třeba využít všechny možnosti existujícího rozhraní. Při práci byly z původního rozhraní použity pouze dva koncové body a to \texttt{SSBQuery/GetData}, umožňující dotazovat se na data uložena v databázi, a \sloppy\texttt{SSBMethod/ExecuteMethod}, spouštějící uložené procedury či příkazy. Toto rozhraní však bylo nutné rozšířit o možnost autentizace uživatele. Původní koncové body v tomto případě nebylo možné využít, protože pouze propagují dotazy databázi, kdežto pro autentizaci je třeba požadavek zpracovat přímo v aplikaci SSBLite. Z tohoto důvodu byl přidán nový koncový bod \sloppy\texttt{SSBAuthentication/VerifyCredentials}.
+Vzhledem k~zaměření mé aplikace nebylo třeba využít všechny možnosti existujícího rozhraní. Při práci byly z~původního rozhraní použity pouze dva koncové body a to \texttt{SSBQuery/GetData}, umožňující dotazovat se na data uložena v~databázi, a \sloppy\texttt{SSBMethod/ExecuteMethod}, spouštějící uložené procedury či příkazy. Toto rozhraní však bylo nutné rozšířit o~možnost autentizace uživatele. Původní koncové body v~tomto případě nebylo možné využít, protože pouze propagují dotazy databázi, kdežto pro autentizaci je třeba požadavek zpracovat přímo v~aplikaci SSBLite. Z~tohoto důvodu byl přidán nový koncový bod \sloppy\texttt{SSBAuthentication/VerifyCredentials}.
 
-Obě části aplikace -- jak Kanban, tak SSBLite -- využívají stejné datové objekty, díky tomu je možné mezi těmito dvěma částmi jednoduše přenášet data. Obsahem požadavku pro získání dat je například objekt \texttt{SSBQueryRequestDTO}, ten s sebou nese jednak název konkrétního před-připraveného dotazu pod klíčem \texttt{queryName} a dále pod klíčem \texttt{filters} může obsahovat i další objekt typu \texttt{SSBFilterDTO}. Ten se zase skládá z objektu \texttt{ssbIFilterOperator}, skrytým pod stejnojmenným klíčem, a dále z pole objektů \texttt{SSBFilterTermDTO} označeným klíčem \texttt{filterItems}. Objekty v tomto poli obsahují tři hodnoty. Pod klíčem \texttt{m\_filterOperator} lze opět pozorovat objekt \texttt{ssbIFilterOperator}. Ve skutečnosti se jedná pouze o výčet logických operátorů, které jsou později použity pro bezpečné sestavení dotazu na databázi. Další dvě hodnoty nesou název sloupce v databázi a pole hodnot použitých v dotazu.
+Obě části aplikace -- jak Kanban, tak SSBLite -- využívají stejné datové objekty, díky tomu je možné mezi těmito dvěma částmi jednoduše přenášet data. Obsahem požadavku pro získání dat je například objekt \texttt{SSBQueryRequestDTO}, ten s~sebou nese jednak název konkrétního před-připraveného dotazu pod klíčem \texttt{queryName} a dále pod klíčem \texttt{filters} může obsahovat i další objekt typu \texttt{SSBFilterDTO}. Ten se zase skládá z~objektu \texttt{ssbIFilterOperator}, skrytým pod stejnojmenným klíčem, a dále z~pole objektů \texttt{SSBFilterTermDTO} označeným klíčem \texttt{filterItems}. Objekty v~tomto poli obsahují tři hodnoty. Pod klíčem \texttt{m\_filterOperator} lze opět pozorovat objekt \texttt{ssbIFilterOperator}. Ve skutečnosti se jedná pouze o~výčet logických operátorů, které jsou později použity pro bezpečné sestavení dotazu na databázi. Další dvě hodnoty nesou název sloupce v~databázi a pole hodnot použitých v~dotazu.
 
-Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může vypadat následovně:
+Konkrétní dotaz na získání karet s~použitím filtru nástěnky tak může vypadat následovně:
 
 \begin{verbatim}
 {
@@ -438,28 +438,28 @@ Konkrétní dotaz na získání karet s použitím filtru nástěnky tak může 
 }
 \end{verbatim}
 
-Nevýhoda této podoby aplikačního rozhraní je však v nemožnosti provést více dotazů na databázi pomocí jednoho asynchronního volání. Například při prvotním načtení nástěnky je tak nutné odeslat vícero asynchronních požadavků najednou.
+Nevýhoda této podoby aplikačního rozhraní je však v~nemožnosti provést více dotazů na databázi pomocí jednoho asynchronního volání. Například při prvotním načtení nástěnky je tak nutné odeslat vícero asynchronních požadavků najednou.
 
-Tento nedostatek je způsoben tím, že je původní návrh rozhraní je zaměřen hlavně na zobrazení tabulek ve vztahu hlavní--podrobné (angl. \emph{master--detail}), kde k těmto situacím dochází minimálně. Zadavateli tématu diplomové práce bylo představeno několik alternativních řešení, nicméně bylo rozhodnuto pro zachování původního návrhu a setrvání v odesílání několika požadavků současně. 
+Tento nedostatek je způsoben tím, že je původní návrh rozhraní je zaměřen hlavně na zobrazení tabulek ve vztahu hlavní--podrobné (angl. \emph{master--detail}), kde k~těmto situacím dochází minimálně. Zadavateli tématu diplomové práce bylo představeno několik alternativních řešení, nicméně bylo rozhodnuto pro zachování původního návrhu a setrvání v~odesílání několika požadavků současně. 
 
 % ======================================================================
 \chapter{Implementace aplikace}
-Předmětem této kapitoly je popis vlastní implementace webové aplikace typu Kanban, jejíž vytvoření bylo cílem této bakalářské práce. V úvodu je popsaná klientská část aplikace, ke které uživatel přistupuje pomocí internetového prohlížeče. Další část kapitoly je věnována implementaci serverové části aplikace, s kterou uživatel přichází do styku pouze skrze aplikační rozhraní, které již bylo přiblíženo v kapitole~\ref{sec:api}. Závěr kapitoly je pak zaměřen na databázovou vrstvu aplikace, kde jsou uchovávány uživatelská a jiná data.
+Předmětem této kapitoly je popis vlastní implementace webové aplikace typu Kanban, jejíž vytvoření bylo cílem této bakalářské práce. V~úvodu je popsaná klientská část aplikace, ke které uživatel přistupuje pomocí internetového prohlížeče. Další část kapitoly je věnována implementaci serverové části aplikace, s~kterou uživatel přichází do styku pouze skrze aplikační rozhraní, které již bylo přiblíženo v~kapitole~\ref{sec:api}. Závěr kapitoly je pak zaměřen na databázovou vrstvu aplikace, kde jsou uchovávány uživatelská a jiná data.
 
 
 
 \section{Klientská část}
-Klientskou částí aplikace je jednostránková webová aplikace vytvořená za pomocí rámce Angular. Základním stavebním kamenem toho rámce jsou bez pochyby komponenty. Právě ty jsou hlavním tématem této podkapitoly. Dále jsou zde zmíněny i jiné zajímavé části implementace klientské části. Obsah jednotlivých stránek je sestaven kombinací vlastních komponent, které jsou podrobněji popsané v této kapitole, a také před-připravených komponent knihovny DevExtreme. Rozeznat jejich původ lze pomocí předpony \texttt{app-} v případě vlastních komponent a pomocí předpony \texttt{dx-} v případě komponent z knihovny DevExtreme.
+Klientskou částí aplikace je jednostránková webová aplikace vytvořená za pomoci rámce Angular. Základním stavebním kamenem toho rámce jsou bez pochyby komponenty. Právě ty jsou hlavním tématem této podkapitoly. Dále jsou zde zmíněny i jiné zajímavé části implementace klientské části. Obsah jednotlivých stránek je sestaven kombinací vlastních komponent, které jsou podrobněji popsané v~této kapitole, a také před-připravených komponent knihovny DevExtreme. Rozeznat jejich původ lze pomocí předpony \texttt{app-} v~případě vlastních komponent a pomocí předpony \texttt{dx-} v~případě komponent z~knihovny DevExtreme.
 
 
 \subsection{Struktura adresáře}
-Adresář, ve kterém se nachází zdrojové kódy aplikace je kvůli využití rámce Angular poměrně rozsáhlá. Některé jeho části, které stojí za zmínku jsou popsány v této podkapitole. Zajímavé části nejvyšší úroveň adresáře aplikace vypadají následovně:
+Adresář, ve kterém se nachází zdrojové kódy aplikace je kvůli využití rámce Angular poměrně rozsáhlá. Některé jeho části, které stojí za zmínku jsou popsány v~této podkapitole. Zajímavé části nejvyšší úroveň adresáře aplikace vypadají následovně:
 
 \begin{itemize}
   \item \texttt{node\_modules} -- Zdrojové kódy knihoven třetích stran
   \item \texttt{src} -- Zdrojové kódy aplikace
   \begin{itemize}
-    \item \texttt{app} -- Adresář obsahující zdrojové kódy aplikace v jazyce TypeScript
+    \item \texttt{app} -- Adresář obsahující zdrojové kódy aplikace v~jazyce TypeScript
      \item \texttt{assets} -- Adresář obsahující statický obsah stránky jako například globální kaskádové styly a obrázky
      \item \texttt{index.html} -- Hlavní stránka aplikace
   \end{itemize}
@@ -467,7 +467,7 @@ Adresář, ve kterém se nachází zdrojové kódy aplikace je kvůli využití 
   \item \texttt{package.json} -- Konfigurace závislostí na knihovnách třetích stran
 \end{itemize}
 
-Nejdůležitějším z výše uvedených adresářů je jednoznačně adresář \texttt{app}. Pro lepší přehlednost je jeho obsah uveden zvlášť níže:
+Nejdůležitějším z~výše uvedených adresářů je jednoznačně adresář \texttt{app}. Pro lepší přehlednost je jeho obsah uveden zvlášť níže:
 
 \begin{itemize}
   \item \texttt{} -- 
@@ -476,51 +476,51 @@ Nejdůležitějším z výše uvedených adresářů je jednoznačně adresář 
 
 
 \subsection{Základní struktura stránky}
-Ať už se uživatel aktuálně nachází na libovolné části aplikace, základní struktura právě zobrazené stránky se bude tvořit ze stejných prvků. Základ celé komponenty je element \texttt{<app-root>}. Tento prvek je také kromě referencí na soubory obsahující zdrojové kódy jazyka JavaScript to jediné, co se v obsahu stránky zobrazí v případě, že internetový prohlížeč jazyk JavaScript nepodporuje či dokonce blokuje. 
+Ať už se uživatel aktuálně nachází na libovolné části aplikace, základní struktura právě zobrazené stránky se bude vždy tvořit ze stejných prvků. Základ celé aplikace je komponenta \texttt{<app-root>}. Tento prvek je také kromě referencí na soubory obsahující zdrojové kódy jazyka JavaScript to jediné, co se v~obsahu stránky zobrazí v~případě, že internetový prohlížeč jazyk JavaScript nepodporuje či jej dokonce blokuje. 
 
-V případě, že je interpret jazyka JavaScript dostupný, vzniknou uvnitř tohoto elementu další elementy. Vždy je přítomna komponenta \texttt{<app-header>} a \texttt{<router-outlet>}. První z komponent obsahuje hlavičku s logem společnosti SEACOMP s.r.o., která je vždy vidět ve vrchní části aplikace. Součástí hlavičky je také možnost odhlášení uživatele, za předpokladu že je právě přihlášen. Tato komponenta je vyfocena na snímku~\ref{img:comp-header}.
+V~případě, že je interpret jazyka JavaScript dostupný, vzniknou uvnitř tohoto elementu další komponenty. Vždy je přítomna komponenta \texttt{<app-header>} a \texttt{<router-outlet>}. První z~komponent obsahuje hlavičku s~logem společnosti SEACOMP s.r.o., která je vždy vidět ve vrchní části aplikace. Součástí hlavičky je také možnost odhlášení uživatele, za předpokladu, že je právě přihlášen. Tato komponenta je zachycena na snímku~\ref{img:comp-header}.
 
 
 \begin{figure}[H]
 	\centering
 	\label{img:comp-header}
 	\includegraphics[width=\textwidth]{obrazky-figures/comp-header.png}
-	\caption{Ukázka komponenty hlavičky neboli \texttt{<app-header>} s právě přihlášeným uživatelem.}
+	\caption{Ukázka komponenty hlavičky s~právě přihlášeným uživatelem.}
 \end{figure}
 
-Druhá z komponent ve skutečnosti nemá žádný reálný obsah. Představuje však nedílnou součást aplikace, jelikož se stará právě o chování aplikace jako jednostránkové. Na základě aktuální cesty obměňuje komponentu, která v hierarchii uzlů HTML představuje dalšího sourozence. Z počátku se tak lze na tomto místě potkat s komponentou \texttt{<app-login>}, následně \texttt{<app-dashboard>} a poté \texttt{<app-board>}. Současně s obměnou těchto komponent je také změněna adresa aktuální stránky v adresním řádku internetového prohlížeče. Navenek se tedy může zdát, že uživatel skutečně přechází z jedné stránky na druhou. Ve skutečnosti se však nachází stále na stejné stránce, pouze je překreslována část jejího obsahu.
+Druhá z~uvedených komponent ve skutečnosti nemá žádný reálný obsah. Představuje však nedílnou součást aplikace, jelikož se stará právě o~chování aplikace jako jednostránkové. Na základě aktuální cesty obměňuje komponentu, která v~hierarchii uzlů HTML představuje jejího dalšího sourozence. Z~počátku se tak lze na tomto místě setkat s~komponentou \texttt{<app-login>}, následně \texttt{<app-dashboard>} a poté \texttt{<app-board>}. Současně s~obměnou těchto komponent je také změněna adresa aktuální stránky v~adresním řádku internetového prohlížeče. Navenek se tedy může zdát, že uživatel skutečně přechází z~jedné stránky na druhou. Ve skutečnosti tomu tak ale není.
 
-Cesty a jim odpovídající komponenty jsou definované v souboru \texttt{app-routing.module.ts}. U každé cesty je také možno nastavit ochranné služby. Jedná se o třídy implementující rozhraní \texttt{CanActivate}, které ve stejnojmenné metodě vrací logickou hodnotu. Pokud jedna z těchto služeb vrátí hodnotu nepravdy, je přístup uživatel k této cestě zamítnut. Tuto funkcionalitu v aplikaci využívám na ověření, zda je uživatel přihlášen. Výjimku tvoří pouze stránka s přihlášením, ke které lze přistoupit v přesné opačné situaci a to když uživatel zatím není přihlášen. Jedná se o třídy \texttt{AuthenticationGuardService} a \texttt{GuestGuardService}.
+Cesty a jim odpovídající komponenty jsou definované v~souboru \texttt{app-routing.module.ts}. U~každé cesty je také možno nastavit ochranné služby. Jedná se o~třídy implementující rozhraní \texttt{CanActivate}, které ve stejnojmenné metodě vrací logickou hodnotu. Pokud jedna z~těchto služeb vrátí hodnotu nepravdy, je přístup uživatel k~této cestě zamítnut. Tuto funkcionalitu v~aplikaci využívám na ověření, zda je uživatel přihlášen. Výjimku tvoří obrazovka s~přihlášením, ke které lze přistoupit v~přesně opačné situaci a to právě když uživatel zatím ještě není přihlášen. Jedná se o~třídy \texttt{AuthenticationGuardService} a \texttt{GuestGuardService}.
 
 
 \subsection{Nástěnka}
-Stránka s nástěnkou je bezesporu nejkomplexnější částí aplikace. Základní komponentou je v tomto případě \texttt{<app-board>}, jejím úkolem je mimo jiné také prvotní načtení všech dat z databáze, které se dané nástěnky týkají. Jedná se například o sloupce, plavecké dráhy, karty, štítky a další entity. Celkový přehled důležitých komponent této stránky je uveden na snímku~\ref{img:comp-board-scheme}.
+Stránka s~nástěnkou je bezesporu nejkomplexnější částí aplikace. Základní komponentou je v~tomto případě \texttt{<app-board>}, jejím úkolem je mimo jiné také prvotní načtení všech dat z~databáze, které se dané nástěnky týkají. Jedná se například o~sloupce, plavecké dráhy, karty, štítky a další entity. Tuto část aplikace je možné vidět na snímku~\ref{img:board}.
 
-Na nejvyšší úrovni této stránky se nachází několik komponent knihovny DevExtreme. Nejvýše položená komponenta je \texttt{<dx-toolbar>}, která obsahuje tlačítko pro zobrazení či skrytí menu, název nástěnky a vyhledávací pole. Hned pod ní se nachází komponenta \texttt{<dx-drawer>}, ta slouží k zobrazení nabídky menu. Jistou zvláštností je, že celá zbylá část stránky se nachází uvnitř této komponenty, nicméně použitá knihovna vyžaduje takovýto přístup.
+Na nejvyšší úrovni této stránky se nachází několik komponent knihovny DevExtreme. Nejvýše položená komponenta je \texttt{<dx-toolbar>}, která obsahuje tlačítko pro zobrazení či skrytí menu, název nástěnky a vyhledávací pole. Hned pod ní se nachází komponenta \texttt{<dx-drawer>}, ta slouží k~zobrazení nabídky menu. Jistou zvláštností je, že celá zbylá část stránky se nachází uvnitř této komponenty, nicméně použitá knihovna takovýto přístup vyžaduje.
 
-Obsahem zmíněné komponenty je další komponenta knihovny DevExtreme a to \texttt{<dx-scroll-view>}. V tomto případě nahrazuje nativní posuvné lišty internetového prohlížeče a to jak vertikální, tak i horizontální. Tím je zajištěno jednotné chování i vzhled těchto lišt napříč různými prohlížeči.
+Obsahem zmíněné komponenty je další komponenta knihovny DevExtreme a to \texttt{<dx-scroll-view>}. V~tomto případě nahrazuje nativní posuvné lišty internetového prohlížeče a to jak vertikální, tak i horizontální. Tím je zajištěno jednotné chování i vzhled těchto lišt napříč různými prohlížeči.
 
 \begin{figure}[H]
 	\centering
-	\label{img:comp-board-scheme}
-	\includegraphics[width=\textwidth]{obrazky-figures/placeholder.pdf}
-	\caption{Ukázka stránky s nástěnkou se zvýrazněním jednotlivých komponent.}
+	\label{img:board}
+	\includegraphics[width=\textwidth]{obrazky-figures/board.png}
+	\caption{Ukázka části aplikace s~nástěnkou obsahující úkoly týkající se vývoje internetového obchodu.}
 \end{figure}
 
 \subsubsection*{Plavecké dráhy}
 
-Uvnitř této komponenty se již nacházejí vlastní komponenty specifické pro nástěnku Kanban. V hiearchii se nejvýše nachází komponenty \texttt{<app-board-swimlane>}, kde jedna vždy odpovídá jedné plavecké dráze. Plavecké dráhy se skládají ze samotného záhlaví dráhy a dále z obsahu. Ten lze pomocí kliknutí na záhlaví zobrazit či skrýt, což je užitečná funkcionalita v případě, že je těchto drah využito mnoho. 
+Uvnitř této komponenty se již nacházejí vlastní komponenty specifické pro nástěnku Kanban. V~hiearchii se nejvýše nachází komponenty \texttt{<app-board-swimlane>}, kde jedna vždy odpovídá právě jedné plavecké dráze. Ty se skládají ze samotného záhlaví dráhy a dále z~obsahu. Ten lze pomocí kliknutí na záhlaví zobrazit či skrýt, což je užitečná funkcionalita v~případě, že je těchto drah využito mnoho. 
 
 \subsubsection*{Sloupce}
 
-Uvnitř každé plavecké dráhy se pak pro každý sloupec nástěnky nachází právě jedna komponenta typu \texttt{<app-board-column>}. Ta sdružuje karty, náležící danému sloupci a plavecké dráze. Sloupec opět využívá komponentu \texttt{<dx-scroll-view}, která s kombinací s fixní výškou sloupce zajišťuje, že nadměrné hromadění karet v jednom sloupci neovlivňuje okolní sloupce, jako tomu je v současnosti u původní aplikace.
+Uvnitř každé plavecké dráhy se pak pro každý sloupec nástěnky nachází právě jedna komponenta typu \texttt{<app-board-column>}. Ta sdružuje karty, náležící danému sloupci a plavecké dráze. Sloupec opět využívá komponentu \texttt{<dx-scroll-view>}, která v~kombinaci s~fixní výškou sloupce zajišťuje, že nadměrné hromadění karet v~jednom sloupci neovlivní okolní sloupce, jako tomu je v~současnosti u~původní aplikace Kanboard.
 
-Obsahem sloupců je také komponenta \texttt{<dx-sortable>}, která umožňuje přesun karet mezi jednotlivými sloupci a plaveckými drahami. Jedna z metod této komponenty však byla přepsány. Jedná se o metodu, který je spuštěna po přesunu karty. Ta kromě provedení samotné změny pozice také o této změně informuje serverovou část aplikace. 
+Obsahem sloupců je také komponenta \texttt{<dx-sortable>}, která umožňuje přesun karet mezi jednotlivými sloupci a plaveckými drahami. Jedna z~metod této komponenty však byla přepsána. Jedná se o~metodu, který je spuštěna po přesunu karty. Ta kromě provedení samotné změny pozice také o~této změně informuje serverovou část aplikace. 
 
 \subsection{Karta}
-Přímo v nástěnce jsou úkoly reprezentovány jednotlivými kartami. Ty však zobrazují pouze klíčové údaje úkolu. Podrobnější informace jsou zobrazeny až po kliknutí na příslušnou kartu. Samotné karty se v aplikaci vyskytují jako komponenty \texttt{<app-board-card>}. Ty obstarávájí jak samotné zobrazení karty, tak obsahují i další komponenty. Mezi ty patří seznam štítků náležící dané kartě aneb komponenta \texttt{<app-board-tags-list>} nebo kontextové menu, které se zobrazí po kliknutí na kartu pravým tlačítkem. Toto menu je realizováno s využitím knihovny DevExtreme za použití komponenty \texttt{<dx-context-menu>}. Součástí karty je i komponenta obsahující detail karty, která je blíže popsána v další podkapitole.
+Přímo v~nástěnce jsou úkoly reprezentovány jednotlivými kartami. Ty však zobrazují pouze klíčové údaje úkolu. Podrobnější informace jsou zobrazeny až po kliknutí na příslušnou kartu. Samotné karty se v~aplikaci vyskytují jako komponenty \texttt{<app-board-card>}. Ty obstarávají jak samotné zobrazení karty, tak zároveň i obsahují další komponenty. Mezi ty patří seznam štítků náležící dané kartě aneb komponenta \texttt{<app-board-tags-list>} nebo kontextové menu, které se zobrazí po kliknutí na kartu pravým tlačítkem. Toto menu je realizováno s~využitím knihovny DevExtreme za použití komponenty \texttt{<dx-context-menu>}. Součástí karty je i komponenta obsahující detail karty, která je blíže popsána v~další podkapitole.
 
-Karta je vizualizována jako obdélník obsahující název úkolu, informaci o přiřazeném uživateli a případně i přiřazenými štítky. Na levé straně karty se nachází pruh, jehož barva reprezentuje prioritu úkolu. Na základě priority jsou štítky taktéž sestupně seřazeny v rámci daného sloupce. Kartu lze libovolně přesouvat napříč sloupci a plaveckými drahami. Reálný příklad štítku je možné vidět na snímku~\ref{img:card}.
+Karta je vizualizována jako obdélník obsahující název úkolu, informaci o~přiřazeném uživateli a případně i přiřazenými štítky. Na levé straně karty se nachází pruh, jehož barva reprezentuje prioritu úkolu. Na základě priority jsou štítky taktéž sestupně seřazeny v~rámci daného sloupce. Kartu lze libovolně přesouvat napříč sloupci a plaveckými drahami. Reálný příklad štítku je možné vidět na snímku~\ref{img:card}.
 
 \begin{figure}[H]
 	\centering
@@ -530,30 +530,30 @@ Karta je vizualizována jako obdélník obsahující název úkolu, informaci o 
 \end{figure}
 
 \subsubsection*{Detail karty}
-Detail karty úkolu je realizován pomocí modálního okna. V aplikaci existují dva typy tohoto okna. Jeden z nich je použit pro vytváření nové karty a druhý zase při zobrazení již existující karty. Pro každý tento typ existuje vlastní komponenta, jedná se o \texttt{<app-board-card-edit-popup>} a \texttt{<app-board-card-create-popup>}.
+Detail karty úkolu je realizován pomocí modálního okna. V~aplikaci existují dva typy tohoto okna. Jeden z~nich je použit pro vytváření nové karty a druhý zase při zobrazení již existující karty. Pro každý tento typ existuje vlastní komponenta, jedná se o~\texttt{<app-board-card-edit-popup>} a \texttt{<app-board-card-create-popup>}.
 
-Obě z těchto komponent však využívají znovupoužitelnou komponentu \texttt{<app-board-card-popup>}. Ta zajišťuje především integritu obou typů modálních oken detailu.
+Obě z~těchto komponent však využívají znovupoužitelnou komponentu \texttt{<app-board-card-popup>}. Ta zajišťuje především integritu obou typů modálních oken detailu.
 
-V případě zobrazení již existující karty je obsah okna rozdělen do dvou záložek. První obsahuje informace o úkolu a druhá zase obsahuje historii akcí, prováděných s touto kartou. Při vytváření nové karty je použita jen první z těchto záložek. Názorná ukázka zmiňovaného okna je prezentována snímkem~\ref{img:card-detail}.
+V~případě zobrazení již existující karty je obsah okna rozdělen do dvou záložek. První obsahuje informace o~úkolu a druhá zase obsahuje historii akcí, prováděných s~touto kartou. Při vytváření nové karty je použita jen první z~těchto záložek. Názorná ukázka zmiňovaného okna je prezentována snímkem~\ref{img:card-detail}.
 
 \begin{figure}[H]
 	\centering
 	\label{img:card-detail}
 	\includegraphics[width=\textwidth]{obrazky-figures/card-detail.png}
-	\caption{Ukázka části aplikace s otevřeným detailem karty úkolu.}
+	\caption{Ukázka části aplikace s~otevřeným detailem karty úkolu.}
 \end{figure}
 
 
 \subsection{Nastavení}
-Ačkoliv některá nastavení se v současné aplikaci provádí editací dat v databázi, existuje i několik případů, kdy se nastavení nachází přímo v aplikaci a je realizováno pomocí uživatelského rozhraní. Implementace takových nastavení je popsána v této podkapitole.
+Ačkoliv některá nastavení se v~současné aplikaci provádí editací dat v~databázi, existuje i několik případů, kdy se nastavení nachází přímo v~aplikaci a je realizováno pomocí uživatelského rozhraní. Implementace takových nastavení je popsána v~této podkapitole.
 
 \subsubsection*{Nastavení štítků}
-Modální okno s nastavením štítků cíleně porušuje jeden z pravidel principu Flux. Uchovává totiž lokální kopii sdílených dat uložených ve skladu. Tento přístup jsem zvolil z jednoho prostého důvodu a to aby se v případě zahození změn nemusel stav štítků napříč celou aplikací změnit. Místo toho jsem se přiklonil k opačnému řešení. Při úpravě štítků uživatel pracuje pouze s kopií sdílených dat. Jeho změny se tak neprojevují v jiných komponentách. V případě zahození změn při zavření dialogu tudíž není nutné provést vůbec žádnou akci. 
+Modální okno s~nastavením štítků cíleně porušuje jeden z~pravidel principu Flux. Uchovává totiž lokální kopii sdílených dat uložených ve skladu. Tento přístup jsem zvolil z~jednoho prostého důvodu a to, aby se v~případě zahození změn nemusel stav štítků napříč celou aplikací změnit. Místo toho jsem se přiklonil k~opačnému řešení. Při úpravě štítků uživatel pracuje pouze s~kopií sdílených dat. Jeho změny se tak neprojevují v~jiných komponentách. V~případě zahození změn při zavření dialogu tudíž není nutné provést vůbec žádnou akci. Obdobně se chovají i další nastavení v aplikaci.
 
 \subsubsection*{Sdílené komponenty}
-Některá nastavení jsou si vzájemně velice podobná. Z toho důvodu bylo nastavení rozděleno do několika menších komponent a několik z nich tak lze použít například jak v nastavení sloupců, tak i v nastavení plaveckých drah.
+Některá nastavení jsou si vzájemně velice podobná. Z~toho důvodu bylo nastavení rozděleno do několika menších komponent a několik z~nich tak lze použít například jak v~nastavení sloupců, tak i v~nastavení plaveckých drah.
 
-Hierarchie těchto komponent je vyobrazena na snímku~\ref{img:settings-dia}. Detailní popis jednotlivých komponent a jejich funkcí je popsán dále v této podkapitole.
+Hierarchie těchto komponent je vyobrazena na snímku~\ref{img:settings-dia}. Detailní popis jednotlivých komponent a jejich funkcí je popsán dále v~této podkapitole.
 
 \begin{figure}[H]
 	\centering
@@ -564,110 +564,110 @@ Hierarchie těchto komponent je vyobrazena na snímku~\ref{img:settings-dia}. De
 
 
 \subsubsection*{Třída SettingsBase}
-Jedná se o abstraktní třídu, z které dědí konkrétní komponenty pro jednotlivá nastavení jako například \texttt{<app-columns-settings>} pro nastavení sloupců nebo  \texttt{<app-swimlanes-settings>} pro nastavení řádků. Hlavním účelem této abstraktní třídy je sjednotit způsob propagace otevření modálního okna.
+Jedná se o~abstraktní třídu, z~které dědí konkrétní komponenty pro jednotlivá nastavení jako například \texttt{<app-columns-settings>} pro nastavení sloupců nebo  \texttt{<app-swimlanes-settings>} pro nastavení řádků. Hlavním účelem této abstraktní třídy je sjednotit způsob propagace otevření modálního okna.
 
 
 \subsubsection*{Komponenta app-settings-popup}
-Veškerá nastavení nástěnky probíhají za pomoci modálních oken. Samotné grafické zobrazení oken je realizováno pomocí komponenty knihovny DevExtreme a to konkrétně \texttt{<dx-popup>}. Tato komponenta je však rozšířena o varování při pokusu o zavření okna s neuloženými daty. Zmíněné chování je součástí implementace komponenty \texttt{<app-settings-popup>}.
+Veškerá nastavení nástěnky probíhají za pomoci modálních oken. Samotné grafické zobrazení oken je realizováno pomocí komponenty knihovny DevExtreme a to konkrétně \texttt{<dx-popup>}. Tato komponenta je však rozšířena o~varování při pokusu o~zavření okna s~neuloženými daty. Zmíněné chování je součástí implementace komponenty \texttt{<app-settings-popup>}.
 
 
 \subsubsection*{Komponenta app-settings-item-list}
-Další opakovaně vyskytující částí nastavení je datová mřížka (angl. \emph{data grid}). Tato mřížka by se dala označit jako rozšířená tabulka s akcemi umožňující manipulaci a editaci dat. Stejně jako u předchozí komponenty je pro grafické zobrazení této mřížky využita knihovna DevExtreme a její komponenta \texttt{<dx-data-grid>}. Komponenta mimo pouhé zobrazení umožňuje i samotnou práci s daty, nicméně během implementace byl zjištěn nedostatek při současném využití řazení dle sloupce a možnosti měnit pořadí řádků.
+Další opakovaně vyskytující částí nastavení je datová mřížka (angl. \emph{data grid}). Tato mřížka by se dala označit jako rozšířená tabulka s~akcemi umožňující manipulaci a editaci dat. Stejně jako u~předchozí komponenty je pro grafické zobrazení této mřížky využita knihovna DevExtreme a její komponenta \texttt{<dx-data-grid>}. Komponenta mimo pouhé zobrazení umožňuje i samotnou práci s~daty, nicméně během implementace byl zjištěn nedostatek při současném využití řazení dle sloupce a možnosti měnit pořadí řádků.
 
-Při úpravě hodnot se mění pouze lokální kopie dat, kterou si komponenta uchovává. Tyto hodnoty se v původním zdroji dat projeví až po uložení. Nicméně řazení probíhá podle zdrojových dat a ne podle dat lokálních.
+Při úpravě hodnot se mění pouze lokální kopie dat, kterou si komponenta uchovává. Tyto hodnoty se v~původním zdroji dat projeví až po uložení. Nicméně řazení probíhá podle zdrojových dat a ne podle dat lokálních.
 
 Především kvůli vlastní implementaci změny pořadí byla vytvořena komponenta \texttt{<app-settings-item-list>}. Mimo jiné slouží pro unifikaci nastavení samotné datové mřížky, které je realizováno pomocí vnořených elementů uvnitř komponenty \texttt{<dx-data-grid>}. Dále však obsahuje celou řadu metod, které téměř kompletně mění standardní chování komponenty mřížky. Realizuje zejména změnu pořadí řádků a vlastní chování tlačítek pro přidání a mazání řádků, obnovení změn a jejich ukládání.
 
-Změna pořadí dat tedy v mé implementaci mění hodnoty jak v lokální kopii dat uvnitř komponenty \texttt{<dx-data-grid>}, tak i v jejím datovém zdroji. Jelikož je nutné neuložené změny projevovat i v datovém zdroji, tak existuje i třetí kopie dat, kterou si uchovává komponenta \texttt{<app-settings-item-list>} pro případnou obnovu dat při zahození změn.
+Změna pořadí dat tedy v~mé implementaci mění hodnoty jak v~lokální kopii dat uvnitř komponenty \texttt{<dx-data-grid>}, tak i v~jejím datovém zdroji. Jelikož je nutné neuložené změny projevovat i v~datovém zdroji, tak existuje i třetí kopie dat, kterou si uchovává komponenta \texttt{<app-settings-item-list>} pro případnou obnovu dat při zahození změn.
 
-Tlačítko pro smazání záznamu celý řádek odstraní z mřížky. Původní chování byla pouze změna barvy. Tlačítko pro přidání nového záznamu bylo pozměněno opět z důvodu zachování možnosti změny pořadí řádků. Tlačítko uložení pak bylo nutné rozšířit z důvodu absence události uložení dat v komponentě \texttt{<dx-data-grid>}. Pro případ použití v této aplikaci nestačí změnit hodnoty v datovém zdroji, ale je nutné změny projevit i v databázi na serveru a právě tento požadavek je nyní odeslán pomocí tlačítka uložení. 
+Tlačítko pro smazání záznamu celý řádek odstraní z~mřížky. Původní chování byla pouze změna barvy. Tlačítko pro přidání nového záznamu bylo pozměněno opět z~důvodu zachování možnosti změny pořadí řádků. Tlačítko uložení pak bylo nutné rozšířit z~důvodu absence události uložení dat v~komponentě \texttt{<dx-data-grid>}. Pro případ použití v~této aplikaci nestačí změnit hodnoty v~datovém zdroji, ale je nutné změny projevit i v~databázi na serveru a právě tento požadavek je nyní odeslán pomocí tlačítka uložení. 
 
 
 \subsection{Asynchronní požadavky}
-Jak již bylo zmíněno v kapitole~\ref{sec:spa}, jednostránkové aplikace fungují hlavně díky asynchronním požadavkům. Ty jsou tedy samozřejmě nedílnou součástí i této aplikace.
+Jak již bylo zmíněno v~kapitole~\ref{sec:spa}, jednostránkové aplikace fungují hlavně díky asynchronním požadavkům. Ty jsou tedy samozřejmě nedílnou součástí i této aplikace.
 
-Po přihlášení uživatele každý jeho asynchronní požadavek v hlavičce protokolu HTTP obsahuje žeton standardu JWT. O tuto funkci se stará třída \texttt{JwtInterceptor}, umístěná ve složce \texttt{interceptors}. Třída naslouchá všem odesílaným požadavkům protokolu HTTP a v případě, že je žeton již dostupný, je před samotným odesláním požadavku nejprve rozšířena hlavička tohoto požadavku. Do pole \texttt{Authorization} je vloženo slovo \texttt{Bearer} a za mezerou následuje samotný žeton.
+Po přihlášení uživatele každý jeho asynchronní požadavek v~hlavičce protokolu HTTP\footnote{Hypertext Transfer Protocol neboli Hypertextový přenosový protokol} obsahuje žeton standardu JWT. O~tuto funkci se stará třída \texttt{JwtInterceptor}, umístěná ve složce \texttt{interceptors}. Třída naslouchá všem odesílaným požadavkům protokolu HTTP a v~případě, že je žeton již dostupný, je před samotným odesláním požadavku nejprve rozšířena hlavička tohoto požadavku. Do pole \texttt{Authorization} je vloženo slovo \texttt{Bearer} a za mezerou následuje samotný žeton.
 
-Ve stejné složce lze také nalézt další třídu \texttt{ErrorInterceptor}, která obstarává oznámení uživateli v případě negativní odpovědi na odeslaný požadavek. Tato třída byla užitečná obzvláště během vývoje, jelikož chyby jazyka JavaScript se zobrazují v konzoli internetového prohlížeče, tudíž nejsou na první pohled zřetelné. Nicméně tato třída přináší užitek i pro koncové uživatele ve výsledné verzi aplikace.
+Ve stejné složce lze také nalézt další třídu \texttt{ErrorInterceptor}, která obstarává oznámení uživateli v~případě negativní odpovědi na odeslaný požadavek. Tato třída byla užitečná obzvláště během vývoje, jelikož chyby jazyka JavaScript se zobrazují v~konzoli internetového prohlížeče, tudíž nejsou na první pohled zřetelné. Nicméně tato třída přináší užitek i pro koncové uživatele ve výsledné verzi aplikace.
 
-V případě úspěšné odpovědi na asynchronní požadavek jsou data obsažená v této zprávě uložena do skladu dat. Tento proces je podrobněji vysvětlen v následující kapitole.
+V~případě úspěšné odpovědi na asynchronní požadavek jsou data obsažená v~této zprávě uložena do skladu dat. Tento proces je podrobněji vysvětlen v~následující kapitole.
 
-O samotné vytvoření zmíněných požadavků se starají služby \texttt{AuthenticationService}, \texttt{SSBMethodService} a \texttt{SSBQueryService}. Jejich chování lze částečně konfigurovat v souborech s prostředím umístěných ve složce \texttt{environments}.
+O~samotné vytvoření zmíněných požadavků se starají služby \texttt{AuthenticationService}, \texttt{SSBMethodService} a \texttt{SSBQueryService}. Jejich chování lze částečně konfigurovat v~souborech s~prostředím umístěných ve složce \texttt{environments}.
 
 
 \subsection{Centrální datový sklad}
-Data sdílena mezi více komponentami jsou uložena v centrálním skladu, který je realizován pomocí knihovny NgRx. Při implementaci byl kladen důraz na co nejmenší zanořování dat, která jsou v tomto skladu přítomna. Každé sdílené entitě (např. nástěnkám, uživatelům, štítkům) tedy odpovídá právě jeden objekt v první úrovni zanoření.
+Data sdílena mezi více komponentami jsou uložena v~centrálním skladu, který je realizován pomocí knihovny NgRx. Při implementaci byl kladen důraz na co nejmenší zanořování dat, která jsou v~tomto skladu přítomna. Každé sdílené entitě (např. nástěnkám, uživatelům, štítkům) tedy odpovídá právě jeden objekt v~první úrovni zanoření.
 
-Každý z těchto objektů je pak tvořen dalšími třemi hodnotami. Klíč \texttt{loading} obsahuje logickou hodnotu, která indikuje, zda se data právě načítají. Tato hodnota je kladná v období mezi odesláním asynchronního požadavku a přijmutím odpovědi od serveru. Uživateli tak může být dočasně skryt obsah části stránky, který je závislý na stále ještě nedostupných datech. V případě kladné odpovědi jsou přijatá data převedena do vhodného tvaru a poté uložena jako pole či objekt do hodnoty označené klíčem \texttt{data}. V případě neúspěchu dotazu je pak chyba uložena do hodnoty pod klíčem \texttt{error}.
+Každý z~těchto objektů je pak tvořen dalšími třemi hodnotami. Klíč \texttt{loading} obsahuje logickou hodnotu, která indikuje, zda se data právě načítají. Tato hodnota je kladná v~období mezi odesláním asynchronního požadavku a přijmutím odpovědi od serveru. Uživateli tak může být dočasně skryt obsah části stránky, který je závislý na stále ještě nedostupných datech. V~případě kladné odpovědi jsou přijatá data převedena do vhodného tvaru a poté uložena jako pole či objekt do hodnoty označené klíčem \texttt{data}. V~případě neúspěchu dotazu je pak chyba uložena do hodnoty pod klíčem \texttt{error}.
 
-O zmíněné převedení formátu se stará třída \texttt{SSBQueryDataResultParser}. Ta převádí nevhodný tvar dat přenášených pomocí aplikačního rozhraní, kde je informace o sloupcích a datech rozdělena do dvou polí. Metoda této třídy z těchto dvou polí vytvoří jedno pole obsahující objekty, ve kterých jsou již názvy sloupců a jejich hodnoty v podobě jaká je u objektů typu JSON obvyklá.
+O~zmíněné převedení formátu se stará třída \texttt{SSBQueryDataResultParser}. Ta převádí nevhodný tvar dat přenášených pomocí aplikačního rozhraní, kde je informace o~sloupcích a datech rozdělena do dvou polí. Metoda této třídy z~těchto dvou polí vytvoří jedno pole obsahující objekty, ve kterých jsou již názvy sloupců a jejich hodnoty v~podobě, jaká je u~objektů typu JSON obvyklá.
 
-Ani tato podoba dat však není finální. Výstupem zmíněné metody jsou totiž generické objekty. Pro veškeré přenášené entity však v aplikaci existuje odpovídající třída ve složce \texttt{models}. Generické objekty sice v aplikaci ve většině případů fungují, ale chybí jím specifické metody. V případě modelu uživatele lze například využít virtuální atribut \texttt{fullName}, který je ve skutečnosti pouze složenina dvou jiných atributů. Tento atribut by tedy v případě generického objektu dostupný nebyl. 
+Ani tato podoba dat však není finální. Výstupem zmíněné metody jsou totiž generické objekty. Pro veškeré přenášené entity však v~aplikaci existuje odpovídající třída ve složce \texttt{models}. Generické objekty sice v~aplikaci ve většině případů fungují, ale chybí jím specifické metody. V~případě modelu uživatele lze například využít virtuální atribut \texttt{fullName}, který je ve skutečnosti pouze složenina dvou jiných atributů. Tento atribut by tedy v~případě generického objektu dostupný nebyl. 
 To je důvodem proč je využita funkce \texttt{plainToClass} knihovny \texttt{class-transformer}\footnote{Repozitář knihovny class-transformer: \url{https://github.com/typestack/class-transformer}}, která data dále převede do finální podoby.
 
 Samotné ukládání přijatých dat a změnu obsahu skladu se zase starají reduktory (angl. \emph{reducers}), které využívají zmíněnou třídu pro převod dat. 
 
-Okamžitá vizuální odezva je však pro uživatele velmi důležitá. V některých případech je tak tedy nutné data ve skladu změnit dříve, než je přijata odpověď od serveru. Je tomu tak například u přesunu karty. Jistě by bylo pro uživatele velice nepříjemné, kdyby přesunul kartu na nové místo a ta se vzápětí ihned vrátila na svou původní pozici a až po nějaké době by akci potvrdil server a karta by se přesunula na místo, kam uživatel původně zamýšlel. Proto je v takových případech předpokládán úspěch akce a data ve skladu jsou ihned změněna. I tuto práci obstarává reduktor.
+Okamžitá vizuální odezva je však pro uživatele velmi důležitá. V~některých případech je tak tedy nutné data ve skladu změnit dříve, než je přijata odpověď od serveru. Je tomu tak například u~přesunu karty. Jistě by bylo pro uživatele velice nepříjemné, kdyby přesunul kartu na nové místo a ta se vzápětí ihned vrátila na svou původní pozici a až po nějaké době by akci potvrdil server a karta by se přesunula na místo, kam uživatel původně zamýšlel. Proto je v~takových případech předpokládán úspěch akce a data ve skladu jsou ihned změněna. I~tuto práci obstarává reduktor.
 
-Pro lepší ilustraci je níže uveden snímek~\ref{img:ngrx-devtools}, který ilustruje část dat aplikace uložených právě v popisovaném centrálním skladu.
+Pro lepší ilustraci je níže uveden snímek~\ref{img:ngrx-devtools}, který ilustruje část dat aplikace uložených právě v~popisovaném centrálním skladu.
 
 \begin{figure}[H]
 	\centering
 	\label{img:ngrx-devtools}
 	\includegraphics[width=\textwidth]{obrazky-figures/ngrx-chart.png}
-	\caption{Vizualizace dat obsažených v centrálním datovém skladu. Snímek je pořízen z nástroje Redux DevTools\footnote{Redux DevTools: \url{https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd}}}
+	\caption{Vizualizace dat obsažených v~centrálním datovém skladu. Snímek je pořízen z~nástroje Redux DevTools\footnote{Redux DevTools: \url{https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd}}.}
 \end{figure}
 
-Další dvě nedílné součásti knihovny NgRx jsou efekty a akce. Jejich účel byl již popsán v kapitole~\ref{sec:ngrx}. Každé ze sdílených entit naleží vlastní trojce těchto součástí knihovny. Obsah asynchronních požadavků je sestaven přímo v souboru s efekty, odkud jsou následně volány služby, které mají na starost tyto požadavky odeslat aplikaci SSBLite.
+Další dvě nedílné součásti knihovny NgRx jsou efekty a akce. Jejich účel byl již popsán v~kapitole~\ref{sec:ngrx}. Každé ze sdílených entit naleží vlastní trojce těchto součástí knihovny. Obsah asynchronních požadavků je sestaven přímo v~souboru s~efekty, odkud jsou následně volány služby, které mají na starost tyto požadavky odeslat aplikaci SSBLite.
 
 
 
 % ======================================================================
 \section{Serverová část}
-Z důvodu zachování firemního tajemství klientská část mé práce nekomunikuje přímo se systémem SSB, ale pouze se zjednodušenou verzí zvanou SSBLite, kterou jsem vytvořil v rámci řešení této bakalářské práce. Jedná se o webový server vytvořený s použitím systému ASP.NET. Server zpracovává požadavky aplikačního rozhraní REST na základě kterých sestrojuje a odesílá požadavky na databázi. Výsledky těchto požadavků jsou poté odeslány zpět klientovi ke zpracování a zobrazení uživateli.
+Z~důvodu zachování firemního tajemství klientská část mé práce nekomunikuje přímo se systémem SSB, ale pouze se zjednodušenou verzí zvanou SSBLite, kterou jsem vytvořil v~rámci řešení této bakalářské práce. Jedná se o~webový server vytvořený s~použitím systému ASP.NET. Server zpracovává požadavky aplikačního rozhraní REST na základě kterých sestrojuje a odesílá požadavky na databázi. Výsledky těchto požadavků jsou poté odeslány zpět klientovi ke zpracování a zobrazení uživateli.
 
-Samotný webový server kromě autentizace uživatele neobsahuje žádnou aplikační logiku. Slouží pouze jako zprostředkovatel přístupu k databázi, ke které klient z důvodu bezpečnosti nesmí mít přímý přístup. Možné požadavky na databázi jsou předem definovány a uloženy v konfiguračních souborech. Díky tomu je možné v budoucnu upravit chování aplikace bez nutnosti přímého zásahu do zdrojového kódu serverové části aplikace. 
+Samotný webový server kromě autentizace uživatele neobsahuje žádnou logiku aplikace. Slouží pouze jako zprostředkovatel přístupu k~databázi, ke které klient z~důvodu bezpečnosti nesmí mít přímý přístup. Možné požadavky na databázi jsou předem definovány a uloženy v~konfiguračních souborech. Díky tomu je možné v~budoucnu upravit chování aplikace bez nutnosti přímého zásahu do zdrojového kódu serverové části aplikace. 
 
 
 \subsection{Struktura adresáře}
-V této podkapitole je popsán adesář obsahující zdrojové aplikace SSBLite. Některé nepodstatné soubory a adresáře nejsou v seznamu uvedeny. Jedná se o podobu adresáře bez vygenerovaných souborů, tak jako na přiloženém médiu. Po úspěšném překladu se vytvoří nové soubory uvnitř adresáře \texttt{bin}.
+V~této podkapitole je popsán adesář obsahující zdrojové aplikace SSBLite. Některé nepodstatné soubory a adresáře nejsou v~seznamu uvedeny. Jedná se o~podobu adresáře bez vygenerovaných souborů, tak jako na přiloženém médiu. Po úspěšném překladu se vytvoří nové soubory uvnitř adresáře \texttt{bin}.
 
 \begin{itemize}
   \item \texttt{Configurations/} -- Adresář obsahující konfigurační soubory metod a dotazů na databázi
   \item \texttt{Controllers/} -- Adresář obsahující řídící třídy
   \item \texttt{Enums/} -- Adresář obsahující objekty výčtů, používaných aplikačním rozhraním
-  \item \texttt{Helpers/} -- Adresář obsahující třídu, která umožňuje přístup k tajnému klíči aplikačního rozhraní
-  \item \texttt{Interfaces/} -- Adrsář s rozhraními
-  \item \texttt{Models/} -- Adresář s třídami objektů modelů
+  \item \texttt{Helpers/} -- Adresář obsahující třídu, která umožňuje přístup k~tajnému klíči aplikačního rozhraní
+  \item \texttt{Interfaces/} -- Adrsář s~rozhraními
+  \item \texttt{Models/} -- Adresář s~třídami objektů modelů
   \begin{itemize}
     \item \texttt{Authentication/} -- Modely týkající se autentizace uživatele
     \item \texttt{Method/} -- Modely týkající se metod a příkazů databázi
     \item \texttt{Query/} -- Modely týkající se dotazů na databázi 
   \end{itemize}
-  \item \texttt{Services/} -- Adresář se službami získávající data z databáze
-  \item \texttt{appsettings.json} -- Soubor s konfigurací aplikace
-  \item \texttt{Startup.cs} -- Soubor se spouštěcí třídou s další konfigurací
+  \item \texttt{Services/} -- Adresář se službami získávající data z~databáze
+  \item \texttt{appsettings.json} -- Soubor s~konfigurací aplikace
+  \item \texttt{Startup.cs} -- Soubor se spouštěcí třídou s~další konfigurací
 \end{itemize}
 
 
 \subsection{Rozhraní Swagger}
-V raných etapách vývoje, kdy ještě nebyla klientská a serverová část aplikace vzájemně propojena, byl pro testování vývoje používán rámec Swagger\footnote{Swagger: \url{https://swagger.io}}. Díky jeho využití byly možnosti a podoba aplikačního rozhraní přehledně uvedena na jednom místě, odkud bylo také možné jednitlivé požadavky odesílat.
+V~raných etapách vývoje, kdy ještě nebyla klientská a serverová část aplikace vzájemně propojena, byl pro testování vývoje používán rámec Swagger\footnote{Swagger: \url{https://swagger.io}}. Díky jeho využití byly možnosti a podoba aplikačního rozhraní přehledně uvedena na jednom místě, odkud bylo také možné jednitlivé požadavky odesílat.
 
-Tento nástroj je ve výsledné aplikaci stále dostupný při překladu aplikace pro vývojové prostředí. Vzhledem k absenci jeho použití v pozdějších fázích vývoje však neobsahuje nejaktuálnější změny v aplikaci, i tak jej však lze využít zejména pro orientaci v aplikačním rozhraní. Ukázka části tohoto rozhraní je vidět na snímku~\ref{img:swagger}.
+Tento nástroj je ve výsledné aplikaci stále dostupný při překladu aplikace pro vývojové prostředí. Vzhledem k~absenci jeho použití v~pozdějších fázích vývoje však neobsahuje nejaktuálnější změny v~aplikaci, i tak jej však lze využít zejména pro orientaci v~aplikačním rozhraní. Ukázka části tohoto rozhraní je vidět na snímku~\ref{img:swagger}.
 
 \begin{figure}[H]
 	\centering
 	\label{img:swagger}
 	\includegraphics[width=\textwidth]{obrazky-figures/swagger.png}
-	\caption{Popis části aplikačního rozhraní umožňující dotazovat se na data uložená v aplikaci znázorněný v uživatelském rozhraní rámce Swagger.}
+	\caption{Popis části aplikačního rozhraní umožňujícího dotazovat se na data uložená v~aplikaci znázorněný v~uživatelském rozhraní rámce Swagger.}
 \end{figure}
 
 \subsection{Konfigurační soubory}
-Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivých požadavků a jejich znění. To však v mnoha případech přímo neobsahuje platný dotaz na databázi, ale obsažený dotaz je obohacen o klíčová slova, která umožňují přizpůsobení jeho znění pro aktuální potřebu klienta. Před samotným odesláním dotazu do databáze je nutné tyto klíčová slova zpracovat.
+Konfigurační soubory využívají formát JSON a obsahují názvy jednotlivých požadavků a jejich znění. To však v~mnoha případech přímo neobsahuje platný dotaz na databázi, ale obsažený dotaz je obohacen o~klíčová slova, která umožňují přizpůsobení jeho znění pro aktuální potřebu klienta. Před samotným odesláním dotazu do databáze je nutné tyto klíčová slova zpracovat.
 
 
-\subsection{Zpracování požadavku GetData}
-Požadavek \texttt{GetData} je určen pro dotazování se nad daty uloženými v databázi. Požadavky tohoto typu jsou zpracovány pomocí třídy \texttt{SSBQueryController}, která na základě názvu obsaženého v těle požadavku dohledá v konfiguračních souborech příslušný dotaz. V dalším kroku jsou pak nahrazena klíčová slova ve znění dotazu a to konkrétně \texttt{\{WHERE\}} a \texttt{\{AND\}}, místo kterých se dotaz rozšíří o další podmínky na základě příslušného obsahu požadavku \texttt{GetData}. Příkladem, využívajícím klíčové slovo \texttt{\{WHERE\}}, je následující dotaz:
+\subsection{Zpracování požadavku GetData}\label{sec:getdata}
+Požadavek \texttt{GetData} je určen pro dotazování se nad daty uloženými v~databázi. Požadavky tohoto typu jsou zpracovány pomocí třídy \texttt{SSBQueryController}, která na základě názvu obsaženého v~těle požadavku dohledá v~konfiguračních souborech příslušný dotaz. V~dalším kroku jsou pak nahrazena klíčová slova ve znění dotazu a to konkrétně \texttt{\{WHERE\}} a \texttt{\{AND\}}, místo kterých se dotaz rozšíří o~další podmínky na základě příslušného obsahu požadavku \texttt{GetData}. Příkladem, využívajícím klíčové slovo \texttt{\{WHERE\}}, je následující dotaz:
 
 \begin{verbatim}
 {
@@ -677,19 +677,19 @@ Požadavek \texttt{GetData} je určen pro dotazování se nad daty uloženými v
 }
 \end{verbatim}
 
-Ten má za následek získání informací o existujících kartách. Klíčové slovo v tomto případě bývá nahrazeno specifikací, o kterou nástěnku má klient zájem. Z pravidla se jedna o tu právě zobrazenou v jeho prohlížeči. Klíčové slovo \texttt{\{AND\}} se využívá v případě, že dotaz již nějaké podmínky obsahuje a ty požadované klientem jsou zřetězeny za již existující.
+Ten má za následek získání informací o~existujících kartách. Klíčové slovo v~tomto případě bývá nahrazeno specifikací, o~kterou nástěnku má klient zájem. Z~pravidla se jedna o~tu právě zobrazenou v~jeho prohlížeči. Klíčové slovo \texttt{\{AND\}} se využívá v~případě, že dotaz již nějaké podmínky obsahuje a ty požadované klientem jsou zřetězeny za již existující.
 
-Dalším klíčovým slovem s kterým se lze setkat je \texttt{\{USERID\}}, které je nahrazeno identifikačním číslem klienta, který se na data dotazuje. V tomto případě klient již nemá možnost ovlivnit, jakou hodnotou bude klíčové slovo nahrazeno, a proto je vhodné tento prvek využít například pro zamezení přístupu k datům, které uživateli nenáleží.
+Dalším klíčovým slovem s~kterým se lze setkat je \texttt{\{USERID\}}, které je nahrazeno identifikačním číslem klienta, který se na data dotazuje. V~tomto případě klient již nemá možnost ovlivnit, jakou hodnotou bude klíčové slovo nahrazeno, a proto je vhodné tento prvek využít například pro zamezení přístupu k~datům, které uživateli nenáleží.
 Nahrazení klíčových slov obstarává metoda \texttt{ReplaceKeywords}, jenž je součástí třídy \texttt{SSBQuery}.
 
 Dalším krokem je pak samotné provedení dotazu a transformace získaných dat do formátu, jež odpovídá specifikaci aplikačního rozhraní. Tyto data jsou pak navráceny klientovi.
 
-V aplikacích využívajících platformu ASP.NET bývá zvykem pro sestavení dotazů použít technologii LINQ, v této aplikaci však použita není. Místo ní je využívána knihovna Npgsql a dotazy jsou sestrojovány přímo v cílovem jazyce PostgreSQL. Tento přístup bylo nutné aplikovat z důvodu zachování integrity se systémem SSB.
+V~aplikacích využívajících platformu ASP.NET bývá zvykem pro sestavení dotazů použít technologii LINQ, v~tomto případě však použita není. Místo ní je využívána knihovna Npgsql a dotazy jsou sestrojovány přímo v~cílovem jazyce PostgreSQL. Tento přístup bylo nutné aplikovat z~důvodu zachování integrity se systémem SSB.
 
 \subsection{Zpracování požadavku ExecuteMethod}
-Funkcí požadavku \texttt{ExecuteMethod} je spuštění příkazu databáze. Může se jednat přímo o příkaz například \texttt{INSERT} či \texttt{UPDATE}, nicméně jeho nejčastější využití je spuštění uložené procedury pomocí příkazu \texttt{CALL}.
+Funkcí požadavku \texttt{ExecuteMethod} je spuštění příkazu databáze. Může se jednat přímo o~příkaz například \texttt{INSERT} či \texttt{UPDATE}, nicméně jeho nejčastější využití je spuštění uložené procedury pomocí příkazu \texttt{CALL}.
 
-Samotné zpracování je téměř totožné jako u požadavku \texttt{GetData}. V tomto případě se však využívají třídy \texttt{SSBMethodController} a \texttt{SSBMethod}. V konfiguračních souborech příkazů se však vyskytuje z dříve uvedených klíčových slov pouze \texttt{\{USERID\}}. Jsou zde však přítomny i zástupné symboly s poznávacím znamením dvojtečky jako prvního znaku. Ihned za ní pak následuje název parametru. V konfiguračních souborech tak lze nalézt například následující záznam:
+Samotné zpracování je téměř totožné jako u~požadavku \texttt{GetData}. V~tomto případě se však využívají třídy \texttt{SSBMethodController} a \texttt{SSBMethod}. V~konfiguračních souborech příkazů se však vyskytuje z~dříve uvedených klíčových slov pouze \texttt{\{USERID\}}. Jsou zde však přítomny i zástupné symboly s~poznávacím znamením dvojtečky jako prvního znaku. Ihned za ní pak následuje název parametru. V~konfiguračních souborech tak lze nalézt například následující záznam:
 
 \begin{verbatim}
 {
@@ -699,136 +699,139 @@ Samotné zpracování je téměř totožné jako u požadavku \texttt{GetData}. 
 }
 \end{verbatim}
 
-Tyto zástupné symboly jsou nahrazeny hodnotami, které jsou obsaženy v požadavku zaslaným klientem. O tuto práci se stará metoda \texttt{FillParameters}, která nejprve zaslaná data převede do odpovídajícího typu a následně je za pomocí funkce knihovny Npgsql vloží do příkazu místo zástupných symbolů. Tato knihovna mimo jiné zabraňuje případným pokusům o napadení databáze za pomocí metody SQL injekce. 
+Tyto zástupné symboly jsou nahrazeny hodnotami, které jsou obsaženy v~požadavku zaslaným klientem. O~tuto práci se stará metoda \texttt{FillParameters}, která nejprve zaslaná data převede do odpovídajícího typu a následně je za pomocí funkce knihovny Npgsql vloží do příkazu místo zástupných symbolů. Tato knihovna mimo jiné zabraňuje případným pokusům o~napadení databáze za pomocí metody SQL injekce. 
 
 Po provedení příslušné akce je klientovi oznámeno zda jeho požadavek proběhl úspěšně či nikoliv.
 
 \subsection{Autentizace uživatele}
-Pro ověření přístupových údajů uživatele slouží požadavek \texttt{VerifyCredentials}. Ten je zpracován třídou SSBAuthenticationController, ale samotná autentizace probíhá až ve třídě UserService. Tato třída obstarává jak ověření zaslaných údajů s těmi v databázi, tak i vytvoření žetonu standardu JWT. Pro přístup k databázi je v tomto případě již využita technologie LINQ a samotný dotaz není načten z konfiguračních souborů. Vygenerovaný žeton je poté odeslán zpět k uživateli.
+Pro ověření přístupových údajů uživatele slouží požadavek \texttt{VerifyCredentials}. Ten je zpracován třídou SSBAuthenticationController, ale samotná autentizace probíhá až ve třídě UserService. Tato třída obstarává jak ověření zaslaných údajů s~těmi v~databázi, tak i vytvoření žetonu standardu JWT. Pro přístup k~databázi je v~tomto případě již využita technologie LINQ a samotný dotaz není načten z~konfiguračních souborů. Vygenerovaný žeton je poté odeslán zpět k~uživateli.
 
 
 
 \section{Databázová vrstva}
-Jak již bylo zmíněno, databáze využívá systém PostgreSQL. Ve většině podobných aplikací databáze slouží pouze pro úschovu dat. Nicméně kvůli univerzálnosti systému SSB je nutné v databázi uchovávat i aplikační logika. Toho je docíleno pomocí uložených procedur. Koncepce uložení dat v databázi byla zmíněna již v podkapitole~\ref{sec:erd}.
+Jak již bylo zmíněno, databáze využívá systém PostgreSQL. Ve většině podobných aplikací databáze slouží pouze pro úschovu dat. Nicméně kvůli univerzálnosti systému SSB je nutné v~databázi uchovávat i logiku aplikace. Toho je docíleno pomocí uložených procedur. Koncepce uložení dat v~databázi byla již zmíněna v~podkapitole~\ref{sec:erd}.
 
-Jednodušší procedury jsou psány přímo v jazyce SQL a jedná se tak především o sekvenci vícero klasických příkazů, které lze spustit pomocí jednoho příkazu (spuštění uložené procedury). Tento přístup je využit například při vytvoření nového štítku, kdy je část dat uložena v tabulce \texttt{cards} a část v tabulce \texttt{card\_details}.
-% @todo Overit jestli jsem to uz nezmenil
+Jednodušší procedury jsou psány přímo v~jazyce SQL a jedná se především o~sekvenci vícero klasických příkazů, které lze spustit pomocí jednoho příkazu (spuštěním uložené procedury). Tento přístup je využit například při vytvoření nového štítku, kdy je část dat uložena v~tabulce \texttt{cards} a část v~tabulce \texttt{card\_details}.
 
 Pro komplexnější akce bylo však nutné využít jazyk PL/pgSQL\footnote{PL/pgSQL: \url{https://www.postgresql.org/docs/9.6/plpgsql.html}}. Ten umožňuje používat například funkce nebo podmínky.
 
-Dle požadavku zadavatele práce názvy uložených procedur dodržují konvenci, kdy v první částí názvu je uvedena entita, které se daná operace týká a v druhé části je název akce. Lze se tedy setkat s názvy jako je \texttt{tags\_sync}, která synchronizuje štítky přiřazené dané kartě. 
+Dle požadavku zadavatele práce názvy uložených procedur dodržují konvenci, kdy v~první částí názvu je uvedena entita, které se daná operace týká a v~druhé části je název akce. Lze se tedy setkat s~názvy jako je \texttt{tas\_sync}. 
 
 
 \subsection{Synchronizace záznamů}
-V aplikaci je několik situací kdy je třeba synchronizovat záznamy. Jedná se o tři akce s daty -- úprava a odstranění existujících záznamů a vytvoření nových. Tato situace nastává zejména při nastavování nástěnky. Konkrétně při nastavení sloupců, plaveckých drah, štítků a podobně. Tyto akce jsou provedeny pomoci uložených procedur \texttt{column\_sync}, \texttt{swimlane\_sync}, \texttt{tag\_sync}.
+V~aplikaci je několik situací kdy je třeba synchronizovat záznamy. Jedná se o~kombinaci tří akcí s~daty -- úprava, odstranění existujících záznamů a vytvoření nových. Tato situace nastává zejména při nastavování nástěnky. Konkrétně při nastavení sloupců, plaveckých drah a štítků. Tyto akce jsou provedeny pomoci uložených procedur \texttt{column\_sync}, \texttt{swimlane\_sync}, \texttt{tag\_sync}.
 
-Uvnitř této procedury se však nachází pouze volání další uložené procedury a to jedné a té stejné pro všechny zmíněné procedury. Jedná se o proceduru \texttt{sync\_handler}, která umožňuje dynamicky provádět právě synchronizaci dat. Jejími parametry jsou jednak vstupní data původních procedur (identifikátor nástěnky a data k synchronizaci) a dále také specifikace nástěnky, kde jsou data uložena a sloupce, kterých se synchronizace týká.
+Uvnitř této procedury se však nachází pouze volání další uložené procedury a to jedné a té stejné pro všechny zmíněné procedury. Jedná se o~proceduru \texttt{sync\_handler}, která umožňuje dynamicky provádět právě synchronizaci dat. Jejími parametry jsou jednak vstupní data původních procedur (identifikátor nástěnky a data k~synchronizaci) a dále také specifikace nástěnky, kde jsou data uložena a sloupce, kterých se synchronizace týká.
 
-Díky tomu je značně zredukována redundance kódu a v kombinaci s generickým komponentami klientské aplikace lze celý systém jednoduše rozšířit o nastavení dalších prvků.
+Díky tomu je značně zredukována redundance kódu a v~kombinaci s~generickým komponentami klientské aplikace lze celý systém jednoduše rozšířit o~nastavení dalších prvků.
 
 
-\subsection{Autentizace požadavků}
-\blindtext
+\subsection{Autorizace požadavků}
+Při vytváření téměř jakékoliv aplikace je nutné počítat s~možnými pokusy o~její napadení. Požadavky uživatele je tedy nutné vždy autorizovat. 
+
+Dotazy na data lze omezit použitím klíčového slova \texttt{\{USERID\}}, představeného v~kapitole~\ref{sec:getdata}. Do dotazu lze připojit i tabulku \texttt{users} například prostřednictvím propojovací tabulky \texttt{boards2users} a pomocí zmíněného klíčového slova vyfiltrovat jen ty tabulky, ke kterým má mít uživatel přístup.
+
+Pro omezení spouštění metod je taktéž využito uvedené klíčové slovo. V~tomto případě lze funkci předat údaje o~uživateli jako parametr a následně v~těle funkce ověřit jeho privilegia k~provedení příslušné akce. Nicméně vzhledem k~existující implementaci ukládání historie je jednodušší využít proměnnou aktuálního sezení přístupu k databázi.
 
 
 \subsection{Ukládání historie}
-\blindtext
+Jeden z~požadavků vývoje aplikace bylo zaznamenávání změn karty. Tato funkcionalita je implementována pomocí spouští, které jsou provedeny před samotným zápisem do klíčových tabulek jako \texttt{cards} či \texttt{card\_details}. Spoušť v~případě změny některých polí uloží jejich původní hodnoty do tabulky \texttt{changes}. Informace o~uživateli, který je strůjcem dané akce, jsou spoušti předány pomocí proměnné aktuálního sezení přístupu k databázi a rovněž zaznamenány.
 
 
 % ======================================================================
 \chapter{Testování a vyhodnocení}
-Tato kapitola popisuje provedené způsoby testování výsledné aplikace se zaměřením na uživatelské testování, které bylo prováděno ve spolupráci s několika zaměstnanci společnosti SEACOMP s.r.o. Následně je popsán výsledek testování a akce, které byly na základě zpětné vazby respondentů učiněny. V závěru kapitoly jsou uvedeny možné další rozšíření aplikace.
+Tato kapitola popisuje provedené způsoby testování výsledné aplikace se zaměřením na uživatelské testování, které bylo prováděno ve spolupráci s~několika zaměstnanci společnosti SEACOMP s.r.o. Následně je popsán výsledek testování a akce, které byly na základě zpětné vazby respondentů učiněny. V~závěru kapitoly jsou uvedeny možné další rozšíření aplikace.
 
-Automatizované testování nebylo při práci využito. Bylo tak rozhodnuto po konzultaci jak s vedoucím tak i se zadavatelem práce. Pro ověření funkčnosti, bezpečnosti a dalších aspektů aplikačního rozhraní bylo využito manuální testování pomocí nástroje Postman\footnote{Postman: \url{https://www.postman.com}}, který slouží jako klient pro odesílání požadavků aplikačního rozhraní REST a zobrazení odpovědí na tyto požadavky.
+Automatizované testování nebylo při práci využito. Bylo tak rozhodnuto po konzultaci jak s~vedoucím tak i se zadavatelem práce. Pro ověření funkčnosti, bezpečnosti a dalších aspektů aplikačního rozhraní bylo využito manuální testování pomocí nástroje Postman\footnote{Postman: \url{https://www.postman.com}}, který slouží jako klient pro odesílání požadavků aplikačního rozhraní REST a pro zobrazení odpovědí na tyto požadavky.
 
-\subsection{Uživatelské testování}
-Testování na uživatelích probíhalo na @todo zaměstnancích společnosti SEACOMP s.r.o. Jednalo se jak o zástupce z řad vedoucích týmů, kteří v rámci své pozice pracují s nástěnkou kanban dennodenně a mají na starost i její konfiguraci, tak i o řadové programátory, kteří tento nástroj využívají zřídka a čistě jen z uživatelského pohledu.
+\section{Uživatelské testování}
+Testování na uživatelích se zúčastnilo 8 zaměstnanců společnosti SEACOMP s.r.o. Jednalo se jak o~zástupce z~řad vedoucích týmů, kteří v~rámci své pozice pracují s~nástěnkou Kanban dennodenně a mají na starost i její konfiguraci, tak i o~řadové programátory, kteří tento nástroj využívají zřídka a čistě jen z~uživatelského pohledu.
 
-Vzhledem k současné pandemii koronaviru bylo nutné využít pouze prostředky pro vzdálenou komunikaci. Testování tak bylo rozděleno do dvou částí. První část obnášela samotné vyzkoušení aplikace uživatelem. Druhá část byla realizována pomocí dotazníku.
+Vzhledem k~současné pandemii koronaviru bylo nutné využít pouze prostředky pro vzdálenou komunikaci. Testování tak bylo rozděleno do dvou částí. První část obnášela samotné vyzkoušení aplikace uživatelem. Druhá část byla realizována pomocí dotazníku.
 
-\subsubsection{Testovací data}
-Pro každého účastníka uživatelského testování byl vytvořen vlastní účet a k němu také separátní nástěnka se základními sloupci a plaveckými drahami. K nástěnce bylo přiřazeno dalších deset uživatelů. Obsahem nástěnky však byla pouze jediná karta. Uživatelé tak tedy začali téměř s netknutou nástěnkou. Tyto testovací data byla vytvořena pomocí databázové procedury \texttt{test\_table\_create}.
+\subsection{Testovací data}
+Pro každého účastníka uživatelského testování byl vytvořen vlastní účet a k~němu také separátní nástěnka se základními sloupci a plaveckými drahami. K~nástěnce bylo přiřazeno dalších deset uživatelů. Obsahem nástěnky však byla pouze jediná karta. Uživatelé tak tedy začali téměř s~netknutou nástěnkou. Tyto testovací data byla vytvořena pomocí databázové procedury \texttt{test\_table\_create}.
 
-\subsubsection{Sledování chování uživatelů}
-Uživatel nebyl dopředu s aplikací nijak seznámen, protože vzhledem k zaměření jeho povolání byl předpoklad, že se s podobným nástrojem v minulosti již setkal. 
+\subsection{Sledování chování uživatelů}
+Uživatel nebyl dopředu s~aplikací nijak seznámen, protože vzhledem k~zaměření jeho povolání byl předpoklad, že se s~podobným nástrojem v~minulosti již setkal. 
 
 Aplikace třetích stran umožňující zaznamenat pohyb myši a průchod aplikací bohužel nebylo možné využít, jelikož nedokázaly správně zpracovat kaskádové styly aplikace a výsledný záznam tak byl takřka nepoužitelný. Náhradní řešení tedy bylo sledování vybraných uživatelů pomocí sdílení obrazovky prostřednictvím aplikace Skype\footnote{Skype: \url{https://www.skype.com/cs/}}.
 
-\subsubsection{Dotazník}
-Po vyzkoušení aplikace každý z testovacích uživatelů obdržel odkaz na elektronický dotazník realizovaný pomocí online nástroje Formuláře Google\footnote{Formuláře Google: \url{https://www.google.com/intl/cs/forms/about/}}. Otázky dotazníku byly rozděleny do dvou skupin a jejich znění je uvedeno v příloze~\ref{sec:questionarre}.
+\subsection{Dotazník}
+Po vyzkoušení aplikace každý z~testovacích uživatelů obdržel odkaz na elektronický dotazník realizovaný pomocí online nástroje Formuláře Google\footnote{Formuláře Google: \url{https://www.google.com/intl/cs/forms/about/}}. Otázky dotazníku byly rozděleny do dvou skupin a jejich znění je uvedeno v~příloze~\ref{sec:questionarre}.
 
-První skupina obsahovala deset výroků na téma použitelnosti aplikace a respondent byl požádán o vybrání hodnoty na škále od jedné do pěti, zda s daným výrokem souhlasí či nesouhlasí. Znění těchto výroků vychází z překladu standardizovaného dotazníku zvaného Měřítko použitelnosti systému\footnote{Měřítko použitelnosti systém: \url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html}} (angl. \emph{System Usability Scale} neboli \emph{SUS}).
+První skupina obsahovala deset výroků na téma použitelnosti aplikace a respondent byl požádán o~vybrání hodnoty na škále od jedné do pěti, zda s~daným výrokem souhlasí či nesouhlasí. Znění těchto výroků vychází z~překladu standardizovaného dotazníku zvaného Měřítko použitelnosti systému\footnote{Měřítko použitelnosti systém: \url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html}} (angl. \emph{System Usability Scale} neboli SUS).
 
-Druhá skupina obsahovala pět otevřených otázek zaměřených na silné a slabé stránky aplikace a její srovnání s původní aplikací, která se ve společnosti SEACOMP s.r.o. právě využívá.
-
-
-
-\subsection{Vyhodnocení}
-Vyhodnocení bylo rozděleno do tří částí. První se věnuje čistě jen samotnému dotazníku Měřítka použitelnosti systému. Další část se zabývá poznatky zjištěnými druhou částí dotazníku a sledováním uživatelů a případně i jejich nápravou. Část třetí pak obsahuje návrhy dalších možných vylepšení do budoucna. 
+Druhá skupina obsahovala pět otevřených otázek zaměřených na silné a slabé stránky aplikace a její srovnání s~původní aplikací, která se ve společnosti SEACOMP s.r.o. právě využívá.
 
 
-\subsubsection{Měřítko použitelnosti systému}
-Jednotlivé výsledky dotazníku Měřítka použitelnosti systému lze pomocí vzorce převést na hodnotu v intervalu 0 až 100, která se označuje jako skóre. Následně je nutné zprůměrovat všechna vypočítaná skóre, čímž je získáno celkové skóre aplikace. Aby tuto hodnotu bylo možné vhodně interpretovat jako výsledek testování, je možné testovanému produktu přidělit známku na základě percentilu výsledku dalších 241 obdobných studií~\cite{bib:sus-statistics}. Zmíněné známky jsou uvedeny v tabulce~\ref{tab:sus}.
+
+\section{Vyhodnocení}
+Vyhodnocení bylo rozděleno do dvou částí. První část se věnuje čistě jen samotnému dotazníku Měřítka použitelnosti systému. Další část se zabývá poznatky zjištěnými druhou částí dotazníku a sledováním uživatelů a případně i jejich nápravou.
+
+
+\subsection{Měřítko použitelnosti systému}
+Jednotlivé výsledky dotazníku Měřítka použitelnosti systému lze pomocí vzorce převést na hodnotu v~intervalu 0 až 100, která se označuje jako skóre. Následně je nutné zprůměrovat všechna vypočítaná skóre, čímž je získáno celkové skóre aplikace. Aby tuto hodnotu bylo možné vhodně interpretovat jako výsledek testování, je možné testovanému produktu přidělit známku na základě percentilu výsledku dalších 241 obdobných studií. Zmíněné známky jsou uvedeny v~tabulce~\ref{tab:sus}.
 
 \begin{table}[H]
 \centering
 \label{tab:sus}
-\caption{Známkovací stupnice určená pro vyhodnocení výsledku dotazníku Měřítka použitelnosti systému. Přeloženo z~\cite{bib:sus-statistics}}
+\caption{Známkovací stupnice určená pro vyhodnocení výsledku dotazníku Měřítka použitelnosti systému. Přeloženo z~\cite{bib:sus-statistics}.}
 \begin{tabular}{|l|c|c|}
 \hline
 Známka & Skóre SUS  & Rozpětí percentilu  \\
 \hline
-A+    & 84.1 – 100  & 96 – 100          \\
-A     & 80.8 – 84.0 & 90 – 95           \\
-A-    & 78.9 – 80.7 & 85 – 89           \\
-B+    & 77.2 – 78.8 & 80 – 84           \\
-B     & 74.1 – 77.1 & 70 – 79           \\
-B-    & 72.6 – 74.0 & 65 – 69           \\
-C+    & 71.1 – 72.5 & 60 – 64           \\
-C     & 65.0 – 71.0 & 41 – 59           \\
-C-    & 62.7 – 64.9 & 35 – 40           \\
-D     & 51.7 – 62.6 & 15 – 34           \\
-F     & 0 – 51.6    & 0 – 14            \\
+A+    & 84,1 – 100  & 96 – 100          \\
+A~    & 80,8 – 84,0 & 90 – 95           \\
+A-    & 78,9 – 80,7 & 85 – 89           \\
+B+    & 77,2 – 78,8 & 80 – 84           \\
+B     & 74,1 – 77,1 & 70 – 79           \\
+B-    & 72,6 – 74,0 & 65 – 69           \\
+C+    & 71,1 – 72,5 & 60 – 64           \\
+C     & 65,0 – 71,0 & 41 – 59           \\
+C-    & 62,7 – 64,9 & 35 – 40           \\
+D     & 51,7 – 62,6 & 15 – 34           \\
+F     &    0 – 51,6 &  0 – 14            \\
 \hline
 \end{tabular}
 \end{table}
 
-Z ?? výsledků dotazníku bylo vypočítáno průměrné skóre ??, což dle uvedené stupnice odpovídá známce ??.
+Z~8 výsledků dotazníku bylo vypočítáno průměrné skóre 76,6, což dle stupnice uvedené v~tabulce~\ref{tab:sus} odpovídá známce B.
 
-Z odpovědí dále vyplynulo, že se jedná o jednoduchou, konzistentní a snadno použivatelnou aplikaci, s kterou se uživatel naučí rychle pracovat. Převážně pozitivně bylo také vnímáno začlenění jednotlivých funkcí. Takřka nerozhodný výsledek se objevil u pocitu jistoty při práci s aplikací, stále však mírně převažovaly pozitivní výsledky. Podobně se respondenti vyjádřili i u otázky, zda by aplikaci rádi používali opakovaně. Tento výsledek je zapříčiněn tím, že většina respondentů při náplni své práce nástěnku Kanban téměř či vůbec nepožívají. Vedoucí týmů, čili klíčoví respondenti, tvořili ve vzorku respondentů pouze menšinu.
+Z~odpovědí dále vyplynulo, že se jedná o~jednoduchou, konzistentní a snadno použivatelnou aplikaci, s~kterou se uživatel naučí rychle pracovat. Převážně pozitivně bylo také vnímáno začlenění jednotlivých funkcí. Takřka nerozhodný výsledek se objevil u~pocitu jistoty při práci s~aplikací, stále však mírně převažovaly pozitivní výsledky. Podobně se respondenti vyjádřili i u~otázky, zda by aplikaci rádi používali opakovaně. Tento výsledek je zapříčiněn tím, že většina respondentů při náplni své práce nástěnku Kanban téměř či vůbec nepožívají. Vedoucí týmů, čili klíčoví respondenti, tvořili ve vzorku respondentů pouze menšinu.
 
 
-\subsubsection{Sledování uživatelů a otevřené otázky}
-Uživatelské testování vedlo k objevení jak několika technických chyb, které byly po sléze opraveny, tak i k objevení několika menších nedostatků návrhu aplikace. Část těchto poznatků byla získána sledováním chování uživatelů při používání aplikace a část je založena na odpovědích na otevřené otázky dotazníku. 
+\subsection{Sledování uživatelů a otevřené otázky}
+Uživatelské testování vedlo k~objevení jak několika technických chyb, které byly po sléze opraveny, tak i k~objevení několika menších nedostatků návrhu aplikace. Část těchto poznatků byla získána sledováním chování uživatelů při používání aplikace a část je založena na odpovědích na otevřené otázky dotazníku. 
 
-Většina připomínek se týkala drobných nedostatků jako je třeba nemožnost odeslat přihlašovací údaje stisknutím tlačítka Enter nebo problémy s kaskádovými styly, které byly po dokončení testování opraveny.
+Většina připomínek se týkala drobných nedostatků jako je třeba nemožnost odeslat přihlašovací údaje stisknutím tlačítka Enter nebo problémy s~kaskádovými styly, které byly po dokončení testování opraveny.
 
-Z testování také vyplynulo, že ačkoliv se s metodikou Kanban všichni účastníci do jisté míry již dříve setkali, část z nich neznala koncept plaveckých drah. Proto byla na některá místa v aplikaci týkajících se právě těchto drah přidána informační ikona se stručným popisem jejich principu.
+Z~testování také vyplynulo, že ačkoliv se s~metodikou Kanban všichni účastníci do jisté míry již dříve setkali, část z~nich neznala koncept plaveckých drah. Proto byla na některá místa v~aplikaci týkajících se právě těchto drah přidána informační ikona se stručným popisem jejich principu.
 
-Dále se ukázalo, že uživatelé ve webových aplikacích nejsou zvyklí na využití pravého tlačítka myši jako kontextového menu. Pro akce z toho menu tedy byla přidána i klasická tlačítka v detailu karty. 
+Dále se ukázalo, že uživatelé ve webových aplikacích nejsou zvyklí na využití pravého tlačítka myši jako kontextového menu. Pro akce z~toho menu tedy byla přidána i klasická tlačítka v~detailu karty. 
 
-Pro vyhodnocení úspěchu aplikace je stěžejní srovnání s aktuálně používanou aplikaci ve společnosti. Obecně byla aplikace vytvořena v rámci této bakalářské práce vnímána jako mnohem přehlednější a vyzdvižena byla také rychlost její odezvy. Často zmiňovaným nedostatkem však byla absence některých funkcí současné aplikace Kanboard.
+Pro vyhodnocení úspěchu aplikace je stěžejní srovnání s~aktuálně používanou aplikaci ve společnosti. Obecně byla aplikace vytvořena v~rámci této bakalářské práce vnímána jako mnohem přehlednější a vyzdvižena byla také rychlost její odezvy. Často zmiňovaným nedostatkem však byla absence některých funkcí současné aplikace Kanboard.
 
-\subsection{Možnost úprav}
-Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze vzhledem k rozsáhlé povaze aplikace ji lze rozšířit o celou řadu jednoduchých i komplexních funkcí.
+\section{Možnost úprav}
+Mimo již několikrát zmíněnou integraci do stávajícího systému společnosti lze aplikaci vzhledem k~její rozsáhlé povaze rozšířit o~celou řadu jednoduchých i komplexních funkcí.
 
-Při větším množství úkolů přítomných na jedné nástěnce může docházet k částečné nepřehlednosti informací. Zcela jistě by tedy bylo užitečné přidat možnost filtrovat zobrazené úkoly. Pro sestavení takového filtru by bylo možné využít například komponentu \texttt{<dx-filter-builder>} knihovny DevExtreme, případně je možnost implementovat přímo vlastní dotazovací jazyk.
+Při větším množství úkolů přítomných na jedné nástěnce může docházet k~částečné nepřehlednosti informací. Zcela jistě by tedy bylo užitečné přidat možnost filtrovat zobrazené úkoly. Pro sestavení takového filtru by bylo možné využít například komponentu \texttt{<dx-filter-builder>} knihovny DevExtreme, případně je možnost implementovat přímo vlastní dotazovací jazyk.
 
 Další možností rozšíření by mohla být možnost částečné automatizace nástěnky, například automatické archivování hotových úkolů. Díky této funkci by správci nástěnek nebyli nuceni provádět tolik rutinních úkonů. 
 
-Jelikož v budoucnu může být nástroj využíván v nejrůznějších odvětvích průmyslu, nabízí se umožnit uživatelům plně si přizpůsobit obsah úkolů pomocí konfigurovatelných polí jako je tomu například v nástroji Jira. Tím by bylo docíleno možnosti jednoduše upravit nástěnku pro potřeby různorodých zákazníků.
+Jelikož v~budoucnu může být nástroj využíván v~nejrůznějších odvětvích průmyslu, nabízí se umožnit uživatelům plně si přizpůsobit obsah úkolů pomocí konfigurovatelných polí jako je tomu například v~nástroji Jira. Tím by bylo docíleno možnosti jednoduše upravit nástěnku pro potřeby různorodých zákazníků.
 
-Konkurence v oboru těchto aplikací je veliká. Pro případnou migraci z nebo do jiného nástroje s podobných zaměřením by bylo také mohlo být užitečné umožnit importovat či exportovat úkoly a případně i nastavení nástěnky.
+Konkurence v~oboru těchto aplikací je veliká. Pro případnou migraci z~nebo do jiného nástroje s~podobných zaměřením by bylo také mohlo být užitečné umožnit importovat či exportovat úkoly a případně i nastavení nástěnky.
 
 
 
 
 % ======================================================================
 \chapter{Závěr}
-Cílem této bakalářské práce bylo vytvořit webovou aplikaci typu Kanban dle požadavků společnosti SEACOMP s.r.o., která v budoucnu nahradí v současnosti využívaný nástroj třetí strany. Základní verze této aplikace byla úspěšně vytvořena a v nynější podobě ji lze použít pro řízení projektů. Toto tvrzení bylo ověřeno uživatelským testováním. Před jejím reálným nasazením ve společnosti je však nutné nejprve ji zaintegrovat do aplikace SSB4Web a rozšířit o několik pokročilých funkcí.
+Cílem této bakalářské práce bylo vytvořit webovou aplikaci typu Kanban dle požadavků společnosti SEACOMP s.r.o., která v~budoucnu nahradí v~současnosti využívaný nástroj třetí strany. Základní verze této aplikace byla úspěšně vytvořena a v~nynější podobě ji lze použít pro řízení projektů. Toto tvrzení bylo ověřeno uživatelským testováním. Před jejím reálným nasazením ve společnosti je však nutné nejprve ji zaintegrovat do aplikace SSB4Web a rozšířit o~několik pokročilých funkcí.
 
-Výsledná aplikace obsahuje klíčové funkce pro správu nástěnky a v ní obsažených úkolů. Během vývoje byly dodrženy všechna omezení určené zadavatelem práce jako jsou architektura a technologie aplikace.
+Výsledná aplikace obsahuje klíčové funkce pro správu nástěnky a v~ní obsažených úkolů. Během vývoje byly dodrženy všechna omezení určené zadavatelem práce jako jsou architektura a technologie aplikace.
 
-Práce pro mne měla osobní přínos především novou zkušeností s tvorbou jednostránkových aplikací, osvojením si nových rámců pro vývoj webových aplikací a realizací řešení se striktními omezeními způsobu implementace.
+Práce pro mne měla osobní přínos především novou zkušeností s~tvorbou jednostránkových aplikací, osvojením si nových rámců pro vývoj webových aplikací a realizací řešení se striktními omezeními způsobu implementace.
 
-Výsledná aplikace bude v budoucnu sloužit společnosti SEACOMP s.r.o. pro interní řízení vývoje softwarových produktů.
+Výsledná aplikace bude v~budoucnu sloužit společnosti SEACOMP s.r.o. pro interní řízení vývoje softwarových produktů.
