@@ -169,11 +169,11 @@ Představené aplikace se mezi sebou liší například cenou, možnostmi provoz
 \label{tab:kanban-sum}
 \begin{tabular}{ |l|c|c|c|c| } 
 \hline
-Aplikace & Cena\footnotemark & Vzdálené úložiště & Vlastní úložiště & Otevřený zdrojový kód  \\
+Aplikace & Cena\footnotemark                         & Vzdálené úložiště & Vlastní úložiště & Otevřený zdrojový kód  \\
 \hline
-Trello & 0--20,83 dolarů~\cite{bib:trello-pricing} & Ano & Ne & Ne \\ 
-Jira & 0--14 dolarů~\cite{bib:jira-pricing} & Ano & Ano & Ne \\ 
-Kanboard & Zdarma & Ne & Ano & Ano \\ 
+Trello   & 0--20,83 dolarů~\cite{bib:trello-pricing} & Ano               & Ne               & Ne                     \\ 
+Jira     & 0--14 dolarů~\cite{bib:jira-pricing}      & Ano               & Ano              & Ne                     \\ 
+Kanboard & Zdarma                                    & Ne                & Ano              & Ano                    \\ 
 \hline
 \end{tabular}
 \end{table}
@@ -431,7 +431,7 @@ Konkrétní dotaz na získání karet s~použitím filtru nástěnky tak může 
           {
             "m_filterOperator": 0,
             "m_column": "col.board_id",
-            "m_values": [1] ¨
+            "m_values": [1]
           }
         ]
     }
@@ -621,8 +621,9 @@ Pro lepší ilustraci je níže uveden snímek~\ref{img:ngrx-devtools}, který i
 	\centering
 	\label{img:ngrx-devtools}
 	\includegraphics[width=\textwidth]{obrazky-figures/ngrx-chart.png}
-	\caption{Vizualizace dat obsažených v~centrálním datovém skladu. Snímek je pořízen z~nástroje Redux DevTools\footnote{Redux DevTools: \url{https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd}}.}
+	\caption[Vizualizace dat obsažených v~centrálním datovém skladu. Snímek je pořízen z~nástroje Redux DevTools.]{Vizualizace dat obsažených v~centrálním datovém skladu. Snímek je pořízen z~nástroje Redux DevTools\protect\footnotemark.}
 \end{figure}
+\footnotetext{Redux DevTools: \url{https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd}}
 
 Další dvě nedílné součásti knihovny NgRx jsou efekty a akce. Jejich účel byl již popsán v~kapitole~\ref{sec:ngrx}. Každé ze sdílených entit naleží vlastní trojice těchto součástí knihovny. Obsah asynchronních požadavků je sestaven přímo v~souboru s~efekty, odkud jsou následně volány služby, které mají na starost tyto požadavky odeslat aplikaci SSBLite.
 
