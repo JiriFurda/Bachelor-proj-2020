@@ -389,7 +389,7 @@ Ve všech částech aplikace je přítomna hlavička. Na levé straně je vždy 
 
 Co se grafického návrhu týče, nejrozsáhlejší část aplikace je jistě samotná nástěnka. Původní návrh je vyobrazen na snímku~\ref{img:design-kanban}. Z~důvodu co největší maximalizace počtu zobrazených karet se nástěnka rozpíná po celé šířce i výšce stránky s~výjimkou hlavičky a nástrojové lišty.
 
-Ze stejného důvodu je menu ve výchozím stavu skryto a lze ho otevřít pomocí tlačítka na levé straně nástrojové lišty. Lišta dále obsahuje název právě otevřené nástěnky a po pravé straně pak vyhledávací pole.
+Ze stejného důvodu je menu ve výchozím stavu skryto a lze ho otevřít pomocí tlačítka na levé straně nástrojové lišty. Lišta dále obsahuje název právě otevřené nástěnky.
 
 Položky v~menu i samotný detail karet se zobrazuje v~modálním okně. Uživatel se tak například i při zobrazení detailu karty stále nachází na nástěnce a může se vrátit na její přehled téměř zcela bez prodlení na rozdíl od stávající aplikace využívané ve společnosti zadavatele, kde je pro zobrazení všech detailů nutné přejít na novou stránku a následný návrat na přehled je vzhledem k~počtu zobrazených úkolu velmi pomalý.
 
@@ -502,7 +502,7 @@ Cesty a jim odpovídající komponenty jsou definované v~souboru \texttt{app-ro
 \subsection{Nástěnka}
 Stránka s~nástěnkou je bezesporu nejkomplexnější částí aplikace. Základní komponentou je v~tomto případě \texttt{<app-board>}, jejím úkolem je mimo jiné také prvotní načtení všech dat z~databáze, kterých se daná nástěnka týká. Jedná se například o~sloupce, plavecké dráhy, karty, štítky a další entity. Tuto část aplikace je možné vidět na snímku~\ref{img:board}.
 
-Na nejvyšší úrovni této stránky se nachází několik komponent knihovny DevExtreme. Nejvýše položená komponenta je \texttt{<dx-toolbar>}, která obsahuje tlačítko pro zobrazení či skrytí menu, název nástěnky a vyhledávací pole. Hned pod ní se nachází komponenta \texttt{<dx-drawer>}, ta slouží k~zobrazení nabídky menu. Jistou zvláštností je, že celá zbylá část stránky se nachází uvnitř této komponenty, nicméně použitá knihovna takovýto přístup vyžaduje.
+Na nejvyšší úrovni této stránky se nachází několik komponent knihovny DevExtreme. Nejvýše položená komponenta je \texttt{<dx-toolbar>}, která obsahuje tlačítko pro zobrazení či skrytí menu a název nástěnky. Hned pod ní se nachází komponenta \texttt{<dx-drawer>}, ta slouží k~zobrazení nabídky menu. Jistou zvláštností je, že celá zbylá část stránky se nachází uvnitř této komponenty, nicméně použitá knihovna takovýto přístup vyžaduje.
 
 Obsahem zmíněné komponenty je další komponenta knihovny DevExtreme a to \texttt{<dx-scroll-view>}. V~tomto případě nahrazuje nativní posuvné lišty internetového prohlížeče a to jak vertikální, tak i horizontální. Tím je zajištěno jednotné chování i vzhled těchto lišt napříč různými prohlížeči.
 
